@@ -29,6 +29,45 @@ create table LOPHOC (
 	UpdateAt Date,
 	MaGiangVien varchar(20)
 );
+
+create table NGANHANGCAUHOI (
+	MaNganHang int identity(1,1) primary key,
+	TenNganHang nvarchar(100),
+	CreateAt Date,
+	UpdateAt Date,
+	MaGiangVien varchar(20)
+);
+
+create table CAUHOI (
+	MaCauHoi int identity(1,1) primary key,
+	NoiDungCauHoi nvarchar(500),
+	DapAnA nvarchar(100),
+	DapAnB nvarchar(100),
+	DapAnC nvarchar(100),
+	DapAnD nvarchar(100),
+	DapAnDung varchar(5),
+	MaNganHang int,
+	CreateAt Date,
+	UpdateAt Date
+);
+
+SELECT 
+    N.MaNganHang,
+    N.TenNganHang,
+    COUNT(C.MaCauHoi) AS SoLuongCauHoi
+FROM 
+    NGANHANGCAUHOI N
+LEFT JOIN 
+    CAUHOI C ON C.MaNganHang = N.MaNganHang
+WHERE 
+    N.MaGiangVien = '123'
+GROUP BY 
+    N.MaNganHang, N.TenNganHang
+ORDER BY 
+    N.MaNganHang
+
+select * from NGANHANGCAUHOI
+select * from CAUHOI
 drop table SINHVIEN
 
 select LOPHOC.MALOPHOC, LOPHOC.TenLopHoc, count(SINHVIEN.MaSinhVien) as SoLuongThanhVien 

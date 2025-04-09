@@ -172,6 +172,7 @@
             dataThanhVien.RowHeadersWidth = 45;
             dataThanhVien.Size = new Size(1521, 729);
             dataThanhVien.TabIndex = 11;
+            dataThanhVien.TabStop = false;
             dataThanhVien.CellClick += dataThanhVien_CellClick;
             // 
             // qllXemChiTiet

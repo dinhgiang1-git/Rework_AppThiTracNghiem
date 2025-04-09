@@ -129,10 +129,10 @@
             qllbtnThemDong.EnabledCalc = true;
             qllbtnThemDong.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             qllbtnThemDong.ForeColor = Color.Black;
-            qllbtnThemDong.Location = new Point(381, 189);
+            qllbtnThemDong.Location = new Point(373, 189);
             qllbtnThemDong.Name = "qllbtnThemDong";
             qllbtnThemDong.OverColor = Color.FromArgb(242, 242, 242);
-            qllbtnThemDong.Size = new Size(101, 32);
+            qllbtnThemDong.Size = new Size(109, 32);
             qllbtnThemDong.TabIndex = 4;
             qllbtnThemDong.Text = "Thêm và đóng";
             qllbtnThemDong.Click += qllbtnThemDong_Click;
@@ -149,7 +149,7 @@
             qllbtnThem.EnabledCalc = true;
             qllbtnThem.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             qllbtnThem.ForeColor = Color.White;
-            qllbtnThem.Location = new Point(264, 189);
+            qllbtnThem.Location = new Point(251, 189);
             qllbtnThem.Name = "qllbtnThem";
             qllbtnThem.OverColor = Color.FromArgb(242, 242, 242);
             qllbtnThem.Size = new Size(101, 32);
@@ -169,7 +169,7 @@
             qllbtnThemHuy.EnabledCalc = true;
             qllbtnThemHuy.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             qllbtnThemHuy.ForeColor = Color.FromArgb(66, 78, 90);
-            qllbtnThemHuy.Location = new Point(144, 189);
+            qllbtnThemHuy.Location = new Point(132, 189);
             qllbtnThemHuy.Name = "qllbtnThemHuy";
             qllbtnThemHuy.OverColor = Color.FromArgb(242, 242, 242);
             qllbtnThemHuy.Size = new Size(101, 32);
@@ -181,7 +181,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Coral;
+            BackColor = Color.FromArgb(50, 63, 74);
             ClientSize = new Size(494, 247);
             Controls.Add(qllbtnThemHuy);
             Controls.Add(qllbtnThem);

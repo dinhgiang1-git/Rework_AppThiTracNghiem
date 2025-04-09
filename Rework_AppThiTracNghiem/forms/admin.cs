@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Rework_AppThiTracNghiem.forms;
 using Rework_AppThiTracNghiem.forms.Quan_ly_lop;
+using Rework_AppThiTracNghiem.forms.Quan_ly_NHCH;
 namespace Rework_AppThiTracNghiem
 {
     public partial class admin : Form
@@ -14,6 +15,7 @@ namespace Rework_AppThiTracNghiem
             g_maGiangVien = maGiangVien;
             LoadThongTin();
             LoadData_Lop();
+            LoadData_NHCH();
         }
         private void LoadThongTin()
         {
@@ -71,6 +73,44 @@ namespace Rework_AppThiTracNghiem
                     adapter.Fill(dt);
 
                     dataLop.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        private void LoadData_NHCH()
+        {
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"SELECT 
+                        N.MaNganHang,
+                        N.TenNganHang,
+                        COUNT(C.MaCauHoi) AS SoLuongCauHoi
+                    FROM 
+                        NGANHANGCAUHOI N
+                    LEFT JOIN 
+                        CAUHOI C ON C.MaNganHang = N.MaNganHang
+                    WHERE 
+                        N.MaGiangVien = @MaGiangVien
+                    GROUP BY 
+                        N.MaNganHang, N.TenNganHang";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataNHCH.DataSource = dt;
                 }
                 catch (Exception ex)
                 {
@@ -180,6 +220,17 @@ namespace Rework_AppThiTracNghiem
         {
             qllXemChiTiet xemchitiet = new qllXemChiTiet(g_maLop);
             xemchitiet.Show();
+        }
+
+        private void nhchbtnThemNHCH_Click(object sender, EventArgs e)
+        {
+            nhchThemNHCH nhch = new nhchThemNHCH(g_maGiangVien);
+            nhch.Show();
+        }
+
+        private void nhchbtnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadData_NHCH();
         }
     }
 }

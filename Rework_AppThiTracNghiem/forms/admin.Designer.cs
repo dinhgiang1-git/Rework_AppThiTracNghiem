@@ -35,9 +35,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             tabPage9 = new ReaLTaiizor.Controls.TabPage();
             tabPage10 = new TabPage();
             label1 = new Label();
@@ -47,7 +44,6 @@
             bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             tabPage11 = new TabPage();
             groupBox2 = new GroupBox();
-            poisonButton22 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton5 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton4 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton3 = new ReaLTaiizor.Controls.PoisonButton();
@@ -66,15 +62,15 @@
             adminqllbtnThemLop = new ReaLTaiizor.Controls.PoisonButton();
             adminqlltxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage2 = new TabPage();
-            poisonDataGridView3 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            dataNHCH = new DataGridView();
             groupBox4 = new GroupBox();
-            poisonButton12 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton13 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton14 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton15 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton16 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton17 = new ReaLTaiizor.Controls.PoisonButton();
-            foxTextBox3 = new ReaLTaiizor.Controls.FoxTextBox();
+            nhchbtnXemChiTiet = new ReaLTaiizor.Controls.PoisonButton();
+            nhchbtnTim = new ReaLTaiizor.Controls.PoisonButton();
+            nhchbtnLamMoi = new ReaLTaiizor.Controls.PoisonButton();
+            nhchbtnXoaNHCH = new ReaLTaiizor.Controls.PoisonButton();
+            nhchbtnSuaNHCH = new ReaLTaiizor.Controls.PoisonButton();
+            nhchbtnThemNHCH = new ReaLTaiizor.Controls.PoisonButton();
+            nhchtxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage3 = new TabPage();
             poisonDataGridView4 = new ReaLTaiizor.Controls.PoisonDataGridView();
             groupBox5 = new GroupBox();
@@ -99,7 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)dataLop).BeginInit();
             groupBox3.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataNHCH).BeginInit();
             groupBox4.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView4).BeginInit();
@@ -229,7 +225,6 @@
             // groupBox2
             // 
             groupBox2.BackColor = Color.Transparent;
-            groupBox2.Controls.Add(poisonButton22);
             groupBox2.Controls.Add(poisonButton5);
             groupBox2.Controls.Add(poisonButton4);
             groupBox2.Controls.Add(poisonButton3);
@@ -243,21 +238,6 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Đề thi";
-            // 
-            // poisonButton22
-            // 
-            poisonButton22.BackColor = Color.Transparent;
-            poisonButton22.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton22.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton22.Image = (Image)resources.GetObject("poisonButton22.Image");
-            poisonButton22.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton22.Location = new Point(878, 99);
-            poisonButton22.Name = "poisonButton22";
-            poisonButton22.Size = new Size(123, 32);
-            poisonButton22.TabIndex = 13;
-            poisonButton22.Text = "Thêm câu hỏi";
-            poisonButton22.UseSelectable = true;
-            poisonButton22.UseVisualStyleBackColor = false;
             // 
             // poisonButton5
             // 
@@ -550,7 +530,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage2.Controls.Add(poisonDataGridView3);
+            tabPage2.Controls.Add(dataNHCH);
             tabPage2.Controls.Add(groupBox4);
             tabPage2.Location = new Point(244, 4);
             tabPage2.Name = "tabPage2";
@@ -558,60 +538,26 @@
             tabPage2.TabIndex = 3;
             tabPage2.Text = "Ngân hàng câu hỏi";
             // 
-            // poisonDataGridView3
+            // dataNHCH
             // 
-            poisonDataGridView3.AllowUserToResizeRows = false;
-            poisonDataGridView3.BackgroundColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView3.BorderStyle = BorderStyle.None;
-            poisonDataGridView3.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            poisonDataGridView3.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            poisonDataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView3.DefaultCellStyle = dataGridViewCellStyle5;
-            poisonDataGridView3.EnableHeadersVisualStyles = false;
-            poisonDataGridView3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            poisonDataGridView3.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView3.Location = new Point(6, 212);
-            poisonDataGridView3.Name = "poisonDataGridView3";
-            poisonDataGridView3.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            poisonDataGridView3.RowHeadersWidth = 45;
-            poisonDataGridView3.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            poisonDataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView3.Size = new Size(1413, 758);
-            poisonDataGridView3.TabIndex = 4;
+            dataNHCH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataNHCH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataNHCH.Location = new Point(6, 228);
+            dataNHCH.Name = "dataNHCH";
+            dataNHCH.RowHeadersWidth = 45;
+            dataNHCH.Size = new Size(1413, 742);
+            dataNHCH.TabIndex = 4;
             // 
             // groupBox4
             // 
             groupBox4.BackColor = Color.Transparent;
-            groupBox4.Controls.Add(poisonButton12);
-            groupBox4.Controls.Add(poisonButton13);
-            groupBox4.Controls.Add(poisonButton14);
-            groupBox4.Controls.Add(poisonButton15);
-            groupBox4.Controls.Add(poisonButton16);
-            groupBox4.Controls.Add(poisonButton17);
-            groupBox4.Controls.Add(foxTextBox3);
+            groupBox4.Controls.Add(nhchbtnXemChiTiet);
+            groupBox4.Controls.Add(nhchbtnTim);
+            groupBox4.Controls.Add(nhchbtnLamMoi);
+            groupBox4.Controls.Add(nhchbtnXoaNHCH);
+            groupBox4.Controls.Add(nhchbtnSuaNHCH);
+            groupBox4.Controls.Add(nhchbtnThemNHCH);
+            groupBox4.Controls.Add(nhchtxtTimKiem);
             groupBox4.ForeColor = Color.White;
             groupBox4.Location = new Point(6, 8);
             groupBox4.Name = "groupBox4";
@@ -620,112 +566,114 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Ngân hàng câu hỏi";
             // 
-            // poisonButton12
+            // nhchbtnXemChiTiet
             // 
-            poisonButton12.BackColor = Color.Transparent;
-            poisonButton12.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton12.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton12.Image = (Image)resources.GetObject("poisonButton12.Image");
-            poisonButton12.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton12.Location = new Point(203, 99);
-            poisonButton12.Name = "poisonButton12";
-            poisonButton12.Size = new Size(123, 32);
-            poisonButton12.TabIndex = 13;
-            poisonButton12.Text = "Xem chi tiết";
-            poisonButton12.UseSelectable = true;
-            poisonButton12.UseVisualStyleBackColor = false;
+            nhchbtnXemChiTiet.BackColor = Color.Transparent;
+            nhchbtnXemChiTiet.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            nhchbtnXemChiTiet.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            nhchbtnXemChiTiet.Image = (Image)resources.GetObject("nhchbtnXemChiTiet.Image");
+            nhchbtnXemChiTiet.ImageAlign = ContentAlignment.MiddleLeft;
+            nhchbtnXemChiTiet.Location = new Point(645, 80);
+            nhchbtnXemChiTiet.Name = "nhchbtnXemChiTiet";
+            nhchbtnXemChiTiet.Size = new Size(123, 32);
+            nhchbtnXemChiTiet.TabIndex = 13;
+            nhchbtnXemChiTiet.Text = "Xem chi tiết";
+            nhchbtnXemChiTiet.UseSelectable = true;
+            nhchbtnXemChiTiet.UseVisualStyleBackColor = false;
             // 
-            // poisonButton13
+            // nhchbtnTim
             // 
-            poisonButton13.BackColor = Color.Transparent;
-            poisonButton13.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton13.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton13.Image = (Image)resources.GetObject("poisonButton13.Image");
-            poisonButton13.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton13.Location = new Point(382, 61);
-            poisonButton13.Name = "poisonButton13";
-            poisonButton13.Size = new Size(123, 32);
-            poisonButton13.TabIndex = 12;
-            poisonButton13.Text = "Tìm";
-            poisonButton13.UseSelectable = true;
-            poisonButton13.UseVisualStyleBackColor = false;
+            nhchbtnTim.BackColor = Color.Transparent;
+            nhchbtnTim.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            nhchbtnTim.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            nhchbtnTim.Image = (Image)resources.GetObject("nhchbtnTim.Image");
+            nhchbtnTim.ImageAlign = ContentAlignment.MiddleLeft;
+            nhchbtnTim.Location = new Point(378, 61);
+            nhchbtnTim.Name = "nhchbtnTim";
+            nhchbtnTim.Size = new Size(123, 32);
+            nhchbtnTim.TabIndex = 12;
+            nhchbtnTim.Text = "Tìm";
+            nhchbtnTim.UseSelectable = true;
+            nhchbtnTim.UseVisualStyleBackColor = false;
             // 
-            // poisonButton14
+            // nhchbtnLamMoi
             // 
-            poisonButton14.BackColor = Color.Transparent;
-            poisonButton14.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton14.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton14.Image = (Image)resources.GetObject("poisonButton14.Image");
-            poisonButton14.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton14.Location = new Point(74, 99);
-            poisonButton14.Name = "poisonButton14";
-            poisonButton14.Size = new Size(123, 32);
-            poisonButton14.TabIndex = 11;
-            poisonButton14.Text = "Làm mới";
-            poisonButton14.UseSelectable = true;
-            poisonButton14.UseVisualStyleBackColor = false;
+            nhchbtnLamMoi.BackColor = Color.Transparent;
+            nhchbtnLamMoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            nhchbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            nhchbtnLamMoi.Image = (Image)resources.GetObject("nhchbtnLamMoi.Image");
+            nhchbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
+            nhchbtnLamMoi.Location = new Point(645, 42);
+            nhchbtnLamMoi.Name = "nhchbtnLamMoi";
+            nhchbtnLamMoi.Size = new Size(123, 32);
+            nhchbtnLamMoi.TabIndex = 11;
+            nhchbtnLamMoi.Text = "Làm mới";
+            nhchbtnLamMoi.UseSelectable = true;
+            nhchbtnLamMoi.UseVisualStyleBackColor = false;
+            nhchbtnLamMoi.Click += nhchbtnLamMoi_Click;
             // 
-            // poisonButton15
+            // nhchbtnXoaNHCH
             // 
-            poisonButton15.BackColor = Color.Transparent;
-            poisonButton15.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton15.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton15.Image = (Image)resources.GetObject("poisonButton15.Image");
-            poisonButton15.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton15.Location = new Point(1194, 61);
-            poisonButton15.Name = "poisonButton15";
-            poisonButton15.Size = new Size(123, 32);
-            poisonButton15.TabIndex = 10;
-            poisonButton15.Text = "Xoá NHCH";
-            poisonButton15.UseSelectable = true;
-            poisonButton15.UseVisualStyleBackColor = false;
+            nhchbtnXoaNHCH.BackColor = Color.Transparent;
+            nhchbtnXoaNHCH.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            nhchbtnXoaNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            nhchbtnXoaNHCH.Image = (Image)resources.GetObject("nhchbtnXoaNHCH.Image");
+            nhchbtnXoaNHCH.ImageAlign = ContentAlignment.MiddleLeft;
+            nhchbtnXoaNHCH.Location = new Point(1192, 61);
+            nhchbtnXoaNHCH.Name = "nhchbtnXoaNHCH";
+            nhchbtnXoaNHCH.Size = new Size(123, 32);
+            nhchbtnXoaNHCH.TabIndex = 10;
+            nhchbtnXoaNHCH.Text = "Xoá NHCH";
+            nhchbtnXoaNHCH.UseSelectable = true;
+            nhchbtnXoaNHCH.UseVisualStyleBackColor = false;
             // 
-            // poisonButton16
+            // nhchbtnSuaNHCH
             // 
-            poisonButton16.BackColor = Color.Transparent;
-            poisonButton16.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton16.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton16.Image = (Image)resources.GetObject("poisonButton16.Image");
-            poisonButton16.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton16.Location = new Point(1037, 61);
-            poisonButton16.Name = "poisonButton16";
-            poisonButton16.Size = new Size(123, 32);
-            poisonButton16.TabIndex = 9;
-            poisonButton16.Text = "Sửa NHCH";
-            poisonButton16.UseSelectable = true;
-            poisonButton16.UseVisualStyleBackColor = false;
+            nhchbtnSuaNHCH.BackColor = Color.Transparent;
+            nhchbtnSuaNHCH.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            nhchbtnSuaNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            nhchbtnSuaNHCH.Image = (Image)resources.GetObject("nhchbtnSuaNHCH.Image");
+            nhchbtnSuaNHCH.ImageAlign = ContentAlignment.MiddleLeft;
+            nhchbtnSuaNHCH.Location = new Point(1045, 61);
+            nhchbtnSuaNHCH.Name = "nhchbtnSuaNHCH";
+            nhchbtnSuaNHCH.Size = new Size(123, 32);
+            nhchbtnSuaNHCH.TabIndex = 9;
+            nhchbtnSuaNHCH.Text = "Sửa NHCH";
+            nhchbtnSuaNHCH.UseSelectable = true;
+            nhchbtnSuaNHCH.UseVisualStyleBackColor = false;
             // 
-            // poisonButton17
+            // nhchbtnThemNHCH
             // 
-            poisonButton17.BackColor = Color.Transparent;
-            poisonButton17.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton17.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton17.Image = (Image)resources.GetObject("poisonButton17.Image");
-            poisonButton17.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton17.Location = new Point(878, 61);
-            poisonButton17.Name = "poisonButton17";
-            poisonButton17.Size = new Size(123, 32);
-            poisonButton17.TabIndex = 8;
-            poisonButton17.Text = "Thêm NHCH";
-            poisonButton17.UseSelectable = true;
-            poisonButton17.UseVisualStyleBackColor = false;
+            nhchbtnThemNHCH.BackColor = Color.Transparent;
+            nhchbtnThemNHCH.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            nhchbtnThemNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            nhchbtnThemNHCH.Image = (Image)resources.GetObject("nhchbtnThemNHCH.Image");
+            nhchbtnThemNHCH.ImageAlign = ContentAlignment.MiddleLeft;
+            nhchbtnThemNHCH.Location = new Point(894, 61);
+            nhchbtnThemNHCH.Name = "nhchbtnThemNHCH";
+            nhchbtnThemNHCH.Size = new Size(123, 32);
+            nhchbtnThemNHCH.TabIndex = 8;
+            nhchbtnThemNHCH.Text = "Thêm NHCH";
+            nhchbtnThemNHCH.UseSelectable = true;
+            nhchbtnThemNHCH.UseVisualStyleBackColor = false;
+            nhchbtnThemNHCH.Click += nhchbtnThemNHCH_Click;
             // 
-            // foxTextBox3
+            // nhchtxtTimKiem
             // 
-            foxTextBox3.BackColor = Color.White;
-            foxTextBox3.EnabledCalc = true;
-            foxTextBox3.Font = new Font("Segoe UI", 10F);
-            foxTextBox3.ForeColor = Color.Black;
-            foxTextBox3.Location = new Point(74, 61);
-            foxTextBox3.MaxLength = 32767;
-            foxTextBox3.MultiLine = false;
-            foxTextBox3.Name = "foxTextBox3";
-            foxTextBox3.ReadOnly = false;
-            foxTextBox3.Size = new Size(302, 32);
-            foxTextBox3.TabIndex = 4;
-            foxTextBox3.Text = "Tìm kiếm";
-            foxTextBox3.TextAlign = HorizontalAlignment.Left;
-            foxTextBox3.UseSystemPasswordChar = false;
+            nhchtxtTimKiem.BackColor = Color.White;
+            nhchtxtTimKiem.EnabledCalc = true;
+            nhchtxtTimKiem.Font = new Font("Segoe UI", 10F);
+            nhchtxtTimKiem.ForeColor = Color.Black;
+            nhchtxtTimKiem.Location = new Point(70, 61);
+            nhchtxtTimKiem.MaxLength = 32767;
+            nhchtxtTimKiem.MultiLine = false;
+            nhchtxtTimKiem.Name = "nhchtxtTimKiem";
+            nhchtxtTimKiem.ReadOnly = false;
+            nhchtxtTimKiem.Size = new Size(302, 32);
+            nhchtxtTimKiem.TabIndex = 4;
+            nhchtxtTimKiem.Text = "Tìm kiếm";
+            nhchtxtTimKiem.TextAlign = HorizontalAlignment.Left;
+            nhchtxtTimKiem.UseSystemPasswordChar = false;
             // 
             // tabPage3
             // 
@@ -745,37 +693,37 @@
             poisonDataGridView4.BorderStyle = BorderStyle.None;
             poisonDataGridView4.CellBorderStyle = DataGridViewCellBorderStyle.None;
             poisonDataGridView4.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             poisonDataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            poisonDataGridView4.DefaultCellStyle = dataGridViewCellStyle5;
             poisonDataGridView4.EnableHeadersVisualStyles = false;
             poisonDataGridView4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView4.GridColor = Color.FromArgb(255, 255, 255);
             poisonDataGridView4.Location = new Point(6, 223);
             poisonDataGridView4.Name = "poisonDataGridView4";
             poisonDataGridView4.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             poisonDataGridView4.RowHeadersWidth = 45;
             poisonDataGridView4.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -965,7 +913,7 @@
             ((System.ComponentModel.ISupportInitialize)dataLop).EndInit();
             groupBox3.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataNHCH).EndInit();
             groupBox4.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView4).EndInit();
@@ -1005,15 +953,14 @@
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnSuaLop;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnThemLop;
         private ReaLTaiizor.Controls.FoxTextBox adminqlltxtTimKiem;
-        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView3;
         private GroupBox groupBox4;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton12;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton13;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton14;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton15;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton16;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton17;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox3;
+        private ReaLTaiizor.Controls.PoisonButton nhchbtnXemChiTiet;
+        private ReaLTaiizor.Controls.PoisonButton nhchbtnTim;
+        private ReaLTaiizor.Controls.PoisonButton nhchbtnLamMoi;
+        private ReaLTaiizor.Controls.PoisonButton nhchbtnXoaNHCH;
+        private ReaLTaiizor.Controls.PoisonButton nhchbtnSuaNHCH;
+        private ReaLTaiizor.Controls.PoisonButton nhchbtnThemNHCH;
+        private ReaLTaiizor.Controls.FoxTextBox nhchtxtTimKiem;
         private GroupBox groupBox5;
         private ReaLTaiizor.Controls.PoisonComboBox poisonComboBox1;
         private ReaLTaiizor.Controls.PoisonButton poisonButton18;
@@ -1026,7 +973,7 @@
         private GroupBox groupBox6;
         private ReaLTaiizor.Controls.PoisonButton poisonButton23;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView4;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton22;
         private DataGridView dataLop;
+        private DataGridView dataNHCH;
     }
 }

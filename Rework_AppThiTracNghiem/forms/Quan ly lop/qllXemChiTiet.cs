@@ -20,14 +20,38 @@ namespace Rework_AppThiTracNghiem.forms
             InitializeComponent();
             g_maLop = maLop;
             qllgroupbox.Text = "Chi tiết lớp " + g_maLop;
+            LoadData_ThanhVien();
         }
 
         private void LoadData_ThanhVien()
         {
-            using(SqlConnection conn = new SqlConnection(strConn))
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
+                try
+                {
+                    conn.Open();
+                    string query = "Select MaSinhVien, HoTen, GioiTinh, NgaySinh from SINHVIEN where MaLopHoc = @MaLopHoc";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLop);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
 
+                    dataThanhVien.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
+        }
+        private void qllbtnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadData_ThanhVien();
         }
     }
 }

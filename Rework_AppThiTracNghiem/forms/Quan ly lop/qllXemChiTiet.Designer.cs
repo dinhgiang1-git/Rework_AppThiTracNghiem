@@ -28,64 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(qllXemChiTiet));
-            dataThanhVien = new ReaLTaiizor.Controls.PoisonDataGridView();
             qllbtnXoaThanhVien = new ReaLTaiizor.Controls.PoisonButton();
             qllgroupbox = new GroupBox();
+            qllbtnLamMoi = new ReaLTaiizor.Controls.PoisonButton();
             qllbtnTim = new ReaLTaiizor.Controls.PoisonButton();
             qlltxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             qllbtnSuaThanhVien = new ReaLTaiizor.Controls.PoisonButton();
             qllbtnThemThanhVien = new ReaLTaiizor.Controls.PoisonButton();
-            ((System.ComponentModel.ISupportInitialize)dataThanhVien).BeginInit();
+            dataThanhVien = new DataGridView();
             qllgroupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataThanhVien).BeginInit();
             SuspendLayout();
-            // 
-            // dataThanhVien
-            // 
-            dataThanhVien.AllowUserToResizeRows = false;
-            dataThanhVien.BackgroundColor = Color.FromArgb(255, 255, 255);
-            dataThanhVien.BorderStyle = BorderStyle.None;
-            dataThanhVien.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataThanhVien.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataThanhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataThanhVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataThanhVien.DefaultCellStyle = dataGridViewCellStyle2;
-            dataThanhVien.EnableHeadersVisualStyles = false;
-            dataThanhVien.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataThanhVien.GridColor = Color.FromArgb(255, 255, 255);
-            dataThanhVien.Location = new Point(12, 153);
-            dataThanhVien.Name = "dataThanhVien";
-            dataThanhVien.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataThanhVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataThanhVien.RowHeadersWidth = 45;
-            dataThanhVien.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataThanhVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataThanhVien.Size = new Size(1255, 604);
-            dataThanhVien.TabIndex = 0;
             // 
             // qllbtnXoaThanhVien
             // 
@@ -94,16 +48,19 @@
             qllbtnXoaThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnXoaThanhVien.Image = (Image)resources.GetObject("qllbtnXoaThanhVien.Image");
             qllbtnXoaThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnXoaThanhVien.Location = new Point(1108, 35);
+            qllbtnXoaThanhVien.Location = new Point(1354, 49);
+            qllbtnXoaThanhVien.Margin = new Padding(4);
             qllbtnXoaThanhVien.Name = "qllbtnXoaThanhVien";
-            qllbtnXoaThanhVien.Size = new Size(123, 32);
+            qllbtnXoaThanhVien.Size = new Size(158, 40);
             qllbtnXoaThanhVien.TabIndex = 9;
             qllbtnXoaThanhVien.Text = "Xoá thành viên";
             qllbtnXoaThanhVien.UseSelectable = true;
             qllbtnXoaThanhVien.UseVisualStyleBackColor = false;
+            qllbtnXoaThanhVien.Click += qllbtnXoaThanhVien_Click;
             // 
             // qllgroupbox
             // 
+            qllgroupbox.Controls.Add(qllbtnLamMoi);
             qllgroupbox.Controls.Add(qllbtnTim);
             qllgroupbox.Controls.Add(qlltxtTimKiem);
             qllgroupbox.Controls.Add(qllbtnSuaThanhVien);
@@ -111,12 +68,31 @@
             qllgroupbox.Controls.Add(qllbtnXoaThanhVien);
             qllgroupbox.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             qllgroupbox.ForeColor = Color.White;
-            qllgroupbox.Location = new Point(12, 12);
+            qllgroupbox.Location = new Point(25, 15);
+            qllgroupbox.Margin = new Padding(4);
             qllgroupbox.Name = "qllgroupbox";
-            qllgroupbox.Size = new Size(1255, 102);
+            qllgroupbox.Padding = new Padding(4);
+            qllgroupbox.Size = new Size(1521, 138);
             qllgroupbox.TabIndex = 10;
             qllgroupbox.TabStop = false;
             qllgroupbox.Text = "Chi tiết lớp";
+            // 
+            // qllbtnLamMoi
+            // 
+            qllbtnLamMoi.BackColor = Color.Transparent;
+            qllbtnLamMoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            qllbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            qllbtnLamMoi.Image = (Image)resources.GetObject("qllbtnLamMoi.Image");
+            qllbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
+            qllbtnLamMoi.Location = new Point(728, 49);
+            qllbtnLamMoi.Margin = new Padding(4);
+            qllbtnLamMoi.Name = "qllbtnLamMoi";
+            qllbtnLamMoi.Size = new Size(158, 40);
+            qllbtnLamMoi.TabIndex = 15;
+            qllbtnLamMoi.Text = "Làm mới";
+            qllbtnLamMoi.UseSelectable = true;
+            qllbtnLamMoi.UseVisualStyleBackColor = false;
+            qllbtnLamMoi.Click += qllbtnLamMoi_Click;
             // 
             // qllbtnTim
             // 
@@ -125,9 +101,10 @@
             qllbtnTim.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnTim.Image = (Image)resources.GetObject("qllbtnTim.Image");
             qllbtnTim.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnTim.Location = new Point(314, 35);
+            qllbtnTim.Location = new Point(404, 49);
+            qllbtnTim.Margin = new Padding(4);
             qllbtnTim.Name = "qllbtnTim";
-            qllbtnTim.Size = new Size(123, 32);
+            qllbtnTim.Size = new Size(158, 40);
             qllbtnTim.TabIndex = 14;
             qllbtnTim.Text = "Tìm";
             qllbtnTim.UseSelectable = true;
@@ -139,12 +116,13 @@
             qlltxtTimKiem.EnabledCalc = true;
             qlltxtTimKiem.Font = new Font("Segoe UI", 10F);
             qlltxtTimKiem.ForeColor = Color.Black;
-            qlltxtTimKiem.Location = new Point(6, 35);
+            qlltxtTimKiem.Location = new Point(8, 49);
+            qlltxtTimKiem.Margin = new Padding(4);
             qlltxtTimKiem.MaxLength = 32767;
             qlltxtTimKiem.MultiLine = false;
             qlltxtTimKiem.Name = "qlltxtTimKiem";
             qlltxtTimKiem.ReadOnly = false;
-            qlltxtTimKiem.Size = new Size(302, 32);
+            qlltxtTimKiem.Size = new Size(388, 40);
             qlltxtTimKiem.TabIndex = 13;
             qlltxtTimKiem.Text = "Tìm kiếm";
             qlltxtTimKiem.TextAlign = HorizontalAlignment.Left;
@@ -157,13 +135,15 @@
             qllbtnSuaThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnSuaThanhVien.Image = (Image)resources.GetObject("qllbtnSuaThanhVien.Image");
             qllbtnSuaThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnSuaThanhVien.Location = new Point(954, 35);
+            qllbtnSuaThanhVien.Location = new Point(1188, 49);
+            qllbtnSuaThanhVien.Margin = new Padding(4);
             qllbtnSuaThanhVien.Name = "qllbtnSuaThanhVien";
-            qllbtnSuaThanhVien.Size = new Size(123, 32);
+            qllbtnSuaThanhVien.Size = new Size(158, 40);
             qllbtnSuaThanhVien.TabIndex = 12;
             qllbtnSuaThanhVien.Text = "Sửa thành viên";
             qllbtnSuaThanhVien.UseSelectable = true;
             qllbtnSuaThanhVien.UseVisualStyleBackColor = false;
+            qllbtnSuaThanhVien.Click += qllbtnSuaThanhVien_Click;
             // 
             // qllbtnThemThanhVien
             // 
@@ -172,37 +152,53 @@
             qllbtnThemThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnThemThanhVien.Image = (Image)resources.GetObject("qllbtnThemThanhVien.Image");
             qllbtnThemThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnThemThanhVien.Location = new Point(795, 35);
+            qllbtnThemThanhVien.Location = new Point(1022, 49);
+            qllbtnThemThanhVien.Margin = new Padding(4);
             qllbtnThemThanhVien.Name = "qllbtnThemThanhVien";
-            qllbtnThemThanhVien.Size = new Size(123, 32);
+            qllbtnThemThanhVien.Size = new Size(158, 40);
             qllbtnThemThanhVien.TabIndex = 11;
             qllbtnThemThanhVien.Text = "Thêm thành viên";
             qllbtnThemThanhVien.UseSelectable = true;
             qllbtnThemThanhVien.UseVisualStyleBackColor = false;
+            qllbtnThemThanhVien.Click += qllbtnThemThanhVien_Click;
+            // 
+            // dataThanhVien
+            // 
+            dataThanhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataThanhVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataThanhVien.Location = new Point(25, 208);
+            dataThanhVien.Margin = new Padding(4);
+            dataThanhVien.Name = "dataThanhVien";
+            dataThanhVien.RowHeadersWidth = 45;
+            dataThanhVien.Size = new Size(1521, 729);
+            dataThanhVien.TabIndex = 11;
+            dataThanhVien.CellClick += dataThanhVien_CellClick;
             // 
             // qllXemChiTiet
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Coral;
-            ClientSize = new Size(1279, 769);
-            Controls.Add(qllgroupbox);
+            BackColor = Color.FromArgb(50, 63, 74);
+            ClientSize = new Size(1571, 950);
             Controls.Add(dataThanhVien);
+            Controls.Add(qllgroupbox);
+            Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Margin = new Padding(4);
             Name = "qllXemChiTiet";
             Text = "Chi tiết lớp học";
-            ((System.ComponentModel.ISupportInitialize)dataThanhVien).EndInit();
             qllgroupbox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataThanhVien).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.PoisonDataGridView dataThanhVien;
         private ReaLTaiizor.Controls.PoisonButton qllbtnXoaThanhVien;
         private GroupBox qllgroupbox;
         private ReaLTaiizor.Controls.PoisonButton qllbtnThemThanhVien;
         private ReaLTaiizor.Controls.PoisonButton qllbtnSuaThanhVien;
         private ReaLTaiizor.Controls.PoisonButton qllbtnTim;
         private ReaLTaiizor.Controls.FoxTextBox qlltxtTimKiem;
+        private ReaLTaiizor.Controls.PoisonButton qllbtnLamMoi;
+        private DataGridView dataThanhVien;
     }
 }

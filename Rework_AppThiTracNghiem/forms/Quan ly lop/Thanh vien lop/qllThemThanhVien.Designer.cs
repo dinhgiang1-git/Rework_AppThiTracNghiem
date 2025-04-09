@@ -41,6 +41,8 @@
             thanhviendateNgaySinh = new ReaLTaiizor.Controls.PoisonDateTime();
             thanhvientxtQueQuan = new ReaLTaiizor.Controls.PoisonTextBox();
             foxLabel5 = new ReaLTaiizor.Controls.FoxLabel();
+            thanhvientxtMaThanhVien = new ReaLTaiizor.Controls.PoisonTextBox();
+            foxLabel6 = new ReaLTaiizor.Controls.FoxLabel();
             SuspendLayout();
             // 
             // thanhvientxtHoTen
@@ -57,7 +59,7 @@
             thanhvientxtHoTen.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             thanhvientxtHoTen.CustomButton.UseSelectable = true;
             thanhvientxtHoTen.CustomButton.Visible = false;
-            thanhvientxtHoTen.Location = new Point(17, 118);
+            thanhvientxtHoTen.Location = new Point(17, 181);
             thanhvientxtHoTen.MaxLength = 32767;
             thanhvientxtHoTen.Name = "thanhvientxtHoTen";
             thanhvientxtHoTen.PasswordChar = '\0';
@@ -77,7 +79,7 @@
             foxLabel2.BackColor = Color.Transparent;
             foxLabel2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel2.ForeColor = Color.White;
-            foxLabel2.Location = new Point(17, 91);
+            foxLabel2.Location = new Point(17, 154);
             foxLabel2.Name = "foxLabel2";
             foxLabel2.Size = new Size(233, 21);
             foxLabel2.TabIndex = 6;
@@ -135,12 +137,13 @@
             thanhvienbtnHuy.EnabledCalc = true;
             thanhvienbtnHuy.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             thanhvienbtnHuy.ForeColor = Color.FromArgb(66, 78, 90);
-            thanhvienbtnHuy.Location = new Point(144, 399);
+            thanhvienbtnHuy.Location = new Point(149, 441);
             thanhvienbtnHuy.Name = "thanhvienbtnHuy";
             thanhvienbtnHuy.OverColor = Color.FromArgb(242, 242, 242);
             thanhvienbtnHuy.Size = new Size(101, 32);
             thanhvienbtnHuy.TabIndex = 10;
             thanhvienbtnHuy.Text = "Huỷ";
+            thanhvienbtnHuy.Click += thanhvienbtnHuy_Click;
             // 
             // thanhvienbtnThem
             // 
@@ -154,12 +157,13 @@
             thanhvienbtnThem.EnabledCalc = true;
             thanhvienbtnThem.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             thanhvienbtnThem.ForeColor = Color.White;
-            thanhvienbtnThem.Location = new Point(260, 399);
+            thanhvienbtnThem.Location = new Point(265, 441);
             thanhvienbtnThem.Name = "thanhvienbtnThem";
             thanhvienbtnThem.OverColor = Color.FromArgb(242, 242, 242);
             thanhvienbtnThem.Size = new Size(101, 32);
             thanhvienbtnThem.TabIndex = 9;
             thanhvienbtnThem.Text = "Thêm";
+            thanhvienbtnThem.Click += thanhvienbtnThem_Click;
             // 
             // thanhvienbtnThemDong
             // 
@@ -173,19 +177,20 @@
             thanhvienbtnThemDong.EnabledCalc = true;
             thanhvienbtnThemDong.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             thanhvienbtnThemDong.ForeColor = Color.Black;
-            thanhvienbtnThemDong.Location = new Point(376, 399);
+            thanhvienbtnThemDong.Location = new Point(381, 441);
             thanhvienbtnThemDong.Name = "thanhvienbtnThemDong";
             thanhvienbtnThemDong.OverColor = Color.FromArgb(242, 242, 242);
             thanhvienbtnThemDong.Size = new Size(111, 32);
             thanhvienbtnThemDong.TabIndex = 8;
             thanhvienbtnThemDong.Text = "Thêm và đóng";
+            thanhvienbtnThemDong.Click += thanhvienbtnThemDong_Click;
             // 
             // foxLabel3
             // 
             foxLabel3.BackColor = Color.Transparent;
             foxLabel3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel3.ForeColor = Color.White;
-            foxLabel3.Location = new Point(17, 160);
+            foxLabel3.Location = new Point(17, 223);
             foxLabel3.Name = "foxLabel3";
             foxLabel3.Size = new Size(233, 21);
             foxLabel3.TabIndex = 11;
@@ -195,7 +200,7 @@
             // 
             thanhviencbGioiTinh.FormattingEnabled = true;
             thanhviencbGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
-            thanhviencbGioiTinh.Location = new Point(17, 187);
+            thanhviencbGioiTinh.Location = new Point(17, 250);
             thanhviencbGioiTinh.Name = "thanhviencbGioiTinh";
             thanhviencbGioiTinh.Size = new Size(470, 25);
             thanhviencbGioiTinh.TabIndex = 12;
@@ -205,7 +210,7 @@
             foxLabel4.BackColor = Color.Transparent;
             foxLabel4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel4.ForeColor = Color.White;
-            foxLabel4.Location = new Point(17, 228);
+            foxLabel4.Location = new Point(17, 291);
             foxLabel4.Name = "foxLabel4";
             foxLabel4.Size = new Size(233, 21);
             foxLabel4.TabIndex = 13;
@@ -215,7 +220,7 @@
             // 
             thanhviendateNgaySinh.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Medium;
             thanhviendateNgaySinh.Format = DateTimePickerFormat.Custom;
-            thanhviendateNgaySinh.Location = new Point(17, 255);
+            thanhviendateNgaySinh.Location = new Point(17, 318);
             thanhviendateNgaySinh.MinimumSize = new Size(0, 29);
             thanhviendateNgaySinh.Name = "thanhviendateNgaySinh";
             thanhviendateNgaySinh.Size = new Size(470, 29);
@@ -235,7 +240,7 @@
             thanhvientxtQueQuan.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             thanhvientxtQueQuan.CustomButton.UseSelectable = true;
             thanhvientxtQueQuan.CustomButton.Visible = false;
-            thanhvientxtQueQuan.Location = new Point(17, 327);
+            thanhvientxtQueQuan.Location = new Point(17, 390);
             thanhvientxtQueQuan.MaxLength = 32767;
             thanhvientxtQueQuan.Name = "thanhvientxtQueQuan";
             thanhvientxtQueQuan.PasswordChar = '\0';
@@ -255,18 +260,60 @@
             foxLabel5.BackColor = Color.Transparent;
             foxLabel5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel5.ForeColor = Color.White;
-            foxLabel5.Location = new Point(12, 300);
+            foxLabel5.Location = new Point(12, 363);
             foxLabel5.Name = "foxLabel5";
             foxLabel5.Size = new Size(233, 21);
             foxLabel5.TabIndex = 15;
             foxLabel5.Text = "Quê Quán";
+            // 
+            // thanhvientxtMaThanhVien
+            // 
+            // 
+            // 
+            // 
+            thanhvientxtMaThanhVien.CustomButton.Image = null;
+            thanhvientxtMaThanhVien.CustomButton.Location = new Point(446, 1);
+            thanhvientxtMaThanhVien.CustomButton.Name = "";
+            thanhvientxtMaThanhVien.CustomButton.Size = new Size(23, 23);
+            thanhvientxtMaThanhVien.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            thanhvientxtMaThanhVien.CustomButton.TabIndex = 1;
+            thanhvientxtMaThanhVien.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            thanhvientxtMaThanhVien.CustomButton.UseSelectable = true;
+            thanhvientxtMaThanhVien.CustomButton.Visible = false;
+            thanhvientxtMaThanhVien.Location = new Point(17, 111);
+            thanhvientxtMaThanhVien.MaxLength = 32767;
+            thanhvientxtMaThanhVien.Name = "thanhvientxtMaThanhVien";
+            thanhvientxtMaThanhVien.PasswordChar = '\0';
+            thanhvientxtMaThanhVien.ScrollBars = ScrollBars.None;
+            thanhvientxtMaThanhVien.SelectedText = "";
+            thanhvientxtMaThanhVien.SelectionLength = 0;
+            thanhvientxtMaThanhVien.SelectionStart = 0;
+            thanhvientxtMaThanhVien.ShortcutsEnabled = true;
+            thanhvientxtMaThanhVien.Size = new Size(470, 25);
+            thanhvientxtMaThanhVien.TabIndex = 18;
+            thanhvientxtMaThanhVien.UseSelectable = true;
+            thanhvientxtMaThanhVien.WaterMarkColor = Color.FromArgb(109, 109, 109);
+            thanhvientxtMaThanhVien.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            // 
+            // foxLabel6
+            // 
+            foxLabel6.BackColor = Color.Transparent;
+            foxLabel6.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            foxLabel6.ForeColor = Color.White;
+            foxLabel6.Location = new Point(17, 84);
+            foxLabel6.Name = "foxLabel6";
+            foxLabel6.Size = new Size(233, 21);
+            foxLabel6.TabIndex = 17;
+            foxLabel6.Text = "Mã thành viên";
             // 
             // qllThemThanhVien
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(50, 63, 74);
-            ClientSize = new Size(504, 454);
+            ClientSize = new Size(504, 488);
+            Controls.Add(thanhvientxtMaThanhVien);
+            Controls.Add(foxLabel6);
             Controls.Add(thanhvientxtQueQuan);
             Controls.Add(foxLabel5);
             Controls.Add(thanhviendateNgaySinh);
@@ -281,6 +328,7 @@
             Controls.Add(thanhvientxtMaLop);
             Controls.Add(foxLabel1);
             Name = "qllThemThanhVien";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "qllThemThanhVien";
             ResumeLayout(false);
         }
@@ -300,5 +348,7 @@
         private ReaLTaiizor.Controls.PoisonDateTime thanhviendateNgaySinh;
         private ReaLTaiizor.Controls.PoisonTextBox thanhvientxtQueQuan;
         private ReaLTaiizor.Controls.FoxLabel foxLabel5;
+        private ReaLTaiizor.Controls.PoisonTextBox thanhvientxtMaThanhVien;
+        private ReaLTaiizor.Controls.FoxLabel foxLabel6;
     }
 }

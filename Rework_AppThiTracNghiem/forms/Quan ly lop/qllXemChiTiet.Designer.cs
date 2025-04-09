@@ -48,13 +48,15 @@
             qllbtnXoaThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnXoaThanhVien.Image = (Image)resources.GetObject("qllbtnXoaThanhVien.Image");
             qllbtnXoaThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnXoaThanhVien.Location = new Point(1108, 40);
+            qllbtnXoaThanhVien.Location = new Point(1354, 49);
+            qllbtnXoaThanhVien.Margin = new Padding(4);
             qllbtnXoaThanhVien.Name = "qllbtnXoaThanhVien";
-            qllbtnXoaThanhVien.Size = new Size(123, 32);
+            qllbtnXoaThanhVien.Size = new Size(158, 40);
             qllbtnXoaThanhVien.TabIndex = 9;
             qllbtnXoaThanhVien.Text = "Xoá thành viên";
             qllbtnXoaThanhVien.UseSelectable = true;
             qllbtnXoaThanhVien.UseVisualStyleBackColor = false;
+            qllbtnXoaThanhVien.Click += qllbtnXoaThanhVien_Click;
             // 
             // qllgroupbox
             // 
@@ -66,9 +68,11 @@
             qllgroupbox.Controls.Add(qllbtnXoaThanhVien);
             qllgroupbox.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             qllgroupbox.ForeColor = Color.White;
-            qllgroupbox.Location = new Point(12, 12);
+            qllgroupbox.Location = new Point(25, 15);
+            qllgroupbox.Margin = new Padding(4);
             qllgroupbox.Name = "qllgroupbox";
-            qllgroupbox.Size = new Size(1255, 112);
+            qllgroupbox.Padding = new Padding(4);
+            qllgroupbox.Size = new Size(1521, 138);
             qllgroupbox.TabIndex = 10;
             qllgroupbox.TabStop = false;
             qllgroupbox.Text = "Chi tiết lớp";
@@ -80,9 +84,10 @@
             qllbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnLamMoi.Image = (Image)resources.GetObject("qllbtnLamMoi.Image");
             qllbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnLamMoi.Location = new Point(314, 74);
+            qllbtnLamMoi.Location = new Point(728, 49);
+            qllbtnLamMoi.Margin = new Padding(4);
             qllbtnLamMoi.Name = "qllbtnLamMoi";
-            qllbtnLamMoi.Size = new Size(123, 32);
+            qllbtnLamMoi.Size = new Size(158, 40);
             qllbtnLamMoi.TabIndex = 15;
             qllbtnLamMoi.Text = "Làm mới";
             qllbtnLamMoi.UseSelectable = true;
@@ -96,9 +101,10 @@
             qllbtnTim.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnTim.Image = (Image)resources.GetObject("qllbtnTim.Image");
             qllbtnTim.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnTim.Location = new Point(314, 40);
+            qllbtnTim.Location = new Point(404, 49);
+            qllbtnTim.Margin = new Padding(4);
             qllbtnTim.Name = "qllbtnTim";
-            qllbtnTim.Size = new Size(123, 32);
+            qllbtnTim.Size = new Size(158, 40);
             qllbtnTim.TabIndex = 14;
             qllbtnTim.Text = "Tìm";
             qllbtnTim.UseSelectable = true;
@@ -110,12 +116,13 @@
             qlltxtTimKiem.EnabledCalc = true;
             qlltxtTimKiem.Font = new Font("Segoe UI", 10F);
             qlltxtTimKiem.ForeColor = Color.Black;
-            qlltxtTimKiem.Location = new Point(6, 40);
+            qlltxtTimKiem.Location = new Point(8, 49);
+            qlltxtTimKiem.Margin = new Padding(4);
             qlltxtTimKiem.MaxLength = 32767;
             qlltxtTimKiem.MultiLine = false;
             qlltxtTimKiem.Name = "qlltxtTimKiem";
             qlltxtTimKiem.ReadOnly = false;
-            qlltxtTimKiem.Size = new Size(302, 32);
+            qlltxtTimKiem.Size = new Size(388, 40);
             qlltxtTimKiem.TabIndex = 13;
             qlltxtTimKiem.Text = "Tìm kiếm";
             qlltxtTimKiem.TextAlign = HorizontalAlignment.Left;
@@ -128,13 +135,15 @@
             qllbtnSuaThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnSuaThanhVien.Image = (Image)resources.GetObject("qllbtnSuaThanhVien.Image");
             qllbtnSuaThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnSuaThanhVien.Location = new Point(954, 40);
+            qllbtnSuaThanhVien.Location = new Point(1188, 49);
+            qllbtnSuaThanhVien.Margin = new Padding(4);
             qllbtnSuaThanhVien.Name = "qllbtnSuaThanhVien";
-            qllbtnSuaThanhVien.Size = new Size(123, 32);
+            qllbtnSuaThanhVien.Size = new Size(158, 40);
             qllbtnSuaThanhVien.TabIndex = 12;
             qllbtnSuaThanhVien.Text = "Sửa thành viên";
             qllbtnSuaThanhVien.UseSelectable = true;
             qllbtnSuaThanhVien.UseVisualStyleBackColor = false;
+            qllbtnSuaThanhVien.Click += qllbtnSuaThanhVien_Click;
             // 
             // qllbtnThemThanhVien
             // 
@@ -143,32 +152,38 @@
             qllbtnThemThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnThemThanhVien.Image = (Image)resources.GetObject("qllbtnThemThanhVien.Image");
             qllbtnThemThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnThemThanhVien.Location = new Point(795, 40);
+            qllbtnThemThanhVien.Location = new Point(1022, 49);
+            qllbtnThemThanhVien.Margin = new Padding(4);
             qllbtnThemThanhVien.Name = "qllbtnThemThanhVien";
-            qllbtnThemThanhVien.Size = new Size(123, 32);
+            qllbtnThemThanhVien.Size = new Size(158, 40);
             qllbtnThemThanhVien.TabIndex = 11;
             qllbtnThemThanhVien.Text = "Thêm thành viên";
             qllbtnThemThanhVien.UseSelectable = true;
             qllbtnThemThanhVien.UseVisualStyleBackColor = false;
+            qllbtnThemThanhVien.Click += qllbtnThemThanhVien_Click;
             // 
             // dataThanhVien
             // 
             dataThanhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataThanhVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataThanhVien.Location = new Point(12, 166);
+            dataThanhVien.Location = new Point(25, 208);
+            dataThanhVien.Margin = new Padding(4);
             dataThanhVien.Name = "dataThanhVien";
             dataThanhVien.RowHeadersWidth = 45;
-            dataThanhVien.Size = new Size(1255, 591);
+            dataThanhVien.Size = new Size(1521, 729);
             dataThanhVien.TabIndex = 11;
+            dataThanhVien.CellClick += dataThanhVien_CellClick;
             // 
             // qllXemChiTiet
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Coral;
-            ClientSize = new Size(1279, 769);
+            BackColor = Color.FromArgb(50, 63, 74);
+            ClientSize = new Size(1571, 950);
             Controls.Add(dataThanhVien);
             Controls.Add(qllgroupbox);
+            Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Margin = new Padding(4);
             Name = "qllXemChiTiet";
             Text = "Chi tiết lớp học";
             qllgroupbox.ResumeLayout(false);

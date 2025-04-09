@@ -442,7 +442,7 @@
             adminqllbtnXemChiTiet.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnXemChiTiet.Image = (Image)resources.GetObject("adminqllbtnXemChiTiet.Image");
             adminqllbtnXemChiTiet.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnXemChiTiet.Location = new Point(878, 116);
+            adminqllbtnXemChiTiet.Location = new Point(645, 80);
             adminqllbtnXemChiTiet.Name = "adminqllbtnXemChiTiet";
             adminqllbtnXemChiTiet.Size = new Size(123, 32);
             adminqllbtnXemChiTiet.TabIndex = 13;
@@ -473,7 +473,7 @@
             adminqllbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnLamMoi.Image = (Image)resources.GetObject("adminqllbtnLamMoi.Image");
             adminqllbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnLamMoi.Location = new Point(382, 116);
+            adminqllbtnLamMoi.Location = new Point(645, 42);
             adminqllbtnLamMoi.Name = "adminqllbtnLamMoi";
             adminqllbtnLamMoi.Size = new Size(123, 32);
             adminqllbtnLamMoi.TabIndex = 11;

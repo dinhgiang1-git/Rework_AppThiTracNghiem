@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Rework_AppThiTracNghiem.DataAccess;
 
 namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
 {
     public partial class qllSuaLop : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         string g_maLop = "";
+        
         public qllSuaLop(string maLop)
         {
             InitializeComponent();
@@ -25,79 +26,60 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
 
         private void LoadData_Thongtin()
         {
-            using (SqlConnection conn = new SqlConnection(strConn))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = "Select MaLopHoc, TenLopHoc from LOPHOC where MaLopHoc = @MaLopHoc";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLop);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        string malop = reader["MaLopHoc"].ToString();
-                        string tenlop = reader["TenLopHoc"].ToString();
+                string query = "Select MaLopHoc, TenLopHoc from LOPHOC where MaLopHoc = @MaLopHoc";
+                DataTable result = DatabaseHelper.ExecuteQuery(query,
+                    new SqlParameter("@MaLopHoc", g_maLop));
 
-                        qlltxtMaLop.Text = malop;
-                        qlltxtTenLop.Text = tenlop;
-                    }
-                }
-                catch (Exception ex)
+                if (result.Rows.Count > 0)
                 {
-                    throw new Exception("Error :" + ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
+                    qlltxtMaLop.Text = result.Rows[0]["MaLopHoc"].ToString();
+                    qlltxtTenLop.Text = result.Rows[0]["TenLopHoc"].ToString();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
         private void qllbtnSuaHuy_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         private void qllbtnSuaDong_Click(object sender, EventArgs e)
         {
-            //Lấy dữ liệu
-            string tenLop = qlltxtTenLop.Text;
+            string tenLop = qlltxtTenLop.Text.Trim();
             DateTime updateAt = DateTime.Now;
-            
-            //Validate
+
             if (string.IsNullOrEmpty(tenLop))
             {
-                MessageBox.Show("Vui lòng điền tên lớp!");
+                MessageBox.Show("Vui lòng nhập tên lớp!");
                 return;
             }
 
-            //Sửa
-            using (SqlConnection conn = new SqlConnection(strConn)) 
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = "Update LOPHOC set TenLopHoc = @TenLopHoc, UpdateAt = @UpdateAt where MaLopHoc = @MaLopHoc";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@TenLopHoc", tenLop);
-                    cmd.Parameters.AddWithValue("@UpdateAt", updateAt);
-                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLop);
+                string query = @"Update LOPHOC 
+                               set TenLopHoc = @TenLopHoc, 
+                                   UpdateAt = @UpdateAt 
+                               where MaLopHoc = @MaLopHoc";
 
-                    int rowAffected = cmd.ExecuteNonQuery();
-                    if (rowAffected > 0) 
-                    {
-                        MessageBox.Show("Sửa thành công!");
-                        return;
-                    }
-                }
-                catch (Exception ex)
+                int rowAffected = DatabaseHelper.ExecuteNonQuery(query,
+                    new SqlParameter("@TenLopHoc", tenLop),
+                    new SqlParameter("@UpdateAt", updateAt),
+                    new SqlParameter("@MaLopHoc", g_maLop));
+
+                if (rowAffected > 0)
                 {
-                    throw new Exception("Error: " + ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
+                    MessageBox.Show("Sửa thành công!");
                     this.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }

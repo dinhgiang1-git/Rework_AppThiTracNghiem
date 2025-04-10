@@ -547,6 +547,7 @@
             dataNHCH.RowHeadersWidth = 45;
             dataNHCH.Size = new Size(1413, 655);
             dataNHCH.TabIndex = 4;
+            dataNHCH.CellClick += dataNHCH_CellClick;
             // 
             // groupBox4
             // 
@@ -580,6 +581,7 @@
             nhchbtnXemChiTiet.Text = "Xem chi tiết";
             nhchbtnXemChiTiet.UseSelectable = true;
             nhchbtnXemChiTiet.UseVisualStyleBackColor = false;
+            nhchbtnXemChiTiet.Click += nhchbtnXemChiTiet_Click;
             // 
             // nhchbtnTim
             // 

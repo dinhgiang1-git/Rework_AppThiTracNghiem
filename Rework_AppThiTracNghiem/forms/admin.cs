@@ -208,7 +208,7 @@ namespace Rework_AppThiTracNghiem
 
         private void nhchbtnSuaNHCH_Click(object sender, EventArgs e)
         {
-            nhchSuaNHCH suaNHCH = new nhchSuaNHCH(g_maGiangVien);
+            nhchSuaNHCH suaNHCH = new nhchSuaNHCH();
             suaNHCH.Show();
         }
     }

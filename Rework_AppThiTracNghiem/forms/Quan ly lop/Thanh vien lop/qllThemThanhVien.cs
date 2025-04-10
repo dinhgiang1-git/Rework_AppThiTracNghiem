@@ -92,7 +92,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
                 if (rowAffected > 0)
                 {
                     MessageBox.Show("Thêm thành công!");
-                    this.Close();
+                    
                 }
             }
             catch (Exception ex)

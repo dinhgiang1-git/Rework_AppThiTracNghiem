@@ -52,6 +52,8 @@
             tchbtnThem = new ReaLTaiizor.Controls.FoxButton();
             tchbtnThemDong = new ReaLTaiizor.Controls.FoxButton();
             tchbtnClear = new ReaLTaiizor.Controls.FoxButton();
+            foxLabel8 = new ReaLTaiizor.Controls.FoxLabel();
+            tchcbDangCauHoi = new ReaLTaiizor.Controls.PoisonComboBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -408,7 +410,7 @@
             tchbtnHuy.EnabledCalc = true;
             tchbtnHuy.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tchbtnHuy.ForeColor = Color.FromArgb(66, 78, 90);
-            tchbtnHuy.Location = new Point(280, 392);
+            tchbtnHuy.Location = new Point(169, 358);
             tchbtnHuy.Name = "tchbtnHuy";
             tchbtnHuy.OverColor = Color.FromArgb(242, 242, 242);
             tchbtnHuy.Size = new Size(109, 32);
@@ -428,7 +430,7 @@
             tchbtnThem.EnabledCalc = true;
             tchbtnThem.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tchbtnThem.ForeColor = Color.White;
-            tchbtnThem.Location = new Point(413, 437);
+            tchbtnThem.Location = new Point(169, 437);
             tchbtnThem.Name = "tchbtnThem";
             tchbtnThem.OverColor = Color.FromArgb(242, 242, 242);
             tchbtnThem.Size = new Size(109, 32);
@@ -448,7 +450,7 @@
             tchbtnThemDong.EnabledCalc = true;
             tchbtnThemDong.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tchbtnThemDong.ForeColor = Color.Black;
-            tchbtnThemDong.Location = new Point(280, 437);
+            tchbtnThemDong.Location = new Point(36, 437);
             tchbtnThemDong.Name = "tchbtnThemDong";
             tchbtnThemDong.OverColor = Color.FromArgb(242, 242, 242);
             tchbtnThemDong.Size = new Size(109, 32);
@@ -468,7 +470,7 @@
             tchbtnClear.EnabledCalc = true;
             tchbtnClear.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tchbtnClear.ForeColor = Color.FromArgb(66, 78, 90);
-            tchbtnClear.Location = new Point(413, 392);
+            tchbtnClear.Location = new Point(36, 358);
             tchbtnClear.Name = "tchbtnClear";
             tchbtnClear.OverColor = Color.FromArgb(242, 242, 242);
             tchbtnClear.Size = new Size(109, 32);
@@ -476,12 +478,36 @@
             tchbtnClear.Text = "Clear";
             tchbtnClear.Click += tchbtnClear_Click;
             // 
+            // foxLabel8
+            // 
+            foxLabel8.BackColor = Color.Transparent;
+            foxLabel8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            foxLabel8.ForeColor = Color.White;
+            foxLabel8.Location = new Point(361, 358);
+            foxLabel8.Name = "foxLabel8";
+            foxLabel8.Size = new Size(251, 21);
+            foxLabel8.TabIndex = 22;
+            foxLabel8.Text = "Dạng câu hỏi";
+            // 
+            // tchcbDangCauHoi
+            // 
+            tchcbDangCauHoi.FormattingEnabled = true;
+            tchcbDangCauHoi.ItemHeight = 23;
+            tchcbDangCauHoi.Items.AddRange(new object[] { "Dễ", "Trung bình", "Khó" });
+            tchcbDangCauHoi.Location = new Point(361, 385);
+            tchcbDangCauHoi.Name = "tchcbDangCauHoi";
+            tchcbDangCauHoi.Size = new Size(161, 29);
+            tchcbDangCauHoi.TabIndex = 23;
+            tchcbDangCauHoi.UseSelectable = true;
+            // 
             // ThemCauHoi
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(50, 63, 74);
             ClientSize = new Size(1140, 490);
+            Controls.Add(tchcbDangCauHoi);
+            Controls.Add(foxLabel8);
             Controls.Add(tchbtnClear);
             Controls.Add(tchbtnHuy);
             Controls.Add(tchbtnThem);
@@ -535,5 +561,7 @@
         private ReaLTaiizor.Controls.FoxButton tchbtnThem;
         private ReaLTaiizor.Controls.FoxButton tchbtnThemDong;
         private ReaLTaiizor.Controls.FoxButton tchbtnClear;
+        private ReaLTaiizor.Controls.FoxLabel foxLabel8;
+        private ReaLTaiizor.Controls.PoisonComboBox tchcbDangCauHoi;
     }
 }

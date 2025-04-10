@@ -46,10 +46,14 @@ create table CAUHOI (
 	DapAnC nvarchar(100),
 	DapAnD nvarchar(100),
 	DapAnDung varchar(5),
+	DangCauHoi nvarchar(20),
 	MaNganHang int,
 	CreateAt Date,
 	UpdateAt Date
 );
+
+delete CAUHOI
+drop table CAUHOI
 
 SELECT 
     N.MaNganHang,

@@ -40,7 +40,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
                 try
                 {
                     conn.Open();
-                    string query = "Select NoiDungCauHoi, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung from CAUHOI where MaCauHoi = @MaCauHoi";
+                    string query = "Select NoiDungCauHoi, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung, DangCauHoi from CAUHOI where MaCauHoi = @MaCauHoi";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaCauHoi", g_maCauHoi);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -48,9 +48,9 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
                     {
                         schtxtNoiDungCauHoi.Text = reader["NoiDungCauHoi"].ToString();
                         schtxtNoiDungA.Text = reader["DapAnA"].ToString();
-                        schtxtNoiDungB.Text = reader["DapAnA"].ToString();
-                        schtxtNoiDungC.Text = reader["DapAnA"].ToString();
-                        schtxtNoiDungD.Text = reader["DapAnA"].ToString();
+                        schtxtNoiDungB.Text = reader["DapAnB"].ToString();
+                        schtxtNoiDungC.Text = reader["DapAnC"].ToString();
+                        schtxtNoiDungD.Text = reader["DapAnD"].ToString();
                         string dapAnDung = reader["DapAnDung"].ToString();
                         if (dapAnDung == "A")
                         {
@@ -68,6 +68,8 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
                         {
                             radioD.Checked = true;
                         }
+                        string dangCauHoi = reader["DangCauHoi"].ToString();
+                        schcbDangCauHoi.SelectedItem = dangCauHoi;
                     }
                 }
                 catch (Exception ex)
@@ -89,6 +91,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
             string noiDungC = schtxtNoiDungC.Text;
             string noiDungD = schtxtNoiDungD.Text;
             string dapAnDung = "";
+            string dangCauHoi = schcbDangCauHoi.SelectedItem.ToString();
             DateTime updateAt = DateTime.Now;
             if (radioA.Checked)
             {
@@ -130,7 +133,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
                 try
                 {
                     conn.Open();
-                    string query = "Update CAUHOI set NoiDungCauHoi = @NoiDungCauHoi, DapAnA = @DapAnA, DapAnB = @DapAnB, DapAnC = @DapAnC, DapAnD = @DapAnD, DapAnDung = @DapAnDung, UpdateAt = @UpDateAt where MaCauHoi = @MaCauHoi";
+                    string query = "Update CAUHOI set NoiDungCauHoi = @NoiDungCauHoi, DapAnA = @DapAnA, DapAnB = @DapAnB, DapAnC = @DapAnC, DapAnD = @DapAnD, DapAnDung = @DapAnDung, DangCauHoi = @DangCauHoi, UpdateAt = @UpDateAt where MaCauHoi = @MaCauHoi";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@NoiDungCauHoi", noiDungCauHoi);
                     cmd.Parameters.AddWithValue("@DapAnA", noiDungA);
@@ -138,6 +141,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
                     cmd.Parameters.AddWithValue("@DapAnC", noiDungC);
                     cmd.Parameters.AddWithValue("@DapAnD", noiDungD);
                     cmd.Parameters.AddWithValue("@DapAnDung", dapAnDung);
+                    cmd.Parameters.AddWithValue("@DangCauHoi", dangCauHoi);
                     cmd.Parameters.AddWithValue("@UpdateAt", updateAt);
                     cmd.Parameters.AddWithValue("@MaCauHoi", g_maCauHoi);
 
@@ -171,7 +175,8 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
             Edit();
             this.Close();
         }
-        private void nhchbtnHuy_Click(object sender, EventArgs e)
+
+        private void schbtnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
         }

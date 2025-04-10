@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            nhchbtnHuy = new ReaLTaiizor.Controls.FoxButton();
+            schbtnHuy = new ReaLTaiizor.Controls.FoxButton();
             nhchbtnThem = new ReaLTaiizor.Controls.FoxButton();
             nhchbtnThemDong = new ReaLTaiizor.Controls.FoxButton();
             groupBox1 = new GroupBox();
@@ -50,28 +50,30 @@
             foxLabel2 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
             schtxtNoiDungCauHoi = new ReaLTaiizor.Controls.RichTextBoxEdit();
+            schcbDangCauHoi = new ReaLTaiizor.Controls.PoisonComboBox();
+            foxLabel8 = new ReaLTaiizor.Controls.FoxLabel();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // nhchbtnHuy
+            // schbtnHuy
             // 
-            nhchbtnHuy.BackColor = Color.Transparent;
-            nhchbtnHuy.BaseColor = Color.FromArgb(249, 249, 249);
-            nhchbtnHuy.BorderColor = Color.FromArgb(193, 193, 193);
-            nhchbtnHuy.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            nhchbtnHuy.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            nhchbtnHuy.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            nhchbtnHuy.DownColor = Color.FromArgb(232, 232, 232);
-            nhchbtnHuy.EnabledCalc = true;
-            nhchbtnHuy.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nhchbtnHuy.ForeColor = Color.FromArgb(66, 78, 90);
-            nhchbtnHuy.Location = new Point(389, 390);
-            nhchbtnHuy.Name = "nhchbtnHuy";
-            nhchbtnHuy.OverColor = Color.FromArgb(242, 242, 242);
-            nhchbtnHuy.Size = new Size(109, 32);
-            nhchbtnHuy.TabIndex = 39;
-            nhchbtnHuy.Text = "Huỷ";
-            nhchbtnHuy.Click += nhchbtnHuy_Click;
+            schbtnHuy.BackColor = Color.Transparent;
+            schbtnHuy.BaseColor = Color.FromArgb(249, 249, 249);
+            schbtnHuy.BorderColor = Color.FromArgb(193, 193, 193);
+            schbtnHuy.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            schbtnHuy.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            schbtnHuy.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            schbtnHuy.DownColor = Color.FromArgb(232, 232, 232);
+            schbtnHuy.EnabledCalc = true;
+            schbtnHuy.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            schbtnHuy.ForeColor = Color.FromArgb(66, 78, 90);
+            schbtnHuy.Location = new Point(211, 380);
+            schbtnHuy.Name = "schbtnHuy";
+            schbtnHuy.OverColor = Color.FromArgb(242, 242, 242);
+            schbtnHuy.Size = new Size(109, 32);
+            schbtnHuy.TabIndex = 39;
+            schbtnHuy.Text = "Huỷ";
+            schbtnHuy.Click += schbtnHuy_Click;
             // 
             // nhchbtnThem
             // 
@@ -85,7 +87,7 @@
             nhchbtnThem.EnabledCalc = true;
             nhchbtnThem.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             nhchbtnThem.ForeColor = Color.White;
-            nhchbtnThem.Location = new Point(389, 435);
+            nhchbtnThem.Location = new Point(211, 435);
             nhchbtnThem.Name = "nhchbtnThem";
             nhchbtnThem.OverColor = Color.FromArgb(242, 242, 242);
             nhchbtnThem.Size = new Size(109, 32);
@@ -105,7 +107,7 @@
             nhchbtnThemDong.EnabledCalc = true;
             nhchbtnThemDong.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             nhchbtnThemDong.ForeColor = Color.Black;
-            nhchbtnThemDong.Location = new Point(256, 435);
+            nhchbtnThemDong.Location = new Point(84, 380);
             nhchbtnThemDong.Name = "nhchbtnThemDong";
             nhchbtnThemDong.OverColor = Color.FromArgb(242, 242, 242);
             nhchbtnThemDong.Size = new Size(109, 32);
@@ -439,13 +441,37 @@
             schtxtNoiDungCauHoi.TextFont = new Font("Tahoma", 10F);
             schtxtNoiDungCauHoi.WordWrap = true;
             // 
+            // schcbDangCauHoi
+            // 
+            schcbDangCauHoi.FormattingEnabled = true;
+            schcbDangCauHoi.ItemHeight = 23;
+            schcbDangCauHoi.Items.AddRange(new object[] { "Dễ", "Trung bình", "Khó" });
+            schcbDangCauHoi.Location = new Point(337, 383);
+            schcbDangCauHoi.Name = "schcbDangCauHoi";
+            schcbDangCauHoi.Size = new Size(161, 29);
+            schcbDangCauHoi.TabIndex = 41;
+            schcbDangCauHoi.UseSelectable = true;
+            // 
+            // foxLabel8
+            // 
+            foxLabel8.BackColor = Color.Transparent;
+            foxLabel8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            foxLabel8.ForeColor = Color.White;
+            foxLabel8.Location = new Point(337, 356);
+            foxLabel8.Name = "foxLabel8";
+            foxLabel8.Size = new Size(251, 21);
+            foxLabel8.TabIndex = 40;
+            foxLabel8.Text = "Dạng câu hỏi";
+            // 
             // SuaCauHoi
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(50, 63, 74);
             ClientSize = new Size(1102, 494);
-            Controls.Add(nhchbtnHuy);
+            Controls.Add(schcbDangCauHoi);
+            Controls.Add(foxLabel8);
+            Controls.Add(schbtnHuy);
             Controls.Add(nhchbtnThem);
             Controls.Add(nhchbtnThemDong);
             Controls.Add(groupBox1);
@@ -472,7 +498,7 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.FoxButton nhchbtnHuy;
+        private ReaLTaiizor.Controls.FoxButton schbtnHuy;
         private ReaLTaiizor.Controls.FoxButton nhchbtnThem;
         private ReaLTaiizor.Controls.FoxButton nhchbtnThemDong;
         private GroupBox groupBox1;
@@ -494,5 +520,7 @@
         private ReaLTaiizor.Controls.FoxLabel foxLabel2;
         private ReaLTaiizor.Controls.FoxLabel foxLabel1;
         private ReaLTaiizor.Controls.RichTextBoxEdit schtxtNoiDungCauHoi;
+        private ReaLTaiizor.Controls.PoisonComboBox schcbDangCauHoi;
+        private ReaLTaiizor.Controls.FoxLabel foxLabel8;
     }
 }

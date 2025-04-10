@@ -27,6 +27,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
 
             g_maNganHang = maNganHang;
             g_tenNganHang = tenNganHang;
+            tchcbDangCauHoi.SelectedIndex = 0;
         }
 
         public void addCauHoi()
@@ -38,6 +39,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
             string noiDungC = tchtxtNoiDungDapAnC.Text;
             string noiDungD = tchtxtNoiDungDapAnD.Text;
             string dapAnDung = "";
+            string dangCauHoi = tchcbDangCauHoi.SelectedItem.ToString();
             DateTime createAt = DateTime.Now;
             if (radioA.Checked)
             {
@@ -79,7 +81,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
                 try
                 {
                     conn.Open();
-                    string query = "Insert into CAUHOI(NoiDungCauHoi, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung, MaNganHang, CreateAt) values(@NoiDungCauHoi, @DapAnA, @DapAnB, @DapAnC, @DapAnD, @DapAnDung, @MaNganHang, @CreateAt)";
+                    string query = "Insert into CAUHOI(NoiDungCauHoi, DapAnA, DapAnB, DapAnC, DapAnD, DapAnDung, DangCauHoi, MaNganHang, CreateAt) values(@NoiDungCauHoi, @DapAnA, @DapAnB, @DapAnC, @DapAnD, @DapAnDung, @DangCauHoi, @MaNganHang, @CreateAt)";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@NoiDungCauHoi", noiDungCauHoi);
                     cmd.Parameters.AddWithValue("@DapAnA", noiDungA);
@@ -87,6 +89,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
                     cmd.Parameters.AddWithValue("@DapAnC", noiDungC);
                     cmd.Parameters.AddWithValue("@DapAnD", noiDungD);
                     cmd.Parameters.AddWithValue("@DapAnDung", dapAnDung);
+                    cmd.Parameters.AddWithValue("@DangCauHoi", dangCauHoi);
                     cmd.Parameters.AddWithValue("@MaNganHang", g_maNganHang);
                     cmd.Parameters.AddWithValue("@CreateAt", createAt);
 

@@ -9,6 +9,9 @@ namespace Rework_AppThiTracNghiem
     {
         string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         string g_maGiangVien = "";
+        string g_MaNganHangCauHoi = "";
+        string g_TenNganHangCauHoi = "";
+        string g_maLop = "";
         public admin(string maGiangVien)
         {
             InitializeComponent();
@@ -144,7 +147,7 @@ namespace Rework_AppThiTracNghiem
             qllSuaLop sualop = new qllSuaLop(g_maLop);
             sualop.Show();
         }
-        string g_maLop = "";
+        
         private void dataLop_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -231,6 +234,23 @@ namespace Rework_AppThiTracNghiem
         private void nhchbtnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData_NHCH();
+        }
+
+        private void nhchbtnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            nhchXemChiTiet xemchitiet = new nhchXemChiTiet(g_MaNganHangCauHoi, g_TenNganHangCauHoi);
+                xemchitiet.Show();
+        }
+
+        private void dataNHCH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataNHCH.Rows[e.RowIndex];
+                g_MaNganHangCauHoi = row.Cells["MaNganHang"].Value.ToString();
+                g_TenNganHangCauHoi = row.Cells["TenNganHang"].Value.ToString();
+
+            }
         }
     }
 }

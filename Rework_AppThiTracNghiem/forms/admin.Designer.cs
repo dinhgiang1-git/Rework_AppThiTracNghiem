@@ -131,7 +131,7 @@
             tabPage9.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             tabPage9.RightToLeft = RightToLeft.No;
             tabPage9.SelectedIndex = 0;
-            tabPage9.Size = new Size(1675, 986);
+            tabPage9.Size = new Size(1675, 870);
             tabPage9.SizeMode = TabSizeMode.Fixed;
             tabPage9.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             tabPage9.StringType = StringAlignment.Near;
@@ -149,7 +149,7 @@
             tabPage10.Location = new Point(244, 4);
             tabPage10.Name = "tabPage10";
             tabPage10.Padding = new Padding(3);
-            tabPage10.Size = new Size(1427, 978);
+            tabPage10.Size = new Size(1427, 862);
             tabPage10.TabIndex = 0;
             tabPage10.Text = "Trang chủ";
             // 
@@ -157,9 +157,9 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(6, 50);
+            label1.Location = new Point(6, 44);
             label1.Name = "label1";
-            label1.Size = new Size(488, 25);
+            label1.Size = new Size(474, 23);
             label1.TabIndex = 2;
             label1.Text = "Bạn có thể tạo đề thi, thi trắc nghiệm, theo dõi bảng điểm ...";
             // 
@@ -168,9 +168,9 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(adminlabelHoTen);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(1250, 6);
+            groupBox1.Location = new Point(1250, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(174, 69);
+            groupBox1.Size = new Size(174, 61);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 
@@ -179,9 +179,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 8.150944F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(6, 44);
+            label3.Location = new Point(6, 39);
             label3.Name = "label3";
-            label3.Size = new Size(62, 17);
+            label3.Size = new Size(55, 13);
             label3.TabIndex = 4;
             label3.Text = "Giáo viên";
             // 
@@ -189,9 +189,9 @@
             // 
             adminlabelHoTen.AutoSize = true;
             adminlabelHoTen.ForeColor = Color.White;
-            adminlabelHoTen.Location = new Point(6, 15);
+            adminlabelHoTen.Location = new Point(6, 13);
             adminlabelHoTen.Name = "adminlabelHoTen";
-            adminlabelHoTen.Size = new Size(125, 25);
+            adminlabelHoTen.Size = new Size(120, 23);
             adminlabelHoTen.TabIndex = 3;
             adminlabelHoTen.Text = "Nguyễn Văn A";
             // 
@@ -201,9 +201,9 @@
             bigLabel1.BackColor = Color.Transparent;
             bigLabel1.Font = new Font("Segoe UI", 19.6981125F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bigLabel1.ForeColor = Color.White;
-            bigLabel1.Location = new Point(6, 6);
+            bigLabel1.Location = new Point(6, 5);
             bigLabel1.Name = "bigLabel1";
-            bigLabel1.Size = new Size(507, 40);
+            bigLabel1.Size = new Size(473, 37);
             bigLabel1.TabIndex = 0;
             bigLabel1.Text = "Chào mừng bạn đến với Tochnolya 🎉";
             // 
@@ -215,7 +215,7 @@
             tabPage11.Location = new Point(244, 4);
             tabPage11.Name = "tabPage11";
             tabPage11.Padding = new Padding(3);
-            tabPage11.Size = new Size(1427, 978);
+            tabPage11.Size = new Size(1427, 862);
             tabPage11.TabIndex = 1;
             tabPage11.Text = "Đề thi";
             // 
@@ -240,91 +240,12 @@
             groupBox2.Controls.Add(adminbtnThemDeThi);
             groupBox2.Controls.Add(foxTextBox1);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(6, 8);
+            groupBox2.Location = new Point(6, 7);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1413, 154);
+            groupBox2.Size = new Size(1413, 136);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Đề thi";
-            // 
-            // adminbtnTimDeThi
-            // 
-            adminbtnTimDeThi.BackColor = Color.Transparent;
-            adminbtnTimDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnTimDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnTimDeThi.Image = (Image)resources.GetObject("adminbtnTimDeThi.Image");
-            adminbtnTimDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnTimDeThi.Location = new Point(382, 61);
-            adminbtnTimDeThi.Name = "adminbtnTimDeThi";
-            adminbtnTimDeThi.Size = new Size(123, 32);
-            adminbtnTimDeThi.TabIndex = 12;
-            adminbtnTimDeThi.Text = "Tìm";
-            adminbtnTimDeThi.UseSelectable = true;
-            adminbtnTimDeThi.UseVisualStyleBackColor = false;
-            // 
-            // adminbtnLamMoiDeThi
-            // 
-            adminbtnLamMoiDeThi.BackColor = Color.Transparent;
-            adminbtnLamMoiDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnLamMoiDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnLamMoiDeThi.Image = (Image)resources.GetObject("adminbtnLamMoiDeThi.Image");
-            adminbtnLamMoiDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnLamMoiDeThi.Location = new Point(645, 61);
-            adminbtnLamMoiDeThi.Name = "adminbtnLamMoiDeThi";
-            adminbtnLamMoiDeThi.Size = new Size(123, 32);
-            adminbtnLamMoiDeThi.TabIndex = 11;
-            adminbtnLamMoiDeThi.Text = "Làm mới";
-            adminbtnLamMoiDeThi.UseSelectable = true;
-            adminbtnLamMoiDeThi.UseVisualStyleBackColor = false;
-            adminbtnLamMoiDeThi.Click += adminbtnLamMoiDeThi_Click;
-            // 
-            // adminbtnXoaDeThi
-            // 
-            adminbtnXoaDeThi.BackColor = Color.Transparent;
-            adminbtnXoaDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnXoaDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnXoaDeThi.Image = (Image)resources.GetObject("adminbtnXoaDeThi.Image");
-            adminbtnXoaDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnXoaDeThi.Location = new Point(1194, 61);
-            adminbtnXoaDeThi.Name = "adminbtnXoaDeThi";
-            adminbtnXoaDeThi.Size = new Size(123, 32);
-            adminbtnXoaDeThi.TabIndex = 10;
-            adminbtnXoaDeThi.Text = "Xoá đề thi";
-            adminbtnXoaDeThi.UseSelectable = true;
-            adminbtnXoaDeThi.UseVisualStyleBackColor = false;
-            adminbtnXoaDeThi.Click += adminbtnXoaDeThi_Click;
-            // 
-            // adminbtnSuaDeThi
-            // 
-            adminbtnSuaDeThi.BackColor = Color.Transparent;
-            adminbtnSuaDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnSuaDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnSuaDeThi.Image = (Image)resources.GetObject("adminbtnSuaDeThi.Image");
-            adminbtnSuaDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnSuaDeThi.Location = new Point(1037, 61);
-            adminbtnSuaDeThi.Name = "adminbtnSuaDeThi";
-            adminbtnSuaDeThi.Size = new Size(123, 32);
-            adminbtnSuaDeThi.TabIndex = 9;
-            adminbtnSuaDeThi.Text = "Sửa đề thi";
-            adminbtnSuaDeThi.UseSelectable = true;
-            adminbtnSuaDeThi.UseVisualStyleBackColor = false;
-            adminbtnSuaDeThi.Click += adminbtnSuaDeThi_Click;
-            // 
-            // adminbtnThemDeThi
-            // 
-            adminbtnThemDeThi.BackColor = Color.Transparent;
-            adminbtnThemDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnThemDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnThemDeThi.Image = (Image)resources.GetObject("adminbtnThemDeThi.Image");
-            adminbtnThemDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnThemDeThi.Location = new Point(878, 61);
-            adminbtnThemDeThi.Name = "adminbtnThemDeThi";
-            adminbtnThemDeThi.Size = new Size(123, 32);
-            adminbtnThemDeThi.TabIndex = 8;
-            adminbtnThemDeThi.Text = "Thêm đề thi";
-            adminbtnThemDeThi.UseSelectable = true;
-            adminbtnThemDeThi.UseVisualStyleBackColor = false;
-            adminbtnThemDeThi.Click += adminbtnThemDeThi_Click;
             // 
             // foxTextBox1
             // 
@@ -332,17 +253,18 @@
             foxTextBox1.EnabledCalc = true;
             foxTextBox1.Font = new Font("Segoe UI", 10F);
             foxTextBox1.ForeColor = Color.Black;
-            foxTextBox1.Location = new Point(74, 61);
+            foxTextBox1.Location = new Point(74, 54);
             foxTextBox1.MaxLength = 32767;
             foxTextBox1.MultiLine = false;
             foxTextBox1.Name = "foxTextBox1";
             foxTextBox1.ReadOnly = false;
-            foxTextBox1.Size = new Size(302, 32);
+            foxTextBox1.Size = new Size(302, 28);
             foxTextBox1.TabIndex = 4;
             foxTextBox1.Text = "Tìm kiếm";
             foxTextBox1.TextAlign = HorizontalAlignment.Left;
             foxTextBox1.UseSystemPasswordChar = false;
             // 
+
             // tabPage1
             // 
             tabPage1.BackColor = Color.FromArgb(50, 63, 74);
@@ -350,7 +272,7 @@
             tabPage1.Controls.Add(groupBox3);
             tabPage1.Location = new Point(244, 4);
             tabPage1.Name = "tabPage1";
-            tabPage1.Size = new Size(1427, 978);
+            tabPage1.Size = new Size(1427, 862);
             tabPage1.TabIndex = 2;
             tabPage1.Text = "Quản lý lớp";
             // 
@@ -358,10 +280,10 @@
             // 
             dataLop.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataLop.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataLop.Location = new Point(6, 168);
+            dataLop.Location = new Point(6, 148);
             dataLop.Name = "dataLop";
             dataLop.RowHeadersWidth = 45;
-            dataLop.Size = new Size(1413, 802);
+            dataLop.Size = new Size(1413, 708);
             dataLop.TabIndex = 3;
             dataLop.CellClick += dataLop_CellClick;
             // 
@@ -376,9 +298,9 @@
             groupBox3.Controls.Add(adminqllbtnThemLop);
             groupBox3.Controls.Add(adminqlltxtTimKiem);
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(6, 8);
+            groupBox3.Location = new Point(6, 7);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1413, 154);
+            groupBox3.Size = new Size(1413, 136);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Lớp";
@@ -390,9 +312,9 @@
             adminqllbtnXemChiTiet.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnXemChiTiet.Image = (Image)resources.GetObject("adminqllbtnXemChiTiet.Image");
             adminqllbtnXemChiTiet.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnXemChiTiet.Location = new Point(645, 80);
+            adminqllbtnXemChiTiet.Location = new Point(645, 71);
             adminqllbtnXemChiTiet.Name = "adminqllbtnXemChiTiet";
-            adminqllbtnXemChiTiet.Size = new Size(123, 32);
+            adminqllbtnXemChiTiet.Size = new Size(123, 28);
             adminqllbtnXemChiTiet.TabIndex = 13;
             adminqllbtnXemChiTiet.Text = "Xem chi tiết";
             adminqllbtnXemChiTiet.UseSelectable = true;
@@ -406,9 +328,9 @@
             adminqllbtnTimKiem.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnTimKiem.Image = (Image)resources.GetObject("adminqllbtnTimKiem.Image");
             adminqllbtnTimKiem.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnTimKiem.Location = new Point(382, 61);
+            adminqllbtnTimKiem.Location = new Point(382, 54);
             adminqllbtnTimKiem.Name = "adminqllbtnTimKiem";
-            adminqllbtnTimKiem.Size = new Size(123, 32);
+            adminqllbtnTimKiem.Size = new Size(123, 28);
             adminqllbtnTimKiem.TabIndex = 12;
             adminqllbtnTimKiem.Text = "Tìm";
             adminqllbtnTimKiem.UseSelectable = true;
@@ -421,9 +343,9 @@
             adminqllbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnLamMoi.Image = (Image)resources.GetObject("adminqllbtnLamMoi.Image");
             adminqllbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnLamMoi.Location = new Point(645, 42);
+            adminqllbtnLamMoi.Location = new Point(645, 37);
             adminqllbtnLamMoi.Name = "adminqllbtnLamMoi";
-            adminqllbtnLamMoi.Size = new Size(123, 32);
+            adminqllbtnLamMoi.Size = new Size(123, 28);
             adminqllbtnLamMoi.TabIndex = 11;
             adminqllbtnLamMoi.Text = "Làm mới";
             adminqllbtnLamMoi.UseSelectable = true;
@@ -437,9 +359,9 @@
             adminqllbtnXoaLop.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnXoaLop.Image = (Image)resources.GetObject("adminqllbtnXoaLop.Image");
             adminqllbtnXoaLop.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnXoaLop.Location = new Point(1194, 61);
+            adminqllbtnXoaLop.Location = new Point(1194, 54);
             adminqllbtnXoaLop.Name = "adminqllbtnXoaLop";
-            adminqllbtnXoaLop.Size = new Size(123, 32);
+            adminqllbtnXoaLop.Size = new Size(123, 28);
             adminqllbtnXoaLop.TabIndex = 10;
             adminqllbtnXoaLop.Text = "Xoá lớp";
             adminqllbtnXoaLop.UseSelectable = true;
@@ -453,9 +375,9 @@
             adminqllbtnSuaLop.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnSuaLop.Image = (Image)resources.GetObject("adminqllbtnSuaLop.Image");
             adminqllbtnSuaLop.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnSuaLop.Location = new Point(1037, 61);
+            adminqllbtnSuaLop.Location = new Point(1037, 54);
             adminqllbtnSuaLop.Name = "adminqllbtnSuaLop";
-            adminqllbtnSuaLop.Size = new Size(123, 32);
+            adminqllbtnSuaLop.Size = new Size(123, 28);
             adminqllbtnSuaLop.TabIndex = 9;
             adminqllbtnSuaLop.Text = "Sửa lớp";
             adminqllbtnSuaLop.UseSelectable = true;
@@ -469,9 +391,9 @@
             adminqllbtnThemLop.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             adminqllbtnThemLop.Image = (Image)resources.GetObject("adminqllbtnThemLop.Image");
             adminqllbtnThemLop.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnThemLop.Location = new Point(878, 61);
+            adminqllbtnThemLop.Location = new Point(878, 54);
             adminqllbtnThemLop.Name = "adminqllbtnThemLop";
-            adminqllbtnThemLop.Size = new Size(123, 32);
+            adminqllbtnThemLop.Size = new Size(123, 28);
             adminqllbtnThemLop.TabIndex = 8;
             adminqllbtnThemLop.Text = "Thêm lớp";
             adminqllbtnThemLop.UseSelectable = true;
@@ -484,12 +406,12 @@
             adminqlltxtTimKiem.EnabledCalc = true;
             adminqlltxtTimKiem.Font = new Font("Segoe UI", 10F);
             adminqlltxtTimKiem.ForeColor = Color.Black;
-            adminqlltxtTimKiem.Location = new Point(74, 61);
+            adminqlltxtTimKiem.Location = new Point(74, 54);
             adminqlltxtTimKiem.MaxLength = 32767;
             adminqlltxtTimKiem.MultiLine = false;
             adminqlltxtTimKiem.Name = "adminqlltxtTimKiem";
             adminqlltxtTimKiem.ReadOnly = false;
-            adminqlltxtTimKiem.Size = new Size(302, 32);
+            adminqlltxtTimKiem.Size = new Size(302, 28);
             adminqlltxtTimKiem.TabIndex = 4;
             adminqlltxtTimKiem.Text = "Tìm kiếm";
             adminqlltxtTimKiem.TextAlign = HorizontalAlignment.Left;
@@ -502,7 +424,7 @@
             tabPage2.Controls.Add(groupBox4);
             tabPage2.Location = new Point(244, 4);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(1427, 978);
+            tabPage2.Size = new Size(1427, 862);
             tabPage2.TabIndex = 3;
             tabPage2.Text = "Ngân hàng câu hỏi";
             // 
@@ -510,10 +432,17 @@
             // 
             dataNHCH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataNHCH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             dataNHCH.Location = new Point(6, 168);
             dataNHCH.Name = "dataNHCH";
             dataNHCH.RowHeadersWidth = 45;
             dataNHCH.Size = new Size(1413, 802);
+
+            dataNHCH.Location = new Point(6, 201);
+            dataNHCH.Name = "dataNHCH";
+            dataNHCH.RowHeadersWidth = 45;
+            dataNHCH.Size = new Size(1413, 655);
+
             dataNHCH.TabIndex = 4;
             dataNHCH.CellClick += dataNHCH_CellClick;
             // 
@@ -528,9 +457,9 @@
             groupBox4.Controls.Add(nhchbtnThemNHCH);
             groupBox4.Controls.Add(nhchtxtTimKiem);
             groupBox4.ForeColor = Color.White;
-            groupBox4.Location = new Point(6, 8);
+            groupBox4.Location = new Point(6, 7);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1413, 154);
+            groupBox4.Size = new Size(1413, 136);
             groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
             groupBox4.Text = "Ngân hàng câu hỏi";
@@ -542,9 +471,9 @@
             nhchbtnXemChiTiet.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             nhchbtnXemChiTiet.Image = (Image)resources.GetObject("nhchbtnXemChiTiet.Image");
             nhchbtnXemChiTiet.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnXemChiTiet.Location = new Point(645, 80);
+            nhchbtnXemChiTiet.Location = new Point(645, 71);
             nhchbtnXemChiTiet.Name = "nhchbtnXemChiTiet";
-            nhchbtnXemChiTiet.Size = new Size(123, 32);
+            nhchbtnXemChiTiet.Size = new Size(123, 28);
             nhchbtnXemChiTiet.TabIndex = 13;
             nhchbtnXemChiTiet.Text = "Xem chi tiết";
             nhchbtnXemChiTiet.UseSelectable = true;
@@ -558,9 +487,9 @@
             nhchbtnTim.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             nhchbtnTim.Image = (Image)resources.GetObject("nhchbtnTim.Image");
             nhchbtnTim.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnTim.Location = new Point(378, 61);
+            nhchbtnTim.Location = new Point(378, 54);
             nhchbtnTim.Name = "nhchbtnTim";
-            nhchbtnTim.Size = new Size(123, 32);
+            nhchbtnTim.Size = new Size(123, 28);
             nhchbtnTim.TabIndex = 12;
             nhchbtnTim.Text = "Tìm";
             nhchbtnTim.UseSelectable = true;
@@ -573,14 +502,13 @@
             nhchbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             nhchbtnLamMoi.Image = (Image)resources.GetObject("nhchbtnLamMoi.Image");
             nhchbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnLamMoi.Location = new Point(645, 42);
+            nhchbtnLamMoi.Location = new Point(645, 37);
             nhchbtnLamMoi.Name = "nhchbtnLamMoi";
-            nhchbtnLamMoi.Size = new Size(123, 32);
+            nhchbtnLamMoi.Size = new Size(123, 28);
             nhchbtnLamMoi.TabIndex = 11;
             nhchbtnLamMoi.Text = "Làm mới";
             nhchbtnLamMoi.UseSelectable = true;
             nhchbtnLamMoi.UseVisualStyleBackColor = false;
-            nhchbtnLamMoi.Click += nhchbtnLamMoi_Click;
             // 
             // nhchbtnXoaNHCH
             // 
@@ -589,9 +517,9 @@
             nhchbtnXoaNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             nhchbtnXoaNHCH.Image = (Image)resources.GetObject("nhchbtnXoaNHCH.Image");
             nhchbtnXoaNHCH.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnXoaNHCH.Location = new Point(1192, 61);
+            nhchbtnXoaNHCH.Location = new Point(1192, 54);
             nhchbtnXoaNHCH.Name = "nhchbtnXoaNHCH";
-            nhchbtnXoaNHCH.Size = new Size(123, 32);
+            nhchbtnXoaNHCH.Size = new Size(123, 28);
             nhchbtnXoaNHCH.TabIndex = 10;
             nhchbtnXoaNHCH.Text = "Xoá NHCH";
             nhchbtnXoaNHCH.UseSelectable = true;
@@ -604,9 +532,9 @@
             nhchbtnSuaNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             nhchbtnSuaNHCH.Image = (Image)resources.GetObject("nhchbtnSuaNHCH.Image");
             nhchbtnSuaNHCH.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnSuaNHCH.Location = new Point(1045, 61);
+            nhchbtnSuaNHCH.Location = new Point(1045, 54);
             nhchbtnSuaNHCH.Name = "nhchbtnSuaNHCH";
-            nhchbtnSuaNHCH.Size = new Size(123, 32);
+            nhchbtnSuaNHCH.Size = new Size(123, 28);
             nhchbtnSuaNHCH.TabIndex = 9;
             nhchbtnSuaNHCH.Text = "Sửa NHCH";
             nhchbtnSuaNHCH.UseSelectable = true;
@@ -620,9 +548,9 @@
             nhchbtnThemNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             nhchbtnThemNHCH.Image = (Image)resources.GetObject("nhchbtnThemNHCH.Image");
             nhchbtnThemNHCH.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnThemNHCH.Location = new Point(894, 61);
+            nhchbtnThemNHCH.Location = new Point(894, 54);
             nhchbtnThemNHCH.Name = "nhchbtnThemNHCH";
-            nhchbtnThemNHCH.Size = new Size(123, 32);
+            nhchbtnThemNHCH.Size = new Size(123, 28);
             nhchbtnThemNHCH.TabIndex = 8;
             nhchbtnThemNHCH.Text = "Thêm NHCH";
             nhchbtnThemNHCH.UseSelectable = true;
@@ -635,12 +563,12 @@
             nhchtxtTimKiem.EnabledCalc = true;
             nhchtxtTimKiem.Font = new Font("Segoe UI", 10F);
             nhchtxtTimKiem.ForeColor = Color.Black;
-            nhchtxtTimKiem.Location = new Point(70, 61);
+            nhchtxtTimKiem.Location = new Point(70, 54);
             nhchtxtTimKiem.MaxLength = 32767;
             nhchtxtTimKiem.MultiLine = false;
             nhchtxtTimKiem.Name = "nhchtxtTimKiem";
             nhchtxtTimKiem.ReadOnly = false;
-            nhchtxtTimKiem.Size = new Size(302, 32);
+            nhchtxtTimKiem.Size = new Size(302, 28);
             nhchtxtTimKiem.TabIndex = 4;
             nhchtxtTimKiem.Text = "Tìm kiếm";
             nhchtxtTimKiem.TextAlign = HorizontalAlignment.Left;
@@ -653,7 +581,7 @@
             tabPage3.Controls.Add(groupBox5);
             tabPage3.Location = new Point(244, 4);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1427, 978);
+            tabPage3.Size = new Size(1427, 862);
             tabPage3.TabIndex = 4;
             tabPage3.Text = "Bảng điểm";
             // 
@@ -684,7 +612,7 @@
             poisonDataGridView4.EnableHeadersVisualStyles = false;
             poisonDataGridView4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView4.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView4.Location = new Point(6, 223);
+            poisonDataGridView4.Location = new Point(6, 197);
             poisonDataGridView4.Name = "poisonDataGridView4";
             poisonDataGridView4.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -698,7 +626,7 @@
             poisonDataGridView4.RowHeadersWidth = 45;
             poisonDataGridView4.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView4.Size = new Size(1418, 747);
+            poisonDataGridView4.Size = new Size(1418, 659);
             poisonDataGridView4.TabIndex = 5;
             // 
             // groupBox5
@@ -712,9 +640,9 @@
             groupBox5.Controls.Add(poisonButton20);
             groupBox5.Controls.Add(foxTextBox4);
             groupBox5.ForeColor = Color.White;
-            groupBox5.Location = new Point(6, 8);
+            groupBox5.Location = new Point(6, 7);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(1413, 154);
+            groupBox5.Size = new Size(1413, 136);
             groupBox5.TabIndex = 4;
             groupBox5.TabStop = false;
             groupBox5.Text = "Bảng diểm";
@@ -726,9 +654,9 @@
             poisonButton21.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton21.Image = (Image)resources.GetObject("poisonButton21.Image");
             poisonButton21.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton21.Location = new Point(1176, 64);
+            poisonButton21.Location = new Point(1176, 56);
             poisonButton21.Name = "poisonButton21";
-            poisonButton21.Size = new Size(96, 29);
+            poisonButton21.Size = new Size(96, 26);
             poisonButton21.TabIndex = 18;
             poisonButton21.Text = "Lọc";
             poisonButton21.UseSelectable = true;
@@ -738,9 +666,9 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.White;
-            label4.Location = new Point(856, 72);
+            label4.Location = new Point(856, 64);
             label4.Name = "label4";
-            label4.Size = new Size(76, 21);
+            label4.Size = new Size(71, 20);
             label4.TabIndex = 17;
             label4.Text = "Chọn lớp";
             // 
@@ -749,7 +677,7 @@
             poisonComboBox1.FormattingEnabled = true;
             poisonComboBox1.ItemHeight = 23;
             poisonComboBox1.Items.AddRange(new object[] { "á", "ádasd" });
-            poisonComboBox1.Location = new Point(938, 64);
+            poisonComboBox1.Location = new Point(938, 56);
             poisonComboBox1.Name = "poisonComboBox1";
             poisonComboBox1.Size = new Size(232, 29);
             poisonComboBox1.TabIndex = 15;
@@ -762,9 +690,9 @@
             poisonButton18.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton18.Image = (Image)resources.GetObject("poisonButton18.Image");
             poisonButton18.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton18.Location = new Point(203, 99);
+            poisonButton18.Location = new Point(203, 87);
             poisonButton18.Name = "poisonButton18";
-            poisonButton18.Size = new Size(123, 32);
+            poisonButton18.Size = new Size(123, 28);
             poisonButton18.TabIndex = 13;
             poisonButton18.Text = "Xem chi tiết";
             poisonButton18.UseSelectable = true;
@@ -777,9 +705,9 @@
             poisonButton19.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton19.Image = (Image)resources.GetObject("poisonButton19.Image");
             poisonButton19.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton19.Location = new Point(382, 61);
+            poisonButton19.Location = new Point(382, 54);
             poisonButton19.Name = "poisonButton19";
-            poisonButton19.Size = new Size(123, 32);
+            poisonButton19.Size = new Size(123, 28);
             poisonButton19.TabIndex = 12;
             poisonButton19.Text = "Tìm";
             poisonButton19.UseSelectable = true;
@@ -792,9 +720,9 @@
             poisonButton20.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton20.Image = (Image)resources.GetObject("poisonButton20.Image");
             poisonButton20.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton20.Location = new Point(74, 99);
+            poisonButton20.Location = new Point(74, 87);
             poisonButton20.Name = "poisonButton20";
-            poisonButton20.Size = new Size(123, 32);
+            poisonButton20.Size = new Size(123, 28);
             poisonButton20.TabIndex = 11;
             poisonButton20.Text = "Làm mới";
             poisonButton20.UseSelectable = true;
@@ -806,12 +734,12 @@
             foxTextBox4.EnabledCalc = true;
             foxTextBox4.Font = new Font("Segoe UI", 10F);
             foxTextBox4.ForeColor = Color.Black;
-            foxTextBox4.Location = new Point(74, 61);
+            foxTextBox4.Location = new Point(74, 54);
             foxTextBox4.MaxLength = 32767;
             foxTextBox4.MultiLine = false;
             foxTextBox4.Name = "foxTextBox4";
             foxTextBox4.ReadOnly = false;
-            foxTextBox4.Size = new Size(302, 32);
+            foxTextBox4.Size = new Size(302, 28);
             foxTextBox4.TabIndex = 4;
             foxTextBox4.Text = "Tìm kiếm";
             foxTextBox4.TextAlign = HorizontalAlignment.Left;
@@ -825,7 +753,7 @@
             tabPage4.Controls.Add(groupBox6);
             tabPage4.Location = new Point(244, 4);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1427, 978);
+            tabPage4.Size = new Size(1427, 862);
             tabPage4.TabIndex = 5;
             tabPage4.Text = "Thông tin tài khoản";
             // 
@@ -836,9 +764,9 @@
             poisonButton23.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton23.Image = (Image)resources.GetObject("poisonButton23.Image");
             poisonButton23.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton23.Location = new Point(558, 200);
+            poisonButton23.Location = new Point(558, 176);
             poisonButton23.Name = "poisonButton23";
-            poisonButton23.Size = new Size(123, 32);
+            poisonButton23.Size = new Size(123, 28);
             poisonButton23.TabIndex = 13;
             poisonButton23.Text = "Đăng xuất";
             poisonButton23.UseSelectable = true;
@@ -847,9 +775,9 @@
             // groupBox7
             // 
             groupBox7.ForeColor = Color.White;
-            groupBox7.Location = new Point(558, 8);
+            groupBox7.Location = new Point(558, 7);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(861, 186);
+            groupBox7.Size = new Size(861, 164);
             groupBox7.TabIndex = 1;
             groupBox7.TabStop = false;
             groupBox7.Text = "Đổi mật khẩu";
@@ -857,18 +785,18 @@
             // groupBox6
             // 
             groupBox6.ForeColor = Color.White;
-            groupBox6.Location = new Point(14, 8);
+            groupBox6.Location = new Point(14, 7);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(538, 962);
+            groupBox6.Size = new Size(538, 849);
             groupBox6.TabIndex = 0;
             groupBox6.TabStop = false;
             groupBox6.Text = "Thông tin";
             // 
             // admin
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1675, 986);
+            ClientSize = new Size(1675, 870);
             Controls.Add(tabPage9);
             Name = "admin";
             StartPosition = FormStartPosition.CenterScreen;

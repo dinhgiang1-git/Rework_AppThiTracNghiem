@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH
 {
     public partial class nhchXemChiTiet : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         string g_maNganHang = "";
         string g_tenNganHang = "";
         string g_maCauHoi = "";

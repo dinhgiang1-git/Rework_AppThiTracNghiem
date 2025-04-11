@@ -40,13 +40,13 @@
             adminlabelHoTen = new Label();
             bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             tabPage11 = new TabPage();
-            dataGridView1 = new DataGridView();
+            dataDeThi = new DataGridView();
             groupBox2 = new GroupBox();
-            poisonButton5 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton4 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton3 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
+            adminbtnTimDeThi = new ReaLTaiizor.Controls.PoisonButton();
+            adminbtnLamMoiDeThi = new ReaLTaiizor.Controls.PoisonButton();
+            adminbtnXoaDeThi = new ReaLTaiizor.Controls.PoisonButton();
+            adminbtnSuaDeThi = new ReaLTaiizor.Controls.PoisonButton();
+            adminbtnThemDeThi = new ReaLTaiizor.Controls.PoisonButton();
             foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage1 = new TabPage();
             dataLop = new DataGridView();
@@ -86,7 +86,7 @@
             tabPage10.SuspendLayout();
             groupBox1.SuspendLayout();
             tabPage11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataDeThi).BeginInit();
             groupBox2.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataLop).BeginInit();
@@ -210,7 +210,7 @@
             // tabPage11
             // 
             tabPage11.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage11.Controls.Add(dataGridView1);
+            tabPage11.Controls.Add(dataDeThi);
             tabPage11.Controls.Add(groupBox2);
             tabPage11.Location = new Point(244, 4);
             tabPage11.Name = "tabPage11";
@@ -219,23 +219,25 @@
             tabPage11.TabIndex = 1;
             tabPage11.Text = "Đề thi";
             // 
-            // dataGridView1
+            // dataDeThi
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 168);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 45;
-            dataGridView1.Size = new Size(1413, 802);
-            dataGridView1.TabIndex = 2;
+            dataDeThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataDeThi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataDeThi.Location = new Point(6, 168);
+            dataDeThi.Name = "dataDeThi";
+            dataDeThi.RowHeadersWidth = 45;
+            dataDeThi.Size = new Size(1413, 802);
+            dataDeThi.TabIndex = 2;
+            dataDeThi.CellClick += dataDeThi_CellClick;
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.Transparent;
-            groupBox2.Controls.Add(poisonButton5);
-            groupBox2.Controls.Add(poisonButton4);
-            groupBox2.Controls.Add(poisonButton3);
-            groupBox2.Controls.Add(poisonButton2);
-            groupBox2.Controls.Add(poisonButton1);
+            groupBox2.Controls.Add(adminbtnTimDeThi);
+            groupBox2.Controls.Add(adminbtnLamMoiDeThi);
+            groupBox2.Controls.Add(adminbtnXoaDeThi);
+            groupBox2.Controls.Add(adminbtnSuaDeThi);
+            groupBox2.Controls.Add(adminbtnThemDeThi);
             groupBox2.Controls.Add(foxTextBox1);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(6, 8);
@@ -245,80 +247,84 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Đề thi";
             // 
-            // poisonButton5
+            // adminbtnTimDeThi
             // 
-            poisonButton5.BackColor = Color.Transparent;
-            poisonButton5.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton5.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton5.Image = (Image)resources.GetObject("poisonButton5.Image");
-            poisonButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton5.Location = new Point(382, 61);
-            poisonButton5.Name = "poisonButton5";
-            poisonButton5.Size = new Size(123, 32);
-            poisonButton5.TabIndex = 12;
-            poisonButton5.Text = "Tìm";
-            poisonButton5.UseSelectable = true;
-            poisonButton5.UseVisualStyleBackColor = false;
+            adminbtnTimDeThi.BackColor = Color.Transparent;
+            adminbtnTimDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            adminbtnTimDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            adminbtnTimDeThi.Image = (Image)resources.GetObject("adminbtnTimDeThi.Image");
+            adminbtnTimDeThi.ImageAlign = ContentAlignment.MiddleLeft;
+            adminbtnTimDeThi.Location = new Point(382, 61);
+            adminbtnTimDeThi.Name = "adminbtnTimDeThi";
+            adminbtnTimDeThi.Size = new Size(123, 32);
+            adminbtnTimDeThi.TabIndex = 12;
+            adminbtnTimDeThi.Text = "Tìm";
+            adminbtnTimDeThi.UseSelectable = true;
+            adminbtnTimDeThi.UseVisualStyleBackColor = false;
             // 
-            // poisonButton4
+            // adminbtnLamMoiDeThi
             // 
-            poisonButton4.BackColor = Color.Transparent;
-            poisonButton4.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton4.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton4.Image = (Image)resources.GetObject("poisonButton4.Image");
-            poisonButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton4.Location = new Point(74, 99);
-            poisonButton4.Name = "poisonButton4";
-            poisonButton4.Size = new Size(123, 32);
-            poisonButton4.TabIndex = 11;
-            poisonButton4.Text = "Làm mới";
-            poisonButton4.UseSelectable = true;
-            poisonButton4.UseVisualStyleBackColor = false;
+            adminbtnLamMoiDeThi.BackColor = Color.Transparent;
+            adminbtnLamMoiDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            adminbtnLamMoiDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            adminbtnLamMoiDeThi.Image = (Image)resources.GetObject("adminbtnLamMoiDeThi.Image");
+            adminbtnLamMoiDeThi.ImageAlign = ContentAlignment.MiddleLeft;
+            adminbtnLamMoiDeThi.Location = new Point(645, 61);
+            adminbtnLamMoiDeThi.Name = "adminbtnLamMoiDeThi";
+            adminbtnLamMoiDeThi.Size = new Size(123, 32);
+            adminbtnLamMoiDeThi.TabIndex = 11;
+            adminbtnLamMoiDeThi.Text = "Làm mới";
+            adminbtnLamMoiDeThi.UseSelectable = true;
+            adminbtnLamMoiDeThi.UseVisualStyleBackColor = false;
+            adminbtnLamMoiDeThi.Click += adminbtnLamMoiDeThi_Click;
             // 
-            // poisonButton3
+            // adminbtnXoaDeThi
             // 
-            poisonButton3.BackColor = Color.Transparent;
-            poisonButton3.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton3.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton3.Image = (Image)resources.GetObject("poisonButton3.Image");
-            poisonButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton3.Location = new Point(1194, 61);
-            poisonButton3.Name = "poisonButton3";
-            poisonButton3.Size = new Size(123, 32);
-            poisonButton3.TabIndex = 10;
-            poisonButton3.Text = "Xoá đề thi";
-            poisonButton3.UseSelectable = true;
-            poisonButton3.UseVisualStyleBackColor = false;
+            adminbtnXoaDeThi.BackColor = Color.Transparent;
+            adminbtnXoaDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            adminbtnXoaDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            adminbtnXoaDeThi.Image = (Image)resources.GetObject("adminbtnXoaDeThi.Image");
+            adminbtnXoaDeThi.ImageAlign = ContentAlignment.MiddleLeft;
+            adminbtnXoaDeThi.Location = new Point(1194, 61);
+            adminbtnXoaDeThi.Name = "adminbtnXoaDeThi";
+            adminbtnXoaDeThi.Size = new Size(123, 32);
+            adminbtnXoaDeThi.TabIndex = 10;
+            adminbtnXoaDeThi.Text = "Xoá đề thi";
+            adminbtnXoaDeThi.UseSelectable = true;
+            adminbtnXoaDeThi.UseVisualStyleBackColor = false;
+            adminbtnXoaDeThi.Click += adminbtnXoaDeThi_Click;
             // 
-            // poisonButton2
+            // adminbtnSuaDeThi
             // 
-            poisonButton2.BackColor = Color.Transparent;
-            poisonButton2.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton2.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton2.Image = (Image)resources.GetObject("poisonButton2.Image");
-            poisonButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton2.Location = new Point(1037, 61);
-            poisonButton2.Name = "poisonButton2";
-            poisonButton2.Size = new Size(123, 32);
-            poisonButton2.TabIndex = 9;
-            poisonButton2.Text = "Sửa đề thi";
-            poisonButton2.UseSelectable = true;
-            poisonButton2.UseVisualStyleBackColor = false;
+            adminbtnSuaDeThi.BackColor = Color.Transparent;
+            adminbtnSuaDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            adminbtnSuaDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            adminbtnSuaDeThi.Image = (Image)resources.GetObject("adminbtnSuaDeThi.Image");
+            adminbtnSuaDeThi.ImageAlign = ContentAlignment.MiddleLeft;
+            adminbtnSuaDeThi.Location = new Point(1037, 61);
+            adminbtnSuaDeThi.Name = "adminbtnSuaDeThi";
+            adminbtnSuaDeThi.Size = new Size(123, 32);
+            adminbtnSuaDeThi.TabIndex = 9;
+            adminbtnSuaDeThi.Text = "Sửa đề thi";
+            adminbtnSuaDeThi.UseSelectable = true;
+            adminbtnSuaDeThi.UseVisualStyleBackColor = false;
+            adminbtnSuaDeThi.Click += adminbtnSuaDeThi_Click;
             // 
-            // poisonButton1
+            // adminbtnThemDeThi
             // 
-            poisonButton1.BackColor = Color.Transparent;
-            poisonButton1.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton1.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton1.Image = (Image)resources.GetObject("poisonButton1.Image");
-            poisonButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton1.Location = new Point(878, 61);
-            poisonButton1.Name = "poisonButton1";
-            poisonButton1.Size = new Size(123, 32);
-            poisonButton1.TabIndex = 8;
-            poisonButton1.Text = "Thêm đề thi";
-            poisonButton1.UseSelectable = true;
-            poisonButton1.UseVisualStyleBackColor = false;
+            adminbtnThemDeThi.BackColor = Color.Transparent;
+            adminbtnThemDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
+            adminbtnThemDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
+            adminbtnThemDeThi.Image = (Image)resources.GetObject("adminbtnThemDeThi.Image");
+            adminbtnThemDeThi.ImageAlign = ContentAlignment.MiddleLeft;
+            adminbtnThemDeThi.Location = new Point(878, 61);
+            adminbtnThemDeThi.Name = "adminbtnThemDeThi";
+            adminbtnThemDeThi.Size = new Size(123, 32);
+            adminbtnThemDeThi.TabIndex = 8;
+            adminbtnThemDeThi.Text = "Thêm đề thi";
+            adminbtnThemDeThi.UseSelectable = true;
+            adminbtnThemDeThi.UseVisualStyleBackColor = false;
+            adminbtnThemDeThi.Click += adminbtnThemDeThi_Click;
             // 
             // foxTextBox1
             // 
@@ -605,6 +611,7 @@
             nhchbtnSuaNHCH.Text = "Sửa NHCH";
             nhchbtnSuaNHCH.UseSelectable = true;
             nhchbtnSuaNHCH.UseVisualStyleBackColor = false;
+            nhchbtnSuaNHCH.Click += nhchbtnSuaNHCH_Click;
             // 
             // nhchbtnThemNHCH
             // 
@@ -864,6 +871,7 @@
             ClientSize = new Size(1675, 986);
             Controls.Add(tabPage9);
             Name = "admin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tochnolya";
             tabPage9.ResumeLayout(false);
             tabPage10.ResumeLayout(false);
@@ -871,7 +879,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabPage11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataDeThi).EndInit();
             groupBox2.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataLop).EndInit();
@@ -903,11 +911,11 @@
         private Label label3;
         private GroupBox groupBox2;
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton1;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton5;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton4;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton3;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton2;
+        private ReaLTaiizor.Controls.PoisonButton adminbtnThemDeThi;
+        private ReaLTaiizor.Controls.PoisonButton adminbtnTimDeThi;
+        private ReaLTaiizor.Controls.PoisonButton adminbtnLamMoiDeThi;
+        private ReaLTaiizor.Controls.PoisonButton adminbtnXoaDeThi;
+        private ReaLTaiizor.Controls.PoisonButton adminbtnSuaDeThi;
         private GroupBox groupBox3;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnXemChiTiet;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnTimKiem;
@@ -938,6 +946,6 @@
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView4;
         private DataGridView dataLop;
         private DataGridView dataNHCH;
-        private DataGridView dataGridView1;
+        private DataGridView dataDeThi;
     }
 }

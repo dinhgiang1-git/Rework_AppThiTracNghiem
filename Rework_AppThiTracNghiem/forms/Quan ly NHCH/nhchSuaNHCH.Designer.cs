@@ -30,8 +30,8 @@
         {
             idk = new Label();
             nhchbtnHuy = new ReaLTaiizor.Controls.FoxButton();
-            nhchbtnThem = new ReaLTaiizor.Controls.FoxButton();
-            nhchbtnThemDong = new ReaLTaiizor.Controls.FoxButton();
+            nhchbtnSua = new ReaLTaiizor.Controls.FoxButton();
+            nhchbtnSuaDong = new ReaLTaiizor.Controls.FoxButton();
             nhchtxtTenNganHang = new ReaLTaiizor.Controls.PoisonTextBox();
             foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
             SuspendLayout();
@@ -64,44 +64,47 @@
             nhchbtnHuy.Size = new Size(101, 32);
             nhchbtnHuy.TabIndex = 15;
             nhchbtnHuy.Text = "Huỷ";
+            nhchbtnHuy.Click += nhchbtnHuy_Click;
             // 
-            // nhchbtnThem
+            // nhchbtnSua
             // 
-            nhchbtnThem.BackColor = Color.Transparent;
-            nhchbtnThem.BaseColor = Color.Gray;
-            nhchbtnThem.BorderColor = Color.FromArgb(193, 193, 193);
-            nhchbtnThem.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            nhchbtnThem.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            nhchbtnThem.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            nhchbtnThem.DownColor = Color.FromArgb(232, 232, 232);
-            nhchbtnThem.EnabledCalc = true;
-            nhchbtnThem.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nhchbtnThem.ForeColor = Color.White;
-            nhchbtnThem.Location = new Point(267, 103);
-            nhchbtnThem.Name = "nhchbtnThem";
-            nhchbtnThem.OverColor = Color.FromArgb(242, 242, 242);
-            nhchbtnThem.Size = new Size(101, 32);
-            nhchbtnThem.TabIndex = 14;
-            nhchbtnThem.Text = "Thêm";
+            nhchbtnSua.BackColor = Color.Transparent;
+            nhchbtnSua.BaseColor = Color.Gray;
+            nhchbtnSua.BorderColor = Color.FromArgb(193, 193, 193);
+            nhchbtnSua.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            nhchbtnSua.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            nhchbtnSua.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            nhchbtnSua.DownColor = Color.FromArgb(232, 232, 232);
+            nhchbtnSua.EnabledCalc = true;
+            nhchbtnSua.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nhchbtnSua.ForeColor = Color.White;
+            nhchbtnSua.Location = new Point(267, 103);
+            nhchbtnSua.Name = "nhchbtnSua";
+            nhchbtnSua.OverColor = Color.FromArgb(242, 242, 242);
+            nhchbtnSua.Size = new Size(101, 32);
+            nhchbtnSua.TabIndex = 14;
+            nhchbtnSua.Text = "Sửa";
+            nhchbtnSua.Click += nhchbtnSua_Click;
             // 
-            // nhchbtnThemDong
+            // nhchbtnSuaDong
             // 
-            nhchbtnThemDong.BackColor = Color.Transparent;
-            nhchbtnThemDong.BaseColor = Color.FromArgb(128, 255, 128);
-            nhchbtnThemDong.BorderColor = Color.FromArgb(193, 193, 193);
-            nhchbtnThemDong.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            nhchbtnThemDong.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            nhchbtnThemDong.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            nhchbtnThemDong.DownColor = Color.FromArgb(232, 232, 232);
-            nhchbtnThemDong.EnabledCalc = true;
-            nhchbtnThemDong.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nhchbtnThemDong.ForeColor = Color.Black;
-            nhchbtnThemDong.Location = new Point(389, 103);
-            nhchbtnThemDong.Name = "nhchbtnThemDong";
-            nhchbtnThemDong.OverColor = Color.FromArgb(242, 242, 242);
-            nhchbtnThemDong.Size = new Size(109, 32);
-            nhchbtnThemDong.TabIndex = 13;
-            nhchbtnThemDong.Text = "Thêm và đóng";
+            nhchbtnSuaDong.BackColor = Color.Transparent;
+            nhchbtnSuaDong.BaseColor = Color.FromArgb(128, 255, 128);
+            nhchbtnSuaDong.BorderColor = Color.FromArgb(193, 193, 193);
+            nhchbtnSuaDong.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            nhchbtnSuaDong.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            nhchbtnSuaDong.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            nhchbtnSuaDong.DownColor = Color.FromArgb(232, 232, 232);
+            nhchbtnSuaDong.EnabledCalc = true;
+            nhchbtnSuaDong.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nhchbtnSuaDong.ForeColor = Color.Black;
+            nhchbtnSuaDong.Location = new Point(389, 103);
+            nhchbtnSuaDong.Name = "nhchbtnSuaDong";
+            nhchbtnSuaDong.OverColor = Color.FromArgb(242, 242, 242);
+            nhchbtnSuaDong.Size = new Size(109, 32);
+            nhchbtnSuaDong.TabIndex = 13;
+            nhchbtnSuaDong.Text = "Sửa và đóng";
+            nhchbtnSuaDong.Click += nhchbtnSuaDong_Click;
             // 
             // nhchtxtTenNganHang
             // 
@@ -151,8 +154,8 @@
             ClientSize = new Size(529, 163);
             Controls.Add(idk);
             Controls.Add(nhchbtnHuy);
-            Controls.Add(nhchbtnThem);
-            Controls.Add(nhchbtnThemDong);
+            Controls.Add(nhchbtnSua);
+            Controls.Add(nhchbtnSuaDong);
             Controls.Add(nhchtxtTenNganHang);
             Controls.Add(foxLabel1);
             Name = "nhchSuaNHCH";
@@ -165,8 +168,8 @@
 
         private Label idk;
         private ReaLTaiizor.Controls.FoxButton nhchbtnHuy;
-        private ReaLTaiizor.Controls.FoxButton nhchbtnThem;
-        private ReaLTaiizor.Controls.FoxButton nhchbtnThemDong;
+        private ReaLTaiizor.Controls.FoxButton nhchbtnSua;
+        private ReaLTaiizor.Controls.FoxButton nhchbtnSuaDong;
         private ReaLTaiizor.Controls.PoisonTextBox nhchtxtTenNganHang;
         private ReaLTaiizor.Controls.FoxLabel foxLabel1;
     }

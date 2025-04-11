@@ -8,22 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Rework_AppThiTracNghiem.DataAccess;
 
 namespace Rework_AppThiTracNghiem
 {
 
     public partial class login : Form
     {
-        // Remove strConn
+        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         public login()
         {
             InitializeComponent();
-            logincbChonVaiTro.SelectedIndex = 0;
-        }
 
+            //khởi tạo ban đầu
+            logincbChonVaiTro.SelectedIndex = 0;
+
+            //
+        }
         private void fCheckLogin()
         {
+            //Lấy dữ liệu
             string tenDangNhap = logintxtTenDangNhap.Text.Trim();
             string matKhau = logintxtMatKhau.Text.Trim();
 
@@ -44,36 +47,38 @@ namespace Rework_AppThiTracNghiem
                 return;
             }
 
-            try
+            //Login
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string queryGV = "Select count(*) from GIANGVIEN where MaGiangVien = @MaGiangVien and MatKhau = @MatKhau";
-                int count = Convert.ToInt32(DatabaseHelper.ExecuteScalar(queryGV,
-                    new SqlParameter("@MaGiangVien", tenDangNhap),
-                    new SqlParameter("@MatKhau", matKhau)));
-
-                if (count > 0)
+                try
                 {
-                    admin ad = new admin(tenDangNhap);
-                    ad.Show();
-                    this.Hide();
+                    conn.Open();
+                    string queryGV = "Select count(*) from GIANGVIEN where MaGiangVien = @MaGiangVien and MatKhau = @MatKhau";
+                    SqlCommand cmd = new SqlCommand(queryGV, conn);
+                    cmd.Parameters.AddWithValue("@MaGiangVien", tenDangNhap);
+                    cmd.Parameters.AddWithValue("@MatKhau", matKhau);
+
+                    int count = (int)cmd.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        admin ad = new admin(tenDangNhap);
+                        ad.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    
-
-                    MessageBox.Show("Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại");
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine();
-                throw new Exception("Error: " + ex.Message);
-            }
-        }
-
-        private void bigLabel3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void loginbtnLogin_Click(object sender, EventArgs e)

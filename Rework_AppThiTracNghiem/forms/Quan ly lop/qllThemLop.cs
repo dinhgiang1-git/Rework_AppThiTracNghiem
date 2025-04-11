@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Rework_AppThiTracNghiem.DataAccess;
 
 namespace Rework_AppThiTracNghiem.forms
 {
     public partial class qllThemLop : Form
     {
+        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         string g_maGiangVien = "";
-        
         public qllThemLop(string maGiangVien)
         {
             InitializeComponent();
@@ -30,22 +29,30 @@ namespace Rework_AppThiTracNghiem.forms
 
         private bool checkTrungMaLop(string maLop)
         {
-            try
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = "Select count(*) from LOPHOC where MaLopHoc = @MaLopHoc";
-                int count = Convert.ToInt32(DatabaseHelper.ExecuteScalar(query,
-                    new SqlParameter("@MaLopHoc", maLop)));
-                return count > 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return false;
+                try
+                {
+                    conn.Open();
+                    string query = "Select count(*) from LOPHOC where MaLopHoc = @MaLopHoc";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", maLop);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
-
         private void add()
         {
+            //lấy dữ liệu
             string maLop = qlltxtMaLop.Text.Trim().ToUpper();
             string tenLop = qlltxtTenLop.Text.Trim();
             DateTime createAt = DateTime.Now;
@@ -63,35 +70,43 @@ namespace Rework_AppThiTracNghiem.forms
             }
             if (checkTrungMaLop(maLop))
             {
-                MessageBox.Show("Mã lớp đã bị trùng! Vui lòng nhập mã khác!");
+                MessageBox.Show("Mã lớp đã bị trùng!. Vui lòng nhập mã khác!");
                 return;
             }
 
-            try
+            //Thêm
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = @"Insert into LOPHOC
-                               (MaLopHoc, TenLopHoc, CreateAt, MaGiangVien) 
-                               values 
-                               (@MaLopHoc, @TenLopHoc, @CreateAt, @MaGiangVien)";
-
-                int rowAffected = DatabaseHelper.ExecuteNonQuery(query,
-                    new SqlParameter("@MaLopHoc", maLop),
-                    new SqlParameter("@TenLopHoc", tenLop),
-                    new SqlParameter("@CreateAt", createAt),
-                    new SqlParameter("@MaGiangVien", g_maGiangVien));
-
-                if (rowAffected > 0)
+                try
                 {
-                    MessageBox.Show("Thêm thành công!");
-                    this.Close();
+                    conn.Open();
+                    string query = "Insert into LOPHOC(MaLopHoc, TenLopHoc, CreateAt, MaGiangVien) values (@MaLopHoc, @TenLopHoc, @CreateAt, @MaGiangVien)";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", maLop);
+                    cmd.Parameters.AddWithValue("@TenLopHoc", tenLop);
+                    cmd.Parameters.AddWithValue("@CreateAt", createAt);
+                    cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+
+                    int rowsaffected = cmd.ExecuteNonQuery();
+                    if (rowsaffected > 0)
+                    {
+                        MessageBox.Show("Thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm không thành công!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
-
         private void qllbtnThem_Click(object sender, EventArgs e)
         {
             add();

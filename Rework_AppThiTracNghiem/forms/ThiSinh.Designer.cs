@@ -127,7 +127,7 @@
             tabPage2.Location = new Point(204, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1401, 750);
+            tabPage2.Size = new Size(1401, 851);
             tabPage2.TabIndex = 0;
             tabPage2.Text = "Tổng quan";
             // 
@@ -158,7 +158,7 @@
             poisonDataGridView1.EnableHeadersVisualStyles = false;
             poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView1.Location = new Point(6, 242);
+            poisonDataGridView1.Location = new Point(6, 274);
             poisonDataGridView1.Name = "poisonDataGridView1";
             poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -172,7 +172,7 @@
             poisonDataGridView1.RowHeadersWidth = 45;
             poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView1.Size = new Size(1395, 504);
+            poisonDataGridView1.Size = new Size(1395, 571);
             poisonDataGridView1.TabIndex = 8;
             // 
             // groupBox2
@@ -184,9 +184,9 @@
             groupBox2.Controls.Add(poisonButton21);
             groupBox2.Controls.Add(groupBox3);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(6, 66);
+            groupBox2.Location = new Point(6, 75);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1392, 137);
+            groupBox2.Size = new Size(1392, 155);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Tổng quan";
@@ -198,9 +198,9 @@
             poisonButton18.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton18.Image = (Image)resources.GetObject("poisonButton18.Image");
             poisonButton18.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton18.Location = new Point(226, 71);
+            poisonButton18.Location = new Point(226, 80);
             poisonButton18.Name = "poisonButton18";
-            poisonButton18.Size = new Size(123, 28);
+            poisonButton18.Size = new Size(123, 32);
             poisonButton18.TabIndex = 26;
             poisonButton18.Text = "Xem chi tiết";
             poisonButton18.UseSelectable = true;
@@ -213,9 +213,9 @@
             poisonButton20.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton20.Image = (Image)resources.GetObject("poisonButton20.Image");
             poisonButton20.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton20.Location = new Point(97, 71);
+            poisonButton20.Location = new Point(97, 80);
             poisonButton20.Name = "poisonButton20";
-            poisonButton20.Size = new Size(123, 28);
+            poisonButton20.Size = new Size(123, 32);
             poisonButton20.TabIndex = 25;
             poisonButton20.Text = "Làm mới";
             poisonButton20.UseSelectable = true;
@@ -228,9 +228,9 @@
             poisonButton19.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton19.Image = (Image)resources.GetObject("poisonButton19.Image");
             poisonButton19.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton19.Location = new Point(405, 37);
+            poisonButton19.Location = new Point(405, 42);
             poisonButton19.Name = "poisonButton19";
-            poisonButton19.Size = new Size(123, 28);
+            poisonButton19.Size = new Size(123, 32);
             poisonButton19.TabIndex = 24;
             poisonButton19.Text = "Tìm";
             poisonButton19.UseSelectable = true;
@@ -242,12 +242,12 @@
             foxTextBox4.EnabledCalc = true;
             foxTextBox4.Font = new Font("Segoe UI", 10F);
             foxTextBox4.ForeColor = Color.Black;
-            foxTextBox4.Location = new Point(97, 37);
+            foxTextBox4.Location = new Point(97, 42);
             foxTextBox4.MaxLength = 32767;
             foxTextBox4.MultiLine = false;
             foxTextBox4.Name = "foxTextBox4";
             foxTextBox4.ReadOnly = false;
-            foxTextBox4.Size = new Size(302, 28);
+            foxTextBox4.Size = new Size(302, 32);
             foxTextBox4.TabIndex = 23;
             foxTextBox4.Text = "Tìm kiếm";
             foxTextBox4.TextAlign = HorizontalAlignment.Left;
@@ -260,9 +260,9 @@
             poisonButton21.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton21.Image = (Image)resources.GetObject("poisonButton21.Image");
             poisonButton21.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton21.Location = new Point(848, 73);
+            poisonButton21.Location = new Point(848, 83);
             poisonButton21.Name = "poisonButton21";
-            poisonButton21.Size = new Size(96, 26);
+            poisonButton21.Size = new Size(96, 29);
             poisonButton21.TabIndex = 21;
             poisonButton21.Text = "Lọc";
             poisonButton21.UseSelectable = true;
@@ -275,9 +275,9 @@
             groupBox3.Controls.Add(radioButton2);
             groupBox3.Controls.Add(radioButton1);
             groupBox3.ForeColor = Color.WhiteSmoke;
-            groupBox3.Location = new Point(950, 28);
+            groupBox3.Location = new Point(950, 32);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(303, 71);
+            groupBox3.Size = new Size(303, 80);
             groupBox3.TabIndex = 22;
             groupBox3.TabStop = false;
             groupBox3.Text = "Tiêu chí lọc";
@@ -286,9 +286,9 @@
             // 
             radioButton4.AutoSize = true;
             radioButton4.Font = new Font("Segoe UI", 10.18868F);
-            radioButton4.Location = new Point(141, 45);
+            radioButton4.Location = new Point(141, 51);
             radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(110, 23);
+            radioButton4.Size = new Size(114, 24);
             radioButton4.TabIndex = 24;
             radioButton4.TabStop = true;
             radioButton4.Text = "Chưa hết hạn";
@@ -298,9 +298,9 @@
             // 
             radioButton3.AutoSize = true;
             radioButton3.Font = new Font("Segoe UI", 10.18868F);
-            radioButton3.Location = new Point(141, 21);
+            radioButton3.Location = new Point(141, 24);
             radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(76, 23);
+            radioButton3.Size = new Size(79, 24);
             radioButton3.TabIndex = 23;
             radioButton3.TabStop = true;
             radioButton3.Text = "Hết hạn";
@@ -310,9 +310,9 @@
             // 
             radioButton2.AutoSize = true;
             radioButton2.Font = new Font("Segoe UI", 10.18868F);
-            radioButton2.Location = new Point(6, 45);
+            radioButton2.Location = new Point(6, 51);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(85, 23);
+            radioButton2.Size = new Size(90, 24);
             radioButton2.TabIndex = 22;
             radioButton2.TabStop = true;
             radioButton2.Text = "Chưa làm";
@@ -322,9 +322,9 @@
             // 
             radioButton1.AutoSize = true;
             radioButton1.Font = new Font("Segoe UI", 10.18868F);
-            radioButton1.Location = new Point(6, 21);
+            radioButton1.Location = new Point(6, 24);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(70, 23);
+            radioButton1.Size = new Size(75, 24);
             radioButton1.TabIndex = 8;
             radioButton1.TabStop = true;
             radioButton1.Text = "Đã làm";
@@ -338,7 +338,7 @@
             bigLabel4.ForeColor = Color.White;
             bigLabel4.Location = new Point(103, 0);
             bigLabel4.Name = "bigLabel4";
-            bigLabel4.Size = new Size(54, 37);
+            bigLabel4.Size = new Size(57, 40);
             bigLabel4.TabIndex = 6;
             bigLabel4.Text = "🎉";
             // 
@@ -350,7 +350,7 @@
             bigLabel3.ForeColor = Color.White;
             bigLabel3.Location = new Point(55, 0);
             bigLabel3.Name = "bigLabel3";
-            bigLabel3.Size = new Size(54, 37);
+            bigLabel3.Size = new Size(57, 40);
             bigLabel3.TabIndex = 5;
             bigLabel3.Text = "🎉";
             // 
@@ -362,7 +362,7 @@
             bigLabel2.ForeColor = Color.White;
             bigLabel2.Location = new Point(6, 0);
             bigLabel2.Name = "bigLabel2";
-            bigLabel2.Size = new Size(54, 37);
+            bigLabel2.Size = new Size(57, 40);
             bigLabel2.TabIndex = 4;
             bigLabel2.Text = "🎉";
             // 
@@ -372,9 +372,9 @@
             bigLabel1.BackColor = Color.Transparent;
             bigLabel1.Font = new Font("Segoe UI", 19.6981125F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bigLabel1.ForeColor = Color.White;
-            bigLabel1.Location = new Point(6, 28);
+            bigLabel1.Location = new Point(6, 32);
             bigLabel1.Name = "bigLabel1";
-            bigLabel1.Size = new Size(473, 37);
+            bigLabel1.Size = new Size(507, 40);
             bigLabel1.TabIndex = 3;
             bigLabel1.Text = "Chào mừng bạn đến với Tochnolya 🎉";
             // 
@@ -385,7 +385,7 @@
             groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(1224, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(174, 61);
+            groupBox1.Size = new Size(174, 69);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
@@ -394,9 +394,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 8.150944F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(6, 39);
+            label3.Location = new Point(6, 44);
             label3.Name = "label3";
-            label3.Size = new Size(54, 13);
+            label3.Size = new Size(59, 17);
             label3.TabIndex = 4;
             label3.Text = "Sinh viên";
             // 
@@ -405,9 +405,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(6, 13);
+            label2.Location = new Point(6, 15);
             label2.Name = "label2";
-            label2.Size = new Size(131, 23);
+            label2.Size = new Size(137, 25);
             label2.TabIndex = 3;
             label2.Text = "Đinh Đức Giang";
             // 
@@ -419,7 +419,7 @@
             tabPage3.Location = new Point(204, 4);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1401, 750);
+            tabPage3.Size = new Size(1401, 851);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "Điểm";
             // 
@@ -450,7 +450,7 @@
             poisonDataGridView2.EnableHeadersVisualStyles = false;
             poisonDataGridView2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView2.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView2.Location = new Point(6, 190);
+            poisonDataGridView2.Location = new Point(6, 215);
             poisonDataGridView2.Name = "poisonDataGridView2";
             poisonDataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -464,7 +464,7 @@
             poisonDataGridView2.RowHeadersWidth = 45;
             poisonDataGridView2.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView2.Size = new Size(1392, 556);
+            poisonDataGridView2.Size = new Size(1392, 630);
             poisonDataGridView2.TabIndex = 9;
             // 
             // groupBox4
@@ -478,7 +478,7 @@
             groupBox4.ForeColor = Color.White;
             groupBox4.Location = new Point(6, 3);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1392, 137);
+            groupBox4.Size = new Size(1392, 155);
             groupBox4.TabIndex = 8;
             groupBox4.TabStop = false;
             groupBox4.Text = "Tổng quan";
@@ -490,9 +490,9 @@
             poisonButton1.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton1.Image = (Image)resources.GetObject("poisonButton1.Image");
             poisonButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton1.Location = new Point(226, 71);
+            poisonButton1.Location = new Point(226, 80);
             poisonButton1.Name = "poisonButton1";
-            poisonButton1.Size = new Size(123, 28);
+            poisonButton1.Size = new Size(123, 32);
             poisonButton1.TabIndex = 26;
             poisonButton1.Text = "Xem chi tiết";
             poisonButton1.UseSelectable = true;
@@ -505,9 +505,9 @@
             poisonButton2.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton2.Image = (Image)resources.GetObject("poisonButton2.Image");
             poisonButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton2.Location = new Point(97, 71);
+            poisonButton2.Location = new Point(97, 80);
             poisonButton2.Name = "poisonButton2";
-            poisonButton2.Size = new Size(123, 28);
+            poisonButton2.Size = new Size(123, 32);
             poisonButton2.TabIndex = 25;
             poisonButton2.Text = "Làm mới";
             poisonButton2.UseSelectable = true;
@@ -520,9 +520,9 @@
             poisonButton3.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton3.Image = (Image)resources.GetObject("poisonButton3.Image");
             poisonButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton3.Location = new Point(405, 37);
+            poisonButton3.Location = new Point(405, 42);
             poisonButton3.Name = "poisonButton3";
-            poisonButton3.Size = new Size(123, 28);
+            poisonButton3.Size = new Size(123, 32);
             poisonButton3.TabIndex = 24;
             poisonButton3.Text = "Tìm";
             poisonButton3.UseSelectable = true;
@@ -534,12 +534,12 @@
             foxTextBox1.EnabledCalc = true;
             foxTextBox1.Font = new Font("Segoe UI", 10F);
             foxTextBox1.ForeColor = Color.Black;
-            foxTextBox1.Location = new Point(97, 37);
+            foxTextBox1.Location = new Point(97, 42);
             foxTextBox1.MaxLength = 32767;
             foxTextBox1.MultiLine = false;
             foxTextBox1.Name = "foxTextBox1";
             foxTextBox1.ReadOnly = false;
-            foxTextBox1.Size = new Size(302, 28);
+            foxTextBox1.Size = new Size(302, 32);
             foxTextBox1.TabIndex = 23;
             foxTextBox1.Text = "Tìm kiếm";
             foxTextBox1.TextAlign = HorizontalAlignment.Left;
@@ -552,9 +552,9 @@
             poisonButton4.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton4.Image = (Image)resources.GetObject("poisonButton4.Image");
             poisonButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton4.Location = new Point(848, 73);
+            poisonButton4.Location = new Point(848, 83);
             poisonButton4.Name = "poisonButton4";
-            poisonButton4.Size = new Size(96, 26);
+            poisonButton4.Size = new Size(96, 29);
             poisonButton4.TabIndex = 21;
             poisonButton4.Text = "Lọc";
             poisonButton4.UseSelectable = true;
@@ -567,9 +567,9 @@
             groupBox5.Controls.Add(radioButton7);
             groupBox5.Controls.Add(radioButton8);
             groupBox5.ForeColor = Color.WhiteSmoke;
-            groupBox5.Location = new Point(951, 24);
+            groupBox5.Location = new Point(951, 27);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(436, 75);
+            groupBox5.Size = new Size(436, 85);
             groupBox5.TabIndex = 22;
             groupBox5.TabStop = false;
             groupBox5.Text = "Tiêu chí sắp xếp";
@@ -578,9 +578,9 @@
             // 
             radioButton5.AutoSize = true;
             radioButton5.Font = new Font("Segoe UI", 10.18868F);
-            radioButton5.Location = new Point(201, 45);
+            radioButton5.Location = new Point(201, 51);
             radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(146, 23);
+            radioButton5.Size = new Size(157, 24);
             radioButton5.TabIndex = 24;
             radioButton5.TabStop = true;
             radioButton5.Text = "Bài làm xa đây nhất";
@@ -590,9 +590,9 @@
             // 
             radioButton6.AutoSize = true;
             radioButton6.Font = new Font("Segoe UI", 10.18868F);
-            radioButton6.Location = new Point(201, 21);
+            radioButton6.Location = new Point(201, 24);
             radioButton6.Name = "radioButton6";
-            radioButton6.Size = new Size(156, 23);
+            radioButton6.Size = new Size(167, 24);
             radioButton6.TabIndex = 23;
             radioButton6.TabStop = true;
             radioButton6.Text = "Bài làm gần đây nhất";
@@ -602,9 +602,9 @@
             // 
             radioButton7.AutoSize = true;
             radioButton7.Font = new Font("Segoe UI", 10.18868F);
-            radioButton7.Location = new Point(6, 45);
+            radioButton7.Location = new Point(6, 51);
             radioButton7.Name = "radioButton7";
-            radioButton7.Size = new Size(175, 23);
+            radioButton7.Size = new Size(188, 24);
             radioButton7.TabIndex = 22;
             radioButton7.TabStop = true;
             radioButton7.Text = "Điểm từ cao xuống thấp";
@@ -614,9 +614,9 @@
             // 
             radioButton8.AutoSize = true;
             radioButton8.Font = new Font("Segoe UI", 10.18868F);
-            radioButton8.Location = new Point(6, 21);
+            radioButton8.Location = new Point(6, 24);
             radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(155, 23);
+            radioButton8.Size = new Size(167, 24);
             radioButton8.TabIndex = 8;
             radioButton8.TabStop = true;
             radioButton8.Text = "Điểm từ thấp lên cao";
@@ -624,9 +624,9 @@
             // 
             // ThiSinh
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1609, 758);
+            ClientSize = new Size(1609, 859);
             Controls.Add(tabPage1);
             Name = "ThiSinh";
             Text = "ThiSinh";

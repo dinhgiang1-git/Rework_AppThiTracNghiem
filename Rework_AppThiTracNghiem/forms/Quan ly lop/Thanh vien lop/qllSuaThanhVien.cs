@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Rework_AppThiTracNghiem.DataAccess;
 
 namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop.Thanh_vien_lop
 {
@@ -16,7 +15,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop.Thanh_vien_lop
     {
         string g_maThanhVien = "";
         string g_maLop = "";
-        
+        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         public qllSuaThanhVien(string maThanhVien, string maLop)
         {
             InitializeComponent();
@@ -36,70 +35,84 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop.Thanh_vien_lop
 
         private void Load_ThongTin()
         {
-            try
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = "Select HoTen, GioiTinh, NgaySinh, QueQuan from SINHVIEN where MaSinhVien = @MaSinhVien";
-                DataTable result = DatabaseHelper.ExecuteQuery(query,
-                    new SqlParameter("@MaSinhVien", g_maThanhVien));
-
-                if (result.Rows.Count > 0)
+                try
                 {
-                    thanhvientxtHoTen.Text = result.Rows[0]["HoTen"].ToString();
-                    thanhviencbGioiTinh.SelectedItem = result.Rows[0]["GioiTinh"].ToString();
-                    if (!result.Rows[0].IsNull("NgaySinh"))
+                    conn.Open();
+                    string query = "Select HoTen, GioiTinh, NgaySinh, QueQuan from SINHVIEN where MaSinhVien = @MaSinhVien";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", g_maThanhVien);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        thanhviendateNgaySinh.Value = Convert.ToDateTime(result.Rows[0]["NgaySinh"]);
+                        thanhvientxtHoTen.Text = reader["HoTen"].ToString();
+                        thanhviencbGioiTinh.SelectedItem = reader["GioiTinh"].ToString();
+                        // Xử lý ngày sinh
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgaySinh")))
+                        {
+                            thanhviendateNgaySinh.Value = Convert.ToDateTime(reader["NgaySinh"]);
+                        }
+                        thanhvientxtQueQuan.Text = reader["QueQuan"].ToString();
                     }
-                    thanhvientxtQueQuan.Text = result.Rows[0]["QueQuan"].ToString();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                catch (Exception ex)
+                {
+                    throw new Exception("Error :" + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
 
         private void thanhvienbtnSuaDong_Click(object sender, EventArgs e)
         {
+            //Lấy dữ liệu
             string tenThanhVien = thanhvientxtHoTen.Text;
             string gioiTinh = thanhviencbGioiTinh.SelectedItem.ToString();
             DateTime ngaySinh = thanhviendateNgaySinh.Value;
             string queQuan = thanhvientxtQueQuan.Text;
             DateTime updateAt = DateTime.Now;
 
+            //Validate
             if (string.IsNullOrEmpty(tenThanhVien))
             {
                 MessageBox.Show("Vui lòng điền tên thành viên!");
                 return;
             }
 
-            try
+            //Sửa
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = @"Update SINHVIEN 
-                               set HoTen = @HoTen, 
-                                   GioiTinh = @GioiTinh, 
-                                   NgaySinh = @NgaySinh, 
-                                   QueQuan = @QueQuan, 
-                                   UpdateAt = @UpdateAt 
-                               where MaSinhVien = @MaSinhVien";
-
-                int rowAffected = DatabaseHelper.ExecuteNonQuery(query,
-                    new SqlParameter("@HoTen", tenThanhVien),
-                    new SqlParameter("@GioiTinh", gioiTinh),
-                    new SqlParameter("@NgaySinh", ngaySinh),
-                    new SqlParameter("@QueQuan", queQuan),
-                    new SqlParameter("@UpdateAt", updateAt),
-                    new SqlParameter("@MaSinhVien", g_maThanhVien));
-
-                if (rowAffected > 0)
+                try
                 {
-                    MessageBox.Show("Sửa thành công!");
+                    conn.Open();
+                    string query = "Update SINHVIEN set HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, QueQuan = @QueQuan, UpdateAt = @UpdateAt where MaSinhVien = @MaSinhVien";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@HoTen", tenThanhVien);
+                    cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+                    cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
+                    cmd.Parameters.AddWithValue("@UpdateAt", updateAt);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", g_maThanhVien);
+
+                    int rowAffected = cmd.ExecuteNonQuery();
+                    if (rowAffected > 0)
+                    {
+                        MessageBox.Show("Sửa thành công!");
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
                     this.Close();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }

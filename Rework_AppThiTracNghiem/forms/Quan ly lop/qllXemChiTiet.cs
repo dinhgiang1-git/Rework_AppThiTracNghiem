@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Rework_AppThiTracNghiem.DataAccess;
 using Rework_AppThiTracNghiem.forms.Quan_ly_lop;
 using Rework_AppThiTracNghiem.forms.Quan_ly_lop.Thanh_vien_lop;
 
@@ -16,10 +15,10 @@ namespace Rework_AppThiTracNghiem.forms
 {
     public partial class qllXemChiTiet : Form
     {
+        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         string g_maLop = "";
         string g_maThanhVien = "";
         string g_tenThanhVien = "";
-        
         public qllXemChiTiet(string maLop)
         {
             InitializeComponent();
@@ -30,19 +29,30 @@ namespace Rework_AppThiTracNghiem.forms
 
         private void LoadData_ThanhVien()
         {
-            try
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = "Select MaSinhVien, HoTen, GioiTinh, NgaySinh from SINHVIEN where MaLopHoc = @MaLopHoc";
-                DataTable dt = DatabaseHelper.ExecuteQuery(query,
-                    new SqlParameter("@MaLopHoc", g_maLop));
-                dataThanhVien.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                try
+                {
+                    conn.Open();
+                    string query = "Select MaSinhVien, HoTen, GioiTinh, NgaySinh from SINHVIEN where MaLopHoc = @MaLopHoc";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLop);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataThanhVien.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
-
         private void qllbtnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData_ThanhVien();
@@ -54,6 +64,11 @@ namespace Rework_AppThiTracNghiem.forms
             themthanhvien.Show();
         }
 
+        private void qllbtnSuaThanhVien_Click(object sender, EventArgs e)
+        {
+            qllSuaThanhVien suathanhvien = new qllSuaThanhVien(g_maThanhVien, g_maLop);
+            suathanhvien.Show();
+        }
         private void dataThanhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -64,52 +79,41 @@ namespace Rework_AppThiTracNghiem.forms
             }
         }
 
-        private void qllbtnSuaThanhVien_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(g_maThanhVien))
-            {
-                MessageBox.Show("Vui lòng chọn một thành viên để sửa!");
-                return;
-            }
-            qllSuaThanhVien suathanhvien = new qllSuaThanhVien(g_maThanhVien, g_maLop);
-            suathanhvien.Show();
-        }
-
         private void qllbtnXoaThanhVien_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(g_maThanhVien))
+            if(string.IsNullOrEmpty(g_maThanhVien))
             {
                 MessageBox.Show("Vui lòng chọn một thành viên để xoá!");
                 return;
             }
-
-            DialogResult result = MessageBox.Show(
-                "Bạn có muốn xoá " + g_tenThanhVien + " ?",
-                "Xác nhận xoá",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
+            DialogResult result = MessageBox.Show("Bạn có muốn xoá " + g_tenThanhVien + " ?.", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
-
-            try
+            //Xoá
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = "Delete SINHVIEN where MaSinhVien = @MaSinhVien";
-                int rowAffected = DatabaseHelper.ExecuteNonQuery(query,
-                    new SqlParameter("@MaSinhVien", g_maThanhVien));
-
-                if (rowAffected > 0)
+                try
                 {
-                    MessageBox.Show("Xoá thành công!");
-                    LoadData_ThanhVien();
+                    conn.Open();
+                    string query = "Delete SINHVIEN where MaSinhVien = @MaSinhVien";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", g_maThanhVien);
+                    int rowAffected = cmd.ExecuteNonQuery();
+                    if (rowAffected > 0)
+                    {
+                        MessageBox.Show("Xoá " + g_tenThanhVien + " thành công!");
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
     }

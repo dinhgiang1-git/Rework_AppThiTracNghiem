@@ -38,6 +38,24 @@ create table NGANHANGCAUHOI (
 	MaGiangVien varchar(20)
 );
 
+create table DETHI (
+	MaDeThi int identity(1,1) primary key,
+	TenDeThi nvarchar(100),
+	MaNganHang int,
+	MaGiangVien varchar(20),
+	MaLop varchar(20),
+	TongSoCau int,
+	SoCauDe int,
+	SoCauTrungBinh int,
+	SoCauKho int,
+	ThoiGianLamBai int,
+	NgayBatDau DateTime,
+	NgayKetThuc DateTime,
+	CreateAt Date,
+	UpdateAt Date
+);
+drop table DETHI
+
 create table CAUHOI (
 	MaCauHoi int identity(1,1) primary key,
 	NoiDungCauHoi nvarchar(500),
@@ -54,6 +72,13 @@ create table CAUHOI (
 
 delete CAUHOI
 drop table CAUHOI
+select * from NGANHANGCAUHOI
+select * from DETHI
+
+select DETHI.TenDeThi, NGANHANGCAUHOI.TenNganHang, DETHI.NgayBatDau, DETHI.NgayKetThuc  
+from DETHI  
+join NGANHANGCAUHOI on NGANHANGCAUHOI.MaNganHang = DETHI.MaNganHang 
+where DETHI.MaDeThi = '1'
 
 SELECT 
     N.MaNganHang,
@@ -85,4 +110,5 @@ select HoTen from GIANGVIEN where MaGiangVien = '123'
 select * from SINHVIEN
 select * from LOPHOC
 
+SELECT COUNT(*) FROM CAUHOI WHERE MaNganHang = '1'
 

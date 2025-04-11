@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Rework_AppThiTracNghiem.DataAccess;
 
 namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
 {
     public partial class qllThemThanhVien : Form
     {
+        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         string g_maLop = "";
-        
         public qllThemThanhVien(string maLop)
         {
             InitializeComponent();
@@ -32,22 +31,30 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
 
         private bool checkTrungMaThanhVien(string maSinhVien)
         {
-            try
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = "Select count(*) from SINHVIEN where MaSinhVien = @MaSinhVien";
-                int count = Convert.ToInt32(DatabaseHelper.ExecuteScalar(query,
-                    new SqlParameter("@MaSinhVien", maSinhVien)));
-                return count > 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return false;
+                try
+                {
+                    conn.Open();
+                    string query = "Select count(*) from SINHVIEN where MaSinhVien = @MaSinhVien";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", maSinhVien);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
-
         private void add()
         {
+            //lấy dữ liệu          
             string maThanhVien = thanhvientxtMaThanhVien.Text.Trim().ToUpper();
             string hoTen = thanhvientxtHoTen.Text;
             string gioiTinh = thanhviencbGioiTinh.SelectedItem.ToString();
@@ -72,48 +79,51 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
                 return;
             }
 
-            try
+            //Thêm
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = @"Insert into SINHVIEN
-                               (MaSinhVien, HoTen, GioiTinh, NgaySinh, QueQuan, MatKhau, MaLopHoc, CreateAt) 
-                               values 
-                               (@MaSinhVien, @HoTen, @GioiTinh, @NgaySinh, @QueQuan, @MatKhau, @MaLopHoc, @CreateAt)";
-
-                int rowAffected = DatabaseHelper.ExecuteNonQuery(query,
-                    new SqlParameter("@MaSinhVien", maThanhVien),
-                    new SqlParameter("@HoTen", hoTen),
-                    new SqlParameter("@GioiTinh", gioiTinh),
-                    new SqlParameter("@NgaySinh", ngaySinh),
-                    new SqlParameter("@QueQuan", queQuan),
-                    new SqlParameter("@MatKhau", "123"),
-                    new SqlParameter("@MaLopHoc", g_maLop),
-                    new SqlParameter("@CreateAt", createAt));
-
-                if (rowAffected > 0)
+                try
                 {
-                    MessageBox.Show("Thêm thành công!");
-                    
+                    conn.Open();
+                    string query = "Insert into SINHVIEN(MaSinhVien, HoTen, GioiTinh, NgaySinh, QueQuan, MatKhau, MaLopHoc, CreateAt) values (@MaSinhVien, @HoTen, @GioiTinh, @NgaySinh, @QueQuan, @MatKhau, @MaLopHoc, @CreateAt)";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", maThanhVien);
+                    cmd.Parameters.AddWithValue("@HoTen", hoTen);
+                    cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+                    cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
+                    cmd.Parameters.AddWithValue("@QueQuan", queQuan);
+                    cmd.Parameters.AddWithValue("@MatKhau", 1);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLop);
+                    cmd.Parameters.AddWithValue("@CreateAt", createAt);
+
+                    int rowsaffected = cmd.ExecuteNonQuery();
+                    if (rowsaffected > 0)
+                    {
+                        MessageBox.Show("Thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm không thành công!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
-
-        private void thanhvienbtnThemDong_Click(object sender, EventArgs e)
-        {
-            add();
-        }
-
         private void thanhvienbtnThem_Click(object sender, EventArgs e)
         {
             add();
-            thanhvientxtMaThanhVien.Text = "";
-            thanhvientxtHoTen.Text = "";
-            thanhviencbGioiTinh.SelectedIndex = 0;
-            thanhviendateNgaySinh.Value = DateTime.Now;
-            thanhvientxtQueQuan.Text = "";
+        }
+        private void thanhvienbtnThemDong_Click(object sender, EventArgs e)
+        {
+            add();
+            add();
             Close();
         }
     }

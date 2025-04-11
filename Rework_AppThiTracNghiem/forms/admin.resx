@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="poisonButton5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="adminbtnTimDeThi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABY9JREFUaEPtmFtQVHUcxx3NHnwL60nrpXrJl2ZKp556bKacIVJURFAwUAQ1SLnb
@@ -148,7 +148,7 @@
         QgxqZrQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="poisonButton4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="adminbtnLamMoiDeThi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABY9JREFUaEPtmFtQVHUcxx3NHnwL60nrpXrJl2ZKp556bKacIVJURFAwUAQ1SLnb
@@ -178,7 +178,7 @@
         QgxqZrQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="poisonButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="adminbtnXoaDeThi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABY9JREFUaEPtmFtQVHUcxx3NHnwL60nrpXrJl2ZKp556bKacIVJURFAwUAQ1SLnb
@@ -208,7 +208,7 @@
         QgxqZrQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="poisonButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="adminbtnSuaDeThi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABY9JREFUaEPtmFtQVHUcxx3NHnwL60nrpXrJl2ZKp556bKacIVJURFAwUAQ1SLnb
@@ -238,7 +238,7 @@
         QgxqZrQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="poisonButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="adminbtnThemDeThi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABY9JREFUaEPtmFtQVHUcxx3NHnwL60nrpXrJl2ZKp556bKacIVJURFAwUAQ1SLnb

@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using Rework_AppThiTracNghiem.DataAccess;
 
 namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH
 {
     public partial class nhchThemNHCH : Form
     {
+        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
         string g_maGiangVien = "";
-        
         public nhchThemNHCH(string maGiangVien)
         {
             InitializeComponent();
@@ -29,39 +28,49 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH
 
         private void add()
         {
+            //lấy dữ liệu
             string tenNHCH = "Ngân hàng câu hỏi " + nhchtxtTenNganHang.Text;
             DateTime createAt = DateTime.Now;
 
+            //Validate
             if (string.IsNullOrEmpty(tenNHCH))
             {
                 MessageBox.Show("Vui lòng nhập tên ngân hàng câu hỏi!");
                 return;
             }
 
-            try
+            //Thêm
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                string query = @"Insert into NGANHANGCAUHOI
-                               (TenNganHang, CreateAt, MaGiangVien) 
-                               values 
-                               (@TenNganHang, @CreateAt, @MaGiangVien)";
-
-                int rowAffected = DatabaseHelper.ExecuteNonQuery(query,
-                    new SqlParameter("@TenNganHang", tenNHCH),
-                    new SqlParameter("@CreateAt", createAt),
-                    new SqlParameter("@MaGiangVien", g_maGiangVien));
-
-                if (rowAffected > 0)
+                try
                 {
-                    MessageBox.Show("Thêm thành công!");
-                    this.Close();
+                    conn.Open();
+                    string query = "Insert into NGANHANGCAUHOI(TenNganHang, CreateAt, MaGiangVien) values (@TenNganHang, @CreateAt, @MaGiangVien)";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@TenNganHang", tenNHCH);
+                    cmd.Parameters.AddWithValue("@CreateAt", createAt);
+                    cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+
+                    int rowsaffected = cmd.ExecuteNonQuery();
+                    if (rowsaffected > 0)
+                    {
+                        MessageBox.Show("Thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm không thành công!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
-
         private void nhchbtnThem_Click(object sender, EventArgs e)
         {
             add();

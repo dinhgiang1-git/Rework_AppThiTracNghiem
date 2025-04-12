@@ -28,18 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThiSinh));
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tabPage1 = new ReaLTaiizor.Controls.TabPage();
             tabPage2 = new TabPage();
-            poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             groupBox2 = new GroupBox();
-            poisonButton18 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton20 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton19 = new ReaLTaiizor.Controls.PoisonButton();
             foxTextBox4 = new ReaLTaiizor.Controls.FoxTextBox();
@@ -71,7 +67,6 @@
             radioButton8 = new RadioButton();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -117,7 +112,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage2.Controls.Add(poisonDataGridView1);
+            tabPage2.Controls.Add(flowLayoutPanel1);
             tabPage2.Controls.Add(groupBox2);
             tabPage2.Controls.Add(bigLabel4);
             tabPage2.Controls.Add(bigLabel3);
@@ -131,53 +126,16 @@
             tabPage2.TabIndex = 0;
             tabPage2.Text = "Tổng quan";
             // 
-            // poisonDataGridView1
+            // flowLayoutPanel1
             // 
-            poisonDataGridView1.AllowUserToResizeRows = false;
-            poisonDataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView1.BorderStyle = BorderStyle.None;
-            poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            poisonDataGridView1.EnableHeadersVisualStyles = false;
-            poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView1.Location = new Point(6, 274);
-            poisonDataGridView1.Name = "poisonDataGridView1";
-            poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            poisonDataGridView1.RowHeadersWidth = 45;
-            poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView1.Size = new Size(1395, 571);
-            poisonDataGridView1.TabIndex = 8;
+            flowLayoutPanel1.BackColor = Color.FromArgb(241, 245, 249);
+            flowLayoutPanel1.Location = new Point(6, 236);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1392, 612);
+            flowLayoutPanel1.TabIndex = 8;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(poisonButton18);
             groupBox2.Controls.Add(poisonButton20);
             groupBox2.Controls.Add(poisonButton19);
             groupBox2.Controls.Add(foxTextBox4);
@@ -191,21 +149,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Tổng quan";
             // 
-            // poisonButton18
-            // 
-            poisonButton18.BackColor = Color.Transparent;
-            poisonButton18.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton18.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton18.Image = (Image)resources.GetObject("poisonButton18.Image");
-            poisonButton18.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton18.Location = new Point(226, 80);
-            poisonButton18.Name = "poisonButton18";
-            poisonButton18.Size = new Size(123, 32);
-            poisonButton18.TabIndex = 26;
-            poisonButton18.Text = "Xem chi tiết";
-            poisonButton18.UseSelectable = true;
-            poisonButton18.UseVisualStyleBackColor = false;
-            // 
             // poisonButton20
             // 
             poisonButton20.BackColor = Color.Transparent;
@@ -213,7 +156,7 @@
             poisonButton20.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton20.Image = (Image)resources.GetObject("poisonButton20.Image");
             poisonButton20.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton20.Location = new Point(97, 80);
+            poisonButton20.Location = new Point(20, 85);
             poisonButton20.Name = "poisonButton20";
             poisonButton20.Size = new Size(123, 32);
             poisonButton20.TabIndex = 25;
@@ -228,7 +171,7 @@
             poisonButton19.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton19.Image = (Image)resources.GetObject("poisonButton19.Image");
             poisonButton19.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton19.Location = new Point(405, 42);
+            poisonButton19.Location = new Point(328, 47);
             poisonButton19.Name = "poisonButton19";
             poisonButton19.Size = new Size(123, 32);
             poisonButton19.TabIndex = 24;
@@ -242,7 +185,7 @@
             foxTextBox4.EnabledCalc = true;
             foxTextBox4.Font = new Font("Segoe UI", 10F);
             foxTextBox4.ForeColor = Color.Black;
-            foxTextBox4.Location = new Point(97, 42);
+            foxTextBox4.Location = new Point(20, 47);
             foxTextBox4.MaxLength = 32767;
             foxTextBox4.MultiLine = false;
             foxTextBox4.Name = "foxTextBox4";
@@ -260,7 +203,7 @@
             poisonButton21.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton21.Image = (Image)resources.GetObject("poisonButton21.Image");
             poisonButton21.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton21.Location = new Point(848, 83);
+            poisonButton21.Location = new Point(1083, 110);
             poisonButton21.Name = "poisonButton21";
             poisonButton21.Size = new Size(96, 29);
             poisonButton21.TabIndex = 21;
@@ -275,7 +218,7 @@
             groupBox3.Controls.Add(radioButton2);
             groupBox3.Controls.Add(radioButton1);
             groupBox3.ForeColor = Color.WhiteSmoke;
-            groupBox3.Location = new Point(950, 32);
+            groupBox3.Location = new Point(1083, 24);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(303, 80);
             groupBox3.TabIndex = 22;
@@ -633,7 +576,6 @@
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
@@ -669,8 +611,6 @@
         private RadioButton radioButton4;
         private RadioButton radioButton3;
         private ReaLTaiizor.Controls.PoisonButton poisonButton20;
-        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton18;
         private GroupBox groupBox4;
         private ReaLTaiizor.Controls.PoisonButton poisonButton1;
         private ReaLTaiizor.Controls.PoisonButton poisonButton2;
@@ -683,5 +623,6 @@
         private RadioButton radioButton7;
         private RadioButton radioButton8;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

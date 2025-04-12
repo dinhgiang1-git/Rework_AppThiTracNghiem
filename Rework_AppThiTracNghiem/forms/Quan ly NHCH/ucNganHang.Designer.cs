@@ -69,6 +69,7 @@
             // 
             ucMaNganHang.AutoSize = true;
             ucMaNganHang.Font = new Font("SF Mono", 8.150944F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ucMaNganHang.ForeColor = Color.White;
             ucMaNganHang.Location = new Point(266, 69);
             ucMaNganHang.Name = "ucMaNganHang";
             ucMaNganHang.Size = new Size(15, 16);

@@ -19,6 +19,7 @@ namespace Rework_AppThiTracNghiem
         string g_tenDeThi = "";
         ucLop selectedLop = null;
         ucNganHang selectedNHCH = null;
+        ucDeThi selectedDeThi = null;
         public admin(string maGiangVien)
         {
             InitializeComponent();
@@ -226,8 +227,25 @@ namespace Rework_AppThiTracNghiem
             }
         }
 
+        private void ucDeThi_Click(object sender, ucDeThi dt)
+        {
+            // Bỏ chọn cái cũ (nếu có)
+            if (selectedDeThi != null)
+            {
+                selectedDeThi.BackColor = SystemColors.Control;
+            }
+
+            // Tô màu cái mới
+            selectedDeThi = dt;
+            selectedDeThi.BackColor = Color.LightBlue; // hoặc màu bạn thích
+
+            // Cập nhật mã lớp cho các chức năng sửa/xoá
+            g_maDeThi = dt.MaDeThi;
+        }
+
         private void LoadData_DETHI()
         {
+            flowDeThi.Controls.Clear();
 
             using (SqlConnection conn = new SqlConnection(strConn))
             {
@@ -237,11 +255,35 @@ namespace Rework_AppThiTracNghiem
                     string query = "select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc from DETHI where DETHI.MaGiangVien = @MaGiangVien";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string madethi = reader["MaDeThi"].ToString();
+                        string tendethi = reader["TenDeThi"].ToString();
+                        DateTime NgayBatDau = DateTime.Now;
+                        DateTime NgayKetThuc = DateTime.Now;
 
-                    dataDeThi.DataSource = dt;
+                        // Xử lý ngày 
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayBatDau")))
+                        {
+                            NgayBatDau = Convert.ToDateTime(reader["NgayBatDau"]);
+                        }
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayKetThuc")))
+                        {
+                            NgayKetThuc = Convert.ToDateTime(reader["NgayKetThuc"]);
+                        }
+
+                        ucDeThi dethi = new ucDeThi();
+                        dethi.Dock = DockStyle.Top;
+                        dethi.MaDeThi = madethi;
+                        dethi.TenDeThi = tendethi;
+                        dethi.NgayBatDau = NgayBatDau;
+                        dethi.NgayKetThuc = NgayKetThuc;
+
+                        dethi.onDeThi_Click += ucDeThi_Click;
+
+                        flowDeThi.Controls.Add(dethi);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -372,11 +414,6 @@ namespace Rework_AppThiTracNghiem
             suanhch.Show();
         }
 
-        private void adminbtnThemDeThi_Click(object sender, EventArgs e)
-        {
-            ThemDeThi themdethi = new ThemDeThi(g_maGiangVien);
-            themdethi.Show();
-        }
 
         private void adminbtnSuaDeThi_Click(object sender, EventArgs e)
         {
@@ -389,19 +426,9 @@ namespace Rework_AppThiTracNghiem
             suadethi.Show();
         }
 
-        private void dataDeThi_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataDeThi.Rows[e.RowIndex];
-                g_maDeThi = row.Cells["MaDeThi"].Value.ToString();
-                g_tenDeThi = row.Cells["TenDeThi"].Value.ToString();
-
-            }
-        }
-
         private void adminbtnLamMoiDeThi_Click(object sender, EventArgs e)
         {
+            g_maDeThi = "";
             LoadData_DETHI();
         }
 
@@ -410,6 +437,7 @@ namespace Rework_AppThiTracNghiem
             if (string.IsNullOrWhiteSpace(g_maDeThi))
             {
                 MessageBox.Show("Vui lòng chọn một đề thi để xoá");
+                return;
             }
             DialogResult result = MessageBox.Show("Bạn có muốn xoá " + g_tenDeThi + " ?.", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
@@ -483,6 +511,12 @@ namespace Rework_AppThiTracNghiem
                     conn.Close();
                 }
             }
+        }
+
+        private void adminbtnThemDeThi_Click(object sender, EventArgs e)
+        {
+            ThemDeThi themdethi = new ThemDeThi(g_maGiangVien);
+            themdethi.Show();
         }
     }
 }

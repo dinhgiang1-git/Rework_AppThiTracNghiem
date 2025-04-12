@@ -102,11 +102,11 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             int thoigianlambai = 0;
             DateTime ngaybatdau = tdtdateNgayBatDau.Value;
             DateTime ngayketthuc = tdtdateNgayKetThuc.Value;
-            if(!string.IsNullOrWhiteSpace(tdttxtThoiGianLamBai.Text))
+            if (!string.IsNullOrWhiteSpace(tdttxtThoiGianLamBai.Text))
             {
                 thoigianlambai = int.Parse(tdttxtThoiGianLamBai.Text);
             }
-            if (!string.IsNullOrWhiteSpace(tdttxtSoLuongCauHoi.Text)) 
+            if (!string.IsNullOrWhiteSpace(tdttxtSoLuongCauHoi.Text))
             {
                 soluongcauhoi = int.Parse(tdttxtSoLuongCauHoi.Text);
             }
@@ -117,14 +117,14 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
                 soluongcauhoide = int.Parse(tdttxtSoLuongCauHoiDe.Text);
             }
             int soluongcauhoitrungbinh = 0;
-            if (!string.IsNullOrWhiteSpace(tdttxtSoLuongCauHoiTrungBinh.Text)) 
+            if (!string.IsNullOrWhiteSpace(tdttxtSoLuongCauHoiTrungBinh.Text))
             {
-            soluongcauhoitrungbinh = int.Parse(tdttxtSoLuongCauHoiTrungBinh.Text);
+                soluongcauhoitrungbinh = int.Parse(tdttxtSoLuongCauHoiTrungBinh.Text);
             }
             int soluongcauhoikho = 0;
-            if (!string.IsNullOrWhiteSpace(tdttxtSoLuongCauHoiKho.Text)) 
+            if (!string.IsNullOrWhiteSpace(tdttxtSoLuongCauHoiKho.Text))
             {
-            int.Parse(tdttxtSoLuongCauHoiKho.Text);
+                int.Parse(tdttxtSoLuongCauHoiKho.Text);
             }
             string maLop = tdtcbLop.SelectedValue.ToString();
             DateTime createAt = DateTime.Now;
@@ -153,7 +153,7 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
                     cmd.Parameters.AddWithValue("@MaNganHang", g_maNganHang);
                     cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
                     cmd.Parameters.AddWithValue("@MaLop", g_maLop);
-                    cmd.Parameters.AddWithValue("@TongSoCau", soluongcauhoi); 
+                    cmd.Parameters.AddWithValue("@TongSoCau", soluongcauhoi);
                     cmd.Parameters.AddWithValue("@SoCauDe", soluongcauhoide);
                     cmd.Parameters.AddWithValue("@SoCauTrungBinh", soluongcauhoitrungbinh);
                     cmd.Parameters.AddWithValue("@SoCauKho", soluongcauhoikho);
@@ -216,20 +216,25 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             }
         }
 
+        private void tdtbtnHuy_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void tdtbtnThem_Click(object sender, EventArgs e)
         {
             add();
-        }
-
-        private void tdtcbLop_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            g_maLop = tdtcbLop.SelectedValue.ToString();
         }
 
         private void tdtbtnThemDong_Click(object sender, EventArgs e)
         {
             add();
             this.Close();
+        }
+
+        private void tdtcbLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            g_maLop = tdtcbLop.SelectedValue.ToString();
         }
     }
 }

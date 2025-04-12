@@ -273,5 +273,10 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             edit();
             Close();
         }
+
+        private void sdtbtnHuy_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

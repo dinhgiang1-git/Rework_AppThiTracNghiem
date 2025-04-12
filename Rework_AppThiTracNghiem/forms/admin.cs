@@ -2,7 +2,9 @@
 using Microsoft.Data.SqlClient;
 using Rework_AppThiTracNghiem.forms;
 using Rework_AppThiTracNghiem.forms.Quan_ly_lop;
+using Rework_AppThiTracNghiem.forms.Quan_ly_lop.flowLayout;
 using Rework_AppThiTracNghiem.forms.Quan_ly_NHCH;
+using Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.flowLayout;
 using Rework_AppThiTracNghiem.forms.QuanLyDeThi;
 namespace Rework_AppThiTracNghiem
 {
@@ -15,12 +17,15 @@ namespace Rework_AppThiTracNghiem
         string g_maLop = "";
         string g_maDeThi = "";
         string g_tenDeThi = "";
+        ucLop selectedLop = null;
+        ucNganHang selectedNHCH = null;
         public admin(string maGiangVien)
         {
             InitializeComponent();
             g_maGiangVien = maGiangVien;
             LoadThongTin();
-            LoadData_Lop();
+            //LoadData_Lop();
+            LoadDanhSachLop();
             LoadData_NHCH();
             LoadData_DETHI();
         }
@@ -54,45 +59,119 @@ namespace Rework_AppThiTracNghiem
                 }
             }
         }
-        private void LoadData_Lop()
+        //private void LoadData_Lop()
+        //{
+        //    using (SqlConnection conn = new SqlConnection(strConn))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            string query = @"SELECT 
+        //                        LOPHOC.MaLopHoc,
+        //                        LOPHOC.TenLopHoc,
+        //                        COUNT(SINHVIEN.MaSinhVien) AS SoLuongSinhVien
+        //                    FROM 
+        //                        LOPHOC
+        //                    LEFT JOIN 
+        //                        SINHVIEN ON SINHVIEN.MaLopHoc = LOPHOC.MaLopHoc
+        //                    WHERE 
+        //                        LOPHOC.MaGiangVien = @MaGiangVien
+        //                    GROUP BY 
+        //                        LOPHOC.MaLopHoc, LOPHOC.TenLopHoc";
+        //            SqlCommand cmd = new SqlCommand(query, conn);
+        //            cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+        //            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //            DataTable dt = new DataTable();
+        //            adapter.Fill(dt);
+
+        //            dataLop.DataSource = dt;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw new Exception("Error: " + ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            conn.Close();
+        //        }
+        //    }
+        //}
+
+        private void LoadDanhSachLop()
         {
+            flowLop.Controls.Clear();
+
             using (SqlConnection conn = new SqlConnection(strConn))
             {
-                try
-                {
-                    conn.Open();
-                    string query = @"SELECT 
-                                LOPHOC.MaLopHoc,
-                                LOPHOC.TenLopHoc,
-                                COUNT(SINHVIEN.MaSinhVien) AS SoLuongSinhVien
-                            FROM 
-                                LOPHOC
-                            LEFT JOIN 
-                                SINHVIEN ON SINHVIEN.MaLopHoc = LOPHOC.MaLopHoc
-                            WHERE 
-                                LOPHOC.MaGiangVien = @MaGiangVien
-                            GROUP BY 
-                                LOPHOC.MaLopHoc, LOPHOC.TenLopHoc";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+                conn.Open();
+                string query = @"
+            SELECT LOPHOC.MaLopHoc, LOPHOC.TenLopHoc, COUNT(SINHVIEN.MaSinhVien) AS SoLuongSinhVien
+            FROM LOPHOC
+            LEFT JOIN SINHVIEN ON SINHVIEN.MaLopHoc = LOPHOC.MaLopHoc
+            WHERE LOPHOC.MaGiangVien = @MaGiangVien
+            GROUP BY LOPHOC.MaLopHoc, LOPHOC.TenLopHoc";
 
-                    dataLop.DataSource = dt;
-                }
-                catch (Exception ex)
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    throw new Exception("Error: " + ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
+                    string tenLop = reader["TenLopHoc"].ToString();
+                    string maLop = reader["MaLopHoc"].ToString();
+                    int soLuongSV = Convert.ToInt32(reader["SoLuongSinhVien"]);
+
+                    // Tạo 1 thẻ UserControl cho mỗi lớp
+                    ucLop fl = new ucLop();
+                    fl.Dock = DockStyle.Top; // hoặc none nếu muốn flow dạng khối
+                    fl.MaLop = maLop;
+                    fl.TenLop = tenLop;
+                    fl.SiSo = "Sĩ số: " + soLuongSV;
+                    fl.Tag = maLop; // để bạn lấy mã khi click
+
+                    fl.OnFlowLopClick += FlowLop_Click;
+
+
+                    // Thêm vào danh sách
+                    flowLop.Controls.Add(fl);
                 }
             }
         }
+        private void FlowLop_Click(object sender, ucLop fl)
+        {
+            // Bỏ chọn cái cũ (nếu có)
+            if (selectedLop != null)
+            {
+                selectedLop.BackColor = SystemColors.Control;
+            }
+
+            // Tô màu cái mới
+            selectedLop = fl;
+            selectedLop.BackColor = Color.LightBlue; // hoặc màu bạn thích
+
+            // Cập nhật mã lớp cho các chức năng sửa/xoá
+            g_maLop = fl.MaLop;
+        }
+
+        private void FlowNHCH_Click(object sender, ucNganHang nh)
+        {
+            // Bỏ chọn cái cũ (nếu có)
+            if (selectedNHCH != null)
+            {
+                selectedNHCH.BackColor = SystemColors.Control;
+            }
+
+            // Tô màu cái mới
+            selectedNHCH = nh;
+            selectedNHCH.BackColor = Color.LightBlue; // hoặc màu bạn thích
+
+            // Cập nhật mã lớp cho các chức năng sửa/xoá
+            g_MaNganHangCauHoi = nh.MaNganHang;
+        }
+
         private void LoadData_NHCH()
         {
+            flowNHCH.Controls.Clear();
 
             using (SqlConnection conn = new SqlConnection(strConn))
             {
@@ -113,11 +192,28 @@ namespace Rework_AppThiTracNghiem
                         N.MaNganHang, N.TenNganHang";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    dataNHCH.DataSource = dt;
+                    while (reader.Read())
+                    {
+                        string manganhang = reader["MaNganHang"].ToString();
+                        string tennganhang = reader["TenNganHang"].ToString();
+                        string soluongcauhoi = reader["SoLuongCauHoi"].ToString();
+
+
+                        ucNganHang uc = new ucNganHang();
+                        uc.Dock = DockStyle.Top;
+                        uc.TenNganHang = tennganhang;
+                        uc.MaNganHang = manganhang;
+                        uc.SoLuongCauHoi = "Số lượng câu hỏi: " + soluongcauhoi;
+                        uc.Tag = manganhang; // để bạn lấy mã khi click
+
+                        uc.OnFlowNHCHClick += FlowNHCH_Click;
+
+                        flowNHCH.Controls.Add(uc);
+
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -138,7 +234,7 @@ namespace Rework_AppThiTracNghiem
                 try
                 {
                     conn.Open();
-                    string query = "select DETHI.MaDeThi, DETHI.TenDeThi, NGANHANGCAUHOI.TenNganHang, DETHI.NgayBatDau, DETHI.NgayKetThuc from DETHI join NGANHANGCAUHOI on NGANHANGCAUHOI.MaNganHang = DETHI.MaNganHang where DETHI.MaGiangVien = @MaGiangVien";
+                    string query = "select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc from DETHI where DETHI.MaGiangVien = @MaGiangVien";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -166,7 +262,7 @@ namespace Rework_AppThiTracNghiem
 
         private void adminqllbtnLamMoi_Click(object sender, EventArgs e)
         {
-            LoadData_Lop();
+            LoadDanhSachLop();
         }
 
         private void adminqllbtnSuaLop_Click(object sender, EventArgs e)
@@ -180,15 +276,6 @@ namespace Rework_AppThiTracNghiem
             sualop.Show();
         }
 
-        private void dataLop_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataLop.Rows[e.RowIndex];
-                g_maLop = row.Cells["MaLopHoc"].Value.ToString();
-
-            }
-        }
         private void adminXoaThanhVien()
         {
             using (SqlConnection conn = new SqlConnection(strConn))
@@ -274,17 +361,6 @@ namespace Rework_AppThiTracNghiem
             xemchitiet.Show();
         }
 
-        private void dataNHCH_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataNHCH.Rows[e.RowIndex];
-                g_MaNganHangCauHoi = row.Cells["MaNganHang"].Value.ToString();
-                g_TenNganHangCauHoi = row.Cells["TenNganHang"].Value.ToString();
-
-            }
-        }
-
         private void nhchbtnSuaNHCH_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(g_MaNganHangCauHoi))
@@ -331,7 +407,7 @@ namespace Rework_AppThiTracNghiem
 
         private void adminbtnXoaDeThi_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(g_maDeThi))
+            if (string.IsNullOrWhiteSpace(g_maDeThi))
             {
                 MessageBox.Show("Vui lòng chọn một đề thi để xoá");
             }
@@ -355,6 +431,46 @@ namespace Rework_AppThiTracNghiem
                     if (rowAffected > 0)
                     {
                         MessageBox.Show("Xoá " + g_tenDeThi + " thành công!");
+                        LoadData_DETHI();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void nhchbtnXoaNHCH_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(g_MaNganHangCauHoi))
+            {
+                MessageBox.Show("Vui lòng chọn một đề thi để xoá");
+            }
+            DialogResult result = MessageBox.Show("Bạn có muốn xoá " + g_TenNganHangCauHoi + " ?.", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            //Xoá
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "Delete NGANHANGCAUHOI where MaNganHang = @MaNganHang";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaNganHang", g_MaNganHangCauHoi);
+                    adminXoaThanhVien();
+                    int rowAffected = cmd.ExecuteNonQuery();
+                    if (rowAffected > 0)
+                    {
+                        MessageBox.Show("Xoá " + g_TenNganHangCauHoi + " thành công!");
                         LoadData_DETHI();
                     }
                 }

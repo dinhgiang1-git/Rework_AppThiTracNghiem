@@ -35,7 +35,6 @@
             foxLabel9 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel3 = new ReaLTaiizor.Controls.FoxLabel();
             checkBox2 = new CheckBox();
-            sdtbtnHuy = new ReaLTaiizor.Controls.FoxButton();
             foxLabel5 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel8 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel7 = new ReaLTaiizor.Controls.FoxLabel();
@@ -54,6 +53,7 @@
             sdtcbNganHangCauHoi = new ComboBox();
             sdtbtnThemDong = new Button();
             sdtbtnThem = new Button();
+            sdtbtnHuy = new Button();
             SuspendLayout();
             // 
             // sdtdateNgayKetThuc
@@ -134,27 +134,6 @@
             checkBox2.TabIndex = 56;
             checkBox2.Text = "Áp dụng lên tất cả các lớp";
             checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // sdtbtnHuy
-            // 
-            sdtbtnHuy.BackColor = Color.Transparent;
-            sdtbtnHuy.BaseColor = Color.FromArgb(249, 249, 249);
-            sdtbtnHuy.BorderColor = Color.FromArgb(193, 193, 193);
-            sdtbtnHuy.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            sdtbtnHuy.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            sdtbtnHuy.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            sdtbtnHuy.DownColor = Color.FromArgb(232, 232, 232);
-            sdtbtnHuy.EnabledCalc = true;
-            sdtbtnHuy.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            sdtbtnHuy.ForeColor = Color.FromArgb(66, 78, 90);
-            sdtbtnHuy.Location = new Point(465, 444);
-            sdtbtnHuy.Margin = new Padding(4, 3, 4, 3);
-            sdtbtnHuy.Name = "sdtbtnHuy";
-            sdtbtnHuy.OverColor = Color.FromArgb(242, 242, 242);
-            sdtbtnHuy.Size = new Size(144, 35);
-            sdtbtnHuy.TabIndex = 55;
-            sdtbtnHuy.Text = "Huỷ";
-            sdtbtnHuy.Click += sdtbtnHuy_Click;
             // 
             // foxLabel5
             // 
@@ -333,7 +312,7 @@
             // 
             // sdtbtnThem
             // 
-            sdtbtnThem.BackColor = Color.FromArgb(104, 204, 0);
+            sdtbtnThem.BackColor = Color.FromArgb(30, 64, 175);
             sdtbtnThem.FlatStyle = FlatStyle.Popup;
             sdtbtnThem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
             sdtbtnThem.ForeColor = Color.White;
@@ -345,12 +324,27 @@
             sdtbtnThem.UseVisualStyleBackColor = false;
             sdtbtnThem.Click += sdtbtnThem_Click;
             // 
+            // sdtbtnHuy
+            // 
+            sdtbtnHuy.BackColor = Color.FromArgb(244, 193, 158);
+            sdtbtnHuy.FlatStyle = FlatStyle.Popup;
+            sdtbtnHuy.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            sdtbtnHuy.ForeColor = Color.Black;
+            sdtbtnHuy.Location = new Point(486, 443);
+            sdtbtnHuy.Name = "sdtbtnHuy";
+            sdtbtnHuy.Size = new Size(141, 36);
+            sdtbtnHuy.TabIndex = 74;
+            sdtbtnHuy.Text = "Huỷ";
+            sdtbtnHuy.UseVisualStyleBackColor = false;
+            sdtbtnHuy.Click += sdtbtnHuy_Click_1;
+            // 
             // SuaDeThi
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 245, 249);
             ClientSize = new Size(991, 506);
+            Controls.Add(sdtbtnHuy);
             Controls.Add(sdtbtnThem);
             Controls.Add(sdtbtnThemDong);
             Controls.Add(sdtcbNganHangCauHoi);
@@ -368,7 +362,6 @@
             Controls.Add(foxLabel9);
             Controls.Add(foxLabel3);
             Controls.Add(checkBox2);
-            Controls.Add(sdtbtnHuy);
             Controls.Add(foxLabel5);
             Controls.Add(foxLabel8);
             Controls.Add(foxLabel7);
@@ -395,7 +388,6 @@
         private ReaLTaiizor.Controls.FoxLabel foxLabel9;
         private ReaLTaiizor.Controls.FoxLabel foxLabel3;
         private CheckBox checkBox2;
-        private ReaLTaiizor.Controls.FoxButton sdtbtnHuy;
         private ReaLTaiizor.Controls.FoxLabel foxLabel5;
         private ReaLTaiizor.Controls.FoxLabel foxLabel8;
         private ReaLTaiizor.Controls.FoxLabel foxLabel7;
@@ -414,5 +406,6 @@
         private ComboBox sdtcbNganHangCauHoi;
         private Button sdtbtnThemDong;
         private Button sdtbtnThem;
+        private Button sdtbtnHuy;
     }
 }

@@ -126,6 +126,7 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             {
                 int.Parse(tdttxtSoLuongCauHoiKho.Text);
             }
+            if(thoigianlambai == 0) { }
             string maLop = tdtcbLop.SelectedValue.ToString();
             DateTime createAt = DateTime.Now;
 
@@ -137,7 +138,12 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             }
             if (string.IsNullOrEmpty(tdttxtSoLuongCauHoi.Text))
             {
-                MessageBox.Show("Vui lòng nhập tên thành viên!");
+                MessageBox.Show("Vui lòng nhập SỐ LƯỢNG CÂU HỎI CỦA ĐỀ!");
+                return;
+            }
+            if (thoigianlambai == 0) 
+            {
+                MessageBox.Show("Vui lòng nhập THỜI GIAN LÀM BÀI!");
                 return;
             }
 

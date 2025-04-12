@@ -17,7 +17,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.flowLayout
         public ucNganHang()
         {
             InitializeComponent();
-            this.Margin = new Padding(left: 30, top: 10, right: 30, bottom: 8);
+            this.Margin = new Padding(left: 20, top: 10, right: 30, bottom: 8);
             this.Paint += flowLop_Paint; // Đăng ký sự kiện vẽ
             foreach (Control c in this.Controls)
             {

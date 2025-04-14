@@ -108,6 +108,7 @@
             poisonButton1.Text = "Nhập file";
             poisonButton1.UseSelectable = true;
             poisonButton1.UseVisualStyleBackColor = false;
+            poisonButton1.Click += poisonButton1_Click;
             // 
             // nhchbtnLamMoi
             // 

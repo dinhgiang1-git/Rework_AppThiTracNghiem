@@ -124,7 +124,7 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             int soluongcauhoikho = 0;
             if (!string.IsNullOrWhiteSpace(tdttxtSoLuongCauHoiKho.Text))
             {
-                int.Parse(tdttxtSoLuongCauHoiKho.Text);
+                soluongcauhoikho = int.Parse(tdttxtSoLuongCauHoiKho.Text);
             }
             if(thoigianlambai == 0) { }
             string maLop = tdtcbLop.SelectedValue.ToString();

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThiSinh));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             tabPage1 = new ReaLTaiizor.Controls.TabPage();
             tabPage2 = new TabPage();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowBaiThi = new FlowLayoutPanel();
             groupBox2 = new GroupBox();
             poisonButton20 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton19 = new ReaLTaiizor.Controls.PoisonButton();
@@ -112,7 +112,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage2.Controls.Add(flowLayoutPanel1);
+            tabPage2.Controls.Add(flowBaiThi);
             tabPage2.Controls.Add(groupBox2);
             tabPage2.Controls.Add(bigLabel4);
             tabPage2.Controls.Add(bigLabel3);
@@ -126,13 +126,13 @@
             tabPage2.TabIndex = 0;
             tabPage2.Text = "Tổng quan";
             // 
-            // flowLayoutPanel1
+            // flowBaiThi
             // 
-            flowLayoutPanel1.BackColor = Color.FromArgb(241, 245, 249);
-            flowLayoutPanel1.Location = new Point(6, 236);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1392, 612);
-            flowLayoutPanel1.TabIndex = 8;
+            flowBaiThi.BackColor = Color.FromArgb(241, 245, 249);
+            flowBaiThi.Location = new Point(6, 236);
+            flowBaiThi.Name = "flowBaiThi";
+            flowBaiThi.Size = new Size(1392, 612);
+            flowBaiThi.TabIndex = 8;
             // 
             // groupBox2
             // 
@@ -373,37 +373,37 @@
             poisonDataGridView2.BorderStyle = BorderStyle.None;
             poisonDataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
             poisonDataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             poisonDataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            poisonDataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             poisonDataGridView2.EnableHeadersVisualStyles = false;
             poisonDataGridView2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView2.GridColor = Color.FromArgb(255, 255, 255);
             poisonDataGridView2.Location = new Point(6, 215);
             poisonDataGridView2.Name = "poisonDataGridView2";
             poisonDataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             poisonDataGridView2.RowHeadersWidth = 45;
             poisonDataGridView2.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -573,6 +573,7 @@
             Controls.Add(tabPage1);
             Name = "ThiSinh";
             Text = "ThiSinh";
+            FormClosed += ThiSinh_FormClosed;
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -623,6 +624,6 @@
         private RadioButton radioButton7;
         private RadioButton radioButton8;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowBaiThi;
     }
 }

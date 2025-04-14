@@ -211,6 +211,7 @@
             Name = "login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "login";
+            FormClosed += login_FormClosed;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

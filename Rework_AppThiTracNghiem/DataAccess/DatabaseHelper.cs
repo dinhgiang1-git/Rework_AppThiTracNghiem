@@ -80,5 +80,25 @@ namespace Rework_AppThiTracNghiem.DataAccess
                 }
             }
         }
+
+        public static SqlDataReader ExecuteReader(string query, params SqlParameter[] parameters)
+        {
+            SqlConnection conn = GetConnection();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                throw new Exception("Database Error: " + ex.Message);
+            }
+        }
     }
 }

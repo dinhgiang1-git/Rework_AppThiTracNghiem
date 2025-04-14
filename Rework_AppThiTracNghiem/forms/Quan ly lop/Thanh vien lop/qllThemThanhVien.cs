@@ -45,7 +45,6 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
                 return false;
             }
         }
-
         private void add()
         {
             string maThanhVien = thanhvientxtMaThanhVien.Text.Trim().ToUpper();

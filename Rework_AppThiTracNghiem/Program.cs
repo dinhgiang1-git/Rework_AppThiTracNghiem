@@ -1,3 +1,5 @@
+using Rework_AppThiTracNghiem.forms;
+
 namespace Rework_AppThiTracNghiem
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace Rework_AppThiTracNghiem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new login());
+            Application.Run(new ThiSinh("sv1"));
         }
     }
 }

@@ -199,7 +199,7 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             int soluongcauhoikho = 0;
             if (!string.IsNullOrWhiteSpace(sdttxtSoLuongCauHoiKho.Text))
             {
-                int.Parse(sdttxtSoLuongCauHoiKho.Text);
+                soluongcauhoikho = int.Parse(sdttxtSoLuongCauHoiKho.Text);
             }
             string maLop = sdtcbLop.SelectedValue.ToString();
             DateTime updateat = DateTime.Now;

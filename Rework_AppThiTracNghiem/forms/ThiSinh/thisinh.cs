@@ -7,14 +7,99 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using Rework_AppThiTracNghiem.forms.QuanLyDeThi;
+using Rework_AppThiTracNghiem.forms.ThiSinh;
 
 namespace Rework_AppThiTracNghiem
 {
     public partial class ThiSinh : Form
     {
-        public ThiSinh()
+        string strConn = DBHelpercs.strConn;
+        string g_maSinhVien = "";
+        string g_maBaiThi = "";
+        ucBaiThi selectedBaiThi = null;
+        public ThiSinh(string tenDangNhap)
         {
             InitializeComponent();
+            g_maSinhVien = tenDangNhap;
+            LoadThongTin();
+        }
+
+        private void ThiSinh_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            login ln = new login();
+            ln.Show();
+        }
+
+        private void LoadThongTin()
+        {
+            flowBaiThi.Controls.Clear();
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "select MaDeThi, TenDeThi, NgayBatDau, NgayKetThuc, ThoiGianLamBai, TongSoCau  from DETHI join SINHVIEN on SINHVIEN.MaLopHoc = DETHI.MaLop where SINHVIEN.MaSinhVien = @MaSinhVien";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string madethi = reader["MaDeThi"].ToString();
+                        string tendethi = reader["TenDeThi"].ToString();
+                        DateTime NgayBatDau = DateTime.Now;
+                        DateTime NgayKetThuc = DateTime.Now;
+                        // Xử lý ngày 
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayBatDau")))
+                        {
+                            NgayBatDau = Convert.ToDateTime(reader["NgayBatDau"]);
+                        }
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayKetThuc")))
+                        {
+                            NgayKetThuc = Convert.ToDateTime(reader["NgayKetThuc"]);
+                        }
+                        string thoigianlambai = reader["ThoiGianLamBai"].ToString();
+                        string tongsocau = reader["TongSoCau"].ToString();
+
+                        ucBaiThi baithi = new ucBaiThi(g_maSinhVien);
+                        baithi.Dock = DockStyle.Top;
+                        baithi.MaBaiThi = madethi;
+                        baithi.TenBaiThi = tendethi;
+                        baithi.NgayBatDau = NgayBatDau;
+                        baithi.NgayKetThuc = NgayKetThuc;
+                        baithi.SoCau = "Số lượng câu hỏi: "+tongsocau + "(câu)";
+                        baithi.ThoiLuong = thoigianlambai + " (phút)";
+
+                        baithi.onDeThi_Click += ucDeThi_Click;
+
+                        flowBaiThi.Controls.Add(baithi);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        private void ucDeThi_Click(object sender, EventArgs e)
+        {
+            ucBaiThi bt = sender as ucBaiThi; 
+            if (bt == null) return;
+
+            if (selectedBaiThi != null)
+            {
+                selectedBaiThi.BackColor = SystemColors.Control;
+            }
+
+            selectedBaiThi = bt;
+            selectedBaiThi.BackColor = Color.LightBlue;
+            g_maBaiThi = bt.MaBaiThi;
         }
     }
 }

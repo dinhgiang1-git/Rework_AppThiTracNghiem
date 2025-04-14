@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtTenDeThi = new Label();
+            labelTenDeThi = new Label();
             dateNgayBatDau = new DateTimePicker();
             dateNgayKetThuc = new DateTimePicker();
             label2 = new Label();
-            txtSoCau = new Label();
-            txtThoiLuong = new Label();
+            labelSoCau = new Label();
+            labelThoiLuong = new Label();
             btnLamBai = new Button();
+            labelMaBaiThi = new Label();
             SuspendLayout();
             // 
-            // txtTenDeThi
+            // labelTenDeThi
             // 
-            txtTenDeThi.AutoSize = true;
-            txtTenDeThi.Location = new Point(17, 15);
-            txtTenDeThi.Margin = new Padding(4, 0, 4, 0);
-            txtTenDeThi.Name = "txtTenDeThi";
-            txtTenDeThi.Size = new Size(69, 19);
-            txtTenDeThi.TabIndex = 0;
-            txtTenDeThi.Text = "label1";
+            labelTenDeThi.AutoSize = true;
+            labelTenDeThi.Location = new Point(17, 15);
+            labelTenDeThi.Margin = new Padding(4, 0, 4, 0);
+            labelTenDeThi.Name = "labelTenDeThi";
+            labelTenDeThi.Size = new Size(69, 19);
+            labelTenDeThi.TabIndex = 0;
+            labelTenDeThi.Text = "label1";
             // 
             // dateNgayBatDau
             // 
@@ -73,61 +74,75 @@
             label2.TabIndex = 4;
             label2.Text = "-";
             // 
-            // txtSoCau
+            // labelSoCau
             // 
-            txtSoCau.AutoSize = true;
-            txtSoCau.Location = new Point(550, 66);
-            txtSoCau.Name = "txtSoCau";
-            txtSoCau.Size = new Size(69, 19);
-            txtSoCau.TabIndex = 5;
-            txtSoCau.Text = "label3";
+            labelSoCau.AutoSize = true;
+            labelSoCau.Location = new Point(517, 68);
+            labelSoCau.Name = "labelSoCau";
+            labelSoCau.Size = new Size(69, 19);
+            labelSoCau.TabIndex = 5;
+            labelSoCau.Text = "label3";
             // 
-            // txtThoiLuong
+            // labelThoiLuong
             // 
-            txtThoiLuong.AutoSize = true;
-            txtThoiLuong.Location = new Point(698, 66);
-            txtThoiLuong.Name = "txtThoiLuong";
-            txtThoiLuong.Size = new Size(69, 19);
-            txtThoiLuong.TabIndex = 6;
-            txtThoiLuong.Text = "label3";
+            labelThoiLuong.AutoSize = true;
+            labelThoiLuong.Location = new Point(814, 68);
+            labelThoiLuong.Name = "labelThoiLuong";
+            labelThoiLuong.Size = new Size(69, 19);
+            labelThoiLuong.TabIndex = 6;
+            labelThoiLuong.Text = "label3";
             // 
             // btnLamBai
             // 
             btnLamBai.FlatStyle = FlatStyle.Popup;
-            btnLamBai.Location = new Point(853, 34);
+            btnLamBai.Location = new Point(946, 53);
             btnLamBai.Name = "btnLamBai";
             btnLamBai.Size = new Size(164, 34);
             btnLamBai.TabIndex = 7;
             btnLamBai.Text = "Làm bài";
             btnLamBai.UseVisualStyleBackColor = true;
+            btnLamBai.Click += btnLamBai_Click;
+            // 
+            // labelMaBaiThi
+            // 
+            labelMaBaiThi.AutoSize = true;
+            labelMaBaiThi.Location = new Point(946, 31);
+            labelMaBaiThi.Name = "labelMaBaiThi";
+            labelMaBaiThi.Size = new Size(69, 19);
+            labelMaBaiThi.TabIndex = 8;
+            labelMaBaiThi.Text = "label1";
+            labelMaBaiThi.Visible = false;
             // 
             // ucBaiThi
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(labelMaBaiThi);
             Controls.Add(btnLamBai);
-            Controls.Add(txtThoiLuong);
-            Controls.Add(txtSoCau);
+            Controls.Add(labelThoiLuong);
+            Controls.Add(labelSoCau);
             Controls.Add(label2);
             Controls.Add(dateNgayKetThuc);
             Controls.Add(dateNgayBatDau);
-            Controls.Add(txtTenDeThi);
+            Controls.Add(labelTenDeThi);
             Font = new Font("SF Mono", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Margin = new Padding(4, 3, 4, 3);
             Name = "ucBaiThi";
-            Size = new Size(1031, 103);
+            Size = new Size(1127, 103);
+            Click += ucBaiThi_Click;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label txtTenDeThi;
+        private Label labelTenDeThi;
         private DateTimePicker dateNgayBatDau;
         private DateTimePicker dateNgayKetThuc;
         private Label label2;
-        private Label txtSoCau;
-        private Label txtThoiLuong;
+        private Label labelSoCau;
+        private Label labelThoiLuong;
         private Button btnLamBai;
+        private Label labelMaBaiThi;
     }
 }

@@ -19,12 +19,18 @@ namespace Rework_AppThiTracNghiem.UserControls
         private string dapAnDung;
         private Dictionary<RadioButton, string> dapAnMapping = new Dictionary<RadioButton, string>();
         private Random random = new Random();
+        private Dictionary<int, string> dapAnDaChon = new Dictionary<int, string>();
+        private int currentIndex;
+
         public itemCauHoi()
         {
             InitializeComponent();
+            
         }
+
         public void BindData(CauHoi cauhoi, int index)
         {
+            currentIndex = index;  // Store the current index
             txtDeBai.Text = $"Câu {index + 1}: {cauhoi.NoiDungCauHoi}";
             rdoChonA.Text = cauhoi.DapAnA;
             rdoChonB.Text = cauhoi.DapAnB;
@@ -72,23 +78,112 @@ namespace Rework_AppThiTracNghiem.UserControls
         {
 
         }
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (((RadioButton)sender).Checked)
+            if (sender is RadioButton rdo && rdo.Checked)
             {
-                DapAnChanged?.Invoke(this, cauHoiIndex);
+                string selectedAnswer = "";
+                if (rdo == rdoChonA) selectedAnswer = rdoChonA.Text;
+                else if (rdo == rdoChonB) selectedAnswer = rdoChonB.Text;
+                else if (rdo == rdoChonC) selectedAnswer = rdoChonC.Text;
+                else if (rdo == rdoChonD) selectedAnswer = rdoChonD.Text;
+                    
+                if (!dapAnDaChon.ContainsKey(currentIndex))
+                {
+                    dapAnDaChon.Add(currentIndex, selectedAnswer);
+                }
+                else
+                {
+                    dapAnDaChon[currentIndex] = selectedAnswer;
+                }
+                DapAnChanged?.Invoke(this, currentIndex);
             }
         }
         public bool CheckDapAn()
+        {
+            foreach (RadioButton radio in new[] { rdoChonA, rdoChonB, rdoChonC, rdoChonD })
             {
-                foreach (RadioButton radio in new[] { rdoChonA, rdoChonB, rdoChonC, rdoChonD })
+                if (radio.Checked)
                 {
-                    if (radio.Checked)
+                    return dapAnMapping[radio] == dapAnDung;
+                }
+            }
+            return false; // Không có đáp án nào được chọn
+        }
+
+
+        // Add new method for displaying results
+        public void BindDataKetQua(CauHoi cauHoi, int index, string selectedAnswer)
+        {
+            txtDeBai.Text = $"Câu {index + 1}: {cauHoi.NoiDungCauHoi}";
+
+            rdoChonA.Text = cauHoi.DapAnA;
+            rdoChonB.Text = cauHoi.DapAnB;
+            rdoChonC.Text = cauHoi.DapAnC;
+            rdoChonD.Text = cauHoi.DapAnD;
+            dapAnDung = cauHoi.DapAnDung;
+
+            // Set the selected answer
+            if (rdoChonA.Text == selectedAnswer) rdoChonA.Checked = true;
+            else if (rdoChonB.Text == selectedAnswer) rdoChonB.Checked = true;
+            else if (rdoChonC.Text == selectedAnswer) rdoChonC.Checked = true;
+            else if (rdoChonD.Text == selectedAnswer) rdoChonD.Checked = true;
+
+            // Color the answers
+            RadioButton selectedRdo = GetSelectedRadioButton();
+            if (selectedRdo != null)
+            {
+                if (selectedRdo.Text == cauHoi.DapAnDung)
+                {
+                    selectedRdo.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    selectedRdo.BackColor = Color.LightPink;
+                    // Highlight correct answer
+                    foreach (RadioButton rdo in new[] { rdoChonA, rdoChonB, rdoChonC, rdoChonD })
                     {
-                        return dapAnMapping[radio] == dapAnDung;
+                        if (rdo.Text == cauHoi.DapAnDung)
+                        {
+                            rdo.BackColor = Color.LightGreen;
+                            break;
+                        }
                     }
                 }
-                return false; // Không có đáp án nào được chọn
             }
+
+            // Disable all radio buttons
+            rdoChonA.Enabled = false;
+            rdoChonB.Enabled = false;
+            rdoChonC.Enabled = false;
+            rdoChonD.Enabled = false;
+        }
+
+        private RadioButton GetRadioButtonByAnswer(string answer)
+        {
+            switch (answer)
+            {
+                case "A": return rdoChonA;
+                case "B": return rdoChonB;
+                case "C": return rdoChonC;
+                case "D": return rdoChonD;
+                default: return null;
+            }
+        }
+
+        private RadioButton GetSelectedRadioButton()
+        {
+            if (rdoChonA.Checked) return rdoChonA;
+            if (rdoChonB.Checked) return rdoChonB;
+            if (rdoChonC.Checked) return rdoChonC;
+            if (rdoChonD.Checked) return rdoChonD;
+            return null;
+        }
+
+        public string GetSelectedAnswer()
+        {
+            RadioButton selectedRdo = GetSelectedRadioButton();
+            return selectedRdo?.Text ?? "";
+        }
     }
 }

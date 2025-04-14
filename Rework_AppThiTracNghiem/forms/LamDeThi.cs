@@ -89,10 +89,28 @@ namespace Rework_AppThiTracNghiem.forms
             }
         }
     
+        // Add this field to store selected answers
+        //private Dictionary<int, string> dapAnDaChon = new Dictionary<int, string>();
+    
+        // Modify NopBai method
         private void NopBai(bool isTimeout)
         {
             timer.Stop();
             double diem = TinhDiem();
+    
+            // Collect all selected answers
+            Dictionary<int, string> dapAnDaChon = new Dictionary<int, string>();
+            for (int i = 0; i < FlowCauHoi.Controls.Count; i++)
+            {
+                if (FlowCauHoi.Controls[i] is itemCauHoi itemCH)
+                {
+                    string selectedAnswer = itemCH.GetSelectedAnswer();
+                    if (!string.IsNullOrEmpty(selectedAnswer))
+                    {
+                        dapAnDaChon[i] = selectedAnswer;
+                    }
+                }
+            }
     
             try
             {
@@ -105,11 +123,13 @@ namespace Rework_AppThiTracNghiem.forms
                     new SqlParameter("@Diem", diem),
                     new SqlParameter("@NgayThi", DateTime.Now));
     
-                string message = isTimeout ? 
-                    $"Hết giờ làm bài!\nĐiểm của bạn: {diem:F2}" : 
-                    $"Điểm của bạn: {diem:F2}";
-                    
-                MessageBox.Show(message, "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Hide current form
+                this.Hide();
+    
+                // Show KetQuaThi form with collected answers
+                var ketQuaForm = new KetQuaThi(danhSachCauHoi, dapAnDaChon, diem);
+                ketQuaForm.ShowDialog();
+                
                 this.Close();
             }
             catch (Exception ex)

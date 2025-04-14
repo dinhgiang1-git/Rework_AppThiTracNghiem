@@ -51,5 +51,19 @@ namespace Rework_AppThiTracNghiem.Class
                 return null;
             }
         }
+        public static bool HasCompletedExam(string maDeThi, string maSinhVien)
+        {
+            string query = @"SELECT COUNT(*) FROM KETQUA 
+                            WHERE MaDeThi = @MaDeThi AND MaSinhVien = @MaSinhVien";
+        
+            var parameters = new[]
+            {
+                new SqlParameter("@MaDeThi", maDeThi),
+                new SqlParameter("@MaSinhVien", maSinhVien)
+            };
+        
+            int count = Convert.ToInt32(DatabaseHelper.ExecuteScalar(query, parameters));
+            return count > 0;
+        }
     }
 }

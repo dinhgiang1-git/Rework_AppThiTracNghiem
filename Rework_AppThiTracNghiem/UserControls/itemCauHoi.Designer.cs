@@ -48,7 +48,7 @@
             rdoChonA.TabStop = true;
             rdoChonA.Text = "hinh nhu em co dieu muon noi cu ngap ngung roi thoi";
             rdoChonA.UseVisualStyleBackColor = false;
-            rdoChonA.CheckedChanged += radioButton_CheckedChanged;
+            rdoChonA.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // rdoChonC
             // 
@@ -61,7 +61,7 @@
             rdoChonC.TabStop = true;
             rdoChonC.Text = "radioButton2";
             rdoChonC.UseVisualStyleBackColor = false;
-            rdoChonC.CheckedChanged += radioButton_CheckedChanged;
+            rdoChonC.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // groupChon
             // 
@@ -89,7 +89,7 @@
             rdoChonD.TabStop = true;
             rdoChonD.Text = "radioButton4";
             rdoChonD.UseVisualStyleBackColor = false;
-            rdoChonD.CheckedChanged += radioButton_CheckedChanged;
+            rdoChonD.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // rdoChonB
             // 
@@ -102,7 +102,7 @@
             rdoChonB.TabStop = true;
             rdoChonB.Text = "radioButton3";
             rdoChonB.UseVisualStyleBackColor = false;
-            rdoChonB.CheckedChanged += radioButton_CheckedChanged;
+            rdoChonB.CheckedChanged += RadioButton_CheckedChanged;
             // 
             // txtDeBai
             // 

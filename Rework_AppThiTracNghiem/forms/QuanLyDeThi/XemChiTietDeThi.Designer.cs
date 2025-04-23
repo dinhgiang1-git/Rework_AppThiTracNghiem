@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemChiTietDeThi));
             txtSoLuongCauHoi = new TextBox();
             txtTenDeThi = new TextBox();
             txtThoiGianLamBai = new TextBox();
@@ -301,9 +302,10 @@
             Controls.Add(foxLabel2);
             Controls.Add(foxLabel1);
             Font = new Font("SF Mono", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "XemChiTietDeThi";
-            Text = "XemChiTietDeThi";
+            Text = "Xem chi tiết đề thi";
             ((System.ComponentModel.ISupportInitialize)dataDeThi).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataNganHang).EndInit();
             ResumeLayout(false);

@@ -31,139 +31,184 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bdXemChiTiet));
             dataBangDiem = new DataGridView();
             bdgroupbox = new GroupBox();
-            bdcbDeThi = new ComboBox();
-            qllbtnLamMoi = new ReaLTaiizor.Controls.PoisonButton();
-            bdbtnTim = new ReaLTaiizor.Controls.PoisonButton();
-            bdtxtTim = new ReaLTaiizor.Controls.FoxTextBox();
+            groupBox1 = new GroupBox();
+            radioButton3 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
+            bdbtnTimKiem = new Button();
             label4 = new Label();
+            bdcbDeThi = new ComboBox();
+            bdtxtTimKiem = new TextBox();
+            labelTenDeThi = new Label();
             ((System.ComponentModel.ISupportInitialize)dataBangDiem).BeginInit();
             bdgroupbox.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // dataBangDiem
             // 
             dataBangDiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataBangDiem.BackgroundColor = Color.FromArgb(241, 245, 249);
             dataBangDiem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataBangDiem.Location = new Point(25, 160);
+            dataBangDiem.GridColor = Color.FromArgb(250, 209, 207);
+            dataBangDiem.Location = new Point(378, 59);
             dataBangDiem.Margin = new Padding(4);
             dataBangDiem.Name = "dataBangDiem";
             dataBangDiem.RowHeadersWidth = 45;
-            dataBangDiem.Size = new Size(1521, 776);
+            dataBangDiem.Size = new Size(1180, 877);
             dataBangDiem.TabIndex = 13;
             dataBangDiem.TabStop = false;
             // 
             // bdgroupbox
             // 
+            bdgroupbox.Controls.Add(groupBox1);
+            bdgroupbox.Controls.Add(bdbtnTimKiem);
             bdgroupbox.Controls.Add(label4);
             bdgroupbox.Controls.Add(bdcbDeThi);
-            bdgroupbox.Controls.Add(qllbtnLamMoi);
-            bdgroupbox.Controls.Add(bdbtnTim);
-            bdgroupbox.Controls.Add(bdtxtTim);
             bdgroupbox.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bdgroupbox.ForeColor = Color.White;
+            bdgroupbox.ForeColor = Color.Black;
             bdgroupbox.Location = new Point(25, 14);
             bdgroupbox.Margin = new Padding(4);
             bdgroupbox.Name = "bdgroupbox";
             bdgroupbox.Padding = new Padding(4);
-            bdgroupbox.Size = new Size(1521, 138);
+            bdgroupbox.Size = new Size(345, 922);
             bdgroupbox.TabIndex = 12;
             bdgroupbox.TabStop = false;
             bdgroupbox.Text = "Chi tiết bảng điểm Lớp 73DCHT23";
             // 
-            // bdcbDeThi
+            // groupBox1
             // 
-            bdcbDeThi.FormattingEnabled = true;
-            bdcbDeThi.Location = new Point(80, 97);
-            bdcbDeThi.Name = "bdcbDeThi";
-            bdcbDeThi.Size = new Size(316, 28);
-            bdcbDeThi.TabIndex = 16;
+            groupBox1.Controls.Add(radioButton3);
+            groupBox1.Controls.Add(radioButton2);
+            groupBox1.Controls.Add(radioButton1);
+            groupBox1.ForeColor = Color.Gray;
+            groupBox1.Location = new Point(15, 220);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(323, 172);
+            groupBox1.TabIndex = 26;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Lọc";
             // 
-            // qllbtnLamMoi
+            // radioButton3
             // 
-            qllbtnLamMoi.BackColor = Color.Transparent;
-            qllbtnLamMoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            qllbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            qllbtnLamMoi.Image = (Image)resources.GetObject("qllbtnLamMoi.Image");
-            qllbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnLamMoi.Location = new Point(404, 85);
-            qllbtnLamMoi.Margin = new Padding(4);
-            qllbtnLamMoi.Name = "qllbtnLamMoi";
-            qllbtnLamMoi.Size = new Size(158, 40);
-            qllbtnLamMoi.TabIndex = 15;
-            qllbtnLamMoi.Text = "Làm mới";
-            qllbtnLamMoi.UseSelectable = true;
-            qllbtnLamMoi.UseVisualStyleBackColor = false;
+            radioButton3.AutoSize = true;
+            radioButton3.ForeColor = Color.Black;
+            radioButton3.Location = new Point(6, 130);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(117, 24);
+            radioButton3.TabIndex = 29;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "radioButton3";
+            radioButton3.UseVisualStyleBackColor = true;
             // 
-            // bdbtnTim
+            // radioButton2
             // 
-            bdbtnTim.BackColor = Color.Transparent;
-            bdbtnTim.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            bdbtnTim.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            bdbtnTim.Image = (Image)resources.GetObject("bdbtnTim.Image");
-            bdbtnTim.ImageAlign = ContentAlignment.MiddleLeft;
-            bdbtnTim.Location = new Point(404, 37);
-            bdbtnTim.Margin = new Padding(4);
-            bdbtnTim.Name = "bdbtnTim";
-            bdbtnTim.Size = new Size(158, 40);
-            bdbtnTim.TabIndex = 14;
-            bdbtnTim.Text = "Tìm";
-            bdbtnTim.UseSelectable = true;
-            bdbtnTim.UseVisualStyleBackColor = false;
+            radioButton2.AutoSize = true;
+            radioButton2.ForeColor = Color.Black;
+            radioButton2.Location = new Point(6, 81);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(117, 24);
+            radioButton2.TabIndex = 28;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "radioButton2";
+            radioButton2.UseVisualStyleBackColor = true;
             // 
-            // bdtxtTim
+            // radioButton1
             // 
-            bdtxtTim.BackColor = Color.White;
-            bdtxtTim.EnabledCalc = true;
-            bdtxtTim.Font = new Font("Segoe UI", 10F);
-            bdtxtTim.ForeColor = Color.Black;
-            bdtxtTim.Location = new Point(8, 37);
-            bdtxtTim.Margin = new Padding(4);
-            bdtxtTim.MaxLength = 32767;
-            bdtxtTim.MultiLine = false;
-            bdtxtTim.Name = "bdtxtTim";
-            bdtxtTim.ReadOnly = false;
-            bdtxtTim.Size = new Size(388, 40);
-            bdtxtTim.TabIndex = 13;
-            bdtxtTim.Text = "Tìm kiếm";
-            bdtxtTim.TextAlign = HorizontalAlignment.Left;
-            bdtxtTim.UseSystemPasswordChar = false;
+            radioButton1.AutoSize = true;
+            radioButton1.ForeColor = Color.Black;
+            radioButton1.Location = new Point(6, 34);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(115, 24);
+            radioButton1.TabIndex = 27;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "radioButton1";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // bdbtnTimKiem
+            // 
+            bdbtnTimKiem.BackColor = Color.FromArgb(205, 233, 214);
+            bdbtnTimKiem.FlatStyle = FlatStyle.Popup;
+            bdbtnTimKiem.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bdbtnTimKiem.ForeColor = Color.Black;
+            bdbtnTimKiem.Location = new Point(208, 168);
+            bdbtnTimKiem.Name = "bdbtnTimKiem";
+            bdbtnTimKiem.Size = new Size(123, 32);
+            bdbtnTimKiem.TabIndex = 25;
+            bdbtnTimKiem.Text = "Tìm kiếm";
+            bdbtnTimKiem.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(8, 100);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(15, 45);
             label4.Name = "label4";
             label4.Size = new Size(66, 20);
             label4.TabIndex = 18;
             label4.Text = "Chọn đề";
             // 
+            // bdcbDeThi
+            // 
+            bdcbDeThi.FormattingEnabled = true;
+            bdcbDeThi.Location = new Point(15, 68);
+            bdcbDeThi.Name = "bdcbDeThi";
+            bdcbDeThi.Size = new Size(316, 28);
+            bdcbDeThi.TabIndex = 16;
+            // 
+            // bdtxtTimKiem
+            // 
+            bdtxtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            bdtxtTimKiem.Location = new Point(40, 147);
+            bdtxtTimKiem.Name = "bdtxtTimKiem";
+            bdtxtTimKiem.Size = new Size(316, 29);
+            bdtxtTimKiem.TabIndex = 26;
+            // 
+            // labelTenDeThi
+            // 
+            labelTenDeThi.AutoSize = true;
+            labelTenDeThi.Location = new Point(794, 25);
+            labelTenDeThi.Name = "labelTenDeThi";
+            labelTenDeThi.Size = new Size(81, 21);
+            labelTenDeThi.TabIndex = 27;
+            labelTenDeThi.Text = "Tên đề thi";
+            // 
             // bdXemChiTiet
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(50, 63, 74);
+            BackColor = Color.FromArgb(241, 243, 244);
             ClientSize = new Size(1571, 950);
+            Controls.Add(labelTenDeThi);
+            Controls.Add(bdtxtTimKiem);
             Controls.Add(dataBangDiem);
             Controls.Add(bdgroupbox);
             Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "bdXemChiTiet";
-            Text = "bdXemChiTiet";
+            Text = "Xem chi tiết bảng điểm";
             ((System.ComponentModel.ISupportInitialize)dataBangDiem).EndInit();
             bdgroupbox.ResumeLayout(false);
             bdgroupbox.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataBangDiem;
         private GroupBox bdgroupbox;
-        private ReaLTaiizor.Controls.PoisonButton qllbtnLamMoi;
-        private ReaLTaiizor.Controls.PoisonButton bdbtnTim;
-        private ReaLTaiizor.Controls.FoxTextBox bdtxtTim;
         private ComboBox bdcbDeThi;
         private Label label4;
+        private GroupBox groupBox1;
+        private Button bdbtnTimKiem;
+        private TextBox bdtxtTimKiem;
+        private RadioButton radioButton3;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private Label labelTenDeThi;
     }
 }

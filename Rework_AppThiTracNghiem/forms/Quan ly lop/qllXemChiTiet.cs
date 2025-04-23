@@ -57,19 +57,12 @@ namespace Rework_AppThiTracNghiem.forms
         }
         private void qllbtnLamMoi_Click(object sender, EventArgs e)
         {
-            LoadData_ThanhVien();
-        }
 
-        private void qllbtnThemThanhVien_Click(object sender, EventArgs e)
-        {
-            qllThemThanhVien themthanhvien = new qllThemThanhVien(g_maLop);
-            themthanhvien.Show();
         }
 
         private void qllbtnSuaThanhVien_Click(object sender, EventArgs e)
         {
-            qllSuaThanhVien suathanhvien = new qllSuaThanhVien(g_maThanhVien, g_maLop);
-            suathanhvien.Show();
+
         }
         private void dataThanhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -83,40 +76,7 @@ namespace Rework_AppThiTracNghiem.forms
 
         private void qllbtnXoaThanhVien_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(g_maThanhVien))
-            {
-                MessageBox.Show("Vui lòng chọn một thành viên để xoá!");
-                return;
-            }
-            DialogResult result = MessageBox.Show("Bạn có muốn xoá " + g_tenThanhVien + " ?.", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                return;
-            }
-            //Xoá
-            using (SqlConnection conn = new SqlConnection(strConn))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "Delete SINHVIEN where MaSinhVien = @MaSinhVien";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@MaSinhVien", g_maThanhVien);
-                    int rowAffected = cmd.ExecuteNonQuery();
-                    if (rowAffected > 0)
-                    {
-                        MessageBox.Show("Xoá " + g_tenThanhVien + " thành công!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
+
         }
         private void btnNhapFile_Click(object sender, EventArgs e)
         {
@@ -336,6 +296,97 @@ namespace Rework_AppThiTracNghiem.forms
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void sdtbtnThemDong_Click(object sender, EventArgs e)
+        {
+            qllThemThanhVien themthanhvien = new qllThemThanhVien(g_maLop);
+            themthanhvien.Show();
+        }
+
+        private void sdtbtnHuy_Click(object sender, EventArgs e)
+        {
+            qllSuaThanhVien suathanhvien = new qllSuaThanhVien(g_maThanhVien, g_maLop);
+            suathanhvien.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(g_maThanhVien))
+            {
+                MessageBox.Show("Vui lòng chọn một thành viên để xoá!");
+                return;
+            }
+            DialogResult result = MessageBox.Show("Bạn có muốn xoá " + g_tenThanhVien + " ?.", "Xác nhận xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            //Xoá
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "Delete SINHVIEN where MaSinhVien = @MaSinhVien";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", g_maThanhVien);
+                    int rowAffected = cmd.ExecuteNonQuery();
+                    if (rowAffected > 0)
+                    {
+                        MessageBox.Show("Xoá " + g_tenThanhVien + " thành công!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadData_ThanhVien();
+        }
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"Select MaSinhVien, HoTen, GioiTinh, NgaySinh 
+                    from SINHVIEN 
+                    where MaLopHoc = @MaLopHoc
+                    and (@HoTen is null or HoTen like '%'+@HoTen+'%')";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLop);
+                    if(string.IsNullOrEmpty(txtTimKiem.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@HoTen", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@HoTen", txtTimKiem.Text);
+                    }
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataThanhVien.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
     }

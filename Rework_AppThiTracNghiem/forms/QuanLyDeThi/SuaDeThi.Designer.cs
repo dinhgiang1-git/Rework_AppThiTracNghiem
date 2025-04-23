@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaDeThi));
             sdtdateNgayKetThuc = new DateTimePicker();
             sdtdateNgayBatDau = new DateTimePicker();
             foxLabel11 = new ReaLTaiizor.Controls.FoxLabel();
@@ -299,10 +300,11 @@
             Controls.Add(foxLabel2);
             Controls.Add(foxLabel1);
             Font = new Font("SF Mono", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "SuaDeThi";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SuaDeThi";
+            Text = "Sửa đề thi";
             ResumeLayout(false);
             PerformLayout();
         }

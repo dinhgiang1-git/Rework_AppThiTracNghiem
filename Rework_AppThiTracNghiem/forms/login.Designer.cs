@@ -33,12 +33,12 @@
             bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
             bigLabel3 = new ReaLTaiizor.Controls.BigLabel();
+            logintxtTenDangNhap = new TextBox();
             label1 = new Label();
-            logintxtTenDangNhap = new ReaLTaiizor.Controls.PoisonTextBox();
             label2 = new Label();
-            logincbChonVaiTro = new ReaLTaiizor.Controls.PoisonComboBox();
-            logintxtMatKhau = new ReaLTaiizor.Controls.PoisonTextBox();
-            loginbtnLogin = new ReaLTaiizor.Controls.PoisonButton();
+            logintxtMatKhau = new TextBox();
+            logincbChonVaiTro = new ComboBox();
+            loginbtnLogin = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             bigLabel1.AutoSize = true;
             bigLabel1.BackColor = Color.Transparent;
             bigLabel1.Font = new Font("Segoe UI Semibold", 19.6981125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bigLabel1.ForeColor = Color.White;
+            bigLabel1.ForeColor = SystemColors.ButtonFace;
             bigLabel1.Location = new Point(32, 45);
             bigLabel1.Name = "bigLabel1";
             bigLabel1.Size = new Size(742, 40);
@@ -69,7 +69,7 @@
             bigLabel2.AutoSize = true;
             bigLabel2.BackColor = Color.Transparent;
             bigLabel2.Font = new Font("Segoe UI Semibold", 16.3018875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bigLabel2.ForeColor = Color.White;
+            bigLabel2.ForeColor = SystemColors.ButtonFace;
             bigLabel2.Location = new Point(243, 10);
             bigLabel2.Name = "bigLabel2";
             bigLabel2.Size = new Size(314, 35);
@@ -81,114 +81,77 @@
             bigLabel3.AutoSize = true;
             bigLabel3.BackColor = Color.Transparent;
             bigLabel3.Font = new Font("Segoe UI Semibold", 16.3018875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bigLabel3.ForeColor = Color.White;
+            bigLabel3.ForeColor = SystemColors.ButtonFace;
             bigLabel3.Location = new Point(146, 85);
             bigLabel3.Name = "bigLabel3";
             bigLabel3.Size = new Size(509, 35);
             bigLabel3.TabIndex = 3;
             bigLabel3.Text = "UNIVERSITY OF TRANSPORT TECHNOLOGY";
             // 
+            // logintxtTenDangNhap
+            // 
+            logintxtTenDangNhap.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            logintxtTenDangNhap.ForeColor = Color.FromArgb(155, 161, 165);
+            logintxtTenDangNhap.Location = new Point(394, 185);
+            logintxtTenDangNhap.Name = "logintxtTenDangNhap";
+            logintxtTenDangNhap.Size = new Size(330, 29);
+            logintxtTenDangNhap.TabIndex = 20;
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 14.2641506F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(392, 168);
+            label1.Font = new Font("Segoe UI", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(394, 157);
             label1.Name = "label1";
-            label1.Size = new Size(155, 30);
-            label1.TabIndex = 4;
+            label1.Size = new Size(123, 21);
+            label1.TabIndex = 21;
             label1.Text = "Tên đăng nhập";
-            // 
-            // logintxtTenDangNhap
-            // 
-            // 
-            // 
-            // 
-            logintxtTenDangNhap.CustomButton.Image = null;
-            logintxtTenDangNhap.CustomButton.Location = new Point(217, 2);
-            logintxtTenDangNhap.CustomButton.Name = "";
-            logintxtTenDangNhap.CustomButton.Size = new Size(25, 25);
-            logintxtTenDangNhap.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
-            logintxtTenDangNhap.CustomButton.TabIndex = 1;
-            logintxtTenDangNhap.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
-            logintxtTenDangNhap.CustomButton.UseSelectable = true;
-            logintxtTenDangNhap.CustomButton.Visible = false;
-            logintxtTenDangNhap.Location = new Point(392, 201);
-            logintxtTenDangNhap.MaxLength = 32767;
-            logintxtTenDangNhap.Name = "logintxtTenDangNhap";
-            logintxtTenDangNhap.PasswordChar = '\0';
-            logintxtTenDangNhap.RightToLeft = RightToLeft.No;
-            logintxtTenDangNhap.ScrollBars = ScrollBars.None;
-            logintxtTenDangNhap.SelectedText = "";
-            logintxtTenDangNhap.SelectionLength = 0;
-            logintxtTenDangNhap.SelectionStart = 0;
-            logintxtTenDangNhap.ShortcutsEnabled = true;
-            logintxtTenDangNhap.Size = new Size(245, 30);
-            logintxtTenDangNhap.TabIndex = 5;
-            logintxtTenDangNhap.UseSelectable = true;
-            logintxtTenDangNhap.WaterMarkColor = Color.FromArgb(109, 109, 109);
-            logintxtTenDangNhap.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 14.2641506F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(392, 251);
+            label2.Font = new Font("Segoe UI", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonFace;
+            label2.Location = new Point(394, 233);
             label2.Name = "label2";
-            label2.Size = new Size(103, 30);
-            label2.TabIndex = 6;
+            label2.Size = new Size(82, 21);
+            label2.TabIndex = 23;
             label2.Text = "Mật khẩu";
-            // 
-            // logincbChonVaiTro
-            // 
-            logincbChonVaiTro.FormattingEnabled = true;
-            logincbChonVaiTro.ItemHeight = 23;
-            logincbChonVaiTro.Items.AddRange(new object[] { "--Chọn vai trò--", "Thí sinh", "Admin" });
-            logincbChonVaiTro.Location = new Point(392, 358);
-            logincbChonVaiTro.Name = "logincbChonVaiTro";
-            logincbChonVaiTro.Size = new Size(245, 29);
-            logincbChonVaiTro.TabIndex = 15;
-            logincbChonVaiTro.UseSelectable = true;
             // 
             // logintxtMatKhau
             // 
-            // 
-            // 
-            // 
-            logintxtMatKhau.CustomButton.Image = null;
-            logintxtMatKhau.CustomButton.Location = new Point(217, 2);
-            logintxtMatKhau.CustomButton.Name = "";
-            logintxtMatKhau.CustomButton.Size = new Size(25, 25);
-            logintxtMatKhau.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
-            logintxtMatKhau.CustomButton.TabIndex = 1;
-            logintxtMatKhau.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
-            logintxtMatKhau.CustomButton.UseSelectable = true;
-            logintxtMatKhau.CustomButton.Visible = false;
-            logintxtMatKhau.Location = new Point(392, 284);
-            logintxtMatKhau.MaxLength = 32767;
+            logintxtMatKhau.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            logintxtMatKhau.ForeColor = Color.FromArgb(155, 161, 165);
+            logintxtMatKhau.Location = new Point(394, 261);
             logintxtMatKhau.Name = "logintxtMatKhau";
             logintxtMatKhau.PasswordChar = '*';
-            logintxtMatKhau.ScrollBars = ScrollBars.None;
-            logintxtMatKhau.SelectedText = "";
-            logintxtMatKhau.SelectionLength = 0;
-            logintxtMatKhau.SelectionStart = 0;
-            logintxtMatKhau.ShortcutsEnabled = true;
-            logintxtMatKhau.Size = new Size(245, 30);
-            logintxtMatKhau.TabIndex = 16;
-            logintxtMatKhau.UseSelectable = true;
-            logintxtMatKhau.WaterMarkColor = Color.FromArgb(109, 109, 109);
-            logintxtMatKhau.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            logintxtMatKhau.Size = new Size(330, 29);
+            logintxtMatKhau.TabIndex = 22;
+            // 
+            // logincbChonVaiTro
+            // 
+            logincbChonVaiTro.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            logincbChonVaiTro.ForeColor = Color.FromArgb(155, 161, 165);
+            logincbChonVaiTro.FormattingEnabled = true;
+            logincbChonVaiTro.Items.AddRange(new object[] { "--Chọn vai trò--", "Thí sinh", "Admin" });
+            logincbChonVaiTro.Location = new Point(394, 327);
+            logincbChonVaiTro.Name = "logincbChonVaiTro";
+            logincbChonVaiTro.Size = new Size(330, 29);
+            logincbChonVaiTro.TabIndex = 24;
             // 
             // loginbtnLogin
             // 
-            loginbtnLogin.Location = new Point(657, 358);
+            loginbtnLogin.BackColor = Color.FromArgb(32, 191, 107);
+            loginbtnLogin.FlatStyle = FlatStyle.Popup;
+            loginbtnLogin.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            loginbtnLogin.ForeColor = Color.FromArgb(0, 31, 31);
+            loginbtnLogin.Location = new Point(459, 379);
             loginbtnLogin.Name = "loginbtnLogin";
-            loginbtnLogin.Size = new Size(131, 29);
-            loginbtnLogin.TabIndex = 19;
+            loginbtnLogin.Size = new Size(210, 41);
+            loginbtnLogin.TabIndex = 25;
             loginbtnLogin.Text = "Đăng nhập";
-            loginbtnLogin.UseSelectable = true;
+            loginbtnLogin.UseVisualStyleBackColor = false;
             loginbtnLogin.Click += loginbtnLogin_Click;
             // 
             // login
@@ -198,19 +161,21 @@
             BackColor = Color.Coral;
             ClientSize = new Size(800, 450);
             Controls.Add(loginbtnLogin);
-            Controls.Add(logintxtMatKhau);
             Controls.Add(logincbChonVaiTro);
             Controls.Add(label2);
-            Controls.Add(logintxtTenDangNhap);
+            Controls.Add(logintxtMatKhau);
             Controls.Add(label1);
+            Controls.Add(logintxtTenDangNhap);
             Controls.Add(bigLabel3);
             Controls.Add(bigLabel2);
             Controls.Add(bigLabel1);
             Controls.Add(pictureBox1);
+            ForeColor = Color.FromArgb(255, 245, 204);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(816, 491);
             Name = "login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "login";
+            Text = "Login";
             FormClosed += login_FormClosed;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -223,11 +188,11 @@
         private ReaLTaiizor.Controls.BigLabel bigLabel1;
         private ReaLTaiizor.Controls.BigLabel bigLabel2;
         private ReaLTaiizor.Controls.BigLabel bigLabel3;
+        private TextBox logintxtTenDangNhap;
         private Label label1;
-        private ReaLTaiizor.Controls.PoisonTextBox logintxtTenDangNhap;
         private Label label2;
-        private ReaLTaiizor.Controls.PoisonComboBox logincbChonVaiTro;
-        private ReaLTaiizor.Controls.PoisonTextBox logintxtMatKhau;
-        private ReaLTaiizor.Controls.PoisonButton loginbtnLogin;
+        private TextBox logintxtMatKhau;
+        private ComboBox logincbChonVaiTro;
+        private Button loginbtnLogin;
     }
 }

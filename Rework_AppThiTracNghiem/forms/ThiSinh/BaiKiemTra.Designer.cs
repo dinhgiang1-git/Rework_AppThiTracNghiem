@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaiKiemTra));
             listviewDanhSachCauHoi = new ListView();
             groupBox1 = new GroupBox();
+            btnNopBai = new Button();
+            checkboxnopbai = new CheckBox();
             txtThoiGianConLai = new TextBox();
             label3 = new Label();
             labelTenBaiThi = new Label();
             labelMaSinhVien = new Label();
             labelHoTen = new Label();
             flowCauHoi = new FlowLayoutPanel();
-            checkboxnopbai = new CheckBox();
-            btnNopBai = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,6 +71,29 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin bài thi";
+            // 
+            // btnNopBai
+            // 
+            btnNopBai.BackColor = Color.FromArgb(53, 196, 121);
+            btnNopBai.FlatStyle = FlatStyle.Popup;
+            btnNopBai.ForeColor = Color.White;
+            btnNopBai.Location = new Point(1125, 66);
+            btnNopBai.Name = "btnNopBai";
+            btnNopBai.Size = new Size(121, 30);
+            btnNopBai.TabIndex = 6;
+            btnNopBai.Text = "NỘP BÀI";
+            btnNopBai.UseVisualStyleBackColor = false;
+            btnNopBai.Click += btnNopBai_Click;
+            // 
+            // checkboxnopbai
+            // 
+            checkboxnopbai.AutoSize = true;
+            checkboxnopbai.Location = new Point(948, 74);
+            checkboxnopbai.Name = "checkboxnopbai";
+            checkboxnopbai.Size = new Size(171, 22);
+            checkboxnopbai.TabIndex = 5;
+            checkboxnopbai.Text = "Tôi muốn nộp bài";
+            checkboxnopbai.UseVisualStyleBackColor = true;
             // 
             // txtThoiGianConLai
             // 
@@ -124,29 +148,6 @@
             flowCauHoi.Size = new Size(1254, 702);
             flowCauHoi.TabIndex = 2;
             // 
-            // checkboxnopbai
-            // 
-            checkboxnopbai.AutoSize = true;
-            checkboxnopbai.Location = new Point(948, 74);
-            checkboxnopbai.Name = "checkboxnopbai";
-            checkboxnopbai.Size = new Size(171, 22);
-            checkboxnopbai.TabIndex = 5;
-            checkboxnopbai.Text = "Tôi muốn nộp bài";
-            checkboxnopbai.UseVisualStyleBackColor = true;
-            // 
-            // btnNopBai
-            // 
-            btnNopBai.BackColor = Color.FromArgb(53, 196, 121);
-            btnNopBai.FlatStyle = FlatStyle.Popup;
-            btnNopBai.ForeColor = Color.White;
-            btnNopBai.Location = new Point(1125, 66);
-            btnNopBai.Name = "btnNopBai";
-            btnNopBai.Size = new Size(121, 30);
-            btnNopBai.TabIndex = 6;
-            btnNopBai.Text = "NỘP BÀI";
-            btnNopBai.UseVisualStyleBackColor = false;
-            btnNopBai.Click += btnNopBai_Click;
-            // 
             // BaiKiemTra
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
@@ -156,9 +157,10 @@
             Controls.Add(groupBox1);
             Controls.Add(listviewDanhSachCauHoi);
             Font = new Font("SF Mono", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "BaiKiemTra";
-            Text = "BaiKiemTra";
+            Text = "Bài kiểm tra";
             WindowState = FormWindowState.Maximized;
             FormClosing += BaiKiemTra_FormClosing;
             groupBox1.ResumeLayout(false);

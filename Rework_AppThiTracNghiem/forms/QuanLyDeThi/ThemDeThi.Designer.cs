@@ -280,6 +280,7 @@
             tdtcbNganHangCauHoi.Name = "tdtcbNganHangCauHoi";
             tdtcbNganHangCauHoi.Size = new Size(469, 26);
             tdtcbNganHangCauHoi.TabIndex = 44;
+            tdtcbNganHangCauHoi.SelectedIndexChanged += tdtcbNganHangCauHoi_SelectedIndexChanged;
             // 
             // tdtcbLop
             // 

@@ -31,31 +31,32 @@
             txtSoLuongCauHoi = new TextBox();
             txtTenDeThi = new TextBox();
             txtThoiGianLamBai = new TextBox();
-            txtSoLuongCauKho = new TextBox();
-            txtSoLuongCauTrungBinh = new TextBox();
-            txtSoLuongCauDe = new TextBox();
             dateNgayKetThuc = new DateTimePicker();
             dateNgayBatDau = new DateTimePicker();
             foxLabel11 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel10 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel9 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel3 = new ReaLTaiizor.Controls.FoxLabel();
-            checkBox2 = new CheckBox();
             foxLabel5 = new ReaLTaiizor.Controls.FoxLabel();
-            foxLabel8 = new ReaLTaiizor.Controls.FoxLabel();
-            foxLabel7 = new ReaLTaiizor.Controls.FoxLabel();
-            foxLabel6 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel4 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel2 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
-            txtNganHangCauHoi = new TextBox();
             txtLop = new TextBox();
+            dataDeThi = new DataGridView();
+            dataNganHang = new DataGridView();
+            ctdtbtnChen = new Button();
+            cbNganHangCauHoi = new ComboBox();
+            ctdtbtnXoa = new Button();
+            labelTenDeThi = new Label();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataDeThi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataNganHang).BeginInit();
             SuspendLayout();
             // 
             // txtSoLuongCauHoi
             // 
             txtSoLuongCauHoi.BorderStyle = BorderStyle.FixedSingle;
-            txtSoLuongCauHoi.Location = new Point(26, 214);
+            txtSoLuongCauHoi.Location = new Point(682, 140);
             txtSoLuongCauHoi.Name = "txtSoLuongCauHoi";
             txtSoLuongCauHoi.ReadOnly = true;
             txtSoLuongCauHoi.Size = new Size(194, 27);
@@ -73,43 +74,16 @@
             // txtThoiGianLamBai
             // 
             txtThoiGianLamBai.BorderStyle = BorderStyle.FixedSingle;
-            txtThoiGianLamBai.Location = new Point(682, 214);
+            txtThoiGianLamBai.Location = new Point(1345, 51);
             txtThoiGianLamBai.Name = "txtThoiGianLamBai";
             txtThoiGianLamBai.ReadOnly = true;
             txtThoiGianLamBai.Size = new Size(132, 27);
             txtThoiGianLamBai.TabIndex = 93;
             // 
-            // txtSoLuongCauKho
-            // 
-            txtSoLuongCauKho.BorderStyle = BorderStyle.FixedSingle;
-            txtSoLuongCauKho.Location = new Point(453, 299);
-            txtSoLuongCauKho.Name = "txtSoLuongCauKho";
-            txtSoLuongCauKho.ReadOnly = true;
-            txtSoLuongCauKho.Size = new Size(144, 27);
-            txtSoLuongCauKho.TabIndex = 92;
-            // 
-            // txtSoLuongCauTrungBinh
-            // 
-            txtSoLuongCauTrungBinh.BorderStyle = BorderStyle.FixedSingle;
-            txtSoLuongCauTrungBinh.Location = new Point(212, 299);
-            txtSoLuongCauTrungBinh.Name = "txtSoLuongCauTrungBinh";
-            txtSoLuongCauTrungBinh.ReadOnly = true;
-            txtSoLuongCauTrungBinh.Size = new Size(194, 27);
-            txtSoLuongCauTrungBinh.TabIndex = 91;
-            // 
-            // txtSoLuongCauDe
-            // 
-            txtSoLuongCauDe.BorderStyle = BorderStyle.FixedSingle;
-            txtSoLuongCauDe.Location = new Point(25, 299);
-            txtSoLuongCauDe.Name = "txtSoLuongCauDe";
-            txtSoLuongCauDe.ReadOnly = true;
-            txtSoLuongCauDe.Size = new Size(135, 27);
-            txtSoLuongCauDe.TabIndex = 90;
-            // 
             // dateNgayKetThuc
             // 
             dateNgayKetThuc.Format = DateTimePickerFormat.Custom;
-            dateNgayKetThuc.Location = new Point(682, 129);
+            dateNgayKetThuc.Location = new Point(992, 51);
             dateNgayKetThuc.Margin = new Padding(4, 3, 4, 3);
             dateNgayKetThuc.Name = "dateNgayKetThuc";
             dateNgayKetThuc.Size = new Size(284, 27);
@@ -129,7 +103,7 @@
             foxLabel11.BackColor = Color.Transparent;
             foxLabel11.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel11.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel11.Location = new Point(821, 220);
+            foxLabel11.Location = new Point(1484, 57);
             foxLabel11.Margin = new Padding(4, 3, 4, 3);
             foxLabel11.Name = "foxLabel11";
             foxLabel11.Size = new Size(83, 24);
@@ -141,7 +115,7 @@
             foxLabel10.BackColor = Color.Transparent;
             foxLabel10.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel10.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel10.Location = new Point(682, 185);
+            foxLabel10.Location = new Point(1345, 22);
             foxLabel10.Margin = new Padding(4, 3, 4, 3);
             foxLabel10.Name = "foxLabel10";
             foxLabel10.Size = new Size(221, 24);
@@ -153,7 +127,7 @@
             foxLabel9.BackColor = Color.Transparent;
             foxLabel9.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel9.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel9.Location = new Point(682, 101);
+            foxLabel9.Location = new Point(992, 23);
             foxLabel9.Margin = new Padding(4, 3, 4, 3);
             foxLabel9.Name = "foxLabel9";
             foxLabel9.Size = new Size(221, 24);
@@ -172,77 +146,27 @@
             foxLabel3.TabIndex = 84;
             foxLabel3.Text = "Ngày Bắt Đầu";
             // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Font = new Font("Segoe UI Semibold", 10.8301888F, FontStyle.Bold);
-            checkBox2.ForeColor = Color.FromArgb(30, 41, 59);
-            checkBox2.Location = new Point(26, 428);
-            checkBox2.Margin = new Padding(4, 3, 4, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(218, 25);
-            checkBox2.TabIndex = 83;
-            checkBox2.Text = "Áp dụng lên tất cả các lớp";
-            checkBox2.UseVisualStyleBackColor = true;
-            checkBox2.Visible = false;
-            // 
             // foxLabel5
             // 
             foxLabel5.BackColor = Color.Transparent;
             foxLabel5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel5.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel5.Location = new Point(25, 365);
+            foxLabel5.Location = new Point(1098, 110);
             foxLabel5.Margin = new Padding(4, 3, 4, 3);
             foxLabel5.Name = "foxLabel5";
-            foxLabel5.Size = new Size(572, 24);
+            foxLabel5.Size = new Size(482, 24);
             foxLabel5.TabIndex = 82;
             foxLabel5.Text = "Đề thi áp dụng lên lớp (*)";
-            // 
-            // foxLabel8
-            // 
-            foxLabel8.BackColor = Color.Transparent;
-            foxLabel8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            foxLabel8.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel8.Location = new Point(451, 270);
-            foxLabel8.Margin = new Padding(4, 3, 4, 3);
-            foxLabel8.Name = "foxLabel8";
-            foxLabel8.Size = new Size(146, 24);
-            foxLabel8.TabIndex = 81;
-            foxLabel8.Text = "Số lượng câu \"khó\"";
-            // 
-            // foxLabel7
-            // 
-            foxLabel7.BackColor = Color.Transparent;
-            foxLabel7.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            foxLabel7.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel7.Location = new Point(212, 270);
-            foxLabel7.Margin = new Padding(4, 3, 4, 3);
-            foxLabel7.Name = "foxLabel7";
-            foxLabel7.Size = new Size(194, 24);
-            foxLabel7.TabIndex = 80;
-            foxLabel7.Text = "Số lượng câu \"trung bình\"";
-            // 
-            // foxLabel6
-            // 
-            foxLabel6.BackColor = Color.Transparent;
-            foxLabel6.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            foxLabel6.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel6.Location = new Point(25, 270);
-            foxLabel6.Margin = new Padding(4, 3, 4, 3);
-            foxLabel6.Name = "foxLabel6";
-            foxLabel6.Size = new Size(135, 24);
-            foxLabel6.TabIndex = 79;
-            foxLabel6.Text = "Số lượng câu \"dễ\"";
             // 
             // foxLabel4
             // 
             foxLabel4.BackColor = Color.Transparent;
             foxLabel4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel4.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel4.Location = new Point(25, 185);
+            foxLabel4.Location = new Point(682, 110);
             foxLabel4.Margin = new Padding(4, 3, 4, 3);
             foxLabel4.Name = "foxLabel4";
-            foxLabel4.Size = new Size(560, 24);
+            foxLabel4.Size = new Size(329, 24);
             foxLabel4.TabIndex = 78;
             foxLabel4.Text = "Nhập số lượng câu hỏi muốn có trong đề (*)";
             // 
@@ -251,7 +175,7 @@
             foxLabel2.BackColor = Color.Transparent;
             foxLabel2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             foxLabel2.ForeColor = Color.FromArgb(30, 41, 59);
-            foxLabel2.Location = new Point(25, 101);
+            foxLabel2.Location = new Point(25, 110);
             foxLabel2.Margin = new Padding(4, 3, 4, 3);
             foxLabel2.Name = "foxLabel2";
             foxLabel2.Size = new Size(333, 24);
@@ -270,48 +194,109 @@
             foxLabel1.TabIndex = 75;
             foxLabel1.Text = "Tên đề thi (*)";
             // 
-            // txtNganHangCauHoi
-            // 
-            txtNganHangCauHoi.BorderStyle = BorderStyle.FixedSingle;
-            txtNganHangCauHoi.Location = new Point(26, 129);
-            txtNganHangCauHoi.Name = "txtNganHangCauHoi";
-            txtNganHangCauHoi.ReadOnly = true;
-            txtNganHangCauHoi.Size = new Size(571, 27);
-            txtNganHangCauHoi.TabIndex = 98;
-            // 
             // txtLop
             // 
             txtLop.BorderStyle = BorderStyle.FixedSingle;
-            txtLop.Location = new Point(25, 395);
+            txtLop.Location = new Point(1099, 140);
             txtLop.Name = "txtLop";
             txtLop.ReadOnly = true;
-            txtLop.Size = new Size(571, 27);
+            txtLop.Size = new Size(481, 27);
             txtLop.TabIndex = 99;
+            // 
+            // dataDeThi
+            // 
+            dataDeThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataDeThi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataDeThi.Location = new Point(913, 311);
+            dataDeThi.Name = "dataDeThi";
+            dataDeThi.RowHeadersWidth = 45;
+            dataDeThi.Size = new Size(860, 530);
+            dataDeThi.TabIndex = 100;
+            dataDeThi.CellClick += dataDeThi_CellClick;
+            // 
+            // dataNganHang
+            // 
+            dataNganHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataNganHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataNganHang.Location = new Point(12, 311);
+            dataNganHang.Name = "dataNganHang";
+            dataNganHang.RowHeadersWidth = 45;
+            dataNganHang.Size = new Size(695, 530);
+            dataNganHang.TabIndex = 101;
+            dataNganHang.CellClick += dataNganHang_CellClick;
+            // 
+            // ctdtbtnChen
+            // 
+            ctdtbtnChen.FlatStyle = FlatStyle.Popup;
+            ctdtbtnChen.Location = new Point(772, 311);
+            ctdtbtnChen.Name = "ctdtbtnChen";
+            ctdtbtnChen.Size = new Size(89, 35);
+            ctdtbtnChen.TabIndex = 102;
+            ctdtbtnChen.Text = ">>";
+            ctdtbtnChen.UseVisualStyleBackColor = true;
+            ctdtbtnChen.Click += ctdtbtnChen_Click;
+            // 
+            // cbNganHangCauHoi
+            // 
+            cbNganHangCauHoi.FormattingEnabled = true;
+            cbNganHangCauHoi.Location = new Point(25, 140);
+            cbNganHangCauHoi.Name = "cbNganHangCauHoi";
+            cbNganHangCauHoi.Size = new Size(572, 27);
+            cbNganHangCauHoi.TabIndex = 103;
+            cbNganHangCauHoi.SelectedIndexChanged += cbNganHangCauHoi_SelectedIndexChanged;
+            // 
+            // ctdtbtnXoa
+            // 
+            ctdtbtnXoa.FlatStyle = FlatStyle.Popup;
+            ctdtbtnXoa.Location = new Point(772, 383);
+            ctdtbtnXoa.Name = "ctdtbtnXoa";
+            ctdtbtnXoa.Size = new Size(89, 35);
+            ctdtbtnXoa.TabIndex = 104;
+            ctdtbtnXoa.Text = "<<";
+            ctdtbtnXoa.UseVisualStyleBackColor = true;
+            ctdtbtnXoa.Click += ctdtbtnXoa_Click;
+            // 
+            // labelTenDeThi
+            // 
+            labelTenDeThi.AutoSize = true;
+            labelTenDeThi.Location = new Point(913, 289);
+            labelTenDeThi.Name = "labelTenDeThi";
+            labelTenDeThi.Size = new Size(249, 19);
+            labelTenDeThi.TabIndex = 105;
+            labelTenDeThi.Text = "Danh sách câu hỏi đề thi";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 289);
+            label1.Name = "label1";
+            label1.Size = new Size(359, 19);
+            label1.TabIndex = 106;
+            label1.Text = "Danh sách câu hỏi ngân hàng câu hỏi";
             // 
             // XemChiTietDeThi
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(991, 506);
+            ClientSize = new Size(1785, 853);
+            Controls.Add(label1);
+            Controls.Add(labelTenDeThi);
+            Controls.Add(ctdtbtnXoa);
+            Controls.Add(cbNganHangCauHoi);
+            Controls.Add(ctdtbtnChen);
+            Controls.Add(dataNganHang);
+            Controls.Add(dataDeThi);
             Controls.Add(txtLop);
-            Controls.Add(txtNganHangCauHoi);
             Controls.Add(txtSoLuongCauHoi);
             Controls.Add(txtTenDeThi);
             Controls.Add(txtThoiGianLamBai);
-            Controls.Add(txtSoLuongCauKho);
-            Controls.Add(txtSoLuongCauTrungBinh);
-            Controls.Add(txtSoLuongCauDe);
             Controls.Add(dateNgayKetThuc);
             Controls.Add(dateNgayBatDau);
             Controls.Add(foxLabel11);
             Controls.Add(foxLabel10);
             Controls.Add(foxLabel9);
             Controls.Add(foxLabel3);
-            Controls.Add(checkBox2);
             Controls.Add(foxLabel5);
-            Controls.Add(foxLabel8);
-            Controls.Add(foxLabel7);
-            Controls.Add(foxLabel6);
             Controls.Add(foxLabel4);
             Controls.Add(foxLabel2);
             Controls.Add(foxLabel1);
@@ -319,6 +304,8 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "XemChiTietDeThi";
             Text = "XemChiTietDeThi";
+            ((System.ComponentModel.ISupportInitialize)dataDeThi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataNganHang).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -327,24 +314,23 @@
         private TextBox txtSoLuongCauHoi;
         private TextBox txtTenDeThi;
         private TextBox txtThoiGianLamBai;
-        private TextBox txtSoLuongCauKho;
-        private TextBox txtSoLuongCauTrungBinh;
-        private TextBox txtSoLuongCauDe;
         private DateTimePicker dateNgayKetThuc;
         private DateTimePicker dateNgayBatDau;
         private ReaLTaiizor.Controls.FoxLabel foxLabel11;
         private ReaLTaiizor.Controls.FoxLabel foxLabel10;
         private ReaLTaiizor.Controls.FoxLabel foxLabel9;
         private ReaLTaiizor.Controls.FoxLabel foxLabel3;
-        private CheckBox checkBox2;
         private ReaLTaiizor.Controls.FoxLabel foxLabel5;
-        private ReaLTaiizor.Controls.FoxLabel foxLabel8;
-        private ReaLTaiizor.Controls.FoxLabel foxLabel7;
-        private ReaLTaiizor.Controls.FoxLabel foxLabel6;
         private ReaLTaiizor.Controls.FoxLabel foxLabel4;
         private ReaLTaiizor.Controls.FoxLabel foxLabel2;
         private ReaLTaiizor.Controls.FoxLabel foxLabel1;
-        private TextBox txtNganHangCauHoi;
         private TextBox txtLop;
+        private DataGridView dataDeThi;
+        private DataGridView dataNganHang;
+        private Button ctdtbtnChen;
+        private ComboBox cbNganHangCauHoi;
+        private Button ctdtbtnXoa;
+        private Label labelTenDeThi;
+        private Label label1;
     }
 }

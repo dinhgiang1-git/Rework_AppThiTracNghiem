@@ -24,6 +24,7 @@ namespace Rework_AppThiTracNghiem
             InitializeComponent();
             g_maSinhVien = tenDangNhap;
             LoadThongTin();
+            LoadBangDiem();
         }
 
         private void ThiSinh_FormClosed(object sender, FormClosedEventArgs e)
@@ -100,6 +101,50 @@ namespace Rework_AppThiTracNghiem
             selectedBaiThi = bt;
             selectedBaiThi.BackColor = Color.LightBlue;
             g_maBaiThi = bt.MaBaiThi;
+        }
+        private void LoadBangDiem()
+        {
+            flowBangDiem.Controls.Clear();
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "select MaSinhVien, BAITHI_KETQUA.MaDeThi, DETHI.TenDeThi, Diem, ThoiGianNop from BAITHI_KETQUA  join DETHI on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi where MaSinhVien = @MaSinhVien";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read()) 
+                    {
+                        string madethi = reader["MaDeThi"].ToString();
+                        string tendethi = reader["TenDeThi"].ToString();
+                        string diem = reader["Diem"].ToString();
+                        DateTime thoigiannop = DateTime.Now;
+
+                        // Xử lý ngày 
+                        if (!reader.IsDBNull(reader.GetOrdinal("ThoiGianNop")))
+                        {
+                            thoigiannop = Convert.ToDateTime(reader["ThoiGianNop"]);
+                        }
+                        BangDiem bangdiem = new BangDiem(g_maSinhVien);
+                        bangdiem.Dock = DockStyle.Top;
+                        bangdiem.TenBaiThi = tendethi;
+                        bangdiem.Diem = "Điểm: " + diem;
+                        bangdiem.ThoiGianNopBai = thoigiannop;
+                        bangdiem.MaDeThi = madethi;
+
+                        flowBangDiem.Controls.Add(bangdiem);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error :" + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
         }
     }
 }

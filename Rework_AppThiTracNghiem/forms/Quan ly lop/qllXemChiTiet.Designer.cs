@@ -31,12 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(qllXemChiTiet));
             qllbtnXoaThanhVien = new ReaLTaiizor.Controls.PoisonButton();
             qllgroupbox = new GroupBox();
+            btnNhapFile = new Button();
             qllbtnLamMoi = new ReaLTaiizor.Controls.PoisonButton();
             qllbtnTim = new ReaLTaiizor.Controls.PoisonButton();
             qlltxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             qllbtnSuaThanhVien = new ReaLTaiizor.Controls.PoisonButton();
             qllbtnThemThanhVien = new ReaLTaiizor.Controls.PoisonButton();
             dataThanhVien = new DataGridView();
+            btnXuatFile = new Button();
             qllgroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataThanhVien).BeginInit();
             SuspendLayout();
@@ -48,7 +50,7 @@
             qllbtnXoaThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnXoaThanhVien.Image = (Image)resources.GetObject("qllbtnXoaThanhVien.Image");
             qllbtnXoaThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnXoaThanhVien.Location = new Point(1354, 49);
+            qllbtnXoaThanhVien.Location = new Point(1356, 28);
             qllbtnXoaThanhVien.Margin = new Padding(4);
             qllbtnXoaThanhVien.Name = "qllbtnXoaThanhVien";
             qllbtnXoaThanhVien.Size = new Size(158, 40);
@@ -60,6 +62,8 @@
             // 
             // qllgroupbox
             // 
+            qllgroupbox.Controls.Add(btnXuatFile);
+            qllgroupbox.Controls.Add(btnNhapFile);
             qllgroupbox.Controls.Add(qllbtnLamMoi);
             qllgroupbox.Controls.Add(qllbtnTim);
             qllgroupbox.Controls.Add(qlltxtTimKiem);
@@ -76,6 +80,18 @@
             qllgroupbox.TabIndex = 10;
             qllgroupbox.TabStop = false;
             qllgroupbox.Text = "Chi tiết lớp";
+            // 
+            // btnNhapFile
+            // 
+            btnNhapFile.BackColor = Color.FromArgb(192, 0, 192);
+            btnNhapFile.FlatStyle = FlatStyle.Popup;
+            btnNhapFile.Location = new Point(1024, 95);
+            btnNhapFile.Name = "btnNhapFile";
+            btnNhapFile.Size = new Size(122, 36);
+            btnNhapFile.TabIndex = 16;
+            btnNhapFile.Text = "Nhập file";
+            btnNhapFile.UseVisualStyleBackColor = false;
+            btnNhapFile.Click += btnNhapFile_Click;
             // 
             // qllbtnLamMoi
             // 
@@ -135,7 +151,7 @@
             qllbtnSuaThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnSuaThanhVien.Image = (Image)resources.GetObject("qllbtnSuaThanhVien.Image");
             qllbtnSuaThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnSuaThanhVien.Location = new Point(1188, 49);
+            qllbtnSuaThanhVien.Location = new Point(1190, 28);
             qllbtnSuaThanhVien.Margin = new Padding(4);
             qllbtnSuaThanhVien.Name = "qllbtnSuaThanhVien";
             qllbtnSuaThanhVien.Size = new Size(158, 40);
@@ -152,7 +168,7 @@
             qllbtnThemThanhVien.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             qllbtnThemThanhVien.Image = (Image)resources.GetObject("qllbtnThemThanhVien.Image");
             qllbtnThemThanhVien.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnThemThanhVien.Location = new Point(1022, 49);
+            qllbtnThemThanhVien.Location = new Point(1024, 28);
             qllbtnThemThanhVien.Margin = new Padding(4);
             qllbtnThemThanhVien.Name = "qllbtnThemThanhVien";
             qllbtnThemThanhVien.Size = new Size(158, 40);
@@ -174,6 +190,18 @@
             dataThanhVien.TabIndex = 11;
             dataThanhVien.TabStop = false;
             dataThanhVien.CellClick += dataThanhVien_CellClick;
+            // 
+            // btnXuatFile
+            // 
+            btnXuatFile.BackColor = Color.FromArgb(192, 0, 192);
+            btnXuatFile.FlatStyle = FlatStyle.Popup;
+            btnXuatFile.Location = new Point(1164, 95);
+            btnXuatFile.Name = "btnXuatFile";
+            btnXuatFile.Size = new Size(122, 36);
+            btnXuatFile.TabIndex = 17;
+            btnXuatFile.Text = "Xuất file";
+            btnXuatFile.UseVisualStyleBackColor = false;
+            btnXuatFile.Click += btnXuatFile_Click;
             // 
             // qllXemChiTiet
             // 
@@ -201,5 +229,7 @@
         private ReaLTaiizor.Controls.FoxTextBox qlltxtTimKiem;
         private ReaLTaiizor.Controls.PoisonButton qllbtnLamMoi;
         private DataGridView dataThanhVien;
+        private Button btnNhapFile;
+        private Button btnXuatFile;
     }
 }

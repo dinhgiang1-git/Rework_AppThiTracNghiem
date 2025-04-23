@@ -49,7 +49,7 @@
             // 
             labelTenBaiThi.AutoSize = true;
             labelTenBaiThi.Font = new Font("SF Mono", 14.2641506F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTenBaiThi.Location = new Point(334, 127);
+            labelTenBaiThi.Location = new Point(252, 126);
             labelTenBaiThi.Name = "labelTenBaiThi";
             labelTenBaiThi.Size = new Size(155, 25);
             labelTenBaiThi.TabIndex = 1;
@@ -84,6 +84,7 @@
             btnXemLaiBaiLam.TabIndex = 4;
             btnXemLaiBaiLam.Text = "Xem lại bài làm";
             btnXemLaiBaiLam.UseVisualStyleBackColor = true;
+            btnXemLaiBaiLam.Click += btnXemLaiBaiLam_Click;
             // 
             // ucKetQua
             // 

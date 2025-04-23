@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThiSinh));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             tabPage1 = new ReaLTaiizor.Controls.TabPage();
             tabPage2 = new TabPage();
             flowBaiThi = new FlowLayoutPanel();
@@ -53,7 +50,7 @@
             label3 = new Label();
             label2 = new Label();
             tabPage3 = new TabPage();
-            poisonDataGridView2 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            flowBangDiem = new FlowLayoutPanel();
             groupBox4 = new GroupBox();
             poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
@@ -71,7 +68,6 @@
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView2).BeginInit();
             groupBox4.SuspendLayout();
             groupBox5.SuspendLayout();
             SuspendLayout();
@@ -203,7 +199,7 @@
             poisonButton21.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton21.Image = (Image)resources.GetObject("poisonButton21.Image");
             poisonButton21.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton21.Location = new Point(1083, 110);
+            poisonButton21.Location = new Point(1086, 110);
             poisonButton21.Name = "poisonButton21";
             poisonButton21.Size = new Size(96, 29);
             poisonButton21.TabIndex = 21;
@@ -218,7 +214,7 @@
             groupBox3.Controls.Add(radioButton2);
             groupBox3.Controls.Add(radioButton1);
             groupBox3.ForeColor = Color.WhiteSmoke;
-            groupBox3.Location = new Point(1083, 24);
+            groupBox3.Location = new Point(1086, 24);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(303, 80);
             groupBox3.TabIndex = 22;
@@ -357,7 +353,7 @@
             // tabPage3
             // 
             tabPage3.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage3.Controls.Add(poisonDataGridView2);
+            tabPage3.Controls.Add(flowBangDiem);
             tabPage3.Controls.Add(groupBox4);
             tabPage3.Location = new Point(204, 4);
             tabPage3.Name = "tabPage3";
@@ -366,49 +362,14 @@
             tabPage3.TabIndex = 1;
             tabPage3.Text = "Điểm";
             // 
-            // poisonDataGridView2
+            // flowBangDiem
             // 
-            poisonDataGridView2.AllowUserToResizeRows = false;
-            poisonDataGridView2.BackgroundColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView2.BorderStyle = BorderStyle.None;
-            poisonDataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            poisonDataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            poisonDataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            poisonDataGridView2.EnableHeadersVisualStyles = false;
-            poisonDataGridView2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            poisonDataGridView2.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView2.Location = new Point(6, 215);
-            poisonDataGridView2.Name = "poisonDataGridView2";
-            poisonDataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            poisonDataGridView2.RowHeadersWidth = 45;
-            poisonDataGridView2.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            poisonDataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView2.Size = new Size(1392, 630);
-            poisonDataGridView2.TabIndex = 9;
+            flowBangDiem.AutoScroll = true;
+            flowBangDiem.BackColor = Color.FromArgb(241, 245, 249);
+            flowBangDiem.Location = new Point(6, 164);
+            flowBangDiem.Name = "flowBangDiem";
+            flowBangDiem.Size = new Size(1392, 684);
+            flowBangDiem.TabIndex = 9;
             // 
             // groupBox4
             // 
@@ -495,7 +456,7 @@
             poisonButton4.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton4.Image = (Image)resources.GetObject("poisonButton4.Image");
             poisonButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton4.Location = new Point(848, 83);
+            poisonButton4.Location = new Point(951, 120);
             poisonButton4.Name = "poisonButton4";
             poisonButton4.Size = new Size(96, 29);
             poisonButton4.TabIndex = 21;
@@ -583,7 +544,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView2).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
@@ -623,7 +583,7 @@
         private RadioButton radioButton6;
         private RadioButton radioButton7;
         private RadioButton radioButton8;
-        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView2;
         private FlowLayoutPanel flowBaiThi;
+        private FlowLayoutPanel flowBangDiem;
     }
 }

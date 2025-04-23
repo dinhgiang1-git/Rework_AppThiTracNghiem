@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -35,17 +36,12 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
             DateTime thoiGianBatDau;
             g_maSinhVien = maSinhVien;
             g_maDeThi = maDeThi;
-            LoadThongTin_DeThi();
-            if (g_khoiTao == 0)
-            {
-                TaoCauHoi();
-            }
-
+            LoadThongTin_DeThi();            
             LoadThongTin_CauHoi();
-
             listviewDanhSachCauHoi.View = View.Tile;
             listviewDanhSachCauHoi.TileSize = new Size(100, 60);
         }
+        //Xem lại bài kiểm tra      
         private void LoadThongTin_DeThi()
         {
             using (SqlConnection conn = new SqlConnection(strConn))
@@ -53,7 +49,7 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 try
                 {
                     conn.Open();
-                    string query = "Select * from SINHVIEN where MaSinhVien = @MaSinhVien";
+                    string query = "SELECT * FROM SINHVIEN WHERE MaSinhVien = @MaSinhVien";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -61,27 +57,25 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                     while (reader.Read())
                     {
                         string masinhvien = reader["MaSinhVien"].ToString();
-                        string hoten = reader["HoTen"].ToString();     
+                        string hoten = reader["HoTen"].ToString();
 
                         labelHoTen.Text = "Họ tên: " + hoten;
                         labelMaSinhVien.Text = "Mã: " + masinhvien;
                     }
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
                     throw new Exception("Error: " + ex.Message);
                 }
-                finally
-                {
-                    conn.Close();
-                }
             }
+
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 try
                 {
                     conn.Open();
-                    string query = "Select * from DETHI where MaDeThi = @MaDeThi";
+                    string query = "SELECT * FROM DETHI WHERE MaDeThi = @MaDeThi";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -90,66 +84,87 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                     {
                         string tendethi = reader["TenDeThi"].ToString();
                         string thoigianconlai = reader["ThoiGianLamBai"].ToString();
-                        string socaude = reader["SoCauDe"].ToString();
-                        string socautrungbinh = reader["SoCauTrungBinh"].ToString();
-                        string socaukho = reader["SoCauKho"].ToString();
                         string manganhang = reader["MaNganHang"].ToString();
                         string tongsocau = reader["TongSoCau"].ToString();
 
                         g_maNganHang = manganhang;
-                        g_soCauDe = int.Parse(socaude);
-                        g_soCauTrungBinh = int.Parse(socautrungbinh);
-                        g_soCauKho = int.Parse(socaukho);
                         g_tongSoCau = int.Parse(tongsocau);
-                        g_tenDeThi = tendethi;
 
                         labelTenBaiThi.Text = "Bài thi: " + tendethi;
                         int soPhut = int.Parse(thoigianconlai);
                         remainingTime = TimeSpan.FromMinutes(soPhut);
                         txtThoiGianConLai.Text = remainingTime.ToString(@"hh\:mm\:ss");
 
-                        // Khởi tạo và cấu hình Timer
                         examTimer = new System.Windows.Forms.Timer();
-                        examTimer.Interval = 1000; // 1 giây
+                        examTimer.Interval = 1000;
                         examTimer.Tick += ExamTimer_Tick;
                         examTimer.Start();
                     }
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
                     throw new Exception("Error: " + ex.Message);
                 }
-                finally
-                {
-                    conn.Close();
-                }
             }
+
+            // Tạo bản ghi trong BAITHI cho sinh viên
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 try
                 {
                     conn.Open();
-                    string query = "Select count(*) from CT_BAITHI where MaDeThi = @MaDeThi and KhoiTao = '1'";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    if (count > 0)
+                    // Kiểm tra xem sinh viên đã có bản ghi trong BAITHI chưa
+                    string checkQuery = "SELECT COUNT(*) FROM BAITHI WHERE MaDeThi = @MaDeThi AND MaSinhVien = @MaSinhVien";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                    checkCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                    int count = (int)checkCmd.ExecuteScalar();
+
+                    if (count == 0)
                     {
-                        g_khoiTao = 1;
-                    }
-                    else
-                    {
-                        g_khoiTao = 0;
+                        // Lấy danh sách câu hỏi từ CT_DETHI
+                        string selectQuery = "SELECT MaCauHoi FROM CT_DETHI WHERE MaDeThi = @MaDeThi";
+                        SqlCommand selectCmd = new SqlCommand(selectQuery, conn);
+                        selectCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                        SqlDataReader reader = selectCmd.ExecuteReader();
+
+                        List<int> danhSachCauHoi = new List<int>();
+                        while (reader.Read())
+                        {
+                            danhSachCauHoi.Add((int)reader["MaCauHoi"]);
+                        }
+                        reader.Close();
+
+                        // Xáo trộn danh sách câu hỏi (nếu muốn thứ tự ngẫu nhiên)
+                        Random rng = new Random();
+                        int n = danhSachCauHoi.Count;
+                        for (int i = 0; i < n; i++)
+                        {
+                            int k = rng.Next(i, n);
+                            int temp = danhSachCauHoi[i];
+                            danhSachCauHoi[i] = danhSachCauHoi[k];
+                            danhSachCauHoi[k] = temp;
+                        }
+
+                        // Thêm bản ghi vào BAITHI
+                        for (int i = 0; i < danhSachCauHoi.Count; i++)
+                        {
+                            string insertQuery = @"
+                                                INSERT INTO BAITHI (MaDeThi, MaCauHoi, MaSinhVien, DapAnChon)
+                                                VALUES (@MaDeThi, @MaCauHoi, @MaSinhVien, NULL)";
+                            SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                            insertCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                            insertCmd.Parameters.AddWithValue("@MaCauHoi", danhSachCauHoi[i]);
+                            insertCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);               
+                            insertCmd.ExecuteNonQuery();
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     throw new Exception("Error: " + ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
                 }
             }
         }
@@ -164,9 +179,15 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 try
                 {
                     conn.Open();
-                    string query = "select CAUHOI.MaCauHoi, NoiDungCauHoi, DapAnA, DapAnB, DapAnC, DapAnD from CAUHOI join CT_BAITHI on CT_BAITHI.MaCauHoi = CAUHOI.MaCauHoi where CT_BAITHI.MaSinhVien = @MaSinhVien";
+                    string query = @"
+                        SELECT CAUHOI.MaCauHoi, NoiDungCauHoi, DapAnA, DapAnB, DapAnC, DapAnD, BAITHI.DapAnChon 
+                        FROM CAUHOI 
+                        JOIN BAITHI ON BAITHI.MaCauHoi = CAUHOI.MaCauHoi 
+                        WHERE BAITHI.MaSinhVien = @MaSinhVien AND BAITHI.MaDeThi = @MaDeThi";
+          
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                    cmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
@@ -176,22 +197,34 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                         string noidungdapanB = reader["DapAnB"].ToString();
                         string noidungdapanC = reader["DapAnC"].ToString();
                         string noidungdapanD = reader["DapAnD"].ToString();
+                        string dapAnChon = reader["DapAnChon"]?.ToString();
 
-                        ucCauHoi cauhoi = new ucCauHoi();
-                        cauhoi.Dock = DockStyle.Top;
-                        cauhoi.MaCauHoi = macauhoi;
-                        cauhoi.NoiDungCauHoi = noidungcauhoi;
-                        cauhoi.NoiDungDapAnA = noidungdapanA;
-                        cauhoi.NoiDungDapAnB = noidungdapanB;
-                        cauhoi.NoiDungDapAnC = noidungdapanC;
-                        cauhoi.NoiDungDapAnD = noidungdapanD;
+
+                        ucCauHoi cauhoi = new ucCauHoi
+                        {
+                            Dock = DockStyle.Top,
+                            MaCauHoi = macauhoi,
+                            NoiDungCauHoi = noidungcauhoi,
+                            NoiDungDapAnA = noidungdapanA,
+                            NoiDungDapAnB = noidungdapanB,
+                            NoiDungDapAnC = noidungdapanC,
+                            NoiDungDapAnD = noidungdapanD
+                        };
+
+                        //if (!string.IsNullOrEmpty(dapAnChon))
+                        //{
+                        //    if (dapAnChon == "A") cauhoi.DapAnA = true;
+                        //    else if (dapAnChon == "B") cauhoi.DapAnB = true;
+                        //    else if (dapAnChon == "C") cauhoi.DapAnC = true;
+                        //    else if (dapAnChon == "D") cauhoi.DapAnD = true;
+                        //}
+
                         index++;
                         string strIndex = "Câu: " + index.ToString();
                         cauhoi.Index = strIndex;
 
-                        // Thêm vào ListView
                         ListViewItem item = new ListViewItem(strIndex);
-                        item.Tag = cauhoi; // Lưu reference đến UserControl
+                        item.Tag = cauhoi;
                         listviewDanhSachCauHoi.Items.Add(item);
 
                         flowCauHoi.Controls.Add(cauhoi);
@@ -201,10 +234,7 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 {
                     throw new Exception("Error: " + ex.Message);
                 }
-                finally
-                {
-                    conn.Close();
-                }
+                
             }
         }
         private void ExamTimer_Tick(object sender, EventArgs e)
@@ -221,97 +251,11 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 this.Close(); // Hoặc gọi hàm nộp bài
             }
         }
-
         private void BaiKiemTra_FormClosing(object sender, FormClosingEventArgs e)
         {
             examTimer?.Stop();
             examTimer?.Dispose();
-        }
-
-        //Very impotant!!! TaoCauHoi();
-        private void TaoCauHoi()
-        {
-            List<int> danhSachCauHoi = new List<int>();
-
-            using (SqlConnection conn = new SqlConnection(strConn))
-            {
-                try
-                {
-                    conn.Open();
-
-                    if (g_soCauDe == 0 && g_soCauTrungBinh == 0 && g_soCauKho == 0)
-                    {
-                        // Nếu cả 3 đều bằng 0, random toàn bộ số câu hỏi
-                        LayCauHoiNgauNhien(conn, danhSachCauHoi);
-                    }
-                    else
-                    {
-                        // Tạo câu hỏi DỄ
-                        LayCauHoiTheoMucDo(conn, g_soCauDe, "Dễ", danhSachCauHoi);
-
-                        // Tạo câu hỏi TRUNG BÌNH
-                        LayCauHoiTheoMucDo(conn, g_soCauTrungBinh, "Trung bình", danhSachCauHoi);
-
-                        // Tạo câu hỏi KHÓ
-                        LayCauHoiTheoMucDo(conn, g_soCauKho, "Khó", danhSachCauHoi);
-                    }
-
-                    // Insert vào CT_BAITHI
-                    foreach (int maCauHoi in danhSachCauHoi)
-                    {
-                        SqlCommand insertCmd = new SqlCommand("INSERT INTO CT_BAITHI (MaSinhVien, MaDeThi, MaCauHoi, KhoiTao) VALUES (@MaSinhVien, @MaDeThi, @MaCauHoi, @KhoiTao)", conn);
-                        insertCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
-                        insertCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
-                        insertCmd.Parameters.AddWithValue("@MaCauHoi", maCauHoi);
-                        insertCmd.Parameters.AddWithValue("@KhoiTao", 1);
-                        insertCmd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error: " + ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-        }
-        private void LayCauHoiTheoMucDo(SqlConnection conn, int soLuong, string mucDo, List<int> danhSach)
-        {
-            string query = $"SELECT TOP {soLuong} MaCauHoi FROM CAUHOI WHERE MaNganHang = @MaNganHang AND DangCauHoi = N'{mucDo}' ORDER BY NEWID()";
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@MaNganHang", g_maNganHang);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        danhSach.Add(reader.GetInt32(0));
-                    }
-                    reader.Close();
-                }
-            }
-        }
-        private void LayCauHoiNgauNhien(SqlConnection conn, List<int> danhSach)
-        {
-            // Số lượng câu hỏi có thể xác định tùy vào đề thi            
-
-            string query = $"SELECT TOP {g_tongSoCau} MaCauHoi FROM CAUHOI WHERE MaNganHang = @MaNganHang ORDER BY NEWID()";
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@MaNganHang", g_maNganHang);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        danhSach.Add(reader.GetInt32(0));
-                    }
-                    reader.Close();
-                }
-            }
-        }
-
+        }   
         private void listviewDanhSachCauHoi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listviewDanhSachCauHoi.SelectedItems.Count > 0)
@@ -347,19 +291,16 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 }
             }
         }
-
         private void btnNopBai_Click(object sender, EventArgs e)
         {
-            if(!checkboxnopbai.Checked)
+            if (!checkboxnopbai.Checked)
             {
-                MessageBox.Show("Vui lòng tích vào 'Tôi muốn nộp bài!'");
+                MessageBox.Show("Vui lòng tích vào 'Tôi muốn nộp bài!'", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }         
-            examTimer.Stop();
+            }
 
-            int soCauDung = 0;
-            double diemMoiCau = 10.0 / g_tongSoCau;
-            double diem = 0;
+            // Dừng đồng hồ
+            examTimer.Stop();
 
             using (SqlConnection conn = new SqlConnection(strConn))
             {
@@ -367,20 +308,19 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 {
                     conn.Open();
 
+                    // Duyệt qua các control ucCauHoi trong FlowLayoutPanel
                     foreach (ucCauHoi cauHoi in flowCauHoi.Controls.OfType<ucCauHoi>())
                     {
-                        // Lấy đáp án đã chọn
-                        string dapAnChon = cauHoi.DapAnChon; 
+                        string dapAnChon = cauHoi.DapAnChon;
                         string maCauHoi = cauHoi.MaCauHoi;
 
                         if (!string.IsNullOrEmpty(dapAnChon))
                         {
-                            // Cập nhật chỉ cột DapAnChon vào bảng CT_BAITHI
+                            // Cập nhật DapAnChon vào bảng CT_DETHI
                             string updateQuery = @"
-                                UPDATE CT_BAITHI 
+                                UPDATE BAITHI 
                                 SET DapAnChon = @DapAnChon
                                 WHERE MaSinhVien = @MaSinhVien AND MaDeThi = @MaDeThi AND MaCauHoi = @MaCauHoi";
-
                             SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
                             updateCmd.Parameters.AddWithValue("@DapAnChon", dapAnChon);
                             updateCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
@@ -390,16 +330,20 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                         }
                     }
 
+                    // Tính điểm
+                    int soCauDung = 0;
+                    double diemMoiCau = 10.0 / g_tongSoCau;
+                    double diem = 0;
 
-                    // Query to count correct answers
+                    // Đếm số câu đúng
                     string query = @"
                         SELECT COUNT(*) 
-                        FROM CT_BAITHI ct
-                        JOIN CAUHOI ch ON ct.MaCauHoi = ch.MaCauHoi
-                        WHERE ct.MaSinhVien = @MaSinhVien 
-                        AND ct.MaDeThi = @MaDeThi 
-                        AND ct.DapAnChon = ch.DapAnDung
-                        AND ct.DapAnChon IS NOT NULL";
+                        FROM BAITHI bt
+                        JOIN CAUHOI ch ON bt.MaCauHoi = ch.MaCauHoi
+                        WHERE bt.MaSinhVien = @MaSinhVien 
+                        AND bt.MaDeThi = @MaDeThi 
+                        AND bt.DapAnChon = ch.DapAnDung
+                        AND bt.DapAnChon IS NOT NULL";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
                     cmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
@@ -407,16 +351,16 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
 
                     diem = soCauDung * diemMoiCau;
 
+                    // Lưu kết quả vào BAITHI_KETQUA
                     string insertQuery = @"
                         INSERT INTO BAITHI_KETQUA 
                         (MaSinhVien, MaDeThi, Diem, ThoiGianBatDau, ThoiGianNop, SoCauDung, TongSoCau, CreateAt)
                         VALUES (@MaSinhVien, @MaDeThi, @Diem, @ThoiGianBatDau, @ThoiGianNop, @SoCauDung, @TongSoCau, @CreateAt)";
-
                     SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
                     insertCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
                     insertCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
                     insertCmd.Parameters.AddWithValue("@Diem", diem);
-                    insertCmd.Parameters.AddWithValue("@ThoiGianBatDau", g_thoigianbatdau); 
+                    insertCmd.Parameters.AddWithValue("@ThoiGianBatDau", DateTime.Now);
                     insertCmd.Parameters.AddWithValue("@ThoiGianNop", DateTime.Now);
                     insertCmd.Parameters.AddWithValue("@SoCauDung", soCauDung);
                     insertCmd.Parameters.AddWithValue("@TongSoCau", g_tongSoCau);
@@ -425,23 +369,21 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
 
                     flowCauHoi.Controls.Clear();
 
-                    ucKetQua ucketqua = new ucKetQua();
+                    ucKetQua ucketqua = new ucKetQua(g_maDeThi, g_maSinhVien);
                     ucketqua.Dock = DockStyle.Top;
                     ucketqua.TenBaiThi = g_tenDeThi;
-                    ucketqua.SoCauTraLoiDung = "Bạn đã làm đúng " +soCauDung+ "/" +g_tongSoCau;
-                    ucketqua.DiemSo = "Số điểm của bạn " +diem+ "đ";
+                    ucketqua.SoCauTraLoiDung = "Bạn đã làm đúng " + soCauDung + "/" + g_tongSoCau;
+                    ucketqua.DiemSo = "Số điểm của bạn " + diem + "đ";
 
                     flowCauHoi.Controls.Add(ucketqua);
+
+
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Error :" + ex.Message);
-                }
-                finally 
-                {
-                    conn.Close();
+                    MessageBox.Show("Lỗi khi nộp bài: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
+        }        
     }
 }

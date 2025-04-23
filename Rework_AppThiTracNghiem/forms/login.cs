@@ -138,6 +138,12 @@ namespace Rework_AppThiTracNghiem
             }
         }
 
+
+        private void login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void loginbtnLogin_Click(object sender, EventArgs e)
         {
             if (logincbChonVaiTro.SelectedItem == "Thí sinh")
@@ -148,11 +154,6 @@ namespace Rework_AppThiTracNghiem
             {
                 fCheckLoginADMIN();
             }
-        }
-
-        private void login_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

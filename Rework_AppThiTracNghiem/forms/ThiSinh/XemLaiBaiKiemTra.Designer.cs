@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemLaiBaiKiemTra));
             flowCauHoi = new FlowLayoutPanel();
             groupBox1 = new GroupBox();
             labelTenBaiThi = new Label();
@@ -108,9 +109,10 @@
             Controls.Add(groupBox1);
             Controls.Add(listviewDanhSachCauHoi);
             Font = new Font("SF Mono", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "XemLaiBaiKiemTra";
-            Text = "XemLaiBaiKiemTra";
+            Text = "Xem Lại Bài Kiểm Tra";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

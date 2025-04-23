@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemDeThi));
             foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel2 = new ReaLTaiizor.Controls.FoxLabel();
             iiii = new ReaLTaiizor.Controls.FoxLabel();
@@ -364,9 +365,10 @@
             Controls.Add(foxLabel2);
             Controls.Add(foxLabel1);
             Font = new Font("SF Mono", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "ThemDeThi";
-            Text = "ThemDeThi";
+            Text = "Thêm đề thi";
             ResumeLayout(false);
             PerformLayout();
         }

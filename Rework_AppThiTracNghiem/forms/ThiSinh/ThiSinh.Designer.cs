@@ -532,8 +532,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1609, 859);
             Controls.Add(tabPage1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ThiSinh";
-            Text = "ThiSinh";
             FormClosed += ThiSinh_FormClosed;
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);

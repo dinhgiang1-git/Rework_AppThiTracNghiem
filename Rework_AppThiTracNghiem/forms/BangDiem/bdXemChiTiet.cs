@@ -80,6 +80,7 @@ namespace Rework_AppThiTracNghiem.forms.BangDiem
                 finally
                 {
                     conn.Close();
+                    labelTenDeThi.Text = bdcbDeThi.GetItemText(bdcbDeThi.SelectedItem).ToUpper();
                 }
             }
         }
@@ -87,6 +88,7 @@ namespace Rework_AppThiTracNghiem.forms.BangDiem
         {
             //Lấy dữ liệu cho datagridviewBangDiem
             //COALESCE(BAITHI_KETQUA.Diem, 0) AS Diem, ORDERBY
+            //AND (DETHI.MaDeThi = @MaDeThi OR DETHI.MaDeThi IS NULL)
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 try
@@ -94,24 +96,19 @@ namespace Rework_AppThiTracNghiem.forms.BangDiem
                     conn.Open();
                     string query = @"
                     SELECT 
-                        SINHVIEN.MaSinhVien,
-                        SINHVIEN.HoTen,
-                        DETHI.TenDeThi,
-                        Diem,
-                        BAITHI_KETQUA.ThoiGianNop          
-                    FROM 
-                        SINHVIEN
-                        LEFT JOIN BAITHI_KETQUA ON SINHVIEN.MaSinhVien = BAITHI_KETQUA.MaSinhVien 
-                            AND BAITHI_KETQUA.MaDeThi = @MaDeThi
-                        LEFT JOIN DETHI ON BAITHI_KETQUA.MaDeThi = DETHI.MaDeThi
-                    WHERE 
-                        SINHVIEN.MaLopHoc = @MaLopHoc
-                        AND (DETHI.MaDeThi = @MaDeThi OR DETHI.MaDeThi IS NULL)
-                    ORDER BY 
-                        SINHVIEN.HoTen ASC";
+                    SINHVIEN.MaSinhVien,
+                    SINHVIEN.HoTen,             
+                    Diem,
+                    BAITHI_KETQUA.ThoiGianNop          
+                    FROM SINHVIEN
+                    LEFT JOIN BAITHI_KETQUA ON SINHVIEN.MaSinhVien = BAITHI_KETQUA.MaSinhVien 
+                    AND BAITHI_KETQUA.MaDeThi = @MaDeThi
+                    LEFT JOIN DETHI ON BAITHI_KETQUA.MaDeThi = DETHI.MaDeThi
+                    WHERE SINHVIEN.MaLopHoc = @MaLopHoc                    
+                    ORDER BY SINHVIEN.HoTen ASC";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
-                    cmd.Parameters.AddWithValue("@MALopHoc", g_maLop);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLop);
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
 

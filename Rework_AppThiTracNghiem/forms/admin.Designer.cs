@@ -37,50 +37,55 @@
             adminlabelHoTen = new Label();
             bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             tabPage11 = new TabPage();
-            adminbtnTimDeThi = new ReaLTaiizor.Controls.PoisonButton();
+            dttxtTimKiem = new TextBox();
+            dtbtnTimKiem = new Button();
+            groupBox9 = new GroupBox();
             flowDeThi = new FlowLayoutPanel();
             groupBox2 = new GroupBox();
             dtbtnLamMoi = new Button();
             adminbtnXoaDeThi = new Button();
             dtbtnsua = new Button();
             adminbtnThemDeThi = new Button();
-            foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage1 = new TabPage();
+            qlltxtTimKiem = new TextBox();
+            qllbtnTimKiem = new Button();
+            groupBox10 = new GroupBox();
             flowLop = new FlowLayoutPanel();
-            adminqllbtnTimKiem = new ReaLTaiizor.Controls.PoisonButton();
             groupBox3 = new GroupBox();
             qllbtnLamMoi = new Button();
             qllbtnSua = new Button();
             qllbtnXoa = new Button();
             adminqllbtnThemLop = new Button();
-            adminqlltxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage2 = new TabPage();
-            btnLamMoiNHCH = new Button();
+            nhchtxtTimKiem = new TextBox();
+            nhchbtnTimKiem = new Button();
+            groupBox11 = new GroupBox();
             flowNHCH = new FlowLayoutPanel();
-            nhchbtnTim = new ReaLTaiizor.Controls.PoisonButton();
             groupBox4 = new GroupBox();
+            btnLamMoiNHCH = new Button();
             btnXoaNHCH = new Button();
             btnSuaNHCH = new Button();
             btnThemNganHangCauHoi = new Button();
-            nhchtxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage3 = new TabPage();
+            groupBox12 = new GroupBox();
             flowBangDiem = new FlowLayoutPanel();
             groupBox5 = new GroupBox();
+            bdbtnLamMoi = new Button();
+            bdtxtTimKiem = new TextBox();
+            bdbtnTimKiem = new Button();
+            groupBox13 = new GroupBox();
             bdcbLop = new ComboBox();
             label4 = new Label();
-            poisonButton19 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton20 = new ReaLTaiizor.Controls.PoisonButton();
-            foxTextBox4 = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage4 = new TabPage();
             groupBox8 = new GroupBox();
             tttklabelMaGiangVien = new Label();
+            button1 = new Button();
             tttklabelQueQuan = new Label();
             label14 = new Label();
             tttklabelGioiTinh = new Label();
             label13 = new Label();
             tttklabelHoTen = new Label();
             label11 = new Label();
-            button1 = new Button();
             groupBox7 = new GroupBox();
             tttkbtnCapNhatMatKhau = new Button();
             tttktxtMatKhauNewR = new TextBox();
@@ -103,12 +108,16 @@
             tabPage10.SuspendLayout();
             groupBox1.SuspendLayout();
             tabPage11.SuspendLayout();
+            groupBox9.SuspendLayout();
             groupBox2.SuspendLayout();
             tabPage1.SuspendLayout();
+            groupBox10.SuspendLayout();
             groupBox3.SuspendLayout();
             tabPage2.SuspendLayout();
+            groupBox11.SuspendLayout();
             groupBox4.SuspendLayout();
             tabPage3.SuspendLayout();
+            groupBox12.SuspendLayout();
             groupBox5.SuspendLayout();
             tabPage4.SuspendLayout();
             groupBox8.SuspendLayout();
@@ -118,14 +127,14 @@
             // 
             // tabPage9
             // 
-            tabPage9.ActiveForeColor = Color.FromArgb(254, 255, 255);
-            tabPage9.ActiveLineTabColor = Color.FromArgb(89, 169, 222);
-            tabPage9.ActiveTabColor = Color.FromArgb(35, 36, 38);
+            tabPage9.ActiveForeColor = Color.White;
+            tabPage9.ActiveLineTabColor = Color.FromArgb(23, 79, 167);
+            tabPage9.ActiveTabColor = Color.FromArgb(50, 100, 200);
             tabPage9.Alignment = TabAlignment.Left;
             tabPage9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabPage9.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             tabPage9.CompositingType = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-            tabPage9.ControlBackColor = Color.FromArgb(54, 57, 64);
+            tabPage9.ControlBackColor = Color.FromArgb(23, 79, 167);
             tabPage9.Controls.Add(tabPage10);
             tabPage9.Controls.Add(tabPage11);
             tabPage9.Controls.Add(tabPage1);
@@ -134,15 +143,15 @@
             tabPage9.Controls.Add(tabPage4);
             tabPage9.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabPage9.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabPage9.FrameColor = Color.FromArgb(41, 50, 63);
+            tabPage9.FrameColor = Color.FromArgb(241, 243, 244);
             tabPage9.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             tabPage9.ItemSize = new Size(44, 240);
-            tabPage9.LineColor = Color.FromArgb(25, 26, 28);
-            tabPage9.LineTabColor = Color.FromArgb(54, 57, 64);
+            tabPage9.LineColor = Color.FromArgb(50, 100, 200);
+            tabPage9.LineTabColor = Color.FromArgb(50, 150, 255);
             tabPage9.Location = new Point(0, 0);
             tabPage9.Multiline = true;
             tabPage9.Name = "tabPage9";
-            tabPage9.NormalForeColor = Color.FromArgb(155, 161, 165);
+            tabPage9.NormalForeColor = Color.White;
             tabPage9.PageColor = Color.FromArgb(241, 243, 244);
             tabPage9.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             tabPage9.RightToLeft = RightToLeft.No;
@@ -151,7 +160,7 @@
             tabPage9.SizeMode = TabSizeMode.Fixed;
             tabPage9.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             tabPage9.StringType = StringAlignment.Near;
-            tabPage9.TabColor = Color.FromArgb(54, 57, 64);
+            tabPage9.TabColor = Color.FromArgb(23, 79, 167);
             tabPage9.TabIndex = 4;
             tabPage9.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
@@ -221,17 +230,17 @@
             bigLabel1.ForeColor = Color.Black;
             bigLabel1.Location = new Point(6, 6);
             bigLabel1.Name = "bigLabel1";
-            bigLabel1.Size = new Size(507, 40);
+            bigLabel1.Size = new Size(532, 40);
             bigLabel1.TabIndex = 0;
-            bigLabel1.Text = "Chào mừng bạn đến với Tochnolya 🎉";
+            bigLabel1.Text = "Chào mừng bạn đến với Technologia 🎉";
             // 
             // tabPage11
             // 
             tabPage11.BackColor = Color.FromArgb(241, 243, 244);
-            tabPage11.Controls.Add(adminbtnTimDeThi);
-            tabPage11.Controls.Add(flowDeThi);
+            tabPage11.Controls.Add(dttxtTimKiem);
+            tabPage11.Controls.Add(dtbtnTimKiem);
+            tabPage11.Controls.Add(groupBox9);
             tabPage11.Controls.Add(groupBox2);
-            tabPage11.Controls.Add(foxTextBox1);
             tabPage11.Location = new Point(244, 4);
             tabPage11.Name = "tabPage11";
             tabPage11.Padding = new Padding(3);
@@ -239,28 +248,45 @@
             tabPage11.TabIndex = 1;
             tabPage11.Text = "Đề thi";
             // 
-            // adminbtnTimDeThi
+            // dttxtTimKiem
             // 
-            adminbtnTimDeThi.BackColor = Color.Transparent;
-            adminbtnTimDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnTimDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnTimDeThi.Image = (Image)resources.GetObject("adminbtnTimDeThi.Image");
-            adminbtnTimDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnTimDeThi.Location = new Point(215, 178);
-            adminbtnTimDeThi.Name = "adminbtnTimDeThi";
-            adminbtnTimDeThi.Size = new Size(83, 32);
-            adminbtnTimDeThi.TabIndex = 12;
-            adminbtnTimDeThi.Text = "Tìm";
-            adminbtnTimDeThi.UseSelectable = true;
-            adminbtnTimDeThi.UseVisualStyleBackColor = false;
+            dttxtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            dttxtTimKiem.Location = new Point(12, 168);
+            dttxtTimKiem.Name = "dttxtTimKiem";
+            dttxtTimKiem.Size = new Size(280, 29);
+            dttxtTimKiem.TabIndex = 22;
+            // 
+            // dtbtnTimKiem
+            // 
+            dtbtnTimKiem.BackColor = Color.FromArgb(205, 233, 214);
+            dtbtnTimKiem.FlatStyle = FlatStyle.Popup;
+            dtbtnTimKiem.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtbtnTimKiem.ForeColor = Color.Black;
+            dtbtnTimKiem.Location = new Point(12, 203);
+            dtbtnTimKiem.Name = "dtbtnTimKiem";
+            dtbtnTimKiem.Size = new Size(117, 32);
+            dtbtnTimKiem.TabIndex = 21;
+            dtbtnTimKiem.Text = "Tìm kiếm";
+            dtbtnTimKiem.UseVisualStyleBackColor = false;
+            dtbtnTimKiem.Click += dtbtnTimKiem_Click;
+            // 
+            // groupBox9
+            // 
+            groupBox9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox9.Controls.Add(flowDeThi);
+            groupBox9.Location = new Point(304, 8);
+            groupBox9.Name = "groupBox9";
+            groupBox9.Size = new Size(1117, 967);
+            groupBox9.TabIndex = 13;
+            groupBox9.TabStop = false;
             // 
             // flowDeThi
             // 
             flowDeThi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowDeThi.BackColor = Color.FromArgb(241, 245, 249);
-            flowDeThi.Location = new Point(304, 20);
+            flowDeThi.Location = new Point(6, 16);
             flowDeThi.Name = "flowDeThi";
-            flowDeThi.Size = new Size(1115, 955);
+            flowDeThi.Size = new Size(1105, 945);
             flowDeThi.TabIndex = 2;
             // 
             // groupBox2
@@ -334,59 +360,59 @@
             adminbtnThemDeThi.UseVisualStyleBackColor = false;
             adminbtnThemDeThi.Click += adminbtnThemDeThi_Click;
             // 
-            // foxTextBox1
-            // 
-            foxTextBox1.BackColor = Color.White;
-            foxTextBox1.EnabledCalc = true;
-            foxTextBox1.Font = new Font("Segoe UI", 10F);
-            foxTextBox1.ForeColor = Color.Black;
-            foxTextBox1.Location = new Point(6, 178);
-            foxTextBox1.MaxLength = 32767;
-            foxTextBox1.MultiLine = false;
-            foxTextBox1.Name = "foxTextBox1";
-            foxTextBox1.ReadOnly = false;
-            foxTextBox1.Size = new Size(203, 32);
-            foxTextBox1.TabIndex = 4;
-            foxTextBox1.Text = "Tìm kiếm";
-            foxTextBox1.TextAlign = HorizontalAlignment.Left;
-            foxTextBox1.UseSystemPasswordChar = false;
-            // 
             // tabPage1
             // 
             tabPage1.BackColor = Color.FromArgb(241, 243, 244);
-            tabPage1.Controls.Add(flowLop);
-            tabPage1.Controls.Add(adminqllbtnTimKiem);
+            tabPage1.Controls.Add(qlltxtTimKiem);
+            tabPage1.Controls.Add(qllbtnTimKiem);
+            tabPage1.Controls.Add(groupBox10);
             tabPage1.Controls.Add(groupBox3);
-            tabPage1.Controls.Add(adminqlltxtTimKiem);
             tabPage1.Location = new Point(244, 4);
             tabPage1.Name = "tabPage1";
             tabPage1.Size = new Size(1427, 978);
             tabPage1.TabIndex = 2;
             tabPage1.Text = "Quản lý lớp";
             // 
+            // qlltxtTimKiem
+            // 
+            qlltxtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            qlltxtTimKiem.Location = new Point(12, 168);
+            qlltxtTimKiem.Name = "qlltxtTimKiem";
+            qlltxtTimKiem.Size = new Size(280, 29);
+            qlltxtTimKiem.TabIndex = 24;
+            // 
+            // qllbtnTimKiem
+            // 
+            qllbtnTimKiem.BackColor = Color.FromArgb(205, 233, 214);
+            qllbtnTimKiem.FlatStyle = FlatStyle.Popup;
+            qllbtnTimKiem.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            qllbtnTimKiem.ForeColor = Color.Black;
+            qllbtnTimKiem.Location = new Point(12, 203);
+            qllbtnTimKiem.Name = "qllbtnTimKiem";
+            qllbtnTimKiem.Size = new Size(123, 32);
+            qllbtnTimKiem.TabIndex = 23;
+            qllbtnTimKiem.Text = "Tìm kiếm";
+            qllbtnTimKiem.UseVisualStyleBackColor = false;
+            qllbtnTimKiem.Click += qllbtnTimKiem_Click;
+            // 
+            // groupBox10
+            // 
+            groupBox10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox10.Controls.Add(flowLop);
+            groupBox10.Location = new Point(304, 8);
+            groupBox10.Name = "groupBox10";
+            groupBox10.Size = new Size(1120, 967);
+            groupBox10.TabIndex = 13;
+            groupBox10.TabStop = false;
+            // 
             // flowLop
             // 
             flowLop.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLop.BackColor = Color.FromArgb(241, 245, 249);
-            flowLop.Location = new Point(304, 19);
+            flowLop.Location = new Point(6, 15);
             flowLop.Name = "flowLop";
-            flowLop.Size = new Size(1115, 951);
-            flowLop.TabIndex = 3;
-            // 
-            // adminqllbtnTimKiem
-            // 
-            adminqllbtnTimKiem.BackColor = Color.Transparent;
-            adminqllbtnTimKiem.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminqllbtnTimKiem.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminqllbtnTimKiem.Image = (Image)resources.GetObject("adminqllbtnTimKiem.Image");
-            adminqllbtnTimKiem.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnTimKiem.Location = new Point(218, 179);
-            adminqllbtnTimKiem.Name = "adminqllbtnTimKiem";
-            adminqllbtnTimKiem.Size = new Size(80, 32);
-            adminqllbtnTimKiem.TabIndex = 12;
-            adminqllbtnTimKiem.Text = "Tìm";
-            adminqllbtnTimKiem.UseSelectable = true;
-            adminqllbtnTimKiem.UseVisualStyleBackColor = false;
+            flowLop.Size = new Size(1109, 946);
+            flowLop.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -459,73 +485,59 @@
             adminqllbtnThemLop.UseVisualStyleBackColor = false;
             adminqllbtnThemLop.Click += adminqllbtnThemLop_Click;
             // 
-            // adminqlltxtTimKiem
-            // 
-            adminqlltxtTimKiem.BackColor = Color.White;
-            adminqlltxtTimKiem.EnabledCalc = true;
-            adminqlltxtTimKiem.Font = new Font("Segoe UI", 10F);
-            adminqlltxtTimKiem.ForeColor = Color.Black;
-            adminqlltxtTimKiem.Location = new Point(6, 179);
-            adminqlltxtTimKiem.MaxLength = 32767;
-            adminqlltxtTimKiem.MultiLine = false;
-            adminqlltxtTimKiem.Name = "adminqlltxtTimKiem";
-            adminqlltxtTimKiem.ReadOnly = false;
-            adminqlltxtTimKiem.Size = new Size(206, 32);
-            adminqlltxtTimKiem.TabIndex = 4;
-            adminqlltxtTimKiem.Text = "Tìm kiếm";
-            adminqlltxtTimKiem.TextAlign = HorizontalAlignment.Left;
-            adminqlltxtTimKiem.UseSystemPasswordChar = false;
-            // 
             // tabPage2
             // 
             tabPage2.BackColor = Color.FromArgb(241, 243, 244);
-            tabPage2.Controls.Add(flowNHCH);
-            tabPage2.Controls.Add(nhchbtnTim);
-            tabPage2.Controls.Add(groupBox4);
             tabPage2.Controls.Add(nhchtxtTimKiem);
+            tabPage2.Controls.Add(nhchbtnTimKiem);
+            tabPage2.Controls.Add(groupBox11);
+            tabPage2.Controls.Add(groupBox4);
             tabPage2.Location = new Point(244, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Size = new Size(1427, 978);
             tabPage2.TabIndex = 3;
             tabPage2.Text = "Ngân hàng câu hỏi";
             // 
-            // btnLamMoiNHCH
+            // nhchtxtTimKiem
             // 
-            btnLamMoiNHCH.BackColor = Color.FromArgb(205, 233, 214);
-            btnLamMoiNHCH.FlatStyle = FlatStyle.Popup;
-            btnLamMoiNHCH.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLamMoiNHCH.ForeColor = Color.Black;
-            btnLamMoiNHCH.Location = new Point(163, 106);
-            btnLamMoiNHCH.Name = "btnLamMoiNHCH";
-            btnLamMoiNHCH.Size = new Size(123, 32);
-            btnLamMoiNHCH.TabIndex = 20;
-            btnLamMoiNHCH.Text = "Làm mới";
-            btnLamMoiNHCH.UseVisualStyleBackColor = false;
-            btnLamMoiNHCH.Click += btnLamMoiNHCH_Click;
+            nhchtxtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            nhchtxtTimKiem.Location = new Point(12, 168);
+            nhchtxtTimKiem.Name = "nhchtxtTimKiem";
+            nhchtxtTimKiem.Size = new Size(286, 29);
+            nhchtxtTimKiem.TabIndex = 24;
+            // 
+            // nhchbtnTimKiem
+            // 
+            nhchbtnTimKiem.BackColor = Color.FromArgb(205, 233, 214);
+            nhchbtnTimKiem.FlatStyle = FlatStyle.Popup;
+            nhchbtnTimKiem.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nhchbtnTimKiem.ForeColor = Color.Black;
+            nhchbtnTimKiem.Location = new Point(12, 203);
+            nhchbtnTimKiem.Name = "nhchbtnTimKiem";
+            nhchbtnTimKiem.Size = new Size(123, 32);
+            nhchbtnTimKiem.TabIndex = 23;
+            nhchbtnTimKiem.Text = "Tìm kiếm";
+            nhchbtnTimKiem.UseVisualStyleBackColor = false;
+            nhchbtnTimKiem.Click += nhchbtnTimKiem_Click;
+            // 
+            // groupBox11
+            // 
+            groupBox11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox11.Controls.Add(flowNHCH);
+            groupBox11.Location = new Point(304, 8);
+            groupBox11.Name = "groupBox11";
+            groupBox11.Size = new Size(1115, 962);
+            groupBox11.TabIndex = 13;
+            groupBox11.TabStop = false;
             // 
             // flowNHCH
             // 
             flowNHCH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowNHCH.BackColor = Color.FromArgb(241, 245, 249);
-            flowNHCH.Location = new Point(304, 20);
+            flowNHCH.Location = new Point(6, 14);
             flowNHCH.Name = "flowNHCH";
-            flowNHCH.Size = new Size(1115, 950);
-            flowNHCH.TabIndex = 4;
-            // 
-            // nhchbtnTim
-            // 
-            nhchbtnTim.BackColor = Color.Transparent;
-            nhchbtnTim.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnTim.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnTim.Image = (Image)resources.GetObject("nhchbtnTim.Image");
-            nhchbtnTim.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnTim.Location = new Point(214, 183);
-            nhchbtnTim.Name = "nhchbtnTim";
-            nhchbtnTim.Size = new Size(84, 32);
-            nhchbtnTim.TabIndex = 12;
-            nhchbtnTim.Text = "Tìm";
-            nhchbtnTim.UseSelectable = true;
-            nhchbtnTim.UseVisualStyleBackColor = false;
+            flowNHCH.Size = new Size(1103, 942);
+            flowNHCH.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -542,13 +554,27 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Ngân hàng câu hỏi";
             // 
+            // btnLamMoiNHCH
+            // 
+            btnLamMoiNHCH.BackColor = Color.FromArgb(205, 233, 214);
+            btnLamMoiNHCH.FlatStyle = FlatStyle.Popup;
+            btnLamMoiNHCH.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLamMoiNHCH.ForeColor = Color.Black;
+            btnLamMoiNHCH.Location = new Point(163, 103);
+            btnLamMoiNHCH.Name = "btnLamMoiNHCH";
+            btnLamMoiNHCH.Size = new Size(123, 32);
+            btnLamMoiNHCH.TabIndex = 20;
+            btnLamMoiNHCH.Text = "Làm mới";
+            btnLamMoiNHCH.UseVisualStyleBackColor = false;
+            btnLamMoiNHCH.Click += btnLamMoiNHCH_Click;
+            // 
             // btnXoaNHCH
             // 
             btnXoaNHCH.BackColor = Color.FromArgb(233, 67, 55);
             btnXoaNHCH.FlatStyle = FlatStyle.Popup;
             btnXoaNHCH.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnXoaNHCH.ForeColor = Color.Black;
-            btnXoaNHCH.Location = new Point(6, 106);
+            btnXoaNHCH.Location = new Point(6, 103);
             btnXoaNHCH.Name = "btnXoaNHCH";
             btnXoaNHCH.Size = new Size(123, 32);
             btnXoaNHCH.TabIndex = 19;
@@ -584,27 +610,10 @@
             btnThemNganHangCauHoi.UseVisualStyleBackColor = false;
             btnThemNganHangCauHoi.Click += btnThemNganHangCauHoi_Click;
             // 
-            // nhchtxtTimKiem
-            // 
-            nhchtxtTimKiem.BackColor = Color.White;
-            nhchtxtTimKiem.EnabledCalc = true;
-            nhchtxtTimKiem.Font = new Font("Segoe UI", 10F);
-            nhchtxtTimKiem.ForeColor = Color.Black;
-            nhchtxtTimKiem.Location = new Point(6, 183);
-            nhchtxtTimKiem.MaxLength = 32767;
-            nhchtxtTimKiem.MultiLine = false;
-            nhchtxtTimKiem.Name = "nhchtxtTimKiem";
-            nhchtxtTimKiem.ReadOnly = false;
-            nhchtxtTimKiem.Size = new Size(200, 32);
-            nhchtxtTimKiem.TabIndex = 4;
-            nhchtxtTimKiem.Text = "Tìm kiếm";
-            nhchtxtTimKiem.TextAlign = HorizontalAlignment.Left;
-            nhchtxtTimKiem.UseSystemPasswordChar = false;
-            // 
             // tabPage3
             // 
             tabPage3.BackColor = Color.FromArgb(241, 243, 244);
-            tabPage3.Controls.Add(flowBangDiem);
+            tabPage3.Controls.Add(groupBox12);
             tabPage3.Controls.Add(groupBox5);
             tabPage3.Location = new Point(244, 4);
             tabPage3.Name = "tabPage3";
@@ -612,24 +621,35 @@
             tabPage3.TabIndex = 4;
             tabPage3.Text = "Bảng điểm";
             // 
+            // groupBox12
+            // 
+            groupBox12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox12.Controls.Add(flowBangDiem);
+            groupBox12.Location = new Point(6, 168);
+            groupBox12.Name = "groupBox12";
+            groupBox12.Size = new Size(1413, 802);
+            groupBox12.TabIndex = 5;
+            groupBox12.TabStop = false;
+            // 
             // flowBangDiem
             // 
-            flowBangDiem.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowBangDiem.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowBangDiem.BackColor = Color.FromArgb(241, 245, 249);
-            flowBangDiem.Location = new Point(6, 168);
+            flowBangDiem.Location = new Point(6, 17);
             flowBangDiem.Name = "flowBangDiem";
-            flowBangDiem.Size = new Size(1413, 802);
-            flowBangDiem.TabIndex = 5;
+            flowBangDiem.Size = new Size(1401, 779);
+            flowBangDiem.TabIndex = 0;
             // 
             // groupBox5
             // 
             groupBox5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox5.BackColor = Color.Transparent;
+            groupBox5.Controls.Add(bdbtnLamMoi);
+            groupBox5.Controls.Add(bdtxtTimKiem);
+            groupBox5.Controls.Add(bdbtnTimKiem);
+            groupBox5.Controls.Add(groupBox13);
             groupBox5.Controls.Add(bdcbLop);
             groupBox5.Controls.Add(label4);
-            groupBox5.Controls.Add(poisonButton19);
-            groupBox5.Controls.Add(poisonButton20);
-            groupBox5.Controls.Add(foxTextBox4);
             groupBox5.ForeColor = Color.Black;
             groupBox5.Location = new Point(6, 8);
             groupBox5.Name = "groupBox5";
@@ -637,6 +657,51 @@
             groupBox5.TabIndex = 4;
             groupBox5.TabStop = false;
             groupBox5.Text = "Bảng diểm";
+            // 
+            // bdbtnLamMoi
+            // 
+            bdbtnLamMoi.BackColor = Color.FromArgb(205, 233, 214);
+            bdbtnLamMoi.FlatStyle = FlatStyle.Popup;
+            bdbtnLamMoi.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bdbtnLamMoi.ForeColor = Color.Black;
+            bdbtnLamMoi.Location = new Point(396, 89);
+            bdbtnLamMoi.Name = "bdbtnLamMoi";
+            bdbtnLamMoi.Size = new Size(123, 32);
+            bdbtnLamMoi.TabIndex = 25;
+            bdbtnLamMoi.Text = "Làm mới";
+            bdbtnLamMoi.UseVisualStyleBackColor = false;
+            bdbtnLamMoi.Click += bdbtnLamMoi_Click;
+            // 
+            // bdtxtTimKiem
+            // 
+            bdtxtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            bdtxtTimKiem.Location = new Point(10, 37);
+            bdtxtTimKiem.Name = "bdtxtTimKiem";
+            bdtxtTimKiem.Size = new Size(380, 29);
+            bdtxtTimKiem.TabIndex = 24;
+            // 
+            // bdbtnTimKiem
+            // 
+            bdbtnTimKiem.BackColor = Color.FromArgb(205, 233, 214);
+            bdbtnTimKiem.FlatStyle = FlatStyle.Popup;
+            bdbtnTimKiem.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bdbtnTimKiem.ForeColor = Color.Black;
+            bdbtnTimKiem.Location = new Point(396, 37);
+            bdbtnTimKiem.Name = "bdbtnTimKiem";
+            bdbtnTimKiem.Size = new Size(123, 32);
+            bdbtnTimKiem.TabIndex = 23;
+            bdbtnTimKiem.Text = "Tìm kiếm";
+            bdbtnTimKiem.UseVisualStyleBackColor = false;
+            bdbtnTimKiem.Click += bdbtnTimKiem_Click;
+            // 
+            // groupBox13
+            // 
+            groupBox13.Location = new Point(922, 10);
+            groupBox13.Name = "groupBox13";
+            groupBox13.Size = new Size(485, 134);
+            groupBox13.TabIndex = 22;
+            groupBox13.TabStop = false;
+            groupBox13.Text = "Lọc";
             // 
             // bdcbLop
             // 
@@ -657,58 +722,10 @@
             label4.TabIndex = 17;
             label4.Text = "Chọn lớp";
             // 
-            // poisonButton19
-            // 
-            poisonButton19.BackColor = Color.Transparent;
-            poisonButton19.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton19.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton19.Image = (Image)resources.GetObject("poisonButton19.Image");
-            poisonButton19.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton19.Location = new Point(396, 45);
-            poisonButton19.Name = "poisonButton19";
-            poisonButton19.Size = new Size(123, 32);
-            poisonButton19.TabIndex = 12;
-            poisonButton19.Text = "Tìm";
-            poisonButton19.UseSelectable = true;
-            poisonButton19.UseVisualStyleBackColor = false;
-            // 
-            // poisonButton20
-            // 
-            poisonButton20.BackColor = Color.Transparent;
-            poisonButton20.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton20.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton20.Image = (Image)resources.GetObject("poisonButton20.Image");
-            poisonButton20.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton20.Location = new Point(396, 86);
-            poisonButton20.Name = "poisonButton20";
-            poisonButton20.Size = new Size(123, 32);
-            poisonButton20.TabIndex = 11;
-            poisonButton20.Text = "Làm mới";
-            poisonButton20.UseSelectable = true;
-            poisonButton20.UseVisualStyleBackColor = false;
-            // 
-            // foxTextBox4
-            // 
-            foxTextBox4.BackColor = Color.White;
-            foxTextBox4.EnabledCalc = true;
-            foxTextBox4.Font = new Font("Segoe UI", 10F);
-            foxTextBox4.ForeColor = Color.Black;
-            foxTextBox4.Location = new Point(10, 45);
-            foxTextBox4.MaxLength = 32767;
-            foxTextBox4.MultiLine = false;
-            foxTextBox4.Name = "foxTextBox4";
-            foxTextBox4.ReadOnly = false;
-            foxTextBox4.Size = new Size(380, 32);
-            foxTextBox4.TabIndex = 4;
-            foxTextBox4.Text = "Tìm kiếm";
-            foxTextBox4.TextAlign = HorizontalAlignment.Left;
-            foxTextBox4.UseSystemPasswordChar = false;
-            // 
             // tabPage4
             // 
             tabPage4.BackColor = Color.FromArgb(241, 243, 244);
             tabPage4.Controls.Add(groupBox8);
-            tabPage4.Controls.Add(button1);
             tabPage4.Controls.Add(groupBox7);
             tabPage4.Controls.Add(groupBox6);
             tabPage4.Location = new Point(244, 4);
@@ -720,6 +737,7 @@
             // groupBox8
             // 
             groupBox8.Controls.Add(tttklabelMaGiangVien);
+            groupBox8.Controls.Add(button1);
             groupBox8.Controls.Add(tttklabelQueQuan);
             groupBox8.Controls.Add(label14);
             groupBox8.Controls.Add(tttklabelGioiTinh);
@@ -743,6 +761,17 @@
             tttklabelMaGiangVien.TabIndex = 9;
             tttklabelMaGiangVien.Text = "Hà Nội";
             tttklabelMaGiangVien.Visible = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(233, 67, 55);
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Location = new Point(700, 126);
+            button1.Name = "button1";
+            button1.Size = new Size(104, 32);
+            button1.TabIndex = 10;
+            button1.Text = "Đăng xuất";
+            button1.UseVisualStyleBackColor = false;
             // 
             // tttklabelQueQuan
             // 
@@ -798,17 +827,6 @@
             label11.TabIndex = 3;
             label11.Text = "Họ và tên: ";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(233, 67, 55);
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Location = new Point(14, 417);
-            button1.Name = "button1";
-            button1.Size = new Size(538, 37);
-            button1.TabIndex = 10;
-            button1.Text = "Đăng xuất";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // groupBox7
             // 
             groupBox7.Controls.Add(tttkbtnCapNhatMatKhau);
@@ -831,7 +849,7 @@
             tttkbtnCapNhatMatKhau.BackColor = Color.FromArgb(32, 191, 107);
             tttkbtnCapNhatMatKhau.FlatStyle = FlatStyle.Popup;
             tttkbtnCapNhatMatKhau.ForeColor = Color.Black;
-            tttkbtnCapNhatMatKhau.Location = new Point(700, 85);
+            tttkbtnCapNhatMatKhau.Location = new Point(700, 138);
             tttkbtnCapNhatMatKhau.Name = "tttkbtnCapNhatMatKhau";
             tttkbtnCapNhatMatKhau.Size = new Size(104, 32);
             tttkbtnCapNhatMatKhau.TabIndex = 10;
@@ -904,7 +922,7 @@
             groupBox6.Size = new Size(538, 368);
             groupBox6.TabIndex = 0;
             groupBox6.TabStop = false;
-            groupBox6.Text = "Thông tin";
+            groupBox6.Text = "Cập nhật thông tin";
             // 
             // tttkbtnCapNhatThongTin
             // 
@@ -989,23 +1007,32 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1675, 986);
             Controls.Add(tabPage9);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "admin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Tochnolya";
+            Text = "Technologia";
             tabPage9.ResumeLayout(false);
             tabPage10.ResumeLayout(false);
             tabPage10.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabPage11.ResumeLayout(false);
+            tabPage11.PerformLayout();
+            groupBox9.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            groupBox10.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            groupBox11.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
+            groupBox12.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             tabPage4.ResumeLayout(false);
@@ -1033,29 +1060,17 @@
         private Label adminlabelHoTen;
         private Label label3;
         private GroupBox groupBox2;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
-        private ReaLTaiizor.Controls.PoisonButton adminbtnTimDeThi;
         private GroupBox groupBox3;
-        private ReaLTaiizor.Controls.PoisonButton adminqllbtnTimKiem;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnXoaLop;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnSuaLop;
-        private ReaLTaiizor.Controls.FoxTextBox adminqlltxtTimKiem;
         private GroupBox groupBox4;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnTim;
-        private ReaLTaiizor.Controls.FoxTextBox nhchtxtTimKiem;
         private GroupBox groupBox5;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton19;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton20;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox4;
         private Label label4;
         private GroupBox groupBox7;
         private GroupBox groupBox6;
-        private FlowLayoutPanel flowLop;
-        private FlowLayoutPanel flowNHCH;
         private FlowLayoutPanel flowDeThi;
         private Button adminbtnThemDeThi;
         private ComboBox bdcbLop;
-        private FlowLayoutPanel flowBangDiem;
         private TextBox tttktxtMaGiangVien;
         private Label label2;
         private TextBox tttktxtMatKhauNew;
@@ -1092,5 +1107,22 @@
         private Button btnSuaNHCH;
         private Button btnXoaNHCH;
         private Button btnLamMoiNHCH;
+        private GroupBox groupBox9;
+        private GroupBox groupBox10;
+        private FlowLayoutPanel flowLop;
+        private GroupBox groupBox11;
+        private FlowLayoutPanel flowNHCH;
+        private GroupBox groupBox12;
+        private FlowLayoutPanel flowBangDiem;
+        private GroupBox groupBox13;
+        private TextBox dttxtTimKiem;
+        private Button dtbtnTimKiem;
+        private TextBox qlltxtTimKiem;
+        private Button qllbtnTimKiem;
+        private TextBox nhchtxtTimKiem;
+        private Button nhchbtnTimKiem;
+        private TextBox bdtxtTimKiem;
+        private Button bdbtnTimKiem;
+        private Button bdbtnLamMoi;
     }
 }

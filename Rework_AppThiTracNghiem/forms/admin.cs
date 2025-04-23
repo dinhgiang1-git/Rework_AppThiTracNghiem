@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Xml.Linq;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.Data.SqlClient;
 using Rework_AppThiTracNghiem.forms;
 using Rework_AppThiTracNghiem.forms.BangDiem;
@@ -119,7 +120,7 @@ namespace Rework_AppThiTracNghiem
 
             // Tô màu cái mới
             selectedLop = fl;
-            selectedLop.BackColor = Color.LightBlue; // hoặc màu bạn thích
+            selectedLop.BackColor = System.Drawing.Color.LightBlue; // hoặc màu bạn thích
 
             // Cập nhật mã lớp cho các chức năng sửa/xoá
             g_maLop = fl.MaLop;
@@ -205,6 +206,54 @@ namespace Rework_AppThiTracNghiem
             qllThemLop themLop = new qllThemLop(g_maGiangVien);
             themLop.Show();
         }
+        private void qllbtnTimKiem_Click(object sender, EventArgs e)
+        {
+            flowLop.Controls.Clear();
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                conn.Open();
+                string query = @"
+                    SELECT LOPHOC.MaLopHoc, LOPHOC.TenLopHoc, COUNT(SINHVIEN.MaSinhVien) AS SoLuongSinhVien
+                    FROM LOPHOC
+                    LEFT JOIN SINHVIEN ON SINHVIEN.MaLopHoc = LOPHOC.MaLopHoc
+                    WHERE LOPHOC.MaGiangVien = @MaGiangVien
+                    AND (@TenLopHoc is null or LOPHOC.TenLopHoc like '%' +@TenLopHoc+ '%')
+                    GROUP BY LOPHOC.MaLopHoc, LOPHOC.TenLopHoc";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+                if (string.IsNullOrEmpty(qlltxtTimKiem.Text))
+                {
+                    cmd.Parameters.AddWithValue("@TenLopHoc", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@TenLopHoc", qlltxtTimKiem.Text);
+                }
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string tenLop = reader["TenLopHoc"].ToString();
+                    string maLop = reader["MaLopHoc"].ToString();
+                    int soLuongSV = Convert.ToInt32(reader["SoLuongSinhVien"]);
+
+                    // Tạo 1 thẻ UserControl cho mỗi lớp
+                    ucLop fl = new ucLop();
+                    fl.Dock = DockStyle.Top; // hoặc none nếu muốn flow dạng khối
+                    fl.MaLop = maLop;
+                    fl.TenLop = tenLop;
+                    fl.SiSo = "Sĩ số: " + soLuongSV;
+                    fl.Tag = maLop; // để bạn lấy mã khi click
+
+                    fl.OnFlowLopClick += FlowLop_Click;
+
+                    // Thêm vào danh sách
+                    flowLop.Controls.Add(fl);
+                }
+            }
+        }
 
         //Ngân hàng câu hỏi
         private void FlowNHCH_Click(object sender, ucNganHang nh)
@@ -217,7 +266,7 @@ namespace Rework_AppThiTracNghiem
 
             // Tô màu cái mới
             selectedNHCH = nh;
-            selectedNHCH.BackColor = Color.LightBlue; // hoặc màu bạn thích
+            selectedNHCH.BackColor = System.Drawing.Color.LightBlue; // hoặc màu bạn thích
 
             // Cập nhật mã lớp cho các chức năng sửa/xoá
             g_MaNganHangCauHoi = nh.MaNganHang;
@@ -336,6 +385,63 @@ namespace Rework_AppThiTracNghiem
                 }
             }
         }
+        private void nhchbtnTimKiem_Click(object sender, EventArgs e)
+        {
+            flowNHCH.Controls.Clear();
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"SELECT 
+                        N.MaNganHang,
+                        N.TenNganHang,
+                        COUNT(C.MaCauHoi) AS SoLuongCauHoi
+                        FROM NGANHANGCAUHOI N
+                        LEFT JOIN CAUHOI C ON C.MaNganHang = N.MaNganHang
+                        WHERE N.MaGiangVien = @MaGiangVien
+                        AND (@TenNganHang is null or N.TenNganHang like '%'+@TenNganHang+'%')
+                        GROUP BY N.MaNganHang, N.TenNganHang";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+                    if (string.IsNullOrEmpty(nhchtxtTimKiem.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@TenNganHang", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@TenNganHang", nhchtxtTimKiem.Text);
+                    }
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string manganhang = reader["MaNganHang"].ToString();
+                        string tennganhang = reader["TenNganHang"].ToString();
+                        string soluongcauhoi = reader["SoLuongCauHoi"].ToString();
+
+                        ucNganHang uc = new ucNganHang();
+                        uc.Dock = DockStyle.Top;
+                        uc.TenNganHang = tennganhang;
+                        uc.MaNganHang = manganhang;
+                        uc.SoLuongCauHoi = "Số lượng câu hỏi: " + soluongcauhoi;
+                        uc.Tag = manganhang;
+
+                        uc.OnFlowNHCHClick += FlowNHCH_Click;
+
+                        flowNHCH.Controls.Add(uc);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
 
         //Đề thi
         private void ucDeThi_Click(object sender, ucDeThi dt)
@@ -348,7 +454,7 @@ namespace Rework_AppThiTracNghiem
 
             // Tô màu cái mới
             selectedDeThi = dt;
-            selectedDeThi.BackColor = Color.LightBlue; // hoặc màu bạn thích
+            selectedDeThi.BackColor = System.Drawing.Color.LightBlue; // hoặc màu bạn thích
 
             // Cập nhật mã lớp cho các chức năng sửa/xoá
             g_maDeThi = dt.MaDeThi;
@@ -410,6 +516,21 @@ namespace Rework_AppThiTracNghiem
             g_maDeThi = "";
             LoadData_DETHI();
         }
+        private void adminbtnThemDeThi_Click(object sender, EventArgs e)
+        {
+            ThemDeThi themdethi = new ThemDeThi(g_maGiangVien);
+            themdethi.Show();
+        }
+        private void dtbtnsua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(g_maDeThi))
+            {
+                MessageBox.Show("Vui lòng chọn một đề thi để sửa");
+                return;
+            }
+            SuaDeThi suadethi = new SuaDeThi(g_maDeThi, g_maGiangVien);
+            suadethi.Show();
+        }
         private void adminbtnXoaDeThi_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(g_maDeThi))
@@ -450,20 +571,65 @@ namespace Rework_AppThiTracNghiem
                 }
             }
         }
-        private void adminbtnThemDeThi_Click(object sender, EventArgs e)
+        private void dtbtnTimKiem_Click(object sender, EventArgs e)
         {
-            ThemDeThi themdethi = new ThemDeThi(g_maGiangVien);
-            themdethi.Show();
-        }
-        private void dtbtnsua_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(g_maDeThi))
+            flowDeThi.Controls.Clear();
+
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                MessageBox.Show("Vui lòng chọn một đề thi để sửa");
-                return;
+                try
+                {
+                    conn.Open();
+                    string query = "select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc from DETHI where DETHI.MaGiangVien = @MaGiangVien and (@TenDeThi is null or DETHI.TenDeThi like '%' +@TenDeThi+ '%')";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaGiangVien", g_maGiangVien);
+                    if (string.IsNullOrEmpty(dttxtTimKiem.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@TenDeThi", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@TenDeThi", dttxtTimKiem.Text);
+                    }
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string madethi = reader["MaDeThi"].ToString();
+                        string tendethi = reader["TenDeThi"].ToString();
+                        DateTime NgayBatDau = DateTime.Now;
+                        DateTime NgayKetThuc = DateTime.Now;
+
+                        // Xử lý ngày 
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayBatDau")))
+                        {
+                            NgayBatDau = Convert.ToDateTime(reader["NgayBatDau"]);
+                        }
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayKetThuc")))
+                        {
+                            NgayKetThuc = Convert.ToDateTime(reader["NgayKetThuc"]);
+                        }
+
+                        ucDeThi dethi = new ucDeThi();
+                        dethi.Dock = DockStyle.Top;
+                        dethi.MaDeThi = madethi;
+                        dethi.TenDeThi = tendethi;
+                        dethi.NgayBatDau = NgayBatDau;
+                        dethi.NgayKetThuc = NgayKetThuc;
+
+                        dethi.onDeThi_Click += ucDeThi_Click;
+
+                        flowDeThi.Controls.Add(dethi);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
-            SuaDeThi suadethi = new SuaDeThi(g_maDeThi, g_maGiangVien);
-            suadethi.Show();
         }
 
         //Bảng Điểm
@@ -504,7 +670,11 @@ namespace Rework_AppThiTracNghiem
                 try
                 {
                     conn.Open();
-                    string query = "select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc, count(BAITHI_KETQUA.MaSinhVien) as SoLuongSVLamBai from DETHI join LOPHOC on DETHI.MaLop = LOPHOC.MaLopHoc left join BAITHI_KETQUA on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi where LOPHOC.MaLopHoc = @MaLopHoc group by DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc";
+                    string query = @"select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc, count(BAITHI_KETQUA.MaSinhVien) as SoLuongSVLamBai 
+                    from DETHI join LOPHOC on DETHI.MaLop = LOPHOC.MaLopHoc 
+                    left join BAITHI_KETQUA on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi
+                    where LOPHOC.MaLopHoc = @MaLopHoc         
+                    group by DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaLopHoc", maLop);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -555,13 +725,80 @@ namespace Rework_AppThiTracNghiem
 
             // Tô màu cái mới
             selectedBANGDIEM = BD;
-            selectedBANGDIEM.BackColor = Color.LightBlue; // hoặc màu bạn thích
+            selectedBANGDIEM.BackColor = System.Drawing.Color.LightBlue; // hoặc màu bạn thích
 
         }
         private void bdcbLop_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadData_BangDiem(bdcbLop.SelectedValue.ToString());
             g_maLopHoc = bdcbLop.SelectedValue.ToString();
+        }        
+        private void bdbtnTimKiem_Click(object sender, EventArgs e)
+        {
+            flowBangDiem.Controls.Clear();
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc, count(BAITHI_KETQUA.MaSinhVien) as SoLuongSVLamBai 
+                    from DETHI join LOPHOC on DETHI.MaLop = LOPHOC.MaLopHoc 
+                    left join BAITHI_KETQUA on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi
+                    where LOPHOC.MaLopHoc = @MaLopHoc 
+                    and (@TenDeThi is null or DETHI.TenDeThi like '%'+@TenDeThi+'%')
+                    group by DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLopHoc);
+                    if (string.IsNullOrEmpty(bdtxtTimKiem.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@TenDeThi", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@TenDeThi", bdtxtTimKiem.Text);
+                    }
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string madethi = reader["MaDeThi"].ToString();
+                        string tendethi = reader["TenDeThi"].ToString();
+                        DateTime NgayBatDau = DateTime.Now;
+                        DateTime NgayKetThuc = DateTime.Now;
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayBatDau")))
+                        {
+                            NgayBatDau = Convert.ToDateTime(reader["NgayBatDau"]);
+                        }
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayKetThuc")))
+                        {
+                            NgayKetThuc = Convert.ToDateTime(reader["NgayKetThuc"]);
+                        }
+                        string soluongsinhvien = reader["SoLuongSVLamBai"].ToString();
+                        ucbdDETHI DETHI = new ucbdDETHI();
+                        DETHI.Dock = DockStyle.Top;
+                        DETHI.MaBaiThi = madethi;
+                        DETHI.TenBaiThi = tendethi;
+                        DETHI.NgayBatDau = NgayBatDau;
+                        DETHI.NgayKetThuc = NgayKetThuc;
+                        DETHI.Status = "Còn hạn";
+                        DETHI.Soluongsinhviendalam = soluongsinhvien + " SV đã làm.";
+                        DETHI.onBANGDIEM_Click += FlowBANGDIEM_Click;
+                        flowBangDiem.Controls.Add(DETHI);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        private void bdbtnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadData_BangDiem(g_maLopHoc);
         }
 
         //Thông tin tài khoản
@@ -713,6 +950,5 @@ namespace Rework_AppThiTracNghiem
                 }
             }
         }
-
     }
 }

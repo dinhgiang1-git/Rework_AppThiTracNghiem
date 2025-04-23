@@ -22,7 +22,7 @@ create table SINHVIEN (
 insert into GIANGVIEN(MaGiangVien, HoTen, GioiTinh, NgaySinhh, QueQuan, MatKhau) values 
 	('123', N'Nguyen Giang Vien', 'Nam', '1995-05-20', N'Hà Nội', '123');
 insert into SINHVIEN(MaSinhVien, HoTen, GioiTinh, NgaySinh, QueQuan, MatKhau, MaLopHoc, CreateAt) values (
-	'qwe', N'Nguyen Sinh Vien', 'Nam', '2004-01-29', N'Quảng Ninh', 'qwe', '73DCHT23', '2025-04-13'
+	'asd', N'Nguyen H G', 'Nu', '2004-01-29', N'Quảng Ninh', 'asd', '73DCHT23', '2025-04-13'
 );
 create table LOPHOC (
 	MaLopHoc varchar(20) primary key,
@@ -40,22 +40,7 @@ create table NGANHANGCAUHOI (
 	MaGiangVien varchar(20)
 );
 
-create table DETHI (
-	MaDeThi int identity(1,1) primary key,
-	TenDeThi nvarchar(100),
-	MaNganHang int,
-	MaGiangVien varchar(20),
-	MaLop varchar(20),
-	TongSoCau int,
-	SoCauDe int,
-	SoCauTrungBinh int,
-	SoCauKho int,
-	ThoiGianLamBai int,
-	NgayBatDau DateTime,
-	NgayKetThuc DateTime,
-	CreateAt Date,
-	UpdateAt Date
-);
+
 drop table DETHI
 
 create table CAUHOI (
@@ -85,30 +70,98 @@ CREATE TABLE BAITHI_KETQUA (
 );
 
 
-CREATE TABLE CT_BAITHI (
-    MaBaiThi INT IDENTITY PRIMARY KEY,
-    MaSinhVien NVARCHAR(50),
+CREATE TABLE CT_DETHI (
+    Id INT IDENTITY PRIMARY KEY,
     MaDeThi INT,
-    MaCauHoi INT,
-    DapAnChon NVARCHAR(1),  -- Thí sinh chọn A/B/C/D
-    ThoiGianTraLoi DATETIME NULL
+    MaCauHoi INT,    
 );
+
+CREATE TABLE BAITHI (
+    Id INT IDENTITY PRIMARY KEY,
+    MaDeThi INT NOT NULL,
+    MaCauHoi INT NOT NULL,
+    MaSinhVien NVARCHAR(20) NOT NULL,
+    DapAnChon NVARCHAR(1) NULL,
+);
+
+create table DETHI (
+	MaDeThi int identity(1,1) primary key,
+	TenDeThi nvarchar(100),
+	MaNganHang int,
+	MaGiangVien varchar(20),
+	MaLop varchar(20),
+	TongSoCau int,
+	ThoiGianLamBai int,
+	NgayBatDau DateTime,
+	NgayKetThuc DateTime,
+	CreateAt Date,
+	UpdateAt Date
+);
+
+
 ALTER TABLE CT_BAITHI
 ADD KhoiTao INT DEFAULT 0;
 
-delete CAUHOI
-drop table CAUHOI
+drop table DETHI
+drop table CT_DETHI
+delete  DETHI
 
+select *from GIANGVIEN
 select * from NGANHANGCAUHOI
 select * from LOPHOC
 select * from CAUHOI
-select * from CT_BAITHI
+select * from CT_DETHI
 select * from DETHI
+select * from BAITHI
 select * from SINHVIEN
 select * from BAITHI_KETQUA
+select * from DETHI
+select * from LOPHOC
+
+select SINHVIEN.MaSinhVien, HoTen, TenDeThi, Diem, ThoiGianNop
+from BAITHI_KETQUA
+left join SINHVIEN on SINHVIEN.MaSinhVien = BAITHI_KETQUA.MaSinhVien
+left join DETHI on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi
+
+SELECT 
+    SINHVIEN.MaSinhVien,
+    SINHVIEN.HoTen,
+    DETHI.TenDeThi,
+    Diem,
+    BAITHI_KETQUA.ThoiGianNop
+FROM 
+    SINHVIEN
+    LEFT JOIN BAITHI_KETQUA ON SINHVIEN.MaSinhVien = BAITHI_KETQUA.MaSinhVien 
+        AND BAITHI_KETQUA.MaDeThi = '2'
+    LEFT JOIN DETHI ON BAITHI_KETQUA.MaDeThi = DETHI.MaDeThi
+WHERE 
+    SINHVIEN.MaLopHoc = '73DCHT23'
+    AND (DETHI.MaDeThi = '2' OR DETHI.MaDeThi IS NULL)
+ORDER BY 
+     SINHVIEN.HoTen ASC;
 
 
+select MaDeThi, TenDeThi from DETHI where MaLop = '73DCHT23'
 
+select MaLopHoc, TenLopHoc, MaDeThi, TenDeThi 
+from LOPHOC 
+join DETHI on DETHI.MaLop = LOPHOC.MaLopHoc
+where MaDeThi = '2'
+
+select DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc, count(BAITHI_KETQUA.MaSinhVien) as SoLuongSVLamBai 
+from DETHI 
+join LOPHOC on DETHI.MaLop = LOPHOC.MaLopHoc 
+left join BAITHI_KETQUA on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi 
+where LOPHOC.MaLopHoc = '73DCHT23' 
+group by  DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc
+
+
+delete CT_DETHI
+delete BAITHI_KETQUA
+
+select CAUHOI.MaCauHoi, NoiDungCauHoi, DangCauHoi from CAUHOI join CT_DETHI on CT_DETHI.MaCauHoi = CAUHOI.MaCauHoi where MaDeThi = '4'
+
+select MaSinhVien, BAITHI_KETQUA.MaDeThi, DETHI.TenDeThi, Diem, ThoiGianNop  from BAITHI_KETQUA  join DETHI on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi where MaSinhVien = 'qwe'
 
 Select * from CT_BAITHI where MaDeThi = 5 and KhoiTao = 1
 
@@ -121,13 +174,12 @@ from DETHI
 join SINHVIEN on SINHVIEN.MaLopHoc = DETHI.MaLop 
 where SINHVIEN.MaSinhVien = 'qwe'
 
-
 select DETHI.TenDeThi, NGANHANGCAUHOI.TenNganHang, DETHI.NgayBatDau, DETHI.NgayKetThuc  
 from DETHI  
 join NGANHANGCAUHOI on NGANHANGCAUHOI.MaNganHang = DETHI.MaNganHang 
 where DETHI.MaDeThi = '1'
 
-select DETHI.TenDeThi, NGANHANGCAUHOI.TenNganHang, DETHI.TongSoCau, DETHI.SoCauDe, DETHI.SoCauTrungBinh, DETHI.SoCauKho, LOPHOC.TenLopHoc, DETHI.NgayBatDau, DETHI.NgayKetThuc, DETHI.ThoiGianLamBai 
+select DETHI.TenDeThi, NGANHANGCAUHOI.TenNganHang, DETHI.TongSoCau, DETHI.SoCauDe, DETHI.SoCauTrungBinh, DETHI.SoCauKho, LOPHOC.TenLopHoc, DETHI.NgayBatDau, DETHI.NgayKetThuc, DETHI.ThoiGianLamBai  
 from DETHI
 join NGANHANGCAUHOI on NGANHANGCAUHOI.MaNganHang = DETHI.MaNganHang 
 join LOPHOC on LOPHOC.MaLopHoc = DETHI.MaLop 
@@ -155,8 +207,6 @@ drop table SINHVIEN
 select LOPHOC.MALOPHOC, LOPHOC.TenLopHoc, count(SINHVIEN.MaSinhVien) as SoLuongThanhVien 
 from LOPHOC join SINHVIEN on SINHVIEN.MaLopHoc = LOPHOC.MaLopHoc 
 where LOPHOC.MaGiangVien = '123' group by LOPHOC.TenLopHoc
-
-
 
 select HoTen from GIANGVIEN where MaGiangVien = '123'
 

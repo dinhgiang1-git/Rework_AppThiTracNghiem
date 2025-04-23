@@ -12,13 +12,44 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
 {
     public partial class ucCauHoi : UserControl
     {
+        private string dapAnDung;
+        private string dapAnChonDaChon;
         public ucCauHoi()
         {
-            InitializeComponent();
+            InitializeComponent();           
             this.Margin = new Padding(left: 20, top: 10, right: 30, bottom: 30);
             this.AutoScaleMode = AutoScaleMode.Font; // Hoặc AutoScaleMode.Dpi
 
             
+        }
+        public string DapAnDung
+        {
+            get => dapAnDung;
+            set
+            {
+                dapAnDung = value;
+                // Hiển thị đáp án đúng bằng cách đổi màu chữ (ví dụ: màu xanh lá)
+                if (value == "A") radioNoiDungDapAnA.ForeColor = Color.Green;
+                else if (value == "B") radioNoiDungDapAnB.ForeColor = Color.Green;
+                else if (value == "C") radioNoiDungDapAnC.ForeColor = Color.Green;
+                else if (value == "D") radioNoiDungDapAnD.ForeColor = Color.Green;
+            }
+        }
+        public string DapAnChonDaChon
+        {
+            get => dapAnChonDaChon;
+            set
+            {
+                dapAnChonDaChon = value;
+                // Hiển thị đáp án đã chọn
+                if (!string.IsNullOrEmpty(value))
+                {
+                    if (value == "A") radioNoiDungDapAnA.Checked = true;
+                    else if (value == "B") radioNoiDungDapAnB.Checked = true;
+                    else if (value == "C") radioNoiDungDapAnC.Checked = true;
+                    else if (value == "D") radioNoiDungDapAnD.Checked = true;
+                }
+            }
         }
         public string MaCauHoi
         {
@@ -85,6 +116,46 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
         {
             get => grouboxIndex.Text;
             set => grouboxIndex.Text = value;
+        }
+        public void SetAnswerColor(string selectedAnswer, bool isCorrect, string correctAnswer)
+        {
+            // Đổi màu chữ của đáp án đã chọn
+            if (!string.IsNullOrEmpty(selectedAnswer))
+            {
+                if (selectedAnswer == "A")
+                {
+                    radioNoiDungDapAnA.ForeColor = isCorrect ? Color.Green : Color.Red;
+                }
+                else if (selectedAnswer == "B")
+                {
+                    radioNoiDungDapAnB.ForeColor = isCorrect ? Color.Green : Color.Red;
+                }
+                else if (selectedAnswer == "C")
+                {
+                    radioNoiDungDapAnC.ForeColor = isCorrect ? Color.Green : Color.Red;
+                }
+                else if (selectedAnswer == "D")
+                {
+                    radioNoiDungDapAnD.ForeColor = isCorrect ? Color.Green : Color.Red;
+                }
+            }
+
+            // Đổi màu chữ của đáp án đúng thành màu xanh (nếu câu sai hoặc chưa chọn đáp án)
+            if (!isCorrect || string.IsNullOrEmpty(selectedAnswer))
+            {
+                if (correctAnswer == "A") radioNoiDungDapAnA.ForeColor = Color.Green;
+                else if (correctAnswer == "B") radioNoiDungDapAnB.ForeColor = Color.Green;
+                else if (correctAnswer == "C") radioNoiDungDapAnC.ForeColor = Color.Green;
+                else if (correctAnswer == "D") radioNoiDungDapAnD.ForeColor = Color.Green;
+            }
+        }
+
+        public void DisableRadioButtons()
+        {
+            radioNoiDungDapAnA.Enabled = false;
+            radioNoiDungDapAnB.Enabled = false;
+            radioNoiDungDapAnC.Enabled = false;
+            radioNoiDungDapAnD.Enabled = false;
         }
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {

@@ -155,14 +155,14 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH
 
                             // Tạo từ điển ánh xạ level
                             var levelMapping = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
-                    {
-                        {"dễ", "Dễ"},
-                        {"trung bình", "Trung bình"},
-                        {"trungbinh", "Trung bình"},
-                        {"trung binh", "Trung bình"},
-                        {"khó", "Khó"},
-                        {"kho", "Khó"}
-                    };
+                                {
+                                    {"dễ", "Dễ"},
+                                    {"trung bình", "Trung bình"},
+                                    {"trungbinh", "Trung bình"},
+                                    {"trung binh", "Trung bình"},
+                                    {"khó", "Khó"},
+                                    {"kho", "Khó"}
+                                };
 
                             for (int i = 1; i < table.Rows.Count; i++)
                             {

@@ -51,10 +51,7 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
                         // Gán tạm vào biến global
                         g_maNganHang = Convert.ToInt32(maNganHang);
 
-                        sdttxtSoLuongCauHoi.Text = reader["TongSoCau"].ToString();
-                        sdttxtSoLuongCauHoiDe.Text = reader["SoCauDe"].ToString();
-                        sdttxtSoLuongCauHoiTrungBinh.Text = reader["SoCauTrungBinh"].ToString();
-                        sdttxtSoLuongCauHoiKho.Text = reader["SoCauKho"].ToString();
+                        sdttxtSoLuongCauHoi.Text = reader["TongSoCau"].ToString();                       
                         sdttxtThoiGianLamBai.Text = reader["ThoiGianLambai"].ToString();
                         sdtdateNgayBatDau.Value = Convert.ToDateTime(reader["NgayBatDau"]);
                         sdtdateNgayKetThuc.Value = Convert.ToDateTime(reader["NgayKetThuc"]);
@@ -184,23 +181,7 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
             if (!string.IsNullOrWhiteSpace(sdttxtSoLuongCauHoi.Text))
             {
                 soluongcauhoi = int.Parse(sdttxtSoLuongCauHoi.Text);
-            }
-
-            int soluongcauhoide = 0;
-            if (!string.IsNullOrWhiteSpace(sdttxtSoLuongCauHoiDe.Text))
-            {
-                soluongcauhoide = int.Parse(sdttxtSoLuongCauHoiDe.Text);
-            }
-            int soluongcauhoitrungbinh = 0;
-            if (!string.IsNullOrWhiteSpace(sdttxtSoLuongCauHoiTrungBinh.Text))
-            {
-                soluongcauhoitrungbinh = int.Parse(sdttxtSoLuongCauHoiTrungBinh.Text);
-            }
-            int soluongcauhoikho = 0;
-            if (!string.IsNullOrWhiteSpace(sdttxtSoLuongCauHoiKho.Text))
-            {
-                soluongcauhoikho = int.Parse(sdttxtSoLuongCauHoiKho.Text);
-            }
+            }            
             string maLop = sdtcbLop.SelectedValue.ToString();
             DateTime updateat = DateTime.Now;
 
@@ -222,15 +203,12 @@ namespace Rework_AppThiTracNghiem.forms.QuanLyDeThi
                 try
                 {
                     conn.Open();
-                    string query = "Update DETHI set TenDeThi = @TenDeThi, MaNganHang = @MaNganHang, MaLop = @MaLop, TongSoCau = @TongSoCau, SoCauDe = @SoCauDe, SoCauTrungBinh = @SoCauTrungBinh, SoCauKho = @SoCauKho, ThoiGianLamBai = @ThoiGianLamBai, NgayBatDau = @NgayBatDau, NgayKetThuc = @NgayKetThuc, UpdateAt = @UpdateAt where MaDeThi = @MaDeThi";
+                    string query = "Update DETHI set TenDeThi = @TenDeThi, MaNganHang = @MaNganHang, MaLop = @MaLop, TongSoCau = @TongSoCau, ThoiGianLamBai = @ThoiGianLamBai, NgayBatDau = @NgayBatDau, NgayKetThuc = @NgayKetThuc, UpdateAt = @UpdateAt where MaDeThi = @MaDeThi";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@TenDeThi", tendethi);
                     cmd.Parameters.AddWithValue("@MaNganHang", g_maNganHang);
                     cmd.Parameters.AddWithValue("@MaLop", g_maLop);
-                    cmd.Parameters.AddWithValue("@TongSoCau", soluongcauhoi);
-                    cmd.Parameters.AddWithValue("@SoCauDe", soluongcauhoide);
-                    cmd.Parameters.AddWithValue("@SoCauTrungBinh", soluongcauhoitrungbinh);
-                    cmd.Parameters.AddWithValue("@SoCauKho", soluongcauhoikho);
+                    cmd.Parameters.AddWithValue("@TongSoCau", soluongcauhoi);        
                     cmd.Parameters.AddWithValue("@ThoiGianLamBai", thoigianlambai);
                     cmd.Parameters.AddWithValue("@NgayBatDau", ngaybatdau);
                     cmd.Parameters.AddWithValue("@NgayKetThuc", ngayketthuc);

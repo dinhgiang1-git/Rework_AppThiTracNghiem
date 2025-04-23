@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(admin));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             tabPage9 = new ReaLTaiizor.Controls.TabPage();
             tabPage10 = new TabPage();
             label1 = new Label();
@@ -43,43 +40,65 @@
             adminbtnTimDeThi = new ReaLTaiizor.Controls.PoisonButton();
             flowDeThi = new FlowLayoutPanel();
             groupBox2 = new GroupBox();
+            dtbtnLamMoi = new Button();
+            adminbtnXoaDeThi = new Button();
+            dtbtnsua = new Button();
             adminbtnThemDeThi = new Button();
-            adminbtnLamMoiDeThi = new ReaLTaiizor.Controls.PoisonButton();
-            adminbtnXoaDeThi = new ReaLTaiizor.Controls.PoisonButton();
-            adminbtnSuaDeThi = new ReaLTaiizor.Controls.PoisonButton();
             foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage1 = new TabPage();
             flowLop = new FlowLayoutPanel();
             adminqllbtnTimKiem = new ReaLTaiizor.Controls.PoisonButton();
             groupBox3 = new GroupBox();
-            adminqllbtnLamMoi = new ReaLTaiizor.Controls.PoisonButton();
-            adminqllbtnXoaLop = new ReaLTaiizor.Controls.PoisonButton();
-            adminqllbtnSuaLop = new ReaLTaiizor.Controls.PoisonButton();
-            adminqllbtnThemLop = new ReaLTaiizor.Controls.PoisonButton();
+            qllbtnLamMoi = new Button();
+            qllbtnSua = new Button();
+            qllbtnXoa = new Button();
+            adminqllbtnThemLop = new Button();
             adminqlltxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage2 = new TabPage();
+            btnLamMoiNHCH = new Button();
             flowNHCH = new FlowLayoutPanel();
             nhchbtnTim = new ReaLTaiizor.Controls.PoisonButton();
             groupBox4 = new GroupBox();
-            nhchbtnLamMoi = new ReaLTaiizor.Controls.PoisonButton();
-            nhchbtnXoaNHCH = new ReaLTaiizor.Controls.PoisonButton();
-            nhchbtnSuaNHCH = new ReaLTaiizor.Controls.PoisonButton();
-            nhchbtnThemNHCH = new ReaLTaiizor.Controls.PoisonButton();
+            btnXoaNHCH = new Button();
+            btnSuaNHCH = new Button();
+            btnThemNganHangCauHoi = new Button();
             nhchtxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage3 = new TabPage();
-            poisonDataGridView4 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            flowBangDiem = new FlowLayoutPanel();
             groupBox5 = new GroupBox();
-            poisonButton21 = new ReaLTaiizor.Controls.PoisonButton();
+            bdcbLop = new ComboBox();
             label4 = new Label();
-            poisonComboBox1 = new ReaLTaiizor.Controls.PoisonComboBox();
-            poisonButton18 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton19 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton20 = new ReaLTaiizor.Controls.PoisonButton();
             foxTextBox4 = new ReaLTaiizor.Controls.FoxTextBox();
             tabPage4 = new TabPage();
-            poisonButton23 = new ReaLTaiizor.Controls.PoisonButton();
+            groupBox8 = new GroupBox();
+            tttklabelMaGiangVien = new Label();
+            tttklabelQueQuan = new Label();
+            label14 = new Label();
+            tttklabelGioiTinh = new Label();
+            label13 = new Label();
+            tttklabelHoTen = new Label();
+            label11 = new Label();
+            button1 = new Button();
             groupBox7 = new GroupBox();
+            tttkbtnCapNhatMatKhau = new Button();
+            tttktxtMatKhauNewR = new TextBox();
+            label10 = new Label();
+            tttktxtMatKhauNew = new TextBox();
+            label9 = new Label();
+            tttktxtMatKhauOld = new TextBox();
+            label8 = new Label();
             groupBox6 = new GroupBox();
+            tttkbtnCapNhatThongTin = new Button();
+            tttktxtQueQuan = new TextBox();
+            label7 = new Label();
+            tttkcbGioiTinh = new ComboBox();
+            label6 = new Label();
+            tttktxtHoTen = new TextBox();
+            label5 = new Label();
+            tttktxtMaGiangVien = new TextBox();
+            label2 = new Label();
             tabPage9.SuspendLayout();
             tabPage10.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -90,9 +109,11 @@
             tabPage2.SuspendLayout();
             groupBox4.SuspendLayout();
             tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView4).BeginInit();
             groupBox5.SuspendLayout();
             tabPage4.SuspendLayout();
+            groupBox8.SuspendLayout();
+            groupBox7.SuspendLayout();
+            groupBox6.SuspendLayout();
             SuspendLayout();
             // 
             // tabPage9
@@ -121,8 +142,8 @@
             tabPage9.Location = new Point(0, 0);
             tabPage9.Multiline = true;
             tabPage9.Name = "tabPage9";
-            tabPage9.NormalForeColor = Color.FromArgb(159, 162, 167);
-            tabPage9.PageColor = Color.FromArgb(50, 63, 74);
+            tabPage9.NormalForeColor = Color.FromArgb(155, 161, 165);
+            tabPage9.PageColor = Color.FromArgb(241, 243, 244);
             tabPage9.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             tabPage9.RightToLeft = RightToLeft.No;
             tabPage9.SelectedIndex = 0;
@@ -136,7 +157,7 @@
             // 
             // tabPage10
             // 
-            tabPage10.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage10.BackColor = Color.FromArgb(241, 243, 244);
             tabPage10.Controls.Add(label1);
             tabPage10.Controls.Add(groupBox1);
             tabPage10.Controls.Add(bigLabel1);
@@ -151,7 +172,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(6, 50);
             label1.Name = "label1";
             label1.Size = new Size(488, 25);
@@ -160,6 +181,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(adminlabelHoTen);
@@ -174,7 +196,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 8.150944F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(6, 44);
             label3.Name = "label3";
             label3.Size = new Size(62, 17);
@@ -184,7 +206,7 @@
             // adminlabelHoTen
             // 
             adminlabelHoTen.AutoSize = true;
-            adminlabelHoTen.ForeColor = Color.White;
+            adminlabelHoTen.ForeColor = Color.Black;
             adminlabelHoTen.Location = new Point(6, 15);
             adminlabelHoTen.Name = "adminlabelHoTen";
             adminlabelHoTen.Size = new Size(125, 25);
@@ -196,7 +218,7 @@
             bigLabel1.AutoSize = true;
             bigLabel1.BackColor = Color.Transparent;
             bigLabel1.Font = new Font("Segoe UI", 19.6981125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigLabel1.ForeColor = Color.White;
+            bigLabel1.ForeColor = Color.Black;
             bigLabel1.Location = new Point(6, 6);
             bigLabel1.Name = "bigLabel1";
             bigLabel1.Size = new Size(507, 40);
@@ -205,7 +227,7 @@
             // 
             // tabPage11
             // 
-            tabPage11.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage11.BackColor = Color.FromArgb(241, 243, 244);
             tabPage11.Controls.Add(adminbtnTimDeThi);
             tabPage11.Controls.Add(flowDeThi);
             tabPage11.Controls.Add(groupBox2);
@@ -244,11 +266,11 @@
             // groupBox2
             // 
             groupBox2.BackColor = Color.Transparent;
-            groupBox2.Controls.Add(adminbtnThemDeThi);
-            groupBox2.Controls.Add(adminbtnLamMoiDeThi);
+            groupBox2.Controls.Add(dtbtnLamMoi);
             groupBox2.Controls.Add(adminbtnXoaDeThi);
-            groupBox2.Controls.Add(adminbtnSuaDeThi);
-            groupBox2.ForeColor = Color.White;
+            groupBox2.Controls.Add(dtbtnsua);
+            groupBox2.Controls.Add(adminbtnThemDeThi);
+            groupBox2.ForeColor = Color.Black;
             groupBox2.Location = new Point(6, 8);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(292, 154);
@@ -256,11 +278,54 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Đề thi";
             // 
+            // dtbtnLamMoi
+            // 
+            dtbtnLamMoi.BackColor = Color.FromArgb(205, 233, 214);
+            dtbtnLamMoi.FlatStyle = FlatStyle.Popup;
+            dtbtnLamMoi.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtbtnLamMoi.ForeColor = Color.Black;
+            dtbtnLamMoi.Location = new Point(163, 101);
+            dtbtnLamMoi.Name = "dtbtnLamMoi";
+            dtbtnLamMoi.Size = new Size(123, 32);
+            dtbtnLamMoi.TabIndex = 20;
+            dtbtnLamMoi.Text = "Làm mới";
+            dtbtnLamMoi.UseVisualStyleBackColor = false;
+            dtbtnLamMoi.Click += dtbtnLamMoi_Click;
+            // 
+            // adminbtnXoaDeThi
+            // 
+            adminbtnXoaDeThi.BackColor = Color.FromArgb(233, 67, 55);
+            adminbtnXoaDeThi.FlatStyle = FlatStyle.Popup;
+            adminbtnXoaDeThi.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminbtnXoaDeThi.ForeColor = Color.Black;
+            adminbtnXoaDeThi.Location = new Point(6, 101);
+            adminbtnXoaDeThi.Name = "adminbtnXoaDeThi";
+            adminbtnXoaDeThi.Size = new Size(123, 32);
+            adminbtnXoaDeThi.TabIndex = 15;
+            adminbtnXoaDeThi.Text = "Xoá đề thi";
+            adminbtnXoaDeThi.UseVisualStyleBackColor = false;
+            adminbtnXoaDeThi.Click += adminbtnXoaDeThi_Click;
+            // 
+            // dtbtnsua
+            // 
+            dtbtnsua.BackColor = Color.FromArgb(250, 189, 5);
+            dtbtnsua.FlatStyle = FlatStyle.Popup;
+            dtbtnsua.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtbtnsua.ForeColor = Color.Black;
+            dtbtnsua.Location = new Point(163, 39);
+            dtbtnsua.Name = "dtbtnsua";
+            dtbtnsua.Size = new Size(123, 32);
+            dtbtnsua.TabIndex = 14;
+            dtbtnsua.Text = "Sửa đề thi";
+            dtbtnsua.UseVisualStyleBackColor = false;
+            dtbtnsua.Click += dtbtnsua_Click;
+            // 
             // adminbtnThemDeThi
             // 
-            adminbtnThemDeThi.BackColor = Color.FromArgb(19, 132, 150);
+            adminbtnThemDeThi.BackColor = Color.FromArgb(32, 191, 107);
             adminbtnThemDeThi.FlatStyle = FlatStyle.Popup;
-            adminbtnThemDeThi.Font = new Font("Segoe UI Semibold", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminbtnThemDeThi.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminbtnThemDeThi.ForeColor = Color.Black;
             adminbtnThemDeThi.Location = new Point(6, 39);
             adminbtnThemDeThi.Name = "adminbtnThemDeThi";
             adminbtnThemDeThi.Size = new Size(123, 32);
@@ -268,54 +333,6 @@
             adminbtnThemDeThi.Text = "Thêm đề thi";
             adminbtnThemDeThi.UseVisualStyleBackColor = false;
             adminbtnThemDeThi.Click += adminbtnThemDeThi_Click;
-            // 
-            // adminbtnLamMoiDeThi
-            // 
-            adminbtnLamMoiDeThi.BackColor = Color.Transparent;
-            adminbtnLamMoiDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnLamMoiDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnLamMoiDeThi.Image = (Image)resources.GetObject("adminbtnLamMoiDeThi.Image");
-            adminbtnLamMoiDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnLamMoiDeThi.Location = new Point(163, 101);
-            adminbtnLamMoiDeThi.Name = "adminbtnLamMoiDeThi";
-            adminbtnLamMoiDeThi.Size = new Size(123, 32);
-            adminbtnLamMoiDeThi.TabIndex = 11;
-            adminbtnLamMoiDeThi.Text = "Làm mới";
-            adminbtnLamMoiDeThi.UseSelectable = true;
-            adminbtnLamMoiDeThi.UseVisualStyleBackColor = false;
-            adminbtnLamMoiDeThi.Click += adminbtnLamMoiDeThi_Click;
-            // 
-            // adminbtnXoaDeThi
-            // 
-            adminbtnXoaDeThi.BackColor = Color.Transparent;
-            adminbtnXoaDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnXoaDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnXoaDeThi.Image = (Image)resources.GetObject("adminbtnXoaDeThi.Image");
-            adminbtnXoaDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnXoaDeThi.Location = new Point(6, 101);
-            adminbtnXoaDeThi.Name = "adminbtnXoaDeThi";
-            adminbtnXoaDeThi.Size = new Size(123, 32);
-            adminbtnXoaDeThi.TabIndex = 10;
-            adminbtnXoaDeThi.Text = "Xoá đề thi";
-            adminbtnXoaDeThi.UseSelectable = true;
-            adminbtnXoaDeThi.UseVisualStyleBackColor = false;
-            adminbtnXoaDeThi.Click += adminbtnXoaDeThi_Click;
-            // 
-            // adminbtnSuaDeThi
-            // 
-            adminbtnSuaDeThi.BackColor = Color.Transparent;
-            adminbtnSuaDeThi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminbtnSuaDeThi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminbtnSuaDeThi.Image = (Image)resources.GetObject("adminbtnSuaDeThi.Image");
-            adminbtnSuaDeThi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminbtnSuaDeThi.Location = new Point(163, 39);
-            adminbtnSuaDeThi.Name = "adminbtnSuaDeThi";
-            adminbtnSuaDeThi.Size = new Size(123, 32);
-            adminbtnSuaDeThi.TabIndex = 9;
-            adminbtnSuaDeThi.Text = "Sửa đề thi";
-            adminbtnSuaDeThi.UseSelectable = true;
-            adminbtnSuaDeThi.UseVisualStyleBackColor = false;
-            adminbtnSuaDeThi.Click += adminbtnSuaDeThi_Click;
             // 
             // foxTextBox1
             // 
@@ -336,7 +353,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage1.BackColor = Color.FromArgb(241, 243, 244);
             tabPage1.Controls.Add(flowLop);
             tabPage1.Controls.Add(adminqllbtnTimKiem);
             tabPage1.Controls.Add(groupBox3);
@@ -374,11 +391,11 @@
             // groupBox3
             // 
             groupBox3.BackColor = Color.Transparent;
-            groupBox3.Controls.Add(adminqllbtnLamMoi);
-            groupBox3.Controls.Add(adminqllbtnXoaLop);
-            groupBox3.Controls.Add(adminqllbtnSuaLop);
+            groupBox3.Controls.Add(qllbtnLamMoi);
+            groupBox3.Controls.Add(qllbtnSua);
+            groupBox3.Controls.Add(qllbtnXoa);
             groupBox3.Controls.Add(adminqllbtnThemLop);
-            groupBox3.ForeColor = Color.White;
+            groupBox3.ForeColor = Color.Black;
             groupBox3.Location = new Point(6, 8);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(292, 154);
@@ -386,67 +403,59 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Lớp";
             // 
-            // adminqllbtnLamMoi
+            // qllbtnLamMoi
             // 
-            adminqllbtnLamMoi.BackColor = Color.Transparent;
-            adminqllbtnLamMoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminqllbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminqllbtnLamMoi.Image = (Image)resources.GetObject("adminqllbtnLamMoi.Image");
-            adminqllbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnLamMoi.Location = new Point(163, 102);
-            adminqllbtnLamMoi.Name = "adminqllbtnLamMoi";
-            adminqllbtnLamMoi.Size = new Size(123, 32);
-            adminqllbtnLamMoi.TabIndex = 11;
-            adminqllbtnLamMoi.Text = "Làm mới";
-            adminqllbtnLamMoi.UseSelectable = true;
-            adminqllbtnLamMoi.UseVisualStyleBackColor = false;
-            adminqllbtnLamMoi.Click += adminqllbtnLamMoi_Click;
+            qllbtnLamMoi.BackColor = Color.FromArgb(205, 233, 214);
+            qllbtnLamMoi.FlatStyle = FlatStyle.Popup;
+            qllbtnLamMoi.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            qllbtnLamMoi.ForeColor = Color.Black;
+            qllbtnLamMoi.Location = new Point(163, 102);
+            qllbtnLamMoi.Name = "qllbtnLamMoi";
+            qllbtnLamMoi.Size = new Size(123, 32);
+            qllbtnLamMoi.TabIndex = 19;
+            qllbtnLamMoi.Text = "Làm mới";
+            qllbtnLamMoi.UseVisualStyleBackColor = false;
+            qllbtnLamMoi.Click += qllbtnLamMoi_Click;
             // 
-            // adminqllbtnXoaLop
+            // qllbtnSua
             // 
-            adminqllbtnXoaLop.BackColor = Color.Transparent;
-            adminqllbtnXoaLop.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminqllbtnXoaLop.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminqllbtnXoaLop.Image = (Image)resources.GetObject("adminqllbtnXoaLop.Image");
-            adminqllbtnXoaLop.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnXoaLop.Location = new Point(6, 102);
-            adminqllbtnXoaLop.Name = "adminqllbtnXoaLop";
-            adminqllbtnXoaLop.Size = new Size(123, 32);
-            adminqllbtnXoaLop.TabIndex = 10;
-            adminqllbtnXoaLop.Text = "Xoá lớp";
-            adminqllbtnXoaLop.UseSelectable = true;
-            adminqllbtnXoaLop.UseVisualStyleBackColor = false;
-            adminqllbtnXoaLop.Click += adminqllbtnXoaLop_Click;
+            qllbtnSua.BackColor = Color.FromArgb(250, 189, 5);
+            qllbtnSua.FlatStyle = FlatStyle.Popup;
+            qllbtnSua.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            qllbtnSua.ForeColor = Color.Black;
+            qllbtnSua.Location = new Point(163, 42);
+            qllbtnSua.Name = "qllbtnSua";
+            qllbtnSua.Size = new Size(123, 32);
+            qllbtnSua.TabIndex = 15;
+            qllbtnSua.Text = "Sửa lớp";
+            qllbtnSua.UseVisualStyleBackColor = false;
+            qllbtnSua.Click += qllbtnSua_Click;
             // 
-            // adminqllbtnSuaLop
+            // qllbtnXoa
             // 
-            adminqllbtnSuaLop.BackColor = Color.Transparent;
-            adminqllbtnSuaLop.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminqllbtnSuaLop.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminqllbtnSuaLop.Image = (Image)resources.GetObject("adminqllbtnSuaLop.Image");
-            adminqllbtnSuaLop.ImageAlign = ContentAlignment.MiddleLeft;
-            adminqllbtnSuaLop.Location = new Point(163, 42);
-            adminqllbtnSuaLop.Name = "adminqllbtnSuaLop";
-            adminqllbtnSuaLop.Size = new Size(123, 32);
-            adminqllbtnSuaLop.TabIndex = 9;
-            adminqllbtnSuaLop.Text = "Sửa lớp";
-            adminqllbtnSuaLop.UseSelectable = true;
-            adminqllbtnSuaLop.UseVisualStyleBackColor = false;
-            adminqllbtnSuaLop.Click += adminqllbtnSuaLop_Click;
+            qllbtnXoa.BackColor = Color.FromArgb(233, 67, 55);
+            qllbtnXoa.FlatStyle = FlatStyle.Popup;
+            qllbtnXoa.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            qllbtnXoa.ForeColor = Color.Black;
+            qllbtnXoa.Location = new Point(6, 102);
+            qllbtnXoa.Name = "qllbtnXoa";
+            qllbtnXoa.Size = new Size(123, 32);
+            qllbtnXoa.TabIndex = 18;
+            qllbtnXoa.Text = "Xoá lớp";
+            qllbtnXoa.UseVisualStyleBackColor = false;
+            qllbtnXoa.Click += qllbtnXoa_Click;
             // 
             // adminqllbtnThemLop
             // 
-            adminqllbtnThemLop.BackColor = Color.Transparent;
-            adminqllbtnThemLop.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            adminqllbtnThemLop.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            adminqllbtnThemLop.Image = (Image)resources.GetObject("adminqllbtnThemLop.Image");
-            adminqllbtnThemLop.ImageAlign = ContentAlignment.MiddleLeft;
+            adminqllbtnThemLop.BackColor = Color.FromArgb(32, 191, 107);
+            adminqllbtnThemLop.FlatStyle = FlatStyle.Popup;
+            adminqllbtnThemLop.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminqllbtnThemLop.ForeColor = Color.Black;
             adminqllbtnThemLop.Location = new Point(6, 42);
             adminqllbtnThemLop.Name = "adminqllbtnThemLop";
             adminqllbtnThemLop.Size = new Size(123, 32);
-            adminqllbtnThemLop.TabIndex = 8;
+            adminqllbtnThemLop.TabIndex = 16;
             adminqllbtnThemLop.Text = "Thêm lớp";
-            adminqllbtnThemLop.UseSelectable = true;
             adminqllbtnThemLop.UseVisualStyleBackColor = false;
             adminqllbtnThemLop.Click += adminqllbtnThemLop_Click;
             // 
@@ -461,7 +470,7 @@
             adminqlltxtTimKiem.MultiLine = false;
             adminqlltxtTimKiem.Name = "adminqlltxtTimKiem";
             adminqlltxtTimKiem.ReadOnly = false;
-            adminqlltxtTimKiem.Size = new Size(201, 32);
+            adminqlltxtTimKiem.Size = new Size(206, 32);
             adminqlltxtTimKiem.TabIndex = 4;
             adminqlltxtTimKiem.Text = "Tìm kiếm";
             adminqlltxtTimKiem.TextAlign = HorizontalAlignment.Left;
@@ -469,7 +478,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = Color.FromArgb(50, 63, 74);
+            tabPage2.BackColor = Color.FromArgb(241, 243, 244);
             tabPage2.Controls.Add(flowNHCH);
             tabPage2.Controls.Add(nhchbtnTim);
             tabPage2.Controls.Add(groupBox4);
@@ -479,6 +488,20 @@
             tabPage2.Size = new Size(1427, 978);
             tabPage2.TabIndex = 3;
             tabPage2.Text = "Ngân hàng câu hỏi";
+            // 
+            // btnLamMoiNHCH
+            // 
+            btnLamMoiNHCH.BackColor = Color.FromArgb(205, 233, 214);
+            btnLamMoiNHCH.FlatStyle = FlatStyle.Popup;
+            btnLamMoiNHCH.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLamMoiNHCH.ForeColor = Color.Black;
+            btnLamMoiNHCH.Location = new Point(163, 106);
+            btnLamMoiNHCH.Name = "btnLamMoiNHCH";
+            btnLamMoiNHCH.Size = new Size(123, 32);
+            btnLamMoiNHCH.TabIndex = 20;
+            btnLamMoiNHCH.Text = "Làm mới";
+            btnLamMoiNHCH.UseVisualStyleBackColor = false;
+            btnLamMoiNHCH.Click += btnLamMoiNHCH_Click;
             // 
             // flowNHCH
             // 
@@ -507,11 +530,11 @@
             // groupBox4
             // 
             groupBox4.BackColor = Color.Transparent;
-            groupBox4.Controls.Add(nhchbtnLamMoi);
-            groupBox4.Controls.Add(nhchbtnXoaNHCH);
-            groupBox4.Controls.Add(nhchbtnSuaNHCH);
-            groupBox4.Controls.Add(nhchbtnThemNHCH);
-            groupBox4.ForeColor = Color.White;
+            groupBox4.Controls.Add(btnLamMoiNHCH);
+            groupBox4.Controls.Add(btnXoaNHCH);
+            groupBox4.Controls.Add(btnSuaNHCH);
+            groupBox4.Controls.Add(btnThemNganHangCauHoi);
+            groupBox4.ForeColor = Color.Black;
             groupBox4.Location = new Point(6, 8);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(292, 154);
@@ -519,69 +542,47 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Ngân hàng câu hỏi";
             // 
-            // nhchbtnLamMoi
+            // btnXoaNHCH
             // 
-            nhchbtnLamMoi.BackColor = Color.Transparent;
-            nhchbtnLamMoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnLamMoi.Image = (Image)resources.GetObject("nhchbtnLamMoi.Image");
-            nhchbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnLamMoi.Location = new Point(163, 106);
-            nhchbtnLamMoi.Name = "nhchbtnLamMoi";
-            nhchbtnLamMoi.Size = new Size(123, 32);
-            nhchbtnLamMoi.TabIndex = 11;
-            nhchbtnLamMoi.Text = "Làm mới";
-            nhchbtnLamMoi.UseSelectable = true;
-            nhchbtnLamMoi.UseVisualStyleBackColor = false;
-            nhchbtnLamMoi.Click += nhchbtnLamMoi_Click;
+            btnXoaNHCH.BackColor = Color.FromArgb(233, 67, 55);
+            btnXoaNHCH.FlatStyle = FlatStyle.Popup;
+            btnXoaNHCH.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoaNHCH.ForeColor = Color.Black;
+            btnXoaNHCH.Location = new Point(6, 106);
+            btnXoaNHCH.Name = "btnXoaNHCH";
+            btnXoaNHCH.Size = new Size(123, 32);
+            btnXoaNHCH.TabIndex = 19;
+            btnXoaNHCH.Text = "Xoá NHCH";
+            btnXoaNHCH.UseVisualStyleBackColor = false;
+            btnXoaNHCH.Click += btnXoaNHCH_Click;
             // 
-            // nhchbtnXoaNHCH
+            // btnSuaNHCH
             // 
-            nhchbtnXoaNHCH.BackColor = Color.Transparent;
-            nhchbtnXoaNHCH.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnXoaNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnXoaNHCH.Image = (Image)resources.GetObject("nhchbtnXoaNHCH.Image");
-            nhchbtnXoaNHCH.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnXoaNHCH.Location = new Point(6, 106);
-            nhchbtnXoaNHCH.Name = "nhchbtnXoaNHCH";
-            nhchbtnXoaNHCH.Size = new Size(123, 32);
-            nhchbtnXoaNHCH.TabIndex = 10;
-            nhchbtnXoaNHCH.Text = "Xoá NHCH";
-            nhchbtnXoaNHCH.UseSelectable = true;
-            nhchbtnXoaNHCH.UseVisualStyleBackColor = false;
-            nhchbtnXoaNHCH.Click += nhchbtnXoaNHCH_Click;
+            btnSuaNHCH.BackColor = Color.FromArgb(250, 189, 5);
+            btnSuaNHCH.FlatStyle = FlatStyle.Popup;
+            btnSuaNHCH.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSuaNHCH.ForeColor = Color.Black;
+            btnSuaNHCH.Location = new Point(163, 42);
+            btnSuaNHCH.Name = "btnSuaNHCH";
+            btnSuaNHCH.Size = new Size(123, 32);
+            btnSuaNHCH.TabIndex = 16;
+            btnSuaNHCH.Text = "Sửa NHCH";
+            btnSuaNHCH.UseVisualStyleBackColor = false;
+            btnSuaNHCH.Click += btnSuaNHCH_Click;
             // 
-            // nhchbtnSuaNHCH
+            // btnThemNganHangCauHoi
             // 
-            nhchbtnSuaNHCH.BackColor = Color.Transparent;
-            nhchbtnSuaNHCH.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnSuaNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnSuaNHCH.Image = (Image)resources.GetObject("nhchbtnSuaNHCH.Image");
-            nhchbtnSuaNHCH.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnSuaNHCH.Location = new Point(163, 42);
-            nhchbtnSuaNHCH.Name = "nhchbtnSuaNHCH";
-            nhchbtnSuaNHCH.Size = new Size(123, 32);
-            nhchbtnSuaNHCH.TabIndex = 9;
-            nhchbtnSuaNHCH.Text = "Sửa NHCH";
-            nhchbtnSuaNHCH.UseSelectable = true;
-            nhchbtnSuaNHCH.UseVisualStyleBackColor = false;
-            nhchbtnSuaNHCH.Click += nhchbtnSuaNHCH_Click;
-            // 
-            // nhchbtnThemNHCH
-            // 
-            nhchbtnThemNHCH.BackColor = Color.Transparent;
-            nhchbtnThemNHCH.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnThemNHCH.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnThemNHCH.Image = (Image)resources.GetObject("nhchbtnThemNHCH.Image");
-            nhchbtnThemNHCH.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnThemNHCH.Location = new Point(6, 42);
-            nhchbtnThemNHCH.Name = "nhchbtnThemNHCH";
-            nhchbtnThemNHCH.Size = new Size(123, 32);
-            nhchbtnThemNHCH.TabIndex = 8;
-            nhchbtnThemNHCH.Text = "Thêm NHCH";
-            nhchbtnThemNHCH.UseSelectable = true;
-            nhchbtnThemNHCH.UseVisualStyleBackColor = false;
-            nhchbtnThemNHCH.Click += nhchbtnThemNHCH_Click;
+            btnThemNganHangCauHoi.BackColor = Color.FromArgb(32, 191, 107);
+            btnThemNganHangCauHoi.FlatStyle = FlatStyle.Popup;
+            btnThemNganHangCauHoi.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemNganHangCauHoi.ForeColor = Color.Black;
+            btnThemNganHangCauHoi.Location = new Point(6, 42);
+            btnThemNganHangCauHoi.Name = "btnThemNganHangCauHoi";
+            btnThemNganHangCauHoi.Size = new Size(123, 32);
+            btnThemNganHangCauHoi.TabIndex = 17;
+            btnThemNganHangCauHoi.Text = "Thêm NHCH";
+            btnThemNganHangCauHoi.UseVisualStyleBackColor = false;
+            btnThemNganHangCauHoi.Click += btnThemNganHangCauHoi_Click;
             // 
             // nhchtxtTimKiem
             // 
@@ -602,8 +603,8 @@
             // 
             // tabPage3
             // 
-            tabPage3.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage3.Controls.Add(poisonDataGridView4);
+            tabPage3.BackColor = Color.FromArgb(241, 243, 244);
+            tabPage3.Controls.Add(flowBangDiem);
             tabPage3.Controls.Add(groupBox5);
             tabPage3.Location = new Point(244, 4);
             tabPage3.Name = "tabPage3";
@@ -611,61 +612,25 @@
             tabPage3.TabIndex = 4;
             tabPage3.Text = "Bảng điểm";
             // 
-            // poisonDataGridView4
+            // flowBangDiem
             // 
-            poisonDataGridView4.AllowUserToResizeRows = false;
-            poisonDataGridView4.BackgroundColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView4.BorderStyle = BorderStyle.None;
-            poisonDataGridView4.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            poisonDataGridView4.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            poisonDataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView4.DefaultCellStyle = dataGridViewCellStyle2;
-            poisonDataGridView4.EnableHeadersVisualStyles = false;
-            poisonDataGridView4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            poisonDataGridView4.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView4.Location = new Point(6, 223);
-            poisonDataGridView4.Name = "poisonDataGridView4";
-            poisonDataGridView4.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            poisonDataGridView4.RowHeadersWidth = 45;
-            poisonDataGridView4.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            poisonDataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView4.Size = new Size(1418, 747);
-            poisonDataGridView4.TabIndex = 5;
+            flowBangDiem.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowBangDiem.BackColor = Color.FromArgb(241, 245, 249);
+            flowBangDiem.Location = new Point(6, 168);
+            flowBangDiem.Name = "flowBangDiem";
+            flowBangDiem.Size = new Size(1413, 802);
+            flowBangDiem.TabIndex = 5;
             // 
             // groupBox5
             // 
+            groupBox5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox5.BackColor = Color.Transparent;
-            groupBox5.Controls.Add(poisonButton21);
+            groupBox5.Controls.Add(bdcbLop);
             groupBox5.Controls.Add(label4);
-            groupBox5.Controls.Add(poisonComboBox1);
-            groupBox5.Controls.Add(poisonButton18);
             groupBox5.Controls.Add(poisonButton19);
             groupBox5.Controls.Add(poisonButton20);
             groupBox5.Controls.Add(foxTextBox4);
-            groupBox5.ForeColor = Color.White;
+            groupBox5.ForeColor = Color.Black;
             groupBox5.Location = new Point(6, 8);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(1413, 154);
@@ -673,56 +638,24 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Bảng diểm";
             // 
-            // poisonButton21
+            // bdcbLop
             // 
-            poisonButton21.BackColor = Color.Transparent;
-            poisonButton21.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton21.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton21.Image = (Image)resources.GetObject("poisonButton21.Image");
-            poisonButton21.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton21.Location = new Point(1176, 64);
-            poisonButton21.Name = "poisonButton21";
-            poisonButton21.Size = new Size(96, 29);
-            poisonButton21.TabIndex = 18;
-            poisonButton21.Text = "Lọc";
-            poisonButton21.UseSelectable = true;
-            poisonButton21.UseVisualStyleBackColor = false;
+            bdcbLop.FormattingEnabled = true;
+            bdcbLop.Location = new Point(92, 89);
+            bdcbLop.Name = "bdcbLop";
+            bdcbLop.Size = new Size(298, 29);
+            bdcbLop.TabIndex = 21;
+            bdcbLop.SelectedIndexChanged += bdcbLop_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(856, 72);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(10, 92);
             label4.Name = "label4";
             label4.Size = new Size(76, 21);
             label4.TabIndex = 17;
             label4.Text = "Chọn lớp";
-            // 
-            // poisonComboBox1
-            // 
-            poisonComboBox1.FormattingEnabled = true;
-            poisonComboBox1.ItemHeight = 23;
-            poisonComboBox1.Items.AddRange(new object[] { "á", "ádasd" });
-            poisonComboBox1.Location = new Point(938, 64);
-            poisonComboBox1.Name = "poisonComboBox1";
-            poisonComboBox1.Size = new Size(232, 29);
-            poisonComboBox1.TabIndex = 15;
-            poisonComboBox1.UseSelectable = true;
-            // 
-            // poisonButton18
-            // 
-            poisonButton18.BackColor = Color.Transparent;
-            poisonButton18.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton18.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton18.Image = (Image)resources.GetObject("poisonButton18.Image");
-            poisonButton18.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton18.Location = new Point(203, 99);
-            poisonButton18.Name = "poisonButton18";
-            poisonButton18.Size = new Size(123, 32);
-            poisonButton18.TabIndex = 13;
-            poisonButton18.Text = "Xem chi tiết";
-            poisonButton18.UseSelectable = true;
-            poisonButton18.UseVisualStyleBackColor = false;
             // 
             // poisonButton19
             // 
@@ -731,7 +664,7 @@
             poisonButton19.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton19.Image = (Image)resources.GetObject("poisonButton19.Image");
             poisonButton19.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton19.Location = new Point(382, 61);
+            poisonButton19.Location = new Point(396, 45);
             poisonButton19.Name = "poisonButton19";
             poisonButton19.Size = new Size(123, 32);
             poisonButton19.TabIndex = 12;
@@ -746,7 +679,7 @@
             poisonButton20.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton20.Image = (Image)resources.GetObject("poisonButton20.Image");
             poisonButton20.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton20.Location = new Point(74, 99);
+            poisonButton20.Location = new Point(396, 86);
             poisonButton20.Name = "poisonButton20";
             poisonButton20.Size = new Size(123, 32);
             poisonButton20.TabIndex = 11;
@@ -760,12 +693,12 @@
             foxTextBox4.EnabledCalc = true;
             foxTextBox4.Font = new Font("Segoe UI", 10F);
             foxTextBox4.ForeColor = Color.Black;
-            foxTextBox4.Location = new Point(74, 61);
+            foxTextBox4.Location = new Point(10, 45);
             foxTextBox4.MaxLength = 32767;
             foxTextBox4.MultiLine = false;
             foxTextBox4.Name = "foxTextBox4";
             foxTextBox4.ReadOnly = false;
-            foxTextBox4.Size = new Size(302, 32);
+            foxTextBox4.Size = new Size(380, 32);
             foxTextBox4.TabIndex = 4;
             foxTextBox4.Text = "Tìm kiếm";
             foxTextBox4.TextAlign = HorizontalAlignment.Left;
@@ -773,8 +706,9 @@
             // 
             // tabPage4
             // 
-            tabPage4.BackColor = Color.FromArgb(50, 63, 74);
-            tabPage4.Controls.Add(poisonButton23);
+            tabPage4.BackColor = Color.FromArgb(241, 243, 244);
+            tabPage4.Controls.Add(groupBox8);
+            tabPage4.Controls.Add(button1);
             tabPage4.Controls.Add(groupBox7);
             tabPage4.Controls.Add(groupBox6);
             tabPage4.Location = new Point(244, 4);
@@ -783,24 +717,108 @@
             tabPage4.TabIndex = 5;
             tabPage4.Text = "Thông tin tài khoản";
             // 
-            // poisonButton23
+            // groupBox8
             // 
-            poisonButton23.BackColor = Color.Transparent;
-            poisonButton23.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton23.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton23.Image = (Image)resources.GetObject("poisonButton23.Image");
-            poisonButton23.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton23.Location = new Point(558, 200);
-            poisonButton23.Name = "poisonButton23";
-            poisonButton23.Size = new Size(123, 32);
-            poisonButton23.TabIndex = 13;
-            poisonButton23.Text = "Đăng xuất";
-            poisonButton23.UseSelectable = true;
-            poisonButton23.UseVisualStyleBackColor = false;
+            groupBox8.Controls.Add(tttklabelMaGiangVien);
+            groupBox8.Controls.Add(tttklabelQueQuan);
+            groupBox8.Controls.Add(label14);
+            groupBox8.Controls.Add(tttklabelGioiTinh);
+            groupBox8.Controls.Add(label13);
+            groupBox8.Controls.Add(tttklabelHoTen);
+            groupBox8.Controls.Add(label11);
+            groupBox8.ForeColor = Color.Black;
+            groupBox8.Location = new Point(558, 200);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Size = new Size(861, 176);
+            groupBox8.TabIndex = 11;
+            groupBox8.TabStop = false;
+            groupBox8.Text = "Thông tin";
+            // 
+            // tttklabelMaGiangVien
+            // 
+            tttklabelMaGiangVien.AutoSize = true;
+            tttklabelMaGiangVien.Location = new Point(795, 25);
+            tttklabelMaGiangVien.Name = "tttklabelMaGiangVien";
+            tttklabelMaGiangVien.Size = new Size(60, 21);
+            tttklabelMaGiangVien.TabIndex = 9;
+            tttklabelMaGiangVien.Text = "Hà Nội";
+            tttklabelMaGiangVien.Visible = false;
+            // 
+            // tttklabelQueQuan
+            // 
+            tttklabelQueQuan.AutoSize = true;
+            tttklabelQueQuan.Location = new Point(159, 117);
+            tttklabelQueQuan.Name = "tttklabelQueQuan";
+            tttklabelQueQuan.Size = new Size(60, 21);
+            tttklabelQueQuan.TabIndex = 8;
+            tttklabelQueQuan.Text = "Hà Nội";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(65, 117);
+            label14.Name = "label14";
+            label14.Size = new Size(88, 21);
+            label14.TabIndex = 7;
+            label14.Text = "Quê quán: ";
+            // 
+            // tttklabelGioiTinh
+            // 
+            tttklabelGioiTinh.AutoSize = true;
+            tttklabelGioiTinh.Location = new Point(159, 78);
+            tttklabelGioiTinh.Name = "tttklabelGioiTinh";
+            tttklabelGioiTinh.Size = new Size(44, 21);
+            tttklabelGioiTinh.TabIndex = 6;
+            tttklabelGioiTinh.Text = "Nam";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(65, 78);
+            label13.Name = "label13";
+            label13.Size = new Size(76, 21);
+            label13.TabIndex = 5;
+            label13.Text = "GIới tính:";
+            // 
+            // tttklabelHoTen
+            // 
+            tttklabelHoTen.AutoSize = true;
+            tttklabelHoTen.Location = new Point(159, 39);
+            tttklabelHoTen.Name = "tttklabelHoTen";
+            tttklabelHoTen.Size = new Size(112, 21);
+            tttklabelHoTen.TabIndex = 4;
+            tttklabelHoTen.Text = "Nguyên Văn A";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(65, 39);
+            label11.Name = "label11";
+            label11.Size = new Size(88, 21);
+            label11.TabIndex = 3;
+            label11.Text = "Họ và tên: ";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(233, 67, 55);
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Location = new Point(14, 417);
+            button1.Name = "button1";
+            button1.Size = new Size(538, 37);
+            button1.TabIndex = 10;
+            button1.Text = "Đăng xuất";
+            button1.UseVisualStyleBackColor = false;
             // 
             // groupBox7
             // 
-            groupBox7.ForeColor = Color.White;
+            groupBox7.Controls.Add(tttkbtnCapNhatMatKhau);
+            groupBox7.Controls.Add(tttktxtMatKhauNewR);
+            groupBox7.Controls.Add(label10);
+            groupBox7.Controls.Add(tttktxtMatKhauNew);
+            groupBox7.Controls.Add(label9);
+            groupBox7.Controls.Add(tttktxtMatKhauOld);
+            groupBox7.Controls.Add(label8);
+            groupBox7.ForeColor = Color.Black;
             groupBox7.Location = new Point(558, 8);
             groupBox7.Name = "groupBox7";
             groupBox7.Size = new Size(861, 186);
@@ -808,15 +826,164 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Đổi mật khẩu";
             // 
+            // tttkbtnCapNhatMatKhau
+            // 
+            tttkbtnCapNhatMatKhau.BackColor = Color.FromArgb(32, 191, 107);
+            tttkbtnCapNhatMatKhau.FlatStyle = FlatStyle.Popup;
+            tttkbtnCapNhatMatKhau.ForeColor = Color.Black;
+            tttkbtnCapNhatMatKhau.Location = new Point(700, 85);
+            tttkbtnCapNhatMatKhau.Name = "tttkbtnCapNhatMatKhau";
+            tttkbtnCapNhatMatKhau.Size = new Size(104, 32);
+            tttkbtnCapNhatMatKhau.TabIndex = 10;
+            tttkbtnCapNhatMatKhau.Text = "Cập nhật";
+            tttkbtnCapNhatMatKhau.UseVisualStyleBackColor = false;
+            tttkbtnCapNhatMatKhau.Click += tttkbtnCapNhatMatKhau_Click;
+            // 
+            // tttktxtMatKhauNewR
+            // 
+            tttktxtMatKhauNewR.Location = new Point(246, 138);
+            tttktxtMatKhauNewR.Name = "tttktxtMatKhauNewR";
+            tttktxtMatKhauNewR.Size = new Size(360, 29);
+            tttktxtMatKhauNewR.TabIndex = 9;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(65, 141);
+            label10.Name = "label10";
+            label10.Size = new Size(175, 21);
+            label10.TabIndex = 8;
+            label10.Text = "Nhập lại mật khẩu mới:";
+            // 
+            // tttktxtMatKhauNew
+            // 
+            tttktxtMatKhauNew.Location = new Point(245, 88);
+            tttktxtMatKhauNew.Name = "tttktxtMatKhauNew";
+            tttktxtMatKhauNew.Size = new Size(360, 29);
+            tttktxtMatKhauNew.TabIndex = 7;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(65, 88);
+            label9.Name = "label9";
+            label9.Size = new Size(113, 21);
+            label9.TabIndex = 6;
+            label9.Text = "Mật khẩu mới:";
+            // 
+            // tttktxtMatKhauOld
+            // 
+            tttktxtMatKhauOld.Location = new Point(245, 38);
+            tttktxtMatKhauOld.Name = "tttktxtMatKhauOld";
+            tttktxtMatKhauOld.Size = new Size(360, 29);
+            tttktxtMatKhauOld.TabIndex = 5;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(65, 38);
+            label8.Name = "label8";
+            label8.Size = new Size(102, 21);
+            label8.TabIndex = 4;
+            label8.Text = "Mật khẩu cũ:";
+            // 
             // groupBox6
             // 
-            groupBox6.ForeColor = Color.White;
+            groupBox6.Controls.Add(tttkbtnCapNhatThongTin);
+            groupBox6.Controls.Add(tttktxtQueQuan);
+            groupBox6.Controls.Add(label7);
+            groupBox6.Controls.Add(tttkcbGioiTinh);
+            groupBox6.Controls.Add(label6);
+            groupBox6.Controls.Add(tttktxtHoTen);
+            groupBox6.Controls.Add(label5);
+            groupBox6.Controls.Add(tttktxtMaGiangVien);
+            groupBox6.Controls.Add(label2);
+            groupBox6.ForeColor = Color.Black;
             groupBox6.Location = new Point(14, 8);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(538, 962);
+            groupBox6.Size = new Size(538, 368);
             groupBox6.TabIndex = 0;
             groupBox6.TabStop = false;
             groupBox6.Text = "Thông tin";
+            // 
+            // tttkbtnCapNhatThongTin
+            // 
+            tttkbtnCapNhatThongTin.BackColor = Color.FromArgb(32, 191, 107);
+            tttkbtnCapNhatThongTin.FlatStyle = FlatStyle.Popup;
+            tttkbtnCapNhatThongTin.ForeColor = Color.Black;
+            tttkbtnCapNhatThongTin.Location = new Point(419, 318);
+            tttkbtnCapNhatThongTin.Name = "tttkbtnCapNhatThongTin";
+            tttkbtnCapNhatThongTin.Size = new Size(104, 32);
+            tttkbtnCapNhatThongTin.TabIndex = 9;
+            tttkbtnCapNhatThongTin.Text = "Cập nhật";
+            tttkbtnCapNhatThongTin.UseVisualStyleBackColor = false;
+            tttkbtnCapNhatThongTin.Click += tttkbtnCapNhatThongTin_Click;
+            // 
+            // tttktxtQueQuan
+            // 
+            tttktxtQueQuan.Location = new Point(163, 266);
+            tttktxtQueQuan.Name = "tttktxtQueQuan";
+            tttktxtQueQuan.Size = new Size(360, 29);
+            tttktxtQueQuan.TabIndex = 8;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(8, 269);
+            label7.Name = "label7";
+            label7.Size = new Size(88, 21);
+            label7.TabIndex = 7;
+            label7.Text = "Quê quán: ";
+            // 
+            // tttkcbGioiTinh
+            // 
+            tttkcbGioiTinh.FormattingEnabled = true;
+            tttkcbGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
+            tttkcbGioiTinh.Location = new Point(163, 195);
+            tttkcbGioiTinh.Name = "tttkcbGioiTinh";
+            tttkcbGioiTinh.Size = new Size(101, 29);
+            tttkcbGioiTinh.TabIndex = 6;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(8, 198);
+            label6.Name = "label6";
+            label6.Size = new Size(75, 21);
+            label6.TabIndex = 4;
+            label6.Text = "Giới tính:";
+            // 
+            // tttktxtHoTen
+            // 
+            tttktxtHoTen.Location = new Point(163, 128);
+            tttktxtHoTen.Name = "tttktxtHoTen";
+            tttktxtHoTen.Size = new Size(360, 29);
+            tttktxtHoTen.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(8, 131);
+            label5.Name = "label5";
+            label5.Size = new Size(88, 21);
+            label5.TabIndex = 2;
+            label5.Text = "Họ và tên: ";
+            // 
+            // tttktxtMaGiangVien
+            // 
+            tttktxtMaGiangVien.Location = new Point(163, 60);
+            tttktxtMaGiangVien.Name = "tttktxtMaGiangVien";
+            tttktxtMaGiangVien.Size = new Size(360, 29);
+            tttktxtMaGiangVien.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(8, 63);
+            label2.Name = "label2";
+            label2.Size = new Size(120, 21);
+            label2.TabIndex = 0;
+            label2.Text = "Mã giảng viên: ";
             // 
             // admin
             // 
@@ -839,10 +1006,15 @@
             tabPage2.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView4).EndInit();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             tabPage4.ResumeLayout(false);
+            groupBox8.ResumeLayout(false);
+            groupBox8.PerformLayout();
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -863,38 +1035,62 @@
         private GroupBox groupBox2;
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.PoisonButton adminbtnTimDeThi;
-        private ReaLTaiizor.Controls.PoisonButton adminbtnLamMoiDeThi;
-        private ReaLTaiizor.Controls.PoisonButton adminbtnXoaDeThi;
-        private ReaLTaiizor.Controls.PoisonButton adminbtnSuaDeThi;
         private GroupBox groupBox3;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnTimKiem;
-        private ReaLTaiizor.Controls.PoisonButton adminqllbtnLamMoi;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnXoaLop;
         private ReaLTaiizor.Controls.PoisonButton adminqllbtnSuaLop;
-        private ReaLTaiizor.Controls.PoisonButton adminqllbtnThemLop;
         private ReaLTaiizor.Controls.FoxTextBox adminqlltxtTimKiem;
         private GroupBox groupBox4;
         private ReaLTaiizor.Controls.PoisonButton nhchbtnTim;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnLamMoi;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnXoaNHCH;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnSuaNHCH;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnThemNHCH;
         private ReaLTaiizor.Controls.FoxTextBox nhchtxtTimKiem;
         private GroupBox groupBox5;
-        private ReaLTaiizor.Controls.PoisonComboBox poisonComboBox1;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton18;
         private ReaLTaiizor.Controls.PoisonButton poisonButton19;
         private ReaLTaiizor.Controls.PoisonButton poisonButton20;
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox4;
         private Label label4;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton21;
         private GroupBox groupBox7;
         private GroupBox groupBox6;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton23;
-        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView4;
         private FlowLayoutPanel flowLop;
         private FlowLayoutPanel flowNHCH;
         private FlowLayoutPanel flowDeThi;
         private Button adminbtnThemDeThi;
+        private ComboBox bdcbLop;
+        private FlowLayoutPanel flowBangDiem;
+        private TextBox tttktxtMaGiangVien;
+        private Label label2;
+        private TextBox tttktxtMatKhauNew;
+        private Label label9;
+        private TextBox tttktxtMatKhauOld;
+        private Label label8;
+        private Button tttkbtnCapNhatThongTin;
+        private TextBox tttktxtQueQuan;
+        private Label label7;
+        private ComboBox tttkcbGioiTinh;
+        private Label label6;
+        private TextBox tttktxtHoTen;
+        private Label label5;
+        private Button tttkbtnCapNhatMatKhau;
+        private TextBox tttktxtMatKhauNewR;
+        private Label label10;
+        private Button dtbtnsua;
+        private Button adminbtnXoaDeThi; 
+        private Button adminqllbtnThemLop;
+        private Button qllbtnXoa;
+        private Button qllbtnSua;
+        private Button qllbtnLamMoi;
+        private Button dtbtnLamMoi;
+        private Button button1;
+        private GroupBox groupBox8;
+        private Label tttklabelGioiTinh;
+        private Label label13;
+        private Label tttklabelHoTen;
+        private Label label11;
+        private Label tttklabelQueQuan;
+        private Label label14;
+        private Label tttklabelMaGiangVien;
+        private Button btnThemNganHangCauHoi;
+        private Button btnSuaNHCH;
+        private Button btnXoaNHCH;
+        private Button btnLamMoiNHCH;
     }
 }

@@ -12,9 +12,13 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
 {
     public partial class ucKetQua : UserControl
     {
-        public ucKetQua()
+        string g_maDeThi = "";
+        string g_maSinhVien = "";
+        public ucKetQua(string maDeThi, string maSinhVien)
         {
             InitializeComponent();
+            g_maDeThi = maDeThi;
+            g_maSinhVien = maSinhVien;
         }
         public string TenBaiThi
         {
@@ -30,6 +34,12 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
         {
             get => labelDiemSo.Text;
             set => labelDiemSo.Text = value;
+        }
+
+        private void btnXemLaiBaiLam_Click(object sender, EventArgs e)
+        {
+            XemLaiBaiKiemTra xemlaibaikiemtra = new XemLaiBaiKiemTra(g_maDeThi, g_maSinhVien);
+            xemlaibaikiemtra.Show();
         }
     }
 }

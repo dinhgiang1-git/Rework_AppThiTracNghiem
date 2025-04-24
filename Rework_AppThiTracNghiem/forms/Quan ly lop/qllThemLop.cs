@@ -14,7 +14,7 @@ namespace Rework_AppThiTracNghiem.forms
 {
     public partial class qllThemLop : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = DBHelpercs.strConn;
         string g_maGiangVien = "";
         public qllThemLop(string maGiangVien)
         {

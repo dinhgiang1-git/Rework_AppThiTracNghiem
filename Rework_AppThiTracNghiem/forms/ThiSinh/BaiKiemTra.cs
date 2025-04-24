@@ -115,22 +115,20 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 {
                     conn.Open();
 
-                    // Kiểm tra xem sinh viên đã có bản ghi trong BAITHI chưa
-                    string checkQuery = "SELECT COUNT(*) FROM BAITHI WHERE MaDeThi = @MaDeThi AND MaSinhVien = @MaSinhVien";
-                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
-                    checkCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
-                    checkCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
-                    int count = (int)checkCmd.ExecuteScalar();
+                    // Xóa các bản ghi cũ trong BAITHI nếu sinh viên đã làm bài trước đó
+                    string deleteQuery = "DELETE FROM BAITHI WHERE MaDeThi = @MaDeThi AND MaSinhVien = @MaSinhVien";
+                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
+                    deleteCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                    deleteCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                    deleteCmd.ExecuteNonQuery();
 
-                    if (count == 0)
-                    {
-                        // Lấy danh sách câu hỏi từ CT_DETHI
-                        string selectQuery = "SELECT MaCauHoi FROM CT_DETHI WHERE MaDeThi = @MaDeThi";
-                        SqlCommand selectCmd = new SqlCommand(selectQuery, conn);
-                        selectCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
-                        SqlDataReader reader = selectCmd.ExecuteReader();
+                    // Lấy danh sách câu hỏi từ CT_DETHI
+                    string selectQuery = "SELECT MaCauHoi FROM CT_DETHI WHERE MaDeThi = @MaDeThi";
+                    SqlCommand selectCmd = new SqlCommand(selectQuery, conn);
+                    selectCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                    SqlDataReader reader = selectCmd.ExecuteReader();
 
-                        List<int> danhSachCauHoi = new List<int>();
+                    List<int> danhSachCauHoi = new List<int>();
                         while (reader.Read())
                         {
                             danhSachCauHoi.Add((int)reader["MaCauHoi"]);
@@ -160,7 +158,6 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                             insertCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);               
                             insertCmd.ExecuteNonQuery();
                         }
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -333,13 +330,13 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
 
                     // Đếm số câu đúng
                     string query = @"
-                        SELECT COUNT(*) 
-                        FROM BAITHI bt
-                        JOIN CAUHOI ch ON bt.MaCauHoi = ch.MaCauHoi
-                        WHERE bt.MaSinhVien = @MaSinhVien 
-                        AND bt.MaDeThi = @MaDeThi 
-                        AND bt.DapAnChon = ch.DapAnDung
-                        AND bt.DapAnChon IS NOT NULL";
+                    SELECT COUNT(*) 
+                    FROM BAITHI bt
+                    JOIN CAUHOI ch ON bt.MaCauHoi = ch.MaCauHoi
+                    WHERE bt.MaSinhVien = @MaSinhVien 
+                    AND bt.MaDeThi = @MaDeThi 
+                    AND bt.DapAnChon = ch.DapAnDung
+                    AND bt.DapAnChon IS NOT NULL";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
                     cmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
@@ -347,21 +344,54 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
 
                     diem = soCauDung * diemMoiCau;
 
-                    // Lưu kết quả vào BAITHI_KETQUA
-                    string insertQuery = @"
-                        INSERT INTO BAITHI_KETQUA 
-                        (MaSinhVien, MaDeThi, Diem, ThoiGianBatDau, ThoiGianNop, SoCauDung, TongSoCau, CreateAt)
-                        VALUES (@MaSinhVien, @MaDeThi, @Diem, @ThoiGianBatDau, @ThoiGianNop, @SoCauDung, @TongSoCau, @CreateAt)";
-                    SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
-                    insertCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
-                    insertCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
-                    insertCmd.Parameters.AddWithValue("@Diem", diem);
-                    insertCmd.Parameters.AddWithValue("@ThoiGianBatDau", DateTime.Now);
-                    insertCmd.Parameters.AddWithValue("@ThoiGianNop", DateTime.Now);
-                    insertCmd.Parameters.AddWithValue("@SoCauDung", soCauDung);
-                    insertCmd.Parameters.AddWithValue("@TongSoCau", g_tongSoCau);
-                    insertCmd.Parameters.AddWithValue("@CreateAt", DateTime.Now);
-                    insertCmd.ExecuteNonQuery();
+                    // Kiểm tra xem sinh viên đã có bản ghi trong BAITHI_KETQUA chưa
+                    string checkQuery = "SELECT COUNT(*) FROM BAITHI_KETQUA WHERE MaSinhVien = @MaSinhVien AND MaDeThi = @MaDeThi";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                    checkCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                    int count = (int)checkCmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        // Cập nhật bản ghi hiện có trong BAITHI_KETQUA
+                        string updateQuery = @"
+                    UPDATE BAITHI_KETQUA 
+                    SET Diem = @Diem, 
+                        ThoiGianBatDau = @ThoiGianBatDau, 
+                        ThoiGianNop = @ThoiGianNop, 
+                        SoCauDung = @SoCauDung, 
+                        TongSoCau = @TongSoCau, 
+                        CreateAt = @CreateAt
+                    WHERE MaSinhVien = @MaSinhVien AND MaDeThi = @MaDeThi";
+                        SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
+                        updateCmd.Parameters.AddWithValue("@Diem", diem);
+                        updateCmd.Parameters.AddWithValue("@ThoiGianBatDau", DateTime.Now);
+                        updateCmd.Parameters.AddWithValue("@ThoiGianNop", DateTime.Now);
+                        updateCmd.Parameters.AddWithValue("@SoCauDung", soCauDung);
+                        updateCmd.Parameters.AddWithValue("@TongSoCau", g_tongSoCau);
+                        updateCmd.Parameters.AddWithValue("@CreateAt", DateTime.Now);
+                        updateCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                        updateCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                        updateCmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        // Thêm bản ghi mới vào BAITHI_KETQUA
+                        string insertQuery = @"
+                    INSERT INTO BAITHI_KETQUA 
+                    (MaSinhVien, MaDeThi, Diem, ThoiGianBatDau, ThoiGianNop, SoCauDung, TongSoCau, CreateAt)
+                    VALUES (@MaSinhVien, @MaDeThi, @Diem, @ThoiGianBatDau, @ThoiGianNop, @SoCauDung, @TongSoCau, @CreateAt)";
+                        SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                        insertCmd.Parameters.AddWithValue("@MaSinhVien", g_maSinhVien);
+                        insertCmd.Parameters.AddWithValue("@MaDeThi", g_maDeThi);
+                        insertCmd.Parameters.AddWithValue("@Diem", diem);
+                        insertCmd.Parameters.AddWithValue("@ThoiGianBatDau", DateTime.Now);
+                        insertCmd.Parameters.AddWithValue("@ThoiGianNop", DateTime.Now);
+                        insertCmd.Parameters.AddWithValue("@SoCauDung", soCauDung);
+                        insertCmd.Parameters.AddWithValue("@TongSoCau", g_tongSoCau);
+                        insertCmd.Parameters.AddWithValue("@CreateAt", DateTime.Now);
+                        insertCmd.ExecuteNonQuery();
+                    }
 
                     flowCauHoi.Controls.Clear();
 

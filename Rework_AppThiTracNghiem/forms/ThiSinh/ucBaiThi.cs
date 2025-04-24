@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 using Rework_AppThiTracNghiem.forms.QuanLyDeThi;
 
 namespace Rework_AppThiTracNghiem.forms.ThiSinh
@@ -15,6 +16,7 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
     {
         public event EventHandler onDeThi_Click;
         string g_maSinhVien = "";
+        string strConn = DBHelpercs.strConn;
         public ucBaiThi(string maSinhVien)
         {
             InitializeComponent();
@@ -88,6 +90,7 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
             //    MessageBox.Show("Đề thi này đã quá hạn!");
             //    return;
             //}
+
             BaiKiemTra baikiemtra = new BaiKiemTra(g_maSinhVien, this.MaBaiThi);
             baikiemtra.Show();
         }

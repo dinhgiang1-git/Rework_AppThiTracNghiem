@@ -106,17 +106,21 @@ drop table DETHI
 drop table CT_DETHI
 delete  DETHI
 
-select *from GIANGVIEN
+select * from GIANGVIEN
 select * from NGANHANGCAUHOI
+delete CAUHOI
 select * from LOPHOC
 select * from CAUHOI
 select * from CT_DETHI
+delete BAITHI_KETQUA
 select * from DETHI
 select * from BAITHI
 select * from SINHVIEN
 select * from BAITHI_KETQUA
 select * from DETHI
-select * from LOPHOC
+
+
+delete SINHVIEN where SINHVIEN.MaLopHoc = '73DCHT21'
 
 select SINHVIEN.MaSinhVien, HoTen, TenDeThi, Diem, ThoiGianNop
 from BAITHI_KETQUA

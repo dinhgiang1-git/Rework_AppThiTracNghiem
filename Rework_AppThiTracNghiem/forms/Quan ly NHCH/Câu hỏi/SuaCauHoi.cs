@@ -14,7 +14,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH.Câu_hỏi
 
     public partial class SuaCauHoi : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = DBHelpercs.strConn;
         string g_maNganHang = "";
         string g_tenNganHang = "";
         string g_maCauHoi = "";

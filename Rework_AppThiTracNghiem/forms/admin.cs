@@ -13,7 +13,7 @@ namespace Rework_AppThiTracNghiem
 {
     public partial class admin : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = DBHelpercs.strConn;
         string g_maGiangVien = "";
         string g_MaNganHangCauHoi = "";
         string g_TenNganHangCauHoi = "";

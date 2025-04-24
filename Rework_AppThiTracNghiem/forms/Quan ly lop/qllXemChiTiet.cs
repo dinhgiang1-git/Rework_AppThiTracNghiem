@@ -17,7 +17,7 @@ namespace Rework_AppThiTracNghiem.forms
 {
     public partial class qllXemChiTiet : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = DBHelpercs.strConn;
         string g_maLop = "";
         string g_maThanhVien = "";
         string g_tenThanhVien = "";

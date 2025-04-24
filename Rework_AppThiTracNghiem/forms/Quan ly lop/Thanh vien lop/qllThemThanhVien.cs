@@ -13,7 +13,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop
 {
     public partial class qllThemThanhVien : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = DBHelpercs.strConn;
         string g_maLop = "";
         public qllThemThanhVien(string maLop)
         {

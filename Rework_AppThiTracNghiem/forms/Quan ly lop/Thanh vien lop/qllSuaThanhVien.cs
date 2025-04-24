@@ -15,7 +15,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_lop.Thanh_vien_lop
     {
         string g_maThanhVien = "";
         string g_maLop = "";
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = DBHelpercs.strConn;
         public qllSuaThanhVien(string maThanhVien, string maLop)
         {
             InitializeComponent();

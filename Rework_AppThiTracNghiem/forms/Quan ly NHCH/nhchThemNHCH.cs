@@ -13,7 +13,7 @@ namespace Rework_AppThiTracNghiem.forms.Quan_ly_NHCH
 {
     public partial class nhchThemNHCH : Form
     {
-        string strConn = "Server=DINHDUCGIANG;Database=Rework_AppThiTracNghiem;Integrated Security=True;TrustServerCertificate=true;";
+        string strConn = DBHelpercs.strConn;
         string g_maGiangVien = "";
         public nhchThemNHCH(string maGiangVien)
         {

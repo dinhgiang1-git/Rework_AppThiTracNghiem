@@ -36,12 +36,11 @@
             poisonButton20 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton19 = new ReaLTaiizor.Controls.PoisonButton();
             foxTextBox4 = new ReaLTaiizor.Controls.FoxTextBox();
-            poisonButton21 = new ReaLTaiizor.Controls.PoisonButton();
             groupBox3 = new GroupBox();
-            radioButton4 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            radioFilterChuaHetHan = new RadioButton();
+            radioFilterHetHan = new RadioButton();
+            radioFilterChuaLam = new RadioButton();
+            radioFilterDaLam = new RadioButton();
             bigLabel4 = new ReaLTaiizor.Controls.BigLabel();
             bigLabel3 = new ReaLTaiizor.Controls.BigLabel();
             bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
@@ -52,7 +51,6 @@
             tabPage3 = new TabPage();
             flowBangDiem = new FlowLayoutPanel();
             groupBox4 = new GroupBox();
-            poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton3 = new ReaLTaiizor.Controls.PoisonButton();
             foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
@@ -61,7 +59,7 @@
             radioButton5 = new RadioButton();
             radioButton6 = new RadioButton();
             radioButton7 = new RadioButton();
-            radioButton8 = new RadioButton();
+            radioSortDiemHL = new RadioButton();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -135,7 +133,6 @@
             groupBox2.Controls.Add(poisonButton20);
             groupBox2.Controls.Add(poisonButton19);
             groupBox2.Controls.Add(foxTextBox4);
-            groupBox2.Controls.Add(poisonButton21);
             groupBox2.Controls.Add(groupBox3);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(6, 75);
@@ -159,6 +156,7 @@
             poisonButton20.Text = "Làm mới";
             poisonButton20.UseSelectable = true;
             poisonButton20.UseVisualStyleBackColor = false;
+            poisonButton20.Click += poisonButton20_Click;
             // 
             // poisonButton19
             // 
@@ -192,27 +190,12 @@
             foxTextBox4.TextAlign = HorizontalAlignment.Left;
             foxTextBox4.UseSystemPasswordChar = false;
             // 
-            // poisonButton21
-            // 
-            poisonButton21.BackColor = Color.Transparent;
-            poisonButton21.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton21.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton21.Image = (Image)resources.GetObject("poisonButton21.Image");
-            poisonButton21.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton21.Location = new Point(1086, 110);
-            poisonButton21.Name = "poisonButton21";
-            poisonButton21.Size = new Size(96, 29);
-            poisonButton21.TabIndex = 21;
-            poisonButton21.Text = "Lọc";
-            poisonButton21.UseSelectable = true;
-            poisonButton21.UseVisualStyleBackColor = false;
-            // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(radioButton4);
-            groupBox3.Controls.Add(radioButton3);
-            groupBox3.Controls.Add(radioButton2);
-            groupBox3.Controls.Add(radioButton1);
+            groupBox3.Controls.Add(radioFilterChuaHetHan);
+            groupBox3.Controls.Add(radioFilterHetHan);
+            groupBox3.Controls.Add(radioFilterChuaLam);
+            groupBox3.Controls.Add(radioFilterDaLam);
             groupBox3.ForeColor = Color.WhiteSmoke;
             groupBox3.Location = new Point(1086, 24);
             groupBox3.Name = "groupBox3";
@@ -221,53 +204,57 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Tiêu chí lọc";
             // 
-            // radioButton4
+            // radioFilterChuaHetHan
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Font = new Font("Segoe UI", 10.18868F);
-            radioButton4.Location = new Point(141, 51);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(114, 24);
-            radioButton4.TabIndex = 24;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Chưa hết hạn";
-            radioButton4.UseVisualStyleBackColor = true;
+            radioFilterChuaHetHan.AutoSize = true;
+            radioFilterChuaHetHan.Font = new Font("Segoe UI", 10.18868F);
+            radioFilterChuaHetHan.Location = new Point(141, 51);
+            radioFilterChuaHetHan.Name = "radioFilterChuaHetHan";
+            radioFilterChuaHetHan.Size = new Size(114, 24);
+            radioFilterChuaHetHan.TabIndex = 24;
+            radioFilterChuaHetHan.TabStop = true;
+            radioFilterChuaHetHan.Text = "Chưa hết hạn";
+            radioFilterChuaHetHan.UseVisualStyleBackColor = true;
+            radioFilterChuaHetHan.CheckedChanged += radioFilterChuaHetHan_CheckedChanged;
             // 
-            // radioButton3
+            // radioFilterHetHan
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Font = new Font("Segoe UI", 10.18868F);
-            radioButton3.Location = new Point(141, 24);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(79, 24);
-            radioButton3.TabIndex = 23;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Hết hạn";
-            radioButton3.UseVisualStyleBackColor = true;
+            radioFilterHetHan.AutoSize = true;
+            radioFilterHetHan.Font = new Font("Segoe UI", 10.18868F);
+            radioFilterHetHan.Location = new Point(141, 24);
+            radioFilterHetHan.Name = "radioFilterHetHan";
+            radioFilterHetHan.Size = new Size(79, 24);
+            radioFilterHetHan.TabIndex = 23;
+            radioFilterHetHan.TabStop = true;
+            radioFilterHetHan.Text = "Hết hạn";
+            radioFilterHetHan.UseVisualStyleBackColor = true;
+            radioFilterHetHan.CheckedChanged += radioFilterHetHan_CheckedChanged;
             // 
-            // radioButton2
+            // radioFilterChuaLam
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Font = new Font("Segoe UI", 10.18868F);
-            radioButton2.Location = new Point(6, 51);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(90, 24);
-            radioButton2.TabIndex = 22;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Chưa làm";
-            radioButton2.UseVisualStyleBackColor = true;
+            radioFilterChuaLam.AutoSize = true;
+            radioFilterChuaLam.Font = new Font("Segoe UI", 10.18868F);
+            radioFilterChuaLam.Location = new Point(6, 51);
+            radioFilterChuaLam.Name = "radioFilterChuaLam";
+            radioFilterChuaLam.Size = new Size(90, 24);
+            radioFilterChuaLam.TabIndex = 22;
+            radioFilterChuaLam.TabStop = true;
+            radioFilterChuaLam.Text = "Chưa làm";
+            radioFilterChuaLam.UseVisualStyleBackColor = true;
+            radioFilterChuaLam.CheckedChanged += radioFilterChuaLam_CheckedChanged;
             // 
-            // radioButton1
+            // radioFilterDaLam
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Font = new Font("Segoe UI", 10.18868F);
-            radioButton1.Location = new Point(6, 24);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(75, 24);
-            radioButton1.TabIndex = 8;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Đã làm";
-            radioButton1.UseVisualStyleBackColor = true;
+            radioFilterDaLam.AutoSize = true;
+            radioFilterDaLam.Font = new Font("Segoe UI", 10.18868F);
+            radioFilterDaLam.Location = new Point(6, 24);
+            radioFilterDaLam.Name = "radioFilterDaLam";
+            radioFilterDaLam.Size = new Size(75, 24);
+            radioFilterDaLam.TabIndex = 8;
+            radioFilterDaLam.TabStop = true;
+            radioFilterDaLam.Text = "Đã làm";
+            radioFilterDaLam.UseVisualStyleBackColor = true;
+            radioFilterDaLam.CheckedChanged += radioFilterDaLam_CheckedChanged;
             // 
             // bigLabel4
             // 
@@ -373,7 +360,6 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(poisonButton1);
             groupBox4.Controls.Add(poisonButton2);
             groupBox4.Controls.Add(poisonButton3);
             groupBox4.Controls.Add(foxTextBox1);
@@ -386,21 +372,6 @@
             groupBox4.TabIndex = 8;
             groupBox4.TabStop = false;
             groupBox4.Text = "Tổng quan";
-            // 
-            // poisonButton1
-            // 
-            poisonButton1.BackColor = Color.Transparent;
-            poisonButton1.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton1.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton1.Image = (Image)resources.GetObject("poisonButton1.Image");
-            poisonButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton1.Location = new Point(226, 80);
-            poisonButton1.Name = "poisonButton1";
-            poisonButton1.Size = new Size(123, 32);
-            poisonButton1.TabIndex = 26;
-            poisonButton1.Text = "Xem chi tiết";
-            poisonButton1.UseSelectable = true;
-            poisonButton1.UseVisualStyleBackColor = false;
             // 
             // poisonButton2
             // 
@@ -416,6 +387,7 @@
             poisonButton2.Text = "Làm mới";
             poisonButton2.UseSelectable = true;
             poisonButton2.UseVisualStyleBackColor = false;
+            poisonButton2.Click += poisonButton2_Click;
             // 
             // poisonButton3
             // 
@@ -469,7 +441,7 @@
             groupBox5.Controls.Add(radioButton5);
             groupBox5.Controls.Add(radioButton6);
             groupBox5.Controls.Add(radioButton7);
-            groupBox5.Controls.Add(radioButton8);
+            groupBox5.Controls.Add(radioSortDiemHL);
             groupBox5.ForeColor = Color.WhiteSmoke;
             groupBox5.Location = new Point(951, 27);
             groupBox5.Name = "groupBox5";
@@ -514,17 +486,18 @@
             radioButton7.Text = "Điểm từ cao xuống thấp";
             radioButton7.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // radioSortDiemHL
             // 
-            radioButton8.AutoSize = true;
-            radioButton8.Font = new Font("Segoe UI", 10.18868F);
-            radioButton8.Location = new Point(6, 24);
-            radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(167, 24);
-            radioButton8.TabIndex = 8;
-            radioButton8.TabStop = true;
-            radioButton8.Text = "Điểm từ thấp lên cao";
-            radioButton8.UseVisualStyleBackColor = true;
+            radioSortDiemHL.AutoSize = true;
+            radioSortDiemHL.Font = new Font("Segoe UI", 10.18868F);
+            radioSortDiemHL.Location = new Point(6, 24);
+            radioSortDiemHL.Name = "radioSortDiemHL";
+            radioSortDiemHL.Size = new Size(167, 24);
+            radioSortDiemHL.TabIndex = 8;
+            radioSortDiemHL.TabStop = true;
+            radioSortDiemHL.Text = "Điểm từ thấp lên cao";
+            radioSortDiemHL.UseVisualStyleBackColor = true;
+            radioSortDiemHL.CheckedChanged += radioSortDiemHL_CheckedChanged;
             // 
             // ThiSinh
             // 
@@ -564,16 +537,14 @@
         private ReaLTaiizor.Controls.BigLabel bigLabel3;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton21;
+        private RadioButton radioFilterChuaLam;
+        private RadioButton radioFilterDaLam;
         private ReaLTaiizor.Controls.PoisonButton poisonButton19;
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox4;
-        private RadioButton radioButton4;
-        private RadioButton radioButton3;
+        private RadioButton radioFilterChuaHetHan;
+        private RadioButton radioFilterHetHan;
         private ReaLTaiizor.Controls.PoisonButton poisonButton20;
         private GroupBox groupBox4;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton1;
         private ReaLTaiizor.Controls.PoisonButton poisonButton2;
         private ReaLTaiizor.Controls.PoisonButton poisonButton3;
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
@@ -582,7 +553,7 @@
         private RadioButton radioButton5;
         private RadioButton radioButton6;
         private RadioButton radioButton7;
-        private RadioButton radioButton8;
+        private RadioButton radioSortDiemHL;
         private FlowLayoutPanel flowBaiThi;
         private FlowLayoutPanel flowBangDiem;
     }

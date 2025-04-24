@@ -188,7 +188,7 @@ namespace Rework_AppThiTracNghiem.forms
                                     // Thêm sinh viên mới
                                     string insertQuery = @"
                                 INSERT INTO SINHVIEN (MaSinhVien, HoTen, GioiTinh, NgaySinh, QueQuan, MatKhau, MaLopHoc, CreateAt, UpdateAt)
-                                VALUES (@MaSinhVien, @HoTen, @GioiTinh, @NgaySinh, @QueQuan, @MatKhau, @MaLopHoc, @CreateAt, @UpdateAt)";
+                                VALUES (@MaSinhVien, @HoTen, @GioiTinh, @NgaySinh, @QueQuan, @MatKhau, @MaLopHoc, @CreateAt)";
                                     SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
                                     insertCmd.Parameters.AddWithValue("@MaSinhVien", maSinhVien);
                                     insertCmd.Parameters.AddWithValue("@HoTen", hoTen);
@@ -197,8 +197,7 @@ namespace Rework_AppThiTracNghiem.forms
                                     insertCmd.Parameters.AddWithValue("@QueQuan", queQuan);
                                     insertCmd.Parameters.AddWithValue("@MatKhau", matKhau);
                                     insertCmd.Parameters.AddWithValue("@MaLopHoc", maLopHoc);
-                                    insertCmd.Parameters.AddWithValue("@CreateAt", DateTime.Now);
-                                    insertCmd.Parameters.AddWithValue("@UpdateAt", DateTime.Now);
+                                    insertCmd.Parameters.AddWithValue("@CreateAt", DateTime.Now);                    
                                     insertCmd.ExecuteNonQuery();
                                 }
                             }

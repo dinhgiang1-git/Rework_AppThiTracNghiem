@@ -54,7 +54,6 @@
             poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton3 = new ReaLTaiizor.Controls.PoisonButton();
             foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
-            poisonButton4 = new ReaLTaiizor.Controls.PoisonButton();
             groupBox5 = new GroupBox();
             radioButton5 = new RadioButton();
             radioButton6 = new RadioButton();
@@ -363,7 +362,6 @@
             groupBox4.Controls.Add(poisonButton2);
             groupBox4.Controls.Add(poisonButton3);
             groupBox4.Controls.Add(foxTextBox1);
-            groupBox4.Controls.Add(poisonButton4);
             groupBox4.Controls.Add(groupBox5);
             groupBox4.ForeColor = Color.White;
             groupBox4.Location = new Point(6, 3);
@@ -420,21 +418,6 @@
             foxTextBox1.Text = "Tìm kiếm";
             foxTextBox1.TextAlign = HorizontalAlignment.Left;
             foxTextBox1.UseSystemPasswordChar = false;
-            // 
-            // poisonButton4
-            // 
-            poisonButton4.BackColor = Color.Transparent;
-            poisonButton4.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton4.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton4.Image = (Image)resources.GetObject("poisonButton4.Image");
-            poisonButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton4.Location = new Point(951, 120);
-            poisonButton4.Name = "poisonButton4";
-            poisonButton4.Size = new Size(96, 29);
-            poisonButton4.TabIndex = 21;
-            poisonButton4.Text = "Lọc";
-            poisonButton4.UseSelectable = true;
-            poisonButton4.UseVisualStyleBackColor = false;
             // 
             // groupBox5
             // 
@@ -548,7 +531,6 @@
         private ReaLTaiizor.Controls.PoisonButton poisonButton2;
         private ReaLTaiizor.Controls.PoisonButton poisonButton3;
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton4;
         private GroupBox groupBox5;
         private RadioButton radioButton5;
         private RadioButton radioButton6;

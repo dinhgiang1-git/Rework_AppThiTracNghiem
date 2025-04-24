@@ -74,6 +74,9 @@
             bdtxtTimKiem = new TextBox();
             bdbtnTimKiem = new Button();
             groupBox13 = new GroupBox();
+            radioButton3 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
             bdcbLop = new ComboBox();
             label4 = new Label();
             tabPage4 = new TabPage();
@@ -119,6 +122,7 @@
             tabPage3.SuspendLayout();
             groupBox12.SuspendLayout();
             groupBox5.SuspendLayout();
+            groupBox13.SuspendLayout();
             tabPage4.SuspendLayout();
             groupBox8.SuspendLayout();
             groupBox7.SuspendLayout();
@@ -696,12 +700,47 @@
             // 
             // groupBox13
             // 
+            groupBox13.Controls.Add(radioButton3);
+            groupBox13.Controls.Add(radioButton2);
+            groupBox13.Controls.Add(radioButton1);
             groupBox13.Location = new Point(922, 10);
             groupBox13.Name = "groupBox13";
             groupBox13.Size = new Size(485, 134);
             groupBox13.TabIndex = 22;
             groupBox13.TabStop = false;
             groupBox13.Text = "Lọc";
+            // 
+            // radioButton3
+            // 
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new Point(6, 95);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(14, 13);
+            radioButton3.TabIndex = 2;
+            radioButton3.TabStop = true;
+            radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(6, 58);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(123, 25);
+            radioButton2.TabIndex = 1;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Chưa hết hạn";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(6, 27);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(105, 25);
+            radioButton1.TabIndex = 0;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Đã hết hạn";
+            radioButton1.UseVisualStyleBackColor = true;
             // 
             // bdcbLop
             // 
@@ -1035,6 +1074,8 @@
             groupBox12.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
+            groupBox13.ResumeLayout(false);
+            groupBox13.PerformLayout();
             tabPage4.ResumeLayout(false);
             groupBox8.ResumeLayout(false);
             groupBox8.PerformLayout();
@@ -1124,5 +1165,8 @@
         private TextBox bdtxtTimKiem;
         private Button bdbtnTimKiem;
         private Button bdbtnLamMoi;
+        private RadioButton radioButton3;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
     }
 }

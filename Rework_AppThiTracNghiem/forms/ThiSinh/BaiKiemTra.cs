@@ -137,7 +137,7 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                         }
                         reader.Close();
 
-                        // Xáo trộn danh sách câu hỏi (nếu muốn thứ tự ngẫu nhiên)
+                        //Trộn câu hỏi
                         Random rng = new Random();
                         int n = danhSachCauHoi.Count;
                         for (int i = 0; i < n; i++)
@@ -209,15 +209,7 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                             NoiDungDapAnB = noidungdapanB,
                             NoiDungDapAnC = noidungdapanC,
                             NoiDungDapAnD = noidungdapanD
-                        };
-
-                        //if (!string.IsNullOrEmpty(dapAnChon))
-                        //{
-                        //    if (dapAnChon == "A") cauhoi.DapAnA = true;
-                        //    else if (dapAnChon == "B") cauhoi.DapAnB = true;
-                        //    else if (dapAnChon == "C") cauhoi.DapAnC = true;
-                        //    else if (dapAnChon == "D") cauhoi.DapAnD = true;
-                        //}
+                        };                        
 
                         index++;
                         string strIndex = "Câu: " + index.ToString();
@@ -248,7 +240,7 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
             {
                 examTimer.Stop();
                 MessageBox.Show("Hết giờ làm bài!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Hoặc gọi hàm nộp bài
+                NopBai_TinhDiem();
             }
         }
         private void BaiKiemTra_FormClosing(object sender, FormClosingEventArgs e)
@@ -298,7 +290,11 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                 MessageBox.Show("Vui lòng tích vào 'Tôi muốn nộp bài!'", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            NopBai_TinhDiem();
+        }        
 
+        private void NopBai_TinhDiem()
+        {
             // Dừng đồng hồ
             examTimer.Stop();
 
@@ -384,6 +380,6 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
                     MessageBox.Show("Lỗi khi nộp bài: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }        
+        }
     }
 }

@@ -67,12 +67,7 @@ namespace Rework_AppThiTracNghiem.forms.BangDiem
         {
             get => dateNgayKetThuc.Value;
             set => dateNgayKetThuc.Value = value;
-        }
-        public string Status
-        {
-            get => labelstatus.Text;
-            set => labelstatus.Text = value;
-        }
+        }      
         public string Soluongsinhviendalam
         {
             get => labelsoluongsinhvien.Text;

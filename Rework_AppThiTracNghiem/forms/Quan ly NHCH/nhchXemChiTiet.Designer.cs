@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(nhchXemChiTiet));
             dataCAUHOI = new DataGridView();
             idk = new GroupBox();
-            poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
-            nhchbtnLamMoi = new ReaLTaiizor.Controls.PoisonButton();
-            qllbtnTim = new ReaLTaiizor.Controls.PoisonButton();
-            qlltxtTimKiem = new ReaLTaiizor.Controls.FoxTextBox();
-            nhchbtnSuaCauHoi = new ReaLTaiizor.Controls.PoisonButton();
-            nhchbtnThemThuCong = new ReaLTaiizor.Controls.PoisonButton();
-            nhchbtnXoaCauHoi = new ReaLTaiizor.Controls.PoisonButton();
+            button1 = new Button();
+            btnNhapFile = new Button();
+            sdtbtnHuy = new Button();
+            btnThem = new Button();
+            button2 = new Button();
+            btnXuatFile = new Button();
+            txtTimKiem = new TextBox();
+            btnTimKiem = new Button();
             ((System.ComponentModel.ISupportInitialize)dataCAUHOI).BeginInit();
             idk.SuspendLayout();
             SuspendLayout();
@@ -46,177 +45,147 @@
             // dataCAUHOI
             // 
             dataCAUHOI.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataCAUHOI.BackgroundColor = Color.FromArgb(241, 245, 249);
             dataCAUHOI.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataCAUHOI.Location = new Point(19, 223);
+            dataCAUHOI.GridColor = Color.FromArgb(250, 209, 207);
+            dataCAUHOI.Location = new Point(399, 22);
             dataCAUHOI.Margin = new Padding(5, 4, 5, 4);
             dataCAUHOI.Name = "dataCAUHOI";
             dataCAUHOI.RowHeadersWidth = 45;
-            dataCAUHOI.Size = new Size(1656, 831);
+            dataCAUHOI.Size = new Size(1276, 1032);
             dataCAUHOI.TabIndex = 13;
             dataCAUHOI.TabStop = false;
             dataCAUHOI.CellClick += dataCAUHOI_CellClick;
             // 
             // idk
             // 
-            idk.Controls.Add(poisonButton2);
-            idk.Controls.Add(poisonButton1);
-            idk.Controls.Add(nhchbtnLamMoi);
-            idk.Controls.Add(qllbtnTim);
-            idk.Controls.Add(qlltxtTimKiem);
-            idk.Controls.Add(nhchbtnSuaCauHoi);
-            idk.Controls.Add(nhchbtnThemThuCong);
-            idk.Controls.Add(nhchbtnXoaCauHoi);
+            idk.Controls.Add(button1);
+            idk.Controls.Add(btnNhapFile);
+            idk.Controls.Add(sdtbtnHuy);
+            idk.Controls.Add(btnThem);
+            idk.Controls.Add(button2);
+            idk.Controls.Add(btnXuatFile);
+            idk.Controls.Add(txtTimKiem);
+            idk.Controls.Add(btnTimKiem);
             idk.Font = new Font("Segoe UI Semibold", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            idk.ForeColor = Color.White;
+            idk.ForeColor = Color.Black;
             idk.Location = new Point(19, 13);
             idk.Margin = new Padding(5, 4, 5, 4);
             idk.Name = "idk";
             idk.Padding = new Padding(5, 4, 5, 4);
-            idk.Size = new Size(1656, 138);
+            idk.Size = new Size(370, 1041);
             idk.TabIndex = 12;
             idk.TabStop = false;
             idk.Text = "Chi tiết ngân hàng câu hỏi";
             // 
-            // poisonButton2
+            // button1
             // 
-            poisonButton2.BackColor = Color.Transparent;
-            poisonButton2.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton2.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton2.Image = (Image)resources.GetObject("poisonButton2.Image");
-            poisonButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton2.Location = new Point(1251, 76);
-            poisonButton2.Margin = new Padding(5, 4, 5, 4);
-            poisonButton2.Name = "poisonButton2";
-            poisonButton2.Size = new Size(181, 40);
-            poisonButton2.TabIndex = 17;
-            poisonButton2.Text = "Xuất file";
-            poisonButton2.UseSelectable = true;
-            poisonButton2.UseVisualStyleBackColor = false;
+            button1.BackColor = Color.FromArgb(233, 67, 55);
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(145, 282);
+            button1.Name = "button1";
+            button1.Size = new Size(209, 36);
+            button1.TabIndex = 82;
+            button1.Text = "Xoá câu hỏi";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // poisonButton1
+            // btnNhapFile
             // 
-            poisonButton1.BackColor = Color.Transparent;
-            poisonButton1.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton1.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton1.Image = (Image)resources.GetObject("poisonButton1.Image");
-            poisonButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton1.Location = new Point(1061, 76);
-            poisonButton1.Margin = new Padding(5, 4, 5, 4);
-            poisonButton1.Name = "poisonButton1";
-            poisonButton1.Size = new Size(181, 40);
-            poisonButton1.TabIndex = 16;
-            poisonButton1.Text = "Nhập file";
-            poisonButton1.UseSelectable = true;
-            poisonButton1.UseVisualStyleBackColor = false;
-            poisonButton1.Click += poisonButton1_Click;
+            btnNhapFile.BackColor = Color.FromArgb(205, 233, 214);
+            btnNhapFile.FlatStyle = FlatStyle.Popup;
+            btnNhapFile.ForeColor = Color.Black;
+            btnNhapFile.Location = new Point(8, 168);
+            btnNhapFile.Name = "btnNhapFile";
+            btnNhapFile.Size = new Size(117, 36);
+            btnNhapFile.TabIndex = 78;
+            btnNhapFile.Text = "Nhập file";
+            btnNhapFile.UseVisualStyleBackColor = false;
+            btnNhapFile.Click += btnNhapFile_Click;
             // 
-            // nhchbtnLamMoi
+            // sdtbtnHuy
             // 
-            nhchbtnLamMoi.BackColor = Color.Transparent;
-            nhchbtnLamMoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnLamMoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnLamMoi.Image = (Image)resources.GetObject("nhchbtnLamMoi.Image");
-            nhchbtnLamMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnLamMoi.Location = new Point(737, 49);
-            nhchbtnLamMoi.Margin = new Padding(5, 4, 5, 4);
-            nhchbtnLamMoi.Name = "nhchbtnLamMoi";
-            nhchbtnLamMoi.Size = new Size(181, 40);
-            nhchbtnLamMoi.TabIndex = 15;
-            nhchbtnLamMoi.Text = "Làm mới";
-            nhchbtnLamMoi.UseSelectable = true;
-            nhchbtnLamMoi.UseVisualStyleBackColor = false;
-            nhchbtnLamMoi.Click += nhchbtnLamMoi_Click;
+            sdtbtnHuy.BackColor = Color.FromArgb(244, 193, 158);
+            sdtbtnHuy.FlatStyle = FlatStyle.Popup;
+            sdtbtnHuy.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            sdtbtnHuy.ForeColor = Color.Black;
+            sdtbtnHuy.Location = new Point(145, 225);
+            sdtbtnHuy.Name = "sdtbtnHuy";
+            sdtbtnHuy.Size = new Size(209, 36);
+            sdtbtnHuy.TabIndex = 81;
+            sdtbtnHuy.Text = "Sửa câu hỏi";
+            sdtbtnHuy.UseVisualStyleBackColor = false;
+            sdtbtnHuy.Click += sdtbtnHuy_Click;
             // 
-            // qllbtnTim
+            // btnThem
             // 
-            qllbtnTim.BackColor = Color.Transparent;
-            qllbtnTim.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            qllbtnTim.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            qllbtnTim.Image = (Image)resources.GetObject("qllbtnTim.Image");
-            qllbtnTim.ImageAlign = ContentAlignment.MiddleLeft;
-            qllbtnTim.Location = new Point(462, 49);
-            qllbtnTim.Margin = new Padding(5, 4, 5, 4);
-            qllbtnTim.Name = "qllbtnTim";
-            qllbtnTim.Size = new Size(181, 40);
-            qllbtnTim.TabIndex = 14;
-            qllbtnTim.Text = "Tìm";
-            qllbtnTim.UseSelectable = true;
-            qllbtnTim.UseVisualStyleBackColor = false;
+            btnThem.BackColor = Color.FromArgb(30, 64, 175);
+            btnThem.FlatStyle = FlatStyle.Popup;
+            btnThem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.ForeColor = Color.White;
+            btnThem.Location = new Point(145, 167);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(209, 36);
+            btnThem.TabIndex = 80;
+            btnThem.Text = "Thêm câu hỏi thủ công";
+            btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
-            // qlltxtTimKiem
+            // button2
             // 
-            qlltxtTimKiem.BackColor = Color.White;
-            qlltxtTimKiem.EnabledCalc = true;
-            qlltxtTimKiem.Font = new Font("Segoe UI", 10F);
-            qlltxtTimKiem.ForeColor = Color.Black;
-            qlltxtTimKiem.Location = new Point(9, 49);
-            qlltxtTimKiem.Margin = new Padding(5, 4, 5, 4);
-            qlltxtTimKiem.MaxLength = 32767;
-            qlltxtTimKiem.MultiLine = false;
-            qlltxtTimKiem.Name = "qlltxtTimKiem";
-            qlltxtTimKiem.ReadOnly = false;
-            qlltxtTimKiem.Size = new Size(443, 40);
-            qlltxtTimKiem.TabIndex = 13;
-            qlltxtTimKiem.Text = "Tìm kiếm";
-            qlltxtTimKiem.TextAlign = HorizontalAlignment.Left;
-            qlltxtTimKiem.UseSystemPasswordChar = false;
+            button2.BackColor = Color.FromArgb(205, 233, 214);
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.ForeColor = Color.Black;
+            button2.Location = new Point(8, 282);
+            button2.Name = "button2";
+            button2.Size = new Size(117, 34);
+            button2.TabIndex = 83;
+            button2.Text = "Làm mới";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // nhchbtnSuaCauHoi
+            // btnXuatFile
             // 
-            nhchbtnSuaCauHoi.BackColor = Color.Transparent;
-            nhchbtnSuaCauHoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnSuaCauHoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnSuaCauHoi.Image = (Image)resources.GetObject("nhchbtnSuaCauHoi.Image");
-            nhchbtnSuaCauHoi.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnSuaCauHoi.Location = new Point(1251, 28);
-            nhchbtnSuaCauHoi.Margin = new Padding(5, 4, 5, 4);
-            nhchbtnSuaCauHoi.Name = "nhchbtnSuaCauHoi";
-            nhchbtnSuaCauHoi.Size = new Size(181, 40);
-            nhchbtnSuaCauHoi.TabIndex = 12;
-            nhchbtnSuaCauHoi.Text = "Sửa câu hỏi";
-            nhchbtnSuaCauHoi.UseSelectable = true;
-            nhchbtnSuaCauHoi.UseVisualStyleBackColor = false;
-            nhchbtnSuaCauHoi.Click += nhchbtnSuaCauHoi_Click;
+            btnXuatFile.BackColor = Color.FromArgb(205, 233, 214);
+            btnXuatFile.FlatStyle = FlatStyle.Popup;
+            btnXuatFile.ForeColor = Color.Black;
+            btnXuatFile.Location = new Point(8, 226);
+            btnXuatFile.Name = "btnXuatFile";
+            btnXuatFile.Size = new Size(117, 36);
+            btnXuatFile.TabIndex = 79;
+            btnXuatFile.Text = "Xuất file";
+            btnXuatFile.UseVisualStyleBackColor = false;
+            btnXuatFile.Click += btnXuatFile_Click;
             // 
-            // nhchbtnThemThuCong
+            // txtTimKiem
             // 
-            nhchbtnThemThuCong.BackColor = Color.Transparent;
-            nhchbtnThemThuCong.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnThemThuCong.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnThemThuCong.Image = (Image)resources.GetObject("nhchbtnThemThuCong.Image");
-            nhchbtnThemThuCong.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnThemThuCong.Location = new Point(1061, 28);
-            nhchbtnThemThuCong.Margin = new Padding(5, 4, 5, 4);
-            nhchbtnThemThuCong.Name = "nhchbtnThemThuCong";
-            nhchbtnThemThuCong.Size = new Size(181, 40);
-            nhchbtnThemThuCong.TabIndex = 11;
-            nhchbtnThemThuCong.Text = "Thêm câu hỏi thủ công";
-            nhchbtnThemThuCong.UseSelectable = true;
-            nhchbtnThemThuCong.UseVisualStyleBackColor = false;
-            nhchbtnThemThuCong.Click += nhchbtnThemThuCong_Click;
+            txtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTimKiem.Location = new Point(8, 44);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(346, 29);
+            txtTimKiem.TabIndex = 29;
             // 
-            // nhchbtnXoaCauHoi
+            // btnTimKiem
             // 
-            nhchbtnXoaCauHoi.BackColor = Color.Transparent;
-            nhchbtnXoaCauHoi.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            nhchbtnXoaCauHoi.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            nhchbtnXoaCauHoi.Image = (Image)resources.GetObject("nhchbtnXoaCauHoi.Image");
-            nhchbtnXoaCauHoi.ImageAlign = ContentAlignment.MiddleLeft;
-            nhchbtnXoaCauHoi.Location = new Point(1440, 28);
-            nhchbtnXoaCauHoi.Margin = new Padding(5, 4, 5, 4);
-            nhchbtnXoaCauHoi.Name = "nhchbtnXoaCauHoi";
-            nhchbtnXoaCauHoi.Size = new Size(181, 40);
-            nhchbtnXoaCauHoi.TabIndex = 9;
-            nhchbtnXoaCauHoi.Text = "Xoá câu hỏi";
-            nhchbtnXoaCauHoi.UseSelectable = true;
-            nhchbtnXoaCauHoi.UseVisualStyleBackColor = false;
-            nhchbtnXoaCauHoi.Click += nhchbtnXoaCauHoi_Click;
+            btnTimKiem.BackColor = Color.FromArgb(205, 233, 214);
+            btnTimKiem.FlatStyle = FlatStyle.Popup;
+            btnTimKiem.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTimKiem.ForeColor = Color.Black;
+            btnTimKiem.Location = new Point(237, 79);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(117, 36);
+            btnTimKiem.TabIndex = 28;
+            btnTimKiem.Text = "Tìm kiếm";
+            btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // nhchXemChiTiet
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(50, 63, 74);
+            BackColor = Color.FromArgb(241, 243, 244);
             ClientSize = new Size(1689, 1067);
             Controls.Add(dataCAUHOI);
             Controls.Add(idk);
@@ -225,6 +194,7 @@
             Text = "Chi tiết ngân hàng câu hỏi";
             ((System.ComponentModel.ISupportInitialize)dataCAUHOI).EndInit();
             idk.ResumeLayout(false);
+            idk.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -232,13 +202,14 @@
 
         private DataGridView dataCAUHOI;
         private GroupBox idk;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton1;
         private ReaLTaiizor.Controls.PoisonButton nhchbtnLamMoi;
-        private ReaLTaiizor.Controls.PoisonButton qllbtnTim;
-        private ReaLTaiizor.Controls.FoxTextBox qlltxtTimKiem;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnSuaCauHoi;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnThemThuCong;
-        private ReaLTaiizor.Controls.PoisonButton nhchbtnXoaCauHoi;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton2;
+        private TextBox txtTimKiem;
+        private Button btnTimKiem;
+        private Button button1;
+        private Button btnNhapFile;
+        private Button sdtbtnHuy;
+        private Button btnThem;
+        private Button button2;
+        private Button btnXuatFile;
     }
 }

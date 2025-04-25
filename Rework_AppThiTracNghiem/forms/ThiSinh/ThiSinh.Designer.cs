@@ -33,9 +33,9 @@
             tabPage2 = new TabPage();
             flowBaiThi = new FlowLayoutPanel();
             groupBox2 = new GroupBox();
+            dttxtTimKiem = new TextBox();
+            dtbtnTimKiem = new Button();
             poisonButton20 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton19 = new ReaLTaiizor.Controls.PoisonButton();
-            foxTextBox4 = new ReaLTaiizor.Controls.FoxTextBox();
             groupBox3 = new GroupBox();
             radioFilterChuaHetHan = new RadioButton();
             radioFilterHetHan = new RadioButton();
@@ -51,11 +51,10 @@
             tabPage3 = new TabPage();
             flowBangDiem = new FlowLayoutPanel();
             groupBox4 = new GroupBox();
+            diemtxtTimKiem = new TextBox();
+            button1 = new Button();
             poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
-            poisonButton3 = new ReaLTaiizor.Controls.PoisonButton();
-            foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             groupBox5 = new GroupBox();
-            radioButton5 = new RadioButton();
             radioButton6 = new RadioButton();
             radioButton7 = new RadioButton();
             radioSortDiemHL = new RadioButton();
@@ -129,9 +128,9 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(dttxtTimKiem);
+            groupBox2.Controls.Add(dtbtnTimKiem);
             groupBox2.Controls.Add(poisonButton20);
-            groupBox2.Controls.Add(poisonButton19);
-            groupBox2.Controls.Add(foxTextBox4);
             groupBox2.Controls.Add(groupBox3);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(6, 75);
@@ -141,6 +140,27 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Tổng quan";
             // 
+            // dttxtTimKiem
+            // 
+            dttxtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            dttxtTimKiem.Location = new Point(166, 44);
+            dttxtTimKiem.Name = "dttxtTimKiem";
+            dttxtTimKiem.Size = new Size(280, 29);
+            dttxtTimKiem.TabIndex = 27;
+            // 
+            // dtbtnTimKiem
+            // 
+            dtbtnTimKiem.BackColor = Color.FromArgb(205, 233, 214);
+            dtbtnTimKiem.FlatStyle = FlatStyle.Popup;
+            dtbtnTimKiem.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtbtnTimKiem.ForeColor = Color.Black;
+            dtbtnTimKiem.Location = new Point(166, 79);
+            dtbtnTimKiem.Name = "dtbtnTimKiem";
+            dtbtnTimKiem.Size = new Size(117, 32);
+            dtbtnTimKiem.TabIndex = 26;
+            dtbtnTimKiem.Text = "Tìm kiếm";
+            dtbtnTimKiem.UseVisualStyleBackColor = false;
+            // 
             // poisonButton20
             // 
             poisonButton20.BackColor = Color.Transparent;
@@ -148,7 +168,7 @@
             poisonButton20.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton20.Image = (Image)resources.GetObject("poisonButton20.Image");
             poisonButton20.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton20.Location = new Point(20, 85);
+            poisonButton20.Location = new Point(6, 79);
             poisonButton20.Name = "poisonButton20";
             poisonButton20.Size = new Size(123, 32);
             poisonButton20.TabIndex = 25;
@@ -156,38 +176,6 @@
             poisonButton20.UseSelectable = true;
             poisonButton20.UseVisualStyleBackColor = false;
             poisonButton20.Click += poisonButton20_Click;
-            // 
-            // poisonButton19
-            // 
-            poisonButton19.BackColor = Color.Transparent;
-            poisonButton19.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton19.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton19.Image = (Image)resources.GetObject("poisonButton19.Image");
-            poisonButton19.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton19.Location = new Point(328, 47);
-            poisonButton19.Name = "poisonButton19";
-            poisonButton19.Size = new Size(123, 32);
-            poisonButton19.TabIndex = 24;
-            poisonButton19.Text = "Tìm";
-            poisonButton19.UseSelectable = true;
-            poisonButton19.UseVisualStyleBackColor = false;
-            // 
-            // foxTextBox4
-            // 
-            foxTextBox4.BackColor = Color.White;
-            foxTextBox4.EnabledCalc = true;
-            foxTextBox4.Font = new Font("Segoe UI", 10F);
-            foxTextBox4.ForeColor = Color.Black;
-            foxTextBox4.Location = new Point(20, 47);
-            foxTextBox4.MaxLength = 32767;
-            foxTextBox4.MultiLine = false;
-            foxTextBox4.Name = "foxTextBox4";
-            foxTextBox4.ReadOnly = false;
-            foxTextBox4.Size = new Size(302, 32);
-            foxTextBox4.TabIndex = 23;
-            foxTextBox4.Text = "Tìm kiếm";
-            foxTextBox4.TextAlign = HorizontalAlignment.Left;
-            foxTextBox4.UseSystemPasswordChar = false;
             // 
             // groupBox3
             // 
@@ -359,9 +347,9 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(diemtxtTimKiem);
+            groupBox4.Controls.Add(button1);
             groupBox4.Controls.Add(poisonButton2);
-            groupBox4.Controls.Add(poisonButton3);
-            groupBox4.Controls.Add(foxTextBox1);
             groupBox4.Controls.Add(groupBox5);
             groupBox4.ForeColor = Color.White;
             groupBox4.Location = new Point(6, 3);
@@ -371,6 +359,28 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Tổng quan";
             // 
+            // diemtxtTimKiem
+            // 
+            diemtxtTimKiem.Font = new Font("Segoe UI Semibold", 10.8679247F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            diemtxtTimKiem.Location = new Point(202, 46);
+            diemtxtTimKiem.Name = "diemtxtTimKiem";
+            diemtxtTimKiem.Size = new Size(280, 29);
+            diemtxtTimKiem.TabIndex = 29;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(205, 233, 214);
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(202, 81);
+            button1.Name = "button1";
+            button1.Size = new Size(117, 32);
+            button1.TabIndex = 28;
+            button1.Text = "Tìm kiếm";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // poisonButton2
             // 
             poisonButton2.BackColor = Color.Transparent;
@@ -378,7 +388,7 @@
             poisonButton2.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
             poisonButton2.Image = (Image)resources.GetObject("poisonButton2.Image");
             poisonButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton2.Location = new Point(97, 80);
+            poisonButton2.Location = new Point(33, 79);
             poisonButton2.Name = "poisonButton2";
             poisonButton2.Size = new Size(123, 32);
             poisonButton2.TabIndex = 25;
@@ -387,41 +397,8 @@
             poisonButton2.UseVisualStyleBackColor = false;
             poisonButton2.Click += poisonButton2_Click;
             // 
-            // poisonButton3
-            // 
-            poisonButton3.BackColor = Color.Transparent;
-            poisonButton3.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
-            poisonButton3.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Medium;
-            poisonButton3.Image = (Image)resources.GetObject("poisonButton3.Image");
-            poisonButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            poisonButton3.Location = new Point(405, 42);
-            poisonButton3.Name = "poisonButton3";
-            poisonButton3.Size = new Size(123, 32);
-            poisonButton3.TabIndex = 24;
-            poisonButton3.Text = "Tìm";
-            poisonButton3.UseSelectable = true;
-            poisonButton3.UseVisualStyleBackColor = false;
-            // 
-            // foxTextBox1
-            // 
-            foxTextBox1.BackColor = Color.White;
-            foxTextBox1.EnabledCalc = true;
-            foxTextBox1.Font = new Font("Segoe UI", 10F);
-            foxTextBox1.ForeColor = Color.Black;
-            foxTextBox1.Location = new Point(97, 42);
-            foxTextBox1.MaxLength = 32767;
-            foxTextBox1.MultiLine = false;
-            foxTextBox1.Name = "foxTextBox1";
-            foxTextBox1.ReadOnly = false;
-            foxTextBox1.Size = new Size(302, 32);
-            foxTextBox1.TabIndex = 23;
-            foxTextBox1.Text = "Tìm kiếm";
-            foxTextBox1.TextAlign = HorizontalAlignment.Left;
-            foxTextBox1.UseSystemPasswordChar = false;
-            // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(radioButton5);
             groupBox5.Controls.Add(radioButton6);
             groupBox5.Controls.Add(radioButton7);
             groupBox5.Controls.Add(radioSortDiemHL);
@@ -432,18 +409,6 @@
             groupBox5.TabIndex = 22;
             groupBox5.TabStop = false;
             groupBox5.Text = "Tiêu chí sắp xếp";
-            // 
-            // radioButton5
-            // 
-            radioButton5.AutoSize = true;
-            radioButton5.Font = new Font("Segoe UI", 10.18868F);
-            radioButton5.Location = new Point(201, 51);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(157, 24);
-            radioButton5.TabIndex = 24;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "Bài làm xa đây nhất";
-            radioButton5.UseVisualStyleBackColor = true;
             // 
             // radioButton6
             // 
@@ -456,6 +421,7 @@
             radioButton6.TabStop = true;
             radioButton6.Text = "Bài làm gần đây nhất";
             radioButton6.UseVisualStyleBackColor = true;
+            radioButton6.CheckedChanged += radioButton6_CheckedChanged;
             // 
             // radioButton7
             // 
@@ -495,12 +461,14 @@
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabPage3.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             ResumeLayout(false);
@@ -522,21 +490,20 @@
         private GroupBox groupBox3;
         private RadioButton radioFilterChuaLam;
         private RadioButton radioFilterDaLam;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton19;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox4;
         private RadioButton radioFilterChuaHetHan;
         private RadioButton radioFilterHetHan;
         private ReaLTaiizor.Controls.PoisonButton poisonButton20;
         private GroupBox groupBox4;
         private ReaLTaiizor.Controls.PoisonButton poisonButton2;
-        private ReaLTaiizor.Controls.PoisonButton poisonButton3;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private GroupBox groupBox5;
-        private RadioButton radioButton5;
-        private RadioButton radioButton6;
         private RadioButton radioButton7;
         private RadioButton radioSortDiemHL;
         private FlowLayoutPanel flowBaiThi;
         private FlowLayoutPanel flowBangDiem;
+        private TextBox dttxtTimKiem;
+        private Button dtbtnTimKiem;
+        private TextBox diemtxtTimKiem;
+        private Button button1;
+        private RadioButton radioButton6;
     }
 }

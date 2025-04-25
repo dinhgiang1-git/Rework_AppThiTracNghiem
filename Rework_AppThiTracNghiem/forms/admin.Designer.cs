@@ -75,8 +75,8 @@
             bdbtnTimKiem = new Button();
             groupBox13 = new GroupBox();
             radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            radioFilterChuaHetHan = new RadioButton();
+            radioFilterDaHetHan = new RadioButton();
             bdcbLop = new ComboBox();
             label4 = new Label();
             tabPage4 = new TabPage();
@@ -701,8 +701,8 @@
             // groupBox13
             // 
             groupBox13.Controls.Add(radioButton3);
-            groupBox13.Controls.Add(radioButton2);
-            groupBox13.Controls.Add(radioButton1);
+            groupBox13.Controls.Add(radioFilterChuaHetHan);
+            groupBox13.Controls.Add(radioFilterDaHetHan);
             groupBox13.Location = new Point(922, 10);
             groupBox13.Name = "groupBox13";
             groupBox13.Size = new Size(485, 134);
@@ -720,27 +720,29 @@
             radioButton3.TabStop = true;
             radioButton3.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioFilterChuaHetHan
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 58);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(123, 25);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Chưa hết hạn";
-            radioButton2.UseVisualStyleBackColor = true;
+            radioFilterChuaHetHan.AutoSize = true;
+            radioFilterChuaHetHan.Location = new Point(6, 58);
+            radioFilterChuaHetHan.Name = "radioFilterChuaHetHan";
+            radioFilterChuaHetHan.Size = new Size(123, 25);
+            radioFilterChuaHetHan.TabIndex = 1;
+            radioFilterChuaHetHan.TabStop = true;
+            radioFilterChuaHetHan.Text = "Chưa hết hạn";
+            radioFilterChuaHetHan.UseVisualStyleBackColor = true;
+            radioFilterChuaHetHan.CheckedChanged += radioFilterChuaHetHan_CheckedChanged;
             // 
-            // radioButton1
+            // radioFilterDaHetHan
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(6, 27);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(105, 25);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Đã hết hạn";
-            radioButton1.UseVisualStyleBackColor = true;
+            radioFilterDaHetHan.AutoSize = true;
+            radioFilterDaHetHan.Location = new Point(6, 27);
+            radioFilterDaHetHan.Name = "radioFilterDaHetHan";
+            radioFilterDaHetHan.Size = new Size(105, 25);
+            radioFilterDaHetHan.TabIndex = 0;
+            radioFilterDaHetHan.TabStop = true;
+            radioFilterDaHetHan.Text = "Đã hết hạn";
+            radioFilterDaHetHan.UseVisualStyleBackColor = true;
+            radioFilterDaHetHan.CheckedChanged += radioFilterDaHetHan_CheckedChanged;
             // 
             // bdcbLop
             // 
@@ -1166,7 +1168,7 @@
         private Button bdbtnTimKiem;
         private Button bdbtnLamMoi;
         private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton radioFilterChuaHetHan;
+        private RadioButton radioFilterDaHetHan;
     }
 }

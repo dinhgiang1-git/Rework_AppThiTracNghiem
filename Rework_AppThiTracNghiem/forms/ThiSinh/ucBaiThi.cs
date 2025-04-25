@@ -79,17 +79,17 @@ namespace Rework_AppThiTracNghiem.forms.ThiSinh
         {
             DateTime check = DateTime.Now;
 
-            //if (check < this.NgayBatDau)
-            //{
-            //    MessageBox.Show("Chưa tới thời gian làm bài vui lòng quay lại sau!");
-            //    return;
-            //}
+            if (check < this.NgayBatDau)
+            {
+                MessageBox.Show("Chưa tới thời gian làm bài vui lòng quay lại sau!");
+                return;
+            }
 
-            //if (check > this.NgayKetThuc)
-            //{
-            //    MessageBox.Show("Đề thi này đã quá hạn!");
-            //    return;
-            //}
+            if (check > this.NgayKetThuc)
+            {
+                MessageBox.Show("Đề thi này đã quá hạn!");
+                return;
+            }
 
             BaiKiemTra baikiemtra = new BaiKiemTra(g_maSinhVien, this.MaBaiThi);
             baikiemtra.Show();

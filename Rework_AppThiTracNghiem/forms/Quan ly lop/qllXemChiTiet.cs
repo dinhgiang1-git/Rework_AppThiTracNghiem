@@ -187,7 +187,7 @@ namespace Rework_AppThiTracNghiem.forms
                                 {
                                     // Thêm sinh viên mới
                                     string insertQuery = @"
-                                INSERT INTO SINHVIEN (MaSinhVien, HoTen, GioiTinh, NgaySinh, QueQuan, MatKhau, MaLopHoc, CreateAt, UpdateAt)
+                                INSERT INTO SINHVIEN (MaSinhVien, HoTen, GioiTinh, NgaySinh, QueQuan, MatKhau, MaLopHoc, CreateAt)
                                 VALUES (@MaSinhVien, @HoTen, @GioiTinh, @NgaySinh, @QueQuan, @MatKhau, @MaLopHoc, @CreateAt)";
                                     SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
                                     insertCmd.Parameters.AddWithValue("@MaSinhVien", maSinhVien);

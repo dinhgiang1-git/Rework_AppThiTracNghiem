@@ -699,7 +699,6 @@ namespace Rework_AppThiTracNghiem
                         DETHI.TenBaiThi = tendethi;
                         DETHI.NgayBatDau = NgayBatDau;
                         DETHI.NgayKetThuc = NgayKetThuc;
-                        DETHI.Status = "Còn hạn";
                         DETHI.Soluongsinhviendalam = soluongsinhvien + " SV đã làm.";
                         DETHI.onBANGDIEM_Click += FlowBANGDIEM_Click;
                         flowBangDiem.Controls.Add(DETHI);
@@ -732,7 +731,7 @@ namespace Rework_AppThiTracNghiem
         {
             LoadData_BangDiem(bdcbLop.SelectedValue.ToString());
             g_maLopHoc = bdcbLop.SelectedValue.ToString();
-        }        
+        }
         private void bdbtnTimKiem_Click(object sender, EventArgs e)
         {
             flowBangDiem.Controls.Clear();
@@ -780,7 +779,6 @@ namespace Rework_AppThiTracNghiem
                         DETHI.TenBaiThi = tendethi;
                         DETHI.NgayBatDau = NgayBatDau;
                         DETHI.NgayKetThuc = NgayKetThuc;
-                        DETHI.Status = "Còn hạn";
                         DETHI.Soluongsinhviendalam = soluongsinhvien + " SV đã làm.";
                         DETHI.onBANGDIEM_Click += FlowBANGDIEM_Click;
                         flowBangDiem.Controls.Add(DETHI);
@@ -799,6 +797,115 @@ namespace Rework_AppThiTracNghiem
         private void bdbtnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData_BangDiem(g_maLopHoc);
+        }
+        private void radioFilterDaHetHan_CheckedChanged(object sender, EventArgs e)
+        {
+            flowBangDiem.Controls.Clear();
+            //ORDER BY SoLuongSVLamBai DESC"; 
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc, count(BAITHI_KETQUA.MaSinhVien) as SoLuongSVLamBai 
+                    from DETHI join LOPHOC on DETHI.MaLop = LOPHOC.MaLopHoc 
+                    left join BAITHI_KETQUA on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi
+                    where LOPHOC.MaLopHoc = @MaLopHoc         
+                    and DETHI.NgayKetThuc < GETDATE()
+                    group by DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLopHoc);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string madethi = reader["MaDeThi"].ToString();
+                        string tendethi = reader["TenDeThi"].ToString();
+                        DateTime NgayBatDau = DateTime.Now;
+                        DateTime NgayKetThuc = DateTime.Now;
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayBatDau")))
+                        {
+                            NgayBatDau = Convert.ToDateTime(reader["NgayBatDau"]);
+                        }
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayKetThuc")))
+                        {
+                            NgayKetThuc = Convert.ToDateTime(reader["NgayKetThuc"]);
+                        }
+                        string soluongsinhvien = reader["SoLuongSVLamBai"].ToString();
+                        ucbdDETHI DETHI = new ucbdDETHI();
+                        DETHI.Dock = DockStyle.Top;
+                        DETHI.MaBaiThi = madethi;
+                        DETHI.TenBaiThi = tendethi;
+                        DETHI.NgayBatDau = NgayBatDau;
+                        DETHI.NgayKetThuc = NgayKetThuc;
+                        DETHI.Soluongsinhviendalam = soluongsinhvien + " SV đã làm.";
+                        DETHI.onBANGDIEM_Click += FlowBANGDIEM_Click;
+                        flowBangDiem.Controls.Add(DETHI);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        private void radioFilterChuaHetHan_CheckedChanged(object sender, EventArgs e)
+        {
+            flowBangDiem.Controls.Clear();
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"select DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc, count(BAITHI_KETQUA.MaSinhVien) as SoLuongSVLamBai 
+                    from DETHI join LOPHOC on DETHI.MaLop = LOPHOC.MaLopHoc 
+                    left join BAITHI_KETQUA on DETHI.MaDeThi = BAITHI_KETQUA.MaDeThi
+                    where LOPHOC.MaLopHoc = @MaLopHoc         
+                    and DETHI.NgayKetThuc > GETDATE()
+                    group by DETHI.MaDeThi, DETHI.TenDeThi, DETHI.NgayBatDau, DETHI.NgayKetThuc";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaLopHoc", g_maLopHoc);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string madethi = reader["MaDeThi"].ToString();
+                        string tendethi = reader["TenDeThi"].ToString();
+                        DateTime NgayBatDau = DateTime.Now;
+                        DateTime NgayKetThuc = DateTime.Now;
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayBatDau")))
+                        {
+                            NgayBatDau = Convert.ToDateTime(reader["NgayBatDau"]);
+                        }
+                        if (!reader.IsDBNull(reader.GetOrdinal("NgayKetThuc")))
+                        {
+                            NgayKetThuc = Convert.ToDateTime(reader["NgayKetThuc"]);
+                        }
+                        string soluongsinhvien = reader["SoLuongSVLamBai"].ToString();
+                        ucbdDETHI DETHI = new ucbdDETHI();
+                        DETHI.Dock = DockStyle.Top;
+                        DETHI.MaBaiThi = madethi;
+                        DETHI.TenBaiThi = tendethi;
+                        DETHI.NgayBatDau = NgayBatDau;
+                        DETHI.NgayKetThuc = NgayKetThuc;
+                        DETHI.Soluongsinhviendalam = soluongsinhvien + " SV đã làm.";
+                        DETHI.onBANGDIEM_Click += FlowBANGDIEM_Click;
+                        flowBangDiem.Controls.Add(DETHI);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
         }
 
         //Thông tin tài khoản
@@ -950,5 +1057,6 @@ namespace Rework_AppThiTracNghiem
                 }
             }
         }
+
     }
 }

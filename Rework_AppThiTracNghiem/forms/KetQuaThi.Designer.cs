@@ -104,6 +104,7 @@
             Controls.Add(splitContainer1);
             Name = "KetQuaThi";
             Text = "KetQuaThi";
+            Load += KetQuaThi_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);

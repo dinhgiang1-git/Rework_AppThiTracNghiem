@@ -19,6 +19,7 @@ namespace Rework_AppThiTracNghiem.forms
 {
     public partial class LamDeThi : Form
     {
+        private ThiSinh formThiSinh;
         private List<CauHoi> danhSachCauHoi = new List<CauHoi>();
         private string g_maDeThi = "";
         private string g_maSinhVien = "";
@@ -26,13 +27,13 @@ namespace Rework_AppThiTracNghiem.forms
         private Timer timer;
         private int remainingSeconds;
         private Dictionary<int, Button> buttonCauHoi = new Dictionary<int, Button>();
-        public LamDeThi(string maDeThi, string maSinhVien, int duration)
+        public LamDeThi(string maDeThi, string maSinhVien, int duration,ThiSinh fts)
         {
             InitializeComponent();
             g_maDeThi = maDeThi;
             g_maSinhVien = maSinhVien;
             thoigianlam = duration;
-            Console.WriteLine(g_maDeThi + " + " + g_maSinhVien + "+"+thoigianlam);
+            formThiSinh = fts;
             load_danh_sach_cau_hoi(g_maDeThi);
             BindData();
             StartTimer();
@@ -155,21 +156,6 @@ namespace Rework_AppThiTracNghiem.forms
             }
     
             return Math.Round((soCauDung * 10.0) / tongSoCau, 2);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void itemCauHoi4_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void BindData()
@@ -302,6 +288,15 @@ namespace Rework_AppThiTracNghiem.forms
                 throw new Exception("Error: " + ex.Message);
             }
 
+        }
+    
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            if (formThiSinh != null)
+            {
+                formThiSinh.ReloadData();
+            }
         }
     }
 }

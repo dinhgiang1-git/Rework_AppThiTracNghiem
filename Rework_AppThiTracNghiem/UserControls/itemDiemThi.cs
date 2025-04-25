@@ -19,7 +19,7 @@ namespace Rework_AppThiTracNghiem.UserControls
         }
         public void BindData(KetQua ketqua)
         {
-            lblTenbaithi.Text = ketqua.TenDeThi;
+            tenDeThi.Text = ketqua.TenDeThi;
             lblMark.Text = ketqua.Diem.ToString();
             dateNgayLam.Text = ketqua.NgayThi.ToString();
         }

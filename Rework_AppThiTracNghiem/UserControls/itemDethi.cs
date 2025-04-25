@@ -18,6 +18,7 @@ namespace Rework_AppThiTracNghiem.UserControls
 {
     public partial class itemDethi : UserControl
     {
+        ThiSinh _fts;
         private string g_maDeThi = "";
         private string g_masinhvien = "";
 
@@ -40,7 +41,7 @@ namespace Rework_AppThiTracNghiem.UserControls
 
         }
 
-        public void BindData(DeThi dethi,string masinhvien)
+        public void BindData(DeThi dethi,string masinhvien,ThiSinh fts)
         {
             g_maDeThi = dethi.MaDeThi;
             g_masinhvien = masinhvien;
@@ -50,6 +51,7 @@ namespace Rework_AppThiTracNghiem.UserControls
             dateNgaydong.Text = dethi.NgayDong.ToString("dd/MM/yyyy");
             ngayDong = dethi.NgayDong;
             thoiGianLam.Text = dethi.ThoiGianLam + " phút";
+            _fts = fts;
 
 
         }
@@ -61,7 +63,7 @@ namespace Rework_AppThiTracNghiem.UserControls
             else
             {
                 MessageBox.Show("Bắt đầu làm bài thi: " + g_maDeThi);
-                LamDeThi lamdethi = new LamDeThi(g_maDeThi, g_masinhvien, duration);
+                LamDeThi lamdethi = new LamDeThi(g_maDeThi, g_masinhvien, duration,_fts);
                 lamdethi.Show();
                 
             }

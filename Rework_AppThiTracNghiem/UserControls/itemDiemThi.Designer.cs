@@ -31,7 +31,6 @@
             l = new Label();
             dateNgayLam = new Label();
             tenDeThi = new ReaLTaiizor.Controls.BigLabel();
-            lblTenbaithi = new ReaLTaiizor.Controls.BigLabel();
             lblMark = new Label();
             SuspendLayout();
             // 
@@ -67,19 +66,6 @@
             tenDeThi.TabIndex = 15;
             tenDeThi.Text = "Đề thi Hệ Thống Thông Tin";
             // 
-            // lblTenbaithi
-            // 
-            lblTenbaithi.AutoSize = true;
-            lblTenbaithi.BackColor = Color.Transparent;
-            lblTenbaithi.Font = new Font("Segoe UI", 25F);
-            lblTenbaithi.ForeColor = Color.FromArgb(80, 80, 80);
-            lblTenbaithi.Location = new Point(-1, 1);
-            lblTenbaithi.Name = "lblTenbaithi";
-            lblTenbaithi.Size = new Size(174, 46);
-            lblTenbaithi.TabIndex = 14;
-            lblTenbaithi.Text = "Tên bài thi";
-            lblTenbaithi.TextAlign = ContentAlignment.TopCenter;
-            // 
             // lblMark
             // 
             lblMark.BorderStyle = BorderStyle.FixedSingle;
@@ -101,7 +87,6 @@
             Controls.Add(l);
             Controls.Add(dateNgayLam);
             Controls.Add(tenDeThi);
-            Controls.Add(lblTenbaithi);
             Name = "itemDiemThi";
             Size = new Size(1383, 101);
             ResumeLayout(false);
@@ -117,7 +102,6 @@
         private Label dateNgayLam;
         private Label dateNgaydong;
         private ReaLTaiizor.Controls.BigLabel tenDeThi;
-        private ReaLTaiizor.Controls.BigLabel lblTenbaithi;
         private Label lblMark;
         private ReaLTaiizor.Controls.Button btnThi;
     }

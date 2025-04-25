@@ -1,4 +1,5 @@
-﻿namespace Rework_AppThiTracNghiem.forms
+﻿
+namespace Rework_AppThiTracNghiem.forms
 {
     partial class LamDeThi
     {
@@ -109,6 +110,11 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

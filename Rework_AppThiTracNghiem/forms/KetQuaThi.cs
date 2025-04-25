@@ -76,8 +76,13 @@ namespace Rework_AppThiTracNghiem.forms
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
+        }
+
+        private void KetQuaThi_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

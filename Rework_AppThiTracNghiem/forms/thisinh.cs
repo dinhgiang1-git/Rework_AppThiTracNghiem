@@ -20,6 +20,9 @@ namespace Rework_AppThiTracNghiem
     {
         private List<DeThi> danhSachDeThi = new List<DeThi>();
         private List<KetQua> danhSachKetQua = new List<KetQua>();
+        private List<DeThi> danhSachTimKiem = new List<DeThi>();
+        private List<KetQua> danhSachTimKiemkq = new List<KetQua>();
+
 
         string g_masinhvien = "";
         public ThiSinh(string masv)
@@ -29,7 +32,7 @@ namespace Rework_AppThiTracNghiem
             load_Danh_sach_de_thi(g_masinhvien);
             LoadData();
         }
-        //Load danh sách đề thi
+        //Load danh sách đề thi -> tableDethi 
         private void LoadData() //aka BindData
         {
             Console.WriteLine(danhSachDeThi);
@@ -46,7 +49,7 @@ namespace Rework_AppThiTracNghiem
             {
                 // Tạo UserControl mới
                 var itemdethi = new itemDethi();
-                itemdethi.BindData(danhSachDeThi[i], g_masinhvien);
+                itemdethi.BindData(danhSachDeThi[i], g_masinhvien, this);
 
                 // Thêm vào TableLayoutPanel
                 tblDethi.Controls.Add(itemdethi, 0, i);
@@ -63,7 +66,7 @@ namespace Rework_AppThiTracNghiem
             }
 
         }
-        //Nạp danh sách đề thi 
+        //Nạp danh sách đề thi vào 2 danh sách
         private void load_Danh_sach_de_thi(string masinhvien)
         {
 
@@ -121,42 +124,106 @@ namespace Rework_AppThiTracNghiem
 
         private void btnRF_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("!!!!");
-            danhSachKetQua.Clear(); danhSachDeThi.Clear();
-            tblDethi.Controls.Clear(); tblKetQuaThi.Controls.Clear();
-            load_Danh_sach_de_thi(g_masinhvien);
-            LoadData();
-        }
-
-        private void poisonButton18_Click(object sender, EventArgs e)
-        {
-
+            ReloadData();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < danhSachDeThi.Count; i++)
             {
+                Debug.WriteLine(inputSearch.Text);
+                if (inputSearch.Text.Equals(danhSachDeThi[i].TenDeThi) || inputSearch.Text.Equals(danhSachDeThi[i].MaDeThi))
                 {
-                    if (inputSearch.Text == danhSachDeThi[i].TenDeThi || inputSearch.Text == danhSachDeThi[i].MaDeThi)
-                    {
-                        tblDethi.ScrollControlIntoView(tblDethi.Controls[i]);
-                    }
+
+                    danhSachTimKiem.Add(danhSachDeThi[i]);
                 }
             }
+            if (danhSachTimKiem.Count > 0)
+            {
+                tblDethi.Controls.Clear();
+                Debug.WriteLine("!!!");
+
+                for (int i = 0; i < danhSachTimKiem.Count; i++)
+                {
+                    // Tạo UserControl mới
+                    var itemdethi = new itemDethi();
+                    itemdethi.BindData(danhSachTimKiem[i], g_masinhvien, this);
+
+                    // Thêm vào TableLayoutPanel
+                    tblDethi.Controls.Add(itemdethi, 0, i);
+
+                    // Cấu hình row style nếu cần
+                    tblDethi.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+                }
+                danhSachTimKiem.Clear();
+            }
+            else if (danhSachTimKiem.Count == 0) ReloadData();
+
         }
 
         private void btnSearch2_Click(object sender, EventArgs e)
         {
+            danhSachTimKiemkq.Clear();
             for (int i = 0; i < danhSachKetQua.Count; i++)
             {
+
+                Debug.WriteLine(danhSachKetQua[i].MaDeThi.ToString());
+                if (inputSearch2.Text.Equals(danhSachKetQua[i].MaDeThi.ToString()) || inputSearch2.Text.Equals(danhSachKetQua[i].TenDeThi))
                 {
-                    if (inputSearch2.Text == danhSachKetQua[i].TenDeThi || inputSearch2.Text == danhSachKetQua[i].MaDeThi.ToString())
-                    {
-                        tblDethi.ScrollControlIntoView(tblDethi.Controls[i]);
-                    }
+
+                    danhSachTimKiemkq.Add(danhSachKetQua[i]);
                 }
             }
+            if (danhSachTimKiemkq.Count > 0)
+            {
+                tblKetQuaThi.Controls.Clear();
+                Debug.WriteLine("!!!");
+
+                for (int i = 0; i < danhSachTimKiemkq.Count; i++)
+                {
+                    var itemdiemthi = new itemDiemThi();
+                    itemdiemthi.BindData(danhSachTimKiemkq[i]);
+                    tblKetQuaThi.Controls.Add(itemdiemthi, 0, i);
+                    tblKetQuaThi.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+                }
+                danhSachTimKiemkq.Clear();
+            }
+            else if (danhSachTimKiemkq.Count <= 0) {Debug.WriteLine("0 ket qua"); ReloadData(); }
+        }
+
+        public void ReloadData()
+        {
+            // Xóa các controls hiện tại
+            tblDethi.Controls.Clear();
+            tblKetQuaThi.Controls.Clear();
+            danhSachDeThi.Clear();
+            danhSachKetQua.Clear();
+            inputSearch.Clear();
+            // Load lại dữ liệu
+            load_Danh_sach_de_thi(g_masinhvien);
+            LoadData();
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnfilter_Click(object sender, EventArgs e)
+        {
+            tblKetQuaThi.Controls.Clear();
+            if (rdoup.Checked)
+            {
+                danhSachKetQua = danhSachKetQua.OrderBy(kq => kq.Diem).ToList();
+            } else if (rdodown.Checked) danhSachKetQua = danhSachKetQua.OrderByDescending(kq => kq.Diem).ToList();
+
+            for (int i = 0; i < danhSachKetQua.Count; ++i)
+                {
+                    var itemdiemthi = new itemDiemThi();
+                    itemdiemthi.BindData(danhSachKetQua[i]);
+                    tblKetQuaThi.Controls.Add(itemdiemthi, 0, i);
+                    tblKetQuaThi.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+                }
         }
     }
 }

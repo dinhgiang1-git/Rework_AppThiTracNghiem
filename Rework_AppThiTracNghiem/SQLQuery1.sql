@@ -120,7 +120,7 @@ select * from BAITHI_KETQUA
 select * from DETHI
 
 
-delete SINHVIEN where SINHVIEN.MaLopHoc = '73DCHT21'
+delete BAITHI_KETQUA where BAITHI_KETQUA.MaSinhVien = 'qwe'
 
 select SINHVIEN.MaSinhVien, HoTen, TenDeThi, Diem, ThoiGianNop
 from BAITHI_KETQUA
